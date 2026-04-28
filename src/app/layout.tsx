@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description:
       "A living intellectual ecosystem blending AI, leadership, entrepreneurship, and Sustainable Development Goal contribution.",
     type: "website",
-    images: ["/sdg-impact-wheel.svg"],
+    images: ["/Richard 1.jpg"],
   },
 };
 
