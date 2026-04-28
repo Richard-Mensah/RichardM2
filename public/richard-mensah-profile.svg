@@ -1,0 +1,50 @@
+<svg width="720" height="860" viewBox="0 0 720 860" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Richard Mensah data portrait</title>
+  <desc id="desc">A stylized professional portrait with SDG blue data networks and leadership motifs.</desc>
+  <rect width="720" height="860" rx="56" fill="#031025"/>
+  <circle cx="360" cy="298" r="250" fill="url(#halo)" opacity="0.8"/>
+  <path d="M84 632C160 556 247 518 360 518C473 518 560 556 636 632V860H84V632Z" fill="url(#suit)"/>
+  <path d="M248 558L360 795L472 558C438 531 400 518 360 518C320 518 282 531 248 558Z" fill="#F8FAFC"/>
+  <path d="M322 630L360 588L398 630L382 860H338L322 630Z" fill="#020617"/>
+  <path d="M360 588L303 541L260 586L322 630L360 588Z" fill="#E0F2FE"/>
+  <path d="M360 588L417 541L460 586L398 630L360 588Z" fill="#BAE6FD"/>
+  <ellipse cx="360" cy="302" rx="122" ry="152" fill="url(#skin)"/>
+  <path d="M240 283C244 188 293 135 363 135C433 135 482 188 486 283C449 245 407 231 360 231C313 231 270 245 240 283Z" fill="#111827"/>
+  <path d="M283 292C310 277 337 277 360 292C383 277 410 277 437 292" stroke="#0F172A" stroke-width="13" stroke-linecap="round"/>
+  <circle cx="315" cy="325" r="12" fill="#020617"/>
+  <circle cx="405" cy="325" r="12" fill="#020617"/>
+  <path d="M360 345C350 380 349 399 360 409" stroke="#7C2D12" stroke-width="10" stroke-linecap="round"/>
+  <path d="M321 441C347 459 374 459 400 441" stroke="#3F1D12" stroke-width="11" stroke-linecap="round"/>
+  <path d="M328 476C348 487 372 487 392 476" stroke="#111827" stroke-width="16" stroke-linecap="round"/>
+  <path d="M274 516C296 555 326 576 360 576C394 576 424 555 446 516" stroke="#BAE6FD" stroke-width="5" opacity="0.45"/>
+  <g opacity="0.95">
+    <circle cx="114" cy="138" r="6" fill="#38BDF8"/>
+    <circle cx="187" cy="92" r="4" fill="#7DD3FC"/>
+    <circle cx="251" cy="118" r="5" fill="#0EA5E9"/>
+    <circle cx="550" cy="120" r="6" fill="#38BDF8"/>
+    <circle cx="605" cy="204" r="4" fill="#7DD3FC"/>
+    <circle cx="530" cy="264" r="5" fill="#0EA5E9"/>
+    <path d="M114 138L187 92L251 118M550 120L605 204L530 264" stroke="#38BDF8" stroke-width="2" opacity="0.55"/>
+  </g>
+  <g opacity="0.75">
+    <path d="M139 690C203 642 276 618 360 618C444 618 517 642 581 690" stroke="#0EA5E9" stroke-width="2" stroke-dasharray="8 12"/>
+    <path d="M164 742C222 706 287 688 360 688C433 688 498 706 556 742" stroke="#38BDF8" stroke-width="2" stroke-dasharray="6 10"/>
+  </g>
+  <text x="360" y="810" text-anchor="middle" fill="#7DD3FC" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="800" letter-spacing="12">RM</text>
+  <defs>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(360 298) rotate(90) scale(250)">
+      <stop stop-color="#0EA5E9" stop-opacity="0.55"/>
+      <stop offset="0.55" stop-color="#0B4F8A" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#031025" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="suit" x1="360" y1="518" x2="360" y2="860" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1F2937"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="skin" x1="360" y1="150" x2="360" y2="470" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B96D4A"/>
+      <stop offset="0.55" stop-color="#8B4A32"/>
+      <stop offset="1" stop-color="#6B341F"/>
+    </linearGradient>
+  </defs>
+</svg>

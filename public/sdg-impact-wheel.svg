@@ -1,0 +1,31 @@
+<svg width="360" height="360" viewBox="0 0 360 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">SDG Impact Wheel</title>
+  <desc id="desc">An SDG-colour-inspired wheel showing Richard Mensah's contribution to sustainable development.</desc>
+  <rect width="360" height="360" rx="72" fill="#F8FAFC"/>
+  <circle cx="180" cy="180" r="128" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2"/>
+  <g transform="rotate(-90 180 180)" stroke-width="34" stroke-linecap="butt" fill="none">
+    <circle cx="180" cy="180" r="108" stroke="#E5243B" stroke-dasharray="38.4 640.2" stroke-dashoffset="0"/>
+    <circle cx="180" cy="180" r="108" stroke="#DDA63A" stroke-dasharray="38.4 640.2" stroke-dashoffset="-39.9"/>
+    <circle cx="180" cy="180" r="108" stroke="#4C9F38" stroke-dasharray="38.4 640.2" stroke-dashoffset="-79.8"/>
+    <circle cx="180" cy="180" r="108" stroke="#C5192D" stroke-dasharray="38.4 640.2" stroke-dashoffset="-119.8"/>
+    <circle cx="180" cy="180" r="108" stroke="#FF3A21" stroke-dasharray="38.4 640.2" stroke-dashoffset="-159.7"/>
+    <circle cx="180" cy="180" r="108" stroke="#26BDE2" stroke-dasharray="38.4 640.2" stroke-dashoffset="-199.6"/>
+    <circle cx="180" cy="180" r="108" stroke="#FCC30B" stroke-dasharray="38.4 640.2" stroke-dashoffset="-239.5"/>
+    <circle cx="180" cy="180" r="108" stroke="#A21942" stroke-dasharray="38.4 640.2" stroke-dashoffset="-279.4"/>
+    <circle cx="180" cy="180" r="108" stroke="#FD6925" stroke-dasharray="38.4 640.2" stroke-dashoffset="-319.3"/>
+    <circle cx="180" cy="180" r="108" stroke="#DD1367" stroke-dasharray="38.4 640.2" stroke-dashoffset="-359.2"/>
+    <circle cx="180" cy="180" r="108" stroke="#FD9D24" stroke-dasharray="38.4 640.2" stroke-dashoffset="-399.2"/>
+    <circle cx="180" cy="180" r="108" stroke="#BF8B2E" stroke-dasharray="38.4 640.2" stroke-dashoffset="-439.1"/>
+    <circle cx="180" cy="180" r="108" stroke="#3F7E44" stroke-dasharray="38.4 640.2" stroke-dashoffset="-479"/>
+    <circle cx="180" cy="180" r="108" stroke="#0A97D9" stroke-dasharray="38.4 640.2" stroke-dashoffset="-518.9"/>
+    <circle cx="180" cy="180" r="108" stroke="#56C02B" stroke-dasharray="38.4 640.2" stroke-dashoffset="-558.8"/>
+    <circle cx="180" cy="180" r="108" stroke="#00689D" stroke-dasharray="38.4 640.2" stroke-dashoffset="-598.7"/>
+    <circle cx="180" cy="180" r="108" stroke="#19486A" stroke-dasharray="38.4 640.2" stroke-dashoffset="-638.6"/>
+  </g>
+  <circle cx="180" cy="180" r="73" fill="#009EDB"/>
+  <circle cx="180" cy="180" r="58" fill="#FFFFFF" fill-opacity="0.96"/>
+  <text x="180" y="165" text-anchor="middle" fill="#009EDB" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="900" letter-spacing="1">SDG</text>
+  <text x="180" y="192" text-anchor="middle" fill="#19486A" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900" letter-spacing="2">IMPACT</text>
+  <text x="180" y="216" text-anchor="middle" fill="#334155" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="2">AI • LEADERSHIP</text>
+  <circle cx="180" cy="180" r="145" stroke="#009EDB" stroke-width="3" stroke-dasharray="2 12" opacity="0.55"/>
+</svg>
