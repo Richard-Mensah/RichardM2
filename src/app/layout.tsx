@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
+import SiteHeader from "@/components/layout/SiteHeader";
+import SiteFooter from "@/components/layout/SiteFooter";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
@@ -29,7 +31,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-slate-50 text-slate-950 antialiased">{children}</body>
+      <body className="min-h-screen bg-slate-50 text-slate-950 antialiased">
+        <div className="sdg-band fixed inset-x-0 top-0 z-[60] h-1.5" />
+        <SiteHeader />
+        <main className="overflow-hidden pt-20">{children}</main>
+        <SiteFooter />
+      </body>
     </html>
   );
 }

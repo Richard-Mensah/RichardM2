@@ -1,12 +1,12 @@
 import type { NavItem, SdgColour, PriorityGoal, IdentityCard, ResearchPillar, SystemProject } from "@/types";
 
 export const NAVIGATION: NavItem[] = [
-  { label: "Identity", href: "#identity" },
-  { label: "SDGs", href: "#sdgs" },
-  { label: "Research", href: "#research" },
-  { label: "Systems", href: "#systems" },
-  { label: "Leadership", href: "#leadership" },
-  { label: "Collaborate", href: "#collaborate" },
+  { label: "Identity", href: "/identity" },
+  { label: "SDGs", href: "/sdgs" },
+  { label: "Research", href: "/research" },
+  { label: "Systems", href: "/systems" },
+  { label: "Leadership", href: "/leadership" },
+  { label: "Collaborate", href: "/collaborate" },
 ];
 
 export const SDG_COLOURS: SdgColour[] = [

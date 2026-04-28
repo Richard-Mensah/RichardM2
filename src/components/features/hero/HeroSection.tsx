@@ -37,19 +37,19 @@ export default function HeroSection({ databaseSignal }: Props) {
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
             <a
-              href="#sdgs"
+              href="/sdgs"
               className="rounded-full bg-[#009EDB] px-7 py-4 text-center text-sm font-black uppercase tracking-[0.22em] text-white shadow-xl shadow-[#009EDB]/25 transition hover:-translate-y-1 hover:bg-slate-950"
             >
               See SDG impact
             </a>
             <a
-              href="#systems"
+              href="/systems"
               className="rounded-full border border-slate-300 bg-white px-7 py-4 text-center text-sm font-black uppercase tracking-[0.22em] text-slate-950 shadow-lg shadow-slate-200 transition hover:-translate-y-1 hover:border-[#009EDB]"
             >
               Explore systems
             </a>
             <a
-              href="#collaborate"
+              href="/collaborate"
               className="rounded-full border border-slate-950 px-7 py-4 text-center text-sm font-black uppercase tracking-[0.22em] text-slate-950 transition hover:-translate-y-1 hover:bg-slate-950 hover:text-white"
             >
               Collaborate

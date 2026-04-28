@@ -1,10 +1,11 @@
+import Link from "next/link";
 import { NAVIGATION } from "@/constants";
 
 const RESEARCH_LINKS = [
-  { label: "AI & Data Science", href: "#research" },
-  { label: "AI & Climate Change", href: "#research" },
-  { label: "Youth Leadership", href: "#research" },
-  { label: "Policy & Ethics", href: "#research" },
+  { label: "AI & Data Science", href: "/research" },
+  { label: "AI & Climate Change", href: "/research" },
+  { label: "Youth Leadership", href: "/research" },
+  { label: "Policy & Ethics", href: "/research" },
 ];
 
 export default function SiteFooter() {
@@ -35,12 +36,12 @@ export default function SiteFooter() {
             <ul className="mt-5 space-y-3">
               {NAVIGATION.map((item) => (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-sm font-semibold text-slate-500 transition hover:text-[#009EDB]"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -51,12 +52,12 @@ export default function SiteFooter() {
             <ul className="mt-5 space-y-3">
               {RESEARCH_LINKS.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm font-semibold text-slate-500 transition hover:text-[#009EDB]"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -74,12 +75,12 @@ export default function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a
-                  href="#collaborate"
+                <Link
+                  href="/collaborate"
                   className="inline-flex items-center gap-2 rounded-full bg-[#009EDB] px-5 py-2.5 text-xs font-black uppercase tracking-[0.18em] text-white shadow-md shadow-[#009EDB]/25 transition hover:-translate-y-0.5 hover:bg-slate-950"
                 >
                   Collaboration desk →
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
