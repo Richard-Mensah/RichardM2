@@ -3,7 +3,9 @@ import { PRIORITY_GOALS, SDG_COLOURS } from "@/constants";
 
 export default function SdgsSection() {
   return (
-    <section id="sdgs" className="scroll-mt-28 bg-slate-950 px-5 py-24 text-white md:px-8">
+    <section id="sdgs" className="relative scroll-mt-28 bg-slate-950 px-5 py-28 text-white md:px-8">
+      <div className="sdg-band absolute inset-x-0 top-0 h-[3px]" />
+
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>
@@ -25,8 +27,8 @@ export default function SdgsSection() {
             {PRIORITY_GOALS.map((goal) => (
               <div
                 key={goal.code}
-                className="rounded-[1.7rem] border border-white/10 bg-white/[0.06] p-5 backdrop-blur"
-                style={{ borderColor: `${goal.color}66` }}
+                className="rounded-[1.7rem] border border-white/10 bg-white/[0.06] p-5 backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white/[0.09] hover:shadow-xl"
+                style={{ borderLeftColor: goal.color, borderLeftWidth: "4px" }}
               >
                 <div className="flex items-center gap-3">
                   <span
@@ -48,11 +50,11 @@ export default function SdgsSection() {
           </div>
         </div>
 
-        <div className="mt-12 rounded-[2rem] border border-white/10 bg-white/[0.04] p-5">
+        <div className="mt-16 rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 md:p-8">
           <p className="text-xs font-black uppercase tracking-[0.28em] text-[#26BDE2]">
             Full SDG spectrum
           </p>
-          <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-9">
+          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-9">
             {SDG_COLOURS.map((goal) => (
               <div
                 key={goal.number}

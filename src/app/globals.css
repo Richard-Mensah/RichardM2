@@ -162,3 +162,68 @@ body {
     transform: translateY(0);
   }
 }
+
+/* ── Section backgrounds ───────────────────────────────────────── */
+.identity-ground {
+  background:
+    radial-gradient(circle at 15% 50%, rgba(0, 158, 219, 0.12), transparent 35rem),
+    radial-gradient(circle at 85% 20%, rgba(252, 195, 11, 0.10), transparent 28rem),
+    #0f172a;
+}
+
+.research-ground {
+  background:
+    radial-gradient(circle at 90% 10%, rgba(253, 105, 37, 0.10), transparent 30rem),
+    radial-gradient(circle at 5% 80%, rgba(0, 158, 219, 0.09), transparent 26rem),
+    #fafaf9;
+}
+
+.leadership-ground {
+  background:
+    radial-gradient(circle at 20% 60%, rgba(0, 104, 157, 0.22), transparent 32rem),
+    radial-gradient(circle at 80% 30%, rgba(86, 192, 43, 0.10), transparent 24rem),
+    #0c1a2e;
+}
+
+/* ── Scroll-reveal ─────────────────────────────────────────────── */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ── Accordion ─────────────────────────────────────────────────── */
+.accordion-grid {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 300ms ease, opacity 260ms ease;
+  opacity: 0;
+}
+.accordion-grid.open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.accordion-inner {
+  overflow: hidden;
+}
+
+/* ── Tab slide-in indicator ────────────────────────────────────── */
+@keyframes tab-slide-in {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+.tab-indicator {
+  transform-origin: left;
+  animation: tab-slide-in 220ms ease both;
+}

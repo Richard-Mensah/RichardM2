@@ -2,7 +2,9 @@ import { WRITING_IDEAS } from "@/constants";
 
 export default function WritingSection() {
   return (
-    <section className="bg-slate-950 px-5 py-24 text-white md:px-8">
+    <section className="relative bg-[#060f1e] px-5 py-28 text-white md:px-8">
+      <div className="sdg-band absolute inset-x-0 top-0 h-[3px]" />
+
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1fr]">
         <div>
           <p className="text-xs font-black uppercase tracking-[0.3em] text-[#26BDE2]">
@@ -20,7 +22,10 @@ export default function WritingSection() {
 
         <div className="grid gap-4">
           {WRITING_IDEAS.map((idea, index) => (
-            <div key={idea} className="rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-5">
+            <div
+              key={idea}
+              className="rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-5 transition duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.10]"
+            >
               <p className="text-xs font-black uppercase tracking-[0.24em] text-[#26BDE2]">
                 Essay {index + 1}
               </p>

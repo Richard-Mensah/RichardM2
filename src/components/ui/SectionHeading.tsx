@@ -6,17 +6,22 @@ type Props = {
   title: string;
   children?: ReactNode;
   center?: boolean;
+  dark?: boolean;
 };
 
-export default function SectionHeading({ eyebrow, title, children, center = false }: Props) {
+export default function SectionHeading({ eyebrow, title, children, center = false, dark = false }: Props) {
   return (
     <div className={cn(center ? "mx-auto max-w-3xl text-center" : "max-w-3xl")}>
-      <p className="text-xs font-black uppercase tracking-[0.3em] text-[#00689D]">{eyebrow}</p>
-      <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
+      <p className={cn("text-xs font-black uppercase tracking-[0.3em]", dark ? "text-[#26BDE2]" : "text-[#00689D]")}>
+        {eyebrow}
+      </p>
+      <h2 className={cn("mt-4 text-balance text-3xl font-black tracking-[-0.04em] md:text-5xl", dark ? "text-white" : "text-slate-950")}>
         {title}
       </h2>
       {children ? (
-        <div className="mt-5 text-base leading-8 text-slate-600 md:text-lg">{children}</div>
+        <div className={cn("mt-5 text-base leading-8 md:text-lg", dark ? "text-slate-400" : "text-slate-600")}>
+          {children}
+        </div>
       ) : null}
     </div>
   );

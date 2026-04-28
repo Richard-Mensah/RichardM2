@@ -1,11 +1,14 @@
 import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { SYSTEMS } from "@/constants";
+import SystemProjectCard from "./SystemProjectCard";
 
 export default function SystemsSection() {
   return (
-    <section id="systems" className="scroll-mt-28 bg-white px-5 py-24 md:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section id="systems" className="relative scroll-mt-28 bg-white px-5 py-28 md:px-8">
+      <div className="pointer-events-none absolute inset-0 data-grid-light opacity-30" />
+
+      <div className="relative mx-auto max-w-7xl">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <SectionHeading
             eyebrow="Projects as systems"
@@ -17,7 +20,7 @@ export default function SystemsSection() {
               and innovation potential.
             </p>
           </SectionHeading>
-          <Card className="data-grid-light p-8">
+          <Card className="data-grid-light border-[#00689D]/20 p-8">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-[#00689D]">
               Core thesis
             </p>
@@ -29,35 +32,7 @@ export default function SystemsSection() {
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {SYSTEMS.map((system) => (
-            <Card key={system.title} className="flex min-h-[34rem] flex-col overflow-hidden p-7">
-              <div
-                className="mb-6 inline-flex w-fit rounded-full px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-white"
-                style={{ backgroundColor: system.color }}
-              >
-                {system.label}
-              </div>
-              <h3 className="text-2xl font-black leading-tight text-slate-950">{system.title}</h3>
-              <div className="mt-6 space-y-5 text-sm leading-7 text-slate-600">
-                <p>
-                  <span className="font-black text-slate-950">Problem: </span>
-                  {system.problem}
-                </p>
-                <p>
-                  <span className="font-black text-slate-950">Approach: </span>
-                  {system.approach}
-                </p>
-                <p>
-                  <span className="font-black text-slate-950">Impact: </span>
-                  {system.impact}
-                </p>
-              </div>
-              <a
-                href="#collaborate"
-                className="mt-auto inline-flex items-center gap-2 pt-8 text-sm font-black text-[#00689D] transition hover:gap-3"
-              >
-                Discuss the system <span>→</span>
-              </a>
-            </Card>
+            <SystemProjectCard key={system.title} system={system} />
           ))}
         </div>
       </div>
