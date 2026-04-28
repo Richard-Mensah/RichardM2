@@ -64,7 +64,7 @@ export default function CollaborationForm() {
 
   if (state === "success") {
     return (
-      <div className="rounded-[2rem] border border-[#009EDB]/30 bg-white p-10 text-center shadow-xl shadow-slate-200/70">
+      <div className="py-10 text-center">
         <div className="sdg-conic mx-auto mb-6 grid h-16 w-16 place-items-center rounded-full text-2xl text-white shadow-lg">
           ✓
         </div>
@@ -86,14 +86,9 @@ export default function CollaborationForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/70"
+      className="w-full"
     >
-      <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00689D]">
-        Collaboration desk
-      </p>
-      <h3 className="mt-2 text-2xl font-black text-slate-950">Start a conversation</h3>
-
-      <div className="mt-7 grid gap-5 md:grid-cols-2">
+      <div className="grid gap-5 md:grid-cols-2">
         <div>
           <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-slate-600">
             Name *

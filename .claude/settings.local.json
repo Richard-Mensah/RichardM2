@@ -7,7 +7,9 @@
       "Bash(npm install *)",
       "Bash(node -e \"require\\('clsx'\\); require\\('tailwind-merge'\\); require\\('lucide-react'\\); console.log\\('all packages ok'\\)\")",
       "Bash(npm exec *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(npx next *)",
+      "Bash(node_modules/.bin/next build *)"
     ]
   }
 }
