@@ -5,7 +5,7 @@ import SystemProjectCard from "./SystemProjectCard";
 
 export default function SystemsSection() {
   return (
-    <section id="systems" className="relative scroll-mt-28 bg-white px-5 py-28 md:px-8">
+    <section id="systems" className="relative bg-white px-5 py-28 md:px-8">
       <div className="pointer-events-none absolute inset-0 data-grid-light opacity-30" />
 
       <div className="relative mx-auto max-w-7xl">

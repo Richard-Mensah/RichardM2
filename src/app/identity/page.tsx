@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import IdentitySection from "@/components/features/identity/IdentitySection";
+import SectionNav from "@/components/ui/SectionNav";
 
 export const metadata: Metadata = {
   title: "Identity | Richard Mensah",
@@ -7,5 +8,12 @@ export const metadata: Metadata = {
 };
 
 export default function IdentityPage() {
-  return <IdentitySection />;
+  return (
+    <div className="flex min-h-[calc(100vh-5rem)] flex-col">
+      <div className="flex-1">
+        <IdentitySection />
+      </div>
+      <SectionNav next={{ label: "SDGs", href: "/sdgs" }} />
+    </div>
+  );
 }

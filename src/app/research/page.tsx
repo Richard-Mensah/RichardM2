@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ResearchSection from "@/components/features/research/ResearchSection";
+import SectionNav from "@/components/ui/SectionNav";
 
 export const metadata: Metadata = {
   title: "Research | Richard Mensah",
@@ -7,5 +8,15 @@ export const metadata: Metadata = {
 };
 
 export default function ResearchPage() {
-  return <ResearchSection />;
+  return (
+    <div className="flex min-h-[calc(100vh-5rem)] flex-col">
+      <div className="flex-1">
+        <ResearchSection />
+      </div>
+      <SectionNav
+        prev={{ label: "SDGs", href: "/sdgs" }}
+        next={{ label: "Systems", href: "/systems" }}
+      />
+    </div>
+  );
 }

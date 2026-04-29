@@ -4,7 +4,7 @@ import LeadershipAccordionClient from "./LeadershipAccordionClient";
 
 export default function LeadershipSection() {
   return (
-    <section id="leadership" className="leadership-ground scroll-mt-28 px-5 py-28 text-white md:px-8">
+    <section id="leadership" className="leadership-ground px-5 py-28 text-white md:px-8">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         <SectionHeading
           eyebrow="Leadership & influence"

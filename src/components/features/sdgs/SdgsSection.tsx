@@ -3,7 +3,7 @@ import { PRIORITY_GOALS, SDG_COLOURS } from "@/constants";
 
 export default function SdgsSection() {
   return (
-    <section id="sdgs" className="relative scroll-mt-28 bg-slate-950 px-5 py-28 text-white md:px-8">
+    <section id="sdgs" className="relative bg-slate-950 px-5 py-28 text-white md:px-8">
       <div className="sdg-band absolute inset-x-0 top-0 h-[3px]" />
 
       <div className="mx-auto max-w-7xl">
