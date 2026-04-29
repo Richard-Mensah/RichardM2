@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import LeadershipSection from "@/components/features/leadership/LeadershipSection";
+import SectionNav from "@/components/ui/SectionNav";
 
 export const metadata: Metadata = {
   title: "Leadership | Richard Mensah",
@@ -7,5 +8,15 @@ export const metadata: Metadata = {
 };
 
 export default function LeadershipPage() {
-  return <LeadershipSection />;
+  return (
+    <div className="flex min-h-[calc(100vh-5rem)] flex-col">
+      <div className="flex-1">
+        <LeadershipSection />
+      </div>
+      <SectionNav
+        prev={{ label: "Systems", href: "/systems" }}
+        next={{ label: "Collaborate", href: "/collaborate" }}
+      />
+    </div>
+  );
 }

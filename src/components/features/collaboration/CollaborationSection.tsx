@@ -3,7 +3,7 @@ import { PRIORITY_GOALS } from "@/constants";
 
 export default function CollaborationSection() {
   return (
-    <section id="collaborate" className="relative scroll-mt-28 overflow-hidden">
+    <section id="collaborate" className="relative overflow-hidden">
       <div className="sdg-band absolute inset-x-0 top-0 z-10 h-[3px]" />
 
       <div className="grid min-h-[680px] lg:grid-cols-[1fr_1fr]">
