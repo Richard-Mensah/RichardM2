@@ -29,10 +29,10 @@ coverImage: string   # Optional: "/articles/filename.jpg"
 ```
 
 - **Categories (exact strings):**
-  - `AI & Data Science`
-  - `AI & Climate Change`
+  - `AI, Data & Climate`
+  - `AI Ethics & Technologies`
   - `Youth Leadership`
-  - `SDGs`
+  - `Community & SDGs`
 
 - Slugs are derived from the filename: `ai-in-africa.md` → `/blog/ai-in-africa`
 - Images referenced in article body: placed in `/public/articles/`, referenced as `![alt](/articles/img.jpg)`
@@ -77,7 +77,7 @@ Uses Node.js `fs` (server-only — never imported in client components).
 #### `src/app/blog/page.tsx`
 Server component. Calls `getAllArticles()`, passes result to `<BlogListing articles={articles} />`.
 
-Metadata: `title: "Writing | Richard Mensah"`, description about the four topic areas.
+Metadata: `title: "Writing | Richard Mensah"`, description referencing the four categories: AI, Data & Climate · AI Ethics & Technologies · Youth Leadership · Community & SDGs.
 
 #### `src/app/blog/[slug]/page.tsx`
 Server component.
@@ -102,10 +102,10 @@ Server-compatible card component.
 - Props: `article: ArticleMeta`
 - Layout: category badge (coloured by category), date, title, excerpt, "Read →" link
 - Category colour map:
-  - `AI & Data Science` → `#009EDB`
-  - `AI & Climate Change` → `#3F7E44`
+  - `AI, Data & Climate` → `#009EDB`
+  - `AI Ethics & Technologies` → `#FD6925`
   - `Youth Leadership` → `#FCC30B`
-  - `SDGs` → `#19486A`
+  - `Community & SDGs` → `#19486A`
 
 ### Navigation Update
 
