@@ -1,11 +1,5 @@
 import Image from "next/image";
 import Card from "@/components/ui/Card";
-import SdgLogoMark from "@/components/ui/SdgLogoMark";
-import type { DatabaseSignal } from "@/types";
-
-type Props = {
-  databaseSignal: DatabaseSignal;
-};
 
 const STAT_CARDS = [
   ["AI", "Decision intelligence"],
@@ -13,7 +7,7 @@ const STAT_CARDS = [
   ["Leadership", "Youth empowerment"],
 ] as const;
 
-export default function HeroSection({ databaseSignal }: Props) {
+export default function HeroSection() {
   return (
     <section className="sdg-hero-mesh relative px-5 py-16 md:px-8 md:py-24">
       <div className="absolute inset-0 data-grid-light opacity-55" />
@@ -69,20 +63,18 @@ export default function HeroSection({ databaseSignal }: Props) {
         <div className="relative mx-auto w-full max-w-lg">
           <div className="sdg-conic absolute -inset-4 rounded-[3rem] opacity-25 blur-xl" />
           <div className="relative overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white p-3 shadow-2xl shadow-slate-300/70">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
+            <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-white">
               <Image
-                src="/Richard 1.jpg"
-                alt="Richard Mensah professional portrait"
+                src="/Rich1.png"
+                alt="Richard Mensah — AI Researcher, Youth Leader, SDG advocate"
                 fill
-                className="object-cover"
+                className="object-contain"
                 priority
                 sizes="(max-width: 768px) 100vw, 450px"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/40" />
             </div>
 
-            <div className="absolute left-6 right-6 top-6 flex items-center justify-between gap-4">
-              <SdgLogoMark className="h-20 w-20" />
+            <div className="absolute right-6 top-6">
               <div className="rounded-2xl bg-white/90 px-4 py-3 text-right shadow-lg backdrop-blur">
                 <p className="text-xs font-black uppercase tracking-[0.22em] text-[#00689D]">
                   AI Researcher
@@ -91,13 +83,6 @@ export default function HeroSection({ databaseSignal }: Props) {
               </div>
             </div>
 
-            <div className="absolute bottom-6 left-6 right-6 rounded-3xl bg-slate-950/86 p-5 text-white shadow-xl backdrop-blur">
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#26BDE2]">
-                AI · Climate · Youth · Institutions
-              </p>
-              <p className="mt-2 text-lg font-black">Ghana → UK → Global impact</p>
-              <p className="mt-2 text-xs text-slate-300">Database signal: {databaseSignal}</p>
-            </div>
           </div>
         </div>
       </div>
