@@ -38,6 +38,18 @@ const SECTIONS = [
     tagline: "Work with me on AI, climate, or youth systems projects",
     accent: "#A21942",
   },
+  {
+    label: "Writing",
+    href: "/blog",
+    tagline: "Articles on AI, climate intelligence, ethics, and youth leadership",
+    accent: "#009EDB",
+  },
+  {
+    label: "Gallery",
+    href: "/gallery",
+    tagline: "Personal and professional photos from the field",
+    accent: "#FCC30B",
+  },
 ] as const;
 
 export default function SectionOverview() {
@@ -45,7 +57,7 @@ export default function SectionOverview() {
     <section className="bg-white px-5 py-16 md:px-8 md:py-24">
       <div className="mx-auto max-w-7xl">
         <SectionHeading eyebrow="Explore" title="Where to go from here" center />
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {SECTIONS.map((section) => (
             <Link key={section.href} href={section.href} className="group">
               <div
