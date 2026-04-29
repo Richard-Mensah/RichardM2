@@ -7,6 +7,8 @@ export const NAVIGATION: NavItem[] = [
   { label: "Systems", href: "/systems" },
   { label: "Leadership", href: "/leadership" },
   { label: "Collaborate", href: "/collaborate" },
+  { label: "Writing", href: "/blog" },
+  { label: "Gallery", href: "/gallery" },
 ];
 
 export const SDG_COLOURS: SdgColour[] = [
