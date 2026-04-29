@@ -1,6 +1,7 @@
 import { db } from "@/db";
 import { sql } from "drizzle-orm";
 import HeroSection from "@/components/features/hero/HeroSection";
+import SectionOverview from "@/components/features/home/SectionOverview";
 import type { DatabaseSignal } from "@/types";
 
 export const dynamic = "force-dynamic";
@@ -16,5 +17,10 @@ async function getDatabaseSignal(): Promise<DatabaseSignal> {
 
 export default async function HomePage() {
   const databaseSignal = await getDatabaseSignal();
-  return <HeroSection databaseSignal={databaseSignal} />;
+  return (
+    <>
+      <HeroSection databaseSignal={databaseSignal} />
+      <SectionOverview />
+    </>
+  );
 }
