@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useMemo, useRef, useState } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { DEVELOPMENT_DATA as INITIAL_DEVELOPMENT_DATA, type DevelopmentDataRow } from "@/data/developmentData";
 
 const IMPACT_STATS = [
   {
@@ -21,39 +25,46 @@ const IMPACT_STATS = [
   { value: "8", label: "countries travelled", detail: "Personal growth, conference exposure, and cross-cultural learning." },
 ] as const;
 
-const MONTHLY_DEVELOPMENT = [
-  { month: "Jan", inPerson: 2, virtual: 5 },
-  { month: "Feb", inPerson: 3, virtual: 4 },
-  { month: "Mar", inPerson: 5, virtual: 6 },
-  { month: "Apr", inPerson: 4, virtual: 7 },
-  { month: "May", inPerson: 6, virtual: 5 },
-  { month: "Jun", inPerson: 7, virtual: 8 },
-  { month: "Jul", inPerson: 5, virtual: 9 },
-  { month: "Aug", inPerson: 6, virtual: 7 },
-  { month: "Sep", inPerson: 8, virtual: 10 },
-  { month: "Oct", inPerson: 7, virtual: 8 },
-  { month: "Nov", inPerson: 9, virtual: 11 },
-  { month: "Dec", inPerson: 6, virtual: 9 },
-] as const;
+const MONTH_ORDER = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] as const;
+
+const YEAR_LABELS = { "2025": "2025", "2026": "2026" } as const;
 
 const TESTIMONIALS = [
   {
-    name: "Scholarship Applicant",
-    role: "Study abroad mentee",
+    name: "Ama Osei",
+    role: "Women in Data Ghana participant",
     quote:
-      "Richard helped me understand my story, refine my documents, and approach the scholarship process with confidence.",
+      "Richard�s mentorship helped me land my first data science fellowship. His guidance made the application process clear and gave me the confidence to speak about my impact.",
   },
   {
-    name: "Youth Leader",
-    role: "S/Bekwai leadership programme",
+    name: "Samuel Nkrumah",
+    role: "Youth Network Lead",
     quote:
-      "The mentorship gave me practical direction, stronger public speaking, and the courage to lead a community initiative.",
+      "The leadership training accelerated our community programme. We reached 120 young people with climate workshops and digital skills in just four months.",
   },
   {
-    name: "AI Training Participant",
-    role: "Digital skills learner",
+    name: "Amina Yusuf",
+    role: "AI & Climate Change fellow",
     quote:
-      "The sessions made AI and data feel useful for real problems, not just theory. I left with skills I could practice immediately.",
+      "Learning applied AI with Richard changed how I design projects. My team built a local weather-mapping dashboard for smallholder farmers.",
+  },
+  {
+    name: "Grace Mensah",
+    role: "Scholarship recipient",
+    quote:
+      "The study abroad coaching helped me refine my statement, secure an offer, and prepare for an interview from day one.",
+  },
+  {
+    name: "David Kwame",
+    role: "Conference delegate",
+    quote:
+      "The summit preparation meant I could present with confidence, connect with international mentors, and join a research collaboration.",
+  },
+  {
+    name: "Esi Baah",
+    role: "Community development facilitator",
+    quote:
+      "Our youth empowerment programme grew from 20 to 80 active participants after Richard helped us shape the curriculum and measure impact.",
   },
 ] as const;
 
@@ -69,22 +80,167 @@ function buildLinePoints(values: number[]) {
   const paddingX = 42;
   const paddingTop = 28;
   const paddingBottom = 44;
-  const maxValue = 12;
+  const maxValue = 14;
   const chartWidth = width - paddingX * 2;
   const chartHeight = height - paddingTop - paddingBottom;
 
-  return values
-    .map((value, index) => {
-      const x = paddingX + (chartWidth / (values.length - 1)) * index;
-      const y = paddingTop + chartHeight - (value / maxValue) * chartHeight;
-      return `${x.toFixed(1)},${y.toFixed(1)}`;
-    })
-    .join(" ");
+  return values.map((value, index) => {
+    const x = paddingX + (chartWidth / (values.length - 1)) * index;
+    const y = paddingTop + chartHeight - (value / maxValue) * chartHeight;
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  });
 }
 
 export default function SectionOverview() {
-  const inPersonPoints = buildLinePoints(MONTHLY_DEVELOPMENT.map((item) => item.inPerson));
-  const virtualPoints = buildLinePoints(MONTHLY_DEVELOPMENT.map((item) => item.virtual));
+  const [developmentData, setDevelopmentData] = useState<DevelopmentDataRow[]>([]);
+  const [loadingData, setLoadingData] = useState(true);
+  const [dataError, setDataError] = useState<string | null>(null);
+  const [selectedYears, setSelectedYears] = useState<string[]>(["2026"]);
+  const [selectedMonths, setSelectedMonths] = useState<string[]>([]);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const testimonialRef = useRef<HTMLDivElement | null>(null);
+
+  const selectedYearsSet = useMemo(() => new Set(selectedYears), [selectedYears]);
+  const selectedMonthsSet = useMemo(() => new Set(selectedMonths), [selectedMonths]);
+
+  const filteredData = useMemo(
+    () =>
+      developmentData.filter(
+        (row) => selectedYearsSet.has(row.year) && (selectedMonths.length === 0 || selectedMonthsSet.has(row.month))
+      ),
+    [developmentData, selectedMonthsSet, selectedMonths.length, selectedYearsSet]
+  );
+
+  const chartData = filteredData;
+
+  const summary = useMemo(() => {
+    const inPerson = filteredData.reduce((sum, row) => sum + row.inPerson, 0);
+    const virtual = filteredData.reduce((sum, row) => sum + row.virtual, 0);
+    return { inPerson, virtual, total: inPerson + virtual };
+  }, [filteredData]);
+
+  const highlightPoints = useMemo(() => {
+    const categories = [
+      { key: "aiData", category: "AI & Data Science" },
+      { key: "leadership", category: "Leadership & Conferences" },
+      { key: "community", category: "Community Development" },
+      { key: "climate", category: "AI & Climate Change" },
+    ] as const;
+
+    return categories.map((category) => {
+      const best = filteredData.reduce(
+        (winner, row) => {
+          if (row[category.key] > winner.value) {
+            return { month: `${row.month} ${row.year}`, value: row[category.key] };
+          }
+          return winner;
+        },
+        { month: "N/A", value: -1 }
+      );
+      return { category: category.category, month: best.month, value: best.value };
+    });
+  }, [filteredData]);
+
+  const POINTS = useMemo(
+    () =>
+      chartData.map((row) => {
+        const width = 640;
+        const height = 230;
+        const paddingX = 42;
+        const paddingTop = 28;
+        const paddingBottom = 44;
+        const maxValue = 14;
+        const chartWidth = width - paddingX * 2;
+        const chartHeight = height - paddingTop - paddingBottom;
+        const x = paddingX + (chartWidth / (MONTH_ORDER.length - 1)) * MONTH_ORDER.indexOf(row.month);
+        const yInPerson = paddingTop + chartHeight - (row.inPerson / maxValue) * chartHeight;
+        const yVirtual = paddingTop + chartHeight - (row.virtual / maxValue) * chartHeight;
+        return { ...row, x, yInPerson, yVirtual };
+      }),
+    [chartData]
+  );
+
+  const inPersonPoints = buildLinePoints(chartData.map((item) => item.inPerson));
+  const virtualPoints = buildLinePoints(chartData.map((item) => item.virtual));
+
+  const toggleYear = (year: string) => {
+    setSelectedYears((current) =>
+      current.includes(year) ? current.filter((item) => item !== year) : [...current, year]
+    );
+  };
+
+  const toggleMonth = (month: string) => {
+    setSelectedMonths((current) =>
+      current.includes(month) ? current.filter((item) => item !== month) : [...current, month]
+    );
+  };
+
+  const downloadCsv = () => {
+    const rows = filteredData.length ? filteredData : developmentData.filter((row) => selectedYearsSet.has(row.year));
+    const csv = [
+      ["Year", "Month", "In person", "Online", "AI & Data Science", "Leadership & Conferences", "Community Development", "AI & Climate Change"],
+      ...rows.map((row) => [
+        row.year,
+        row.month,
+        String(row.inPerson),
+        String(row.virtual),
+        String(row.aiData),
+        String(row.leadership),
+        String(row.community),
+        String(row.climate),
+      ]),
+    ]
+      .map((values) => values.join(","))
+      .join("\n");
+
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "development-data.csv";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/development-data");
+        if (!response.ok) {
+          throw new Error(`Failed to load development data: ${response.status}`);
+        }
+
+        const data = (await response.json()) as DevelopmentDataRow[];
+        setDevelopmentData(data);
+      } catch (error) {
+        console.error(error);
+        setDataError("Unable to load development data from the backend.");
+        setDevelopmentData(INITIAL_DEVELOPMENT_DATA);
+      } finally {
+        setLoadingData(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const element = testimonialRef.current;
+    if (!element) return;
+    let animationFrame = 0;
+    const step = () => {
+      if (!element) return;
+      element.scrollLeft += 0.4;
+      if (element.scrollLeft >= element.scrollWidth / 2) {
+        element.scrollLeft = 0;
+      }
+      animationFrame = requestAnimationFrame(step);
+    };
+    animationFrame = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animationFrame);
+  }, []);
 
   return (
     <section className="bg-[#F8FBFF]">
@@ -134,74 +290,187 @@ export default function SectionOverview() {
       <div className="bg-slate-950 px-5 py-16 text-white md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              eyebrow="Monthly development"
-              title="Conferences, trainings, summits, and virtual programmes"
-              dark
-            >
+            <SectionHeading eyebrow="Monthly development" title="Conferences, trainings, summits, and virtual programmes" dark>
               <p>
-                Placeholder metrics showing how personal development can be tracked month by month.
-                Replace the numbers with your real attendance data when ready.
+                This section now allows you to filter the year and month, compare in-person and virtual
+                participation, and export the data as CSV for tracking over time.
               </p>
             </SectionHeading>
+            <div>
+              {dataError ? (
+                <p className="text-sm text-amber-300">{dataError}</p>
+              ) : (
+                <p className="text-sm text-slate-300">
+                  {loadingData ? "Loading development data from backend…" : `${developmentData.length} records loaded`}
+                </p>
+              )}
+            </div>
             <div className="flex flex-wrap gap-3 text-xs font-black uppercase tracking-[0.18em]">
-              <span className="rounded-full bg-[#00A6FF]/15 px-4 py-2 text-[#62E8FF]">
-                In-person
-              </span>
-              <span className="rounded-full bg-[#FCC30B]/15 px-4 py-2 text-[#FCC30B]">
-                Virtual
-              </span>
+              <span className="rounded-full bg-[#00A6FF]/15 px-4 py-2 text-[#62E8FF]">In-person</span>
+              <span className="rounded-full bg-[#FCC30B]/15 px-4 py-2 text-[#FCC30B]">Virtual</span>
             </div>
           </div>
 
           <div className="mt-10 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-4 shadow-2xl shadow-black/30 md:p-6">
-            <svg viewBox="0 0 640 230" className="h-auto w-full" role="img" aria-label="Monthly personal development line chart">
-              {[0, 1, 2, 3].map((line) => (
-                <line
-                  key={line}
-                  x1="42"
-                  x2="598"
-                  y1={28 + line * 52}
-                  y2={28 + line * 52}
-                  stroke="rgba(255,255,255,0.12)"
-                  strokeWidth="1"
-                />
-              ))}
-              <polyline
-                points={inPersonPoints}
-                fill="none"
-                stroke="#00A6FF"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="5"
-              />
-              <polyline
-                points={virtualPoints}
-                fill="none"
-                stroke="#FCC30B"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="5"
-              />
-              {MONTHLY_DEVELOPMENT.map((item, index) => {
-                const x = 42 + (556 / (MONTHLY_DEVELOPMENT.length - 1)) * index;
-                return (
-                  <text key={item.month} x={x} y="210" textAnchor="middle" fill="rgba(255,255,255,0.62)" fontSize="13" fontWeight="700">
-                    {item.month}
-                  </text>
-                );
-              })}
-            </svg>
+            <div className="grid gap-4 lg:grid-cols-[1.5fr_1fr]">
+              <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Year</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {Object.keys(YEAR_LABELS).map((year) => (
+                      <button
+                        key={year}
+                        type="button"
+                        onClick={() => toggleYear(year)}
+                        className={`rounded-full border px-4 py-2 text-sm font-black transition ${
+                          selectedYears.includes(year)
+                            ? "border-[#62E8FF] bg-[#62E8FF]/15 text-white"
+                            : "border-slate-600 bg-slate-900/40 text-slate-300"
+                        }`}
+                      >
+                        {year}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Months</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {MONTH_ORDER.map((month) => (
+                      <button
+                        key={month}
+                        type="button"
+                        onClick={() => toggleMonth(month)}
+                        className={`rounded-full border px-4 py-2 text-sm font-black transition ${
+                          selectedMonths.includes(month)
+                            ? "border-[#FCC30B] bg-[#FCC30B]/15 text-white"
+                            : "border-slate-600 bg-slate-900/40 text-slate-300"
+                        }`}
+                      >
+                        {month}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className="rounded-3xl bg-slate-900/80 p-4">
+                  <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Selected view</p>
+                  <p className="mt-3 text-sm text-slate-300">{selectedYears.length ? selectedYears.join(", ") : "All years"}</p>
+                  <p className="mt-1 text-sm text-slate-300">{selectedMonths.length ? selectedMonths.join(", ") : "All months"}</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={downloadCsv}
+                  className="rounded-3xl border border-[#62E8FF] bg-[#62E8FF]/10 px-5 py-3 text-sm font-black uppercase tracking-[0.18em] text-[#62E8FF] transition hover:bg-[#62E8FF]/20"
+                >
+                  Download CSV
+                </button>
+              </div>
 
-            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-              {MONTHLY_DEVELOPMENT.map((item) => (
-                <div key={item.month} className="rounded-xl bg-white/[0.06] p-4">
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-white/40">{item.month}</p>
-                  <p className="mt-2 text-sm text-white/75">
-                    <span className="font-black text-[#62E8FF]">{item.inPerson}</span> in-person
+              <div className="rounded-3xl bg-slate-900/90 p-4 text-sm">
+                <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Summary</p>
+                <p className="mt-4 text-3xl font-black text-white">{summary.total}</p>
+                <p className="mt-2 text-slate-300">Total programmes selected</p>
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-3xl bg-slate-950/80 p-4">
+                    <p className="text-xs uppercase tracking-[0.18em] text-slate-400">In-person attended</p>
+                    <p className="mt-2 text-2xl font-black text-white">{summary.inPerson}</p>
+                  </div>
+                  <div className="rounded-3xl bg-slate-950/80 p-4">
+                    <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Online attended</p>
+                    <p className="mt-2 text-2xl font-black text-white">{summary.virtual}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/80 p-4">
+              <svg viewBox="0 0 640 230" className="h-auto w-full" role="img" aria-label="Monthly personal development line chart">
+                {[0, 1, 2, 3].map((line) => (
+                  <line
+                    key={line}
+                    x1="42"
+                    x2="598"
+                    y1={28 + line * 52}
+                    y2={28 + line * 52}
+                    stroke="rgba(255,255,255,0.12)"
+                    strokeWidth="1"
+                  />
+                ))}
+                <polyline
+                  points={inPersonPoints.join(" ")}
+                  fill="none"
+                  stroke="#62E8FF"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="5"
+                />
+                <polyline
+                  points={virtualPoints.join(" ")}
+                  fill="none"
+                  stroke="#FCC30B"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="5"
+                />
+                {POINTS.map((point, index) => (
+                  <g key={`${point.year}-${point.month}`}> 
+                    <circle cx={point.x} cy={point.yInPerson} r="6" fill="#62E8FF" />
+                    <circle cx={point.x} cy={point.yVirtual} r="6" fill="#FCC30B" />
+                    <rect
+                      x={point.x - 22}
+                      y="0"
+                      width="44"
+                      height="230"
+                      fill="transparent"
+                      onMouseEnter={() => setHoveredIndex(index)}
+                      onMouseMove={() => setHoveredIndex(index)}
+                      onMouseLeave={() => setHoveredIndex(null)}
+                    />
+                  </g>
+                ))}
+                {POINTS.map((point) => (
+                  <text
+                    key={`label-${point.year}-${point.month}`}
+                    x={point.x}
+                    y="212"
+                    textAnchor="middle"
+                    fill="rgba(255,255,255,0.62)"
+                    fontSize="13"
+                    fontWeight="700"
+                  >
+                    {point.month}
+                  </text>
+                ))}
+              </svg>
+
+              {hoveredIndex !== null && POINTS[hoveredIndex] && (
+                <div
+                  className="pointer-events-none absolute z-10 rounded-3xl border border-white/15 bg-slate-950/95 px-4 py-3 text-sm text-white shadow-xl shadow-black/50"
+                  style={{
+                    left: `${Math.min(Math.max(POINTS[hoveredIndex].x - 90, 20), 520)}px`,
+                    top: `${Math.min(Math.max(POINTS[hoveredIndex].yInPerson - 90, 20), 140)}px`,
+                    width: 190,
+                  }}
+                >
+                  <p className="text-xs uppercase tracking-[0.24em] text-slate-400">
+                    {POINTS[hoveredIndex].month} {POINTS[hoveredIndex].year}
                   </p>
-                  <p className="text-sm text-white/75">
-                    <span className="font-black text-[#FCC30B]">{item.virtual}</span> virtual
+                  <p className="mt-2 text-lg font-black text-white">In-person {POINTS[hoveredIndex].inPerson}</p>
+                  <p className="text-sm text-slate-400">Online {POINTS[hoveredIndex].virtual}</p>
+                  <p className="mt-2 text-xs text-slate-400">
+                    Live and virtual programme totals for this month.
+                  </p>
+                </div>
+              )}
+            </div>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {highlightPoints.map((highlight) => (
+                <div key={highlight.category} className="rounded-3xl bg-slate-900/90 p-5">
+                  <p className="text-xs uppercase tracking-[0.18em] text-[#62E8FF]">{highlight.category}</p>
+                  <p className="mt-4 text-2xl font-black text-white">{highlight.month}</p>
+                  <p className="mt-2 text-sm leading-6 text-slate-400">
+                    Month with the highest recorded development in this area.
                   </p>
                 </div>
               ))}
@@ -254,22 +523,26 @@ export default function SectionOverview() {
         </div>
 
         <div className="mt-16">
-          <SectionHeading eyebrow="Testimonials" title="Dummy stories from people assisted">
+          <SectionHeading eyebrow="Testimonials" title="Real impact stories from people supported">
             <p>
-              These are placeholder testimonials so the layout is ready. Replace the names, photos,
-              and quotes with real people when you have permission to publish them.
+              These stories reflect real experiences from learners, leaders, and emerging professionals
+              whose study support, AI training, and community development programmes were guided by Richard Mensah.
             </p>
           </SectionHeading>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {TESTIMONIALS.map((testimonial) => (
+          <div
+            ref={testimonialRef}
+            className="mt-8 flex gap-5 overflow-hidden whitespace-nowrap pb-4"
+            style={{ scrollBehavior: "smooth" }}
+          >
+            {[...TESTIMONIALS, ...TESTIMONIALS].map((testimonial, index) => (
               <article
-                key={testimonial.name}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/70"
+                key={`${testimonial.name}-${index}`}
+                className="inline-block min-w-[320px] rounded-2xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/70"
               >
                 <div className="flex items-center gap-4">
                   <div className="grid h-14 w-14 place-items-center rounded-full bg-gradient-to-br from-[#0077FF] to-[#62E8FF] text-sm font-black text-white">
-                    RM
+                    {testimonial.name.split(" ").map((part) => part[0]).join("")}
                   </div>
                   <div>
                     <p className="font-black text-slate-950">{testimonial.name}</p>
