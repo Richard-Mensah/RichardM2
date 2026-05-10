@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\joe\\\\Documents\\\\GitHub\\\\RichardM2\\\\public\" -Recurse -Name)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\joe\\\\Documents\\\\GitHub\\\\RichardM2\" -Depth 2)",
+      "Bash(Select-Object -Property Name, FullName)",
+      "Bash(Format-Table)",
+      "Bash(cd /mnt/c/Users/joe/Documents/GitHub/RichardM2 && find . -type f \\\\\\( -name \"package.json\" -o -name \"tsconfig.json\" -o -name \"tailwind.config.*\" -o -name \"next.config.*\" \\\\\\) 2>/dev/null | head -20)",
+      "Read(//mnt/c/Users/joe/Documents/GitHub/**)",
+      "Bash(dir 'c:\\\\Users\\\\joe\\\\Downloads\\\\Mypics-20260509T233441Z-3-001\\\\Mypics')",
+      "Bash(ls -la \"c:\\\\\\\\Users\\\\\\\\joe\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\RichardM2\\\\\\\\\")",
+      "Bash(dir 'c:\\\\Users\\\\joe\\\\Downloads\\\\Mypics-20260509T233441Z-3-001\\\\Mypics\\\\forsider')",
+      "Bash(find \"c:\\\\\\\\Users\\\\\\\\joe\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\RichardM2\" -maxdepth 2 -type f \\\\\\( -name \"*.config.*\" -o -name \"globals.css\" -o -name \"*.css\" \\\\\\))",
+      "Bash(find \"c:\\\\\\\\Users\\\\\\\\joe\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\RichardM2\\\\\\\\src\" -type f -name \"*.tsx\" -o -name \"*.ts\" -o -name \"*.css\")",
+      "Bash(find \"c:\\\\\\\\Users\\\\\\\\joe\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\RichardM2\" -maxdepth 1 -type f -name \"tailwind.config.*\")",
+      "Bash(find \"c:\\\\\\\\Users\\\\\\\\joe\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\RichardM2\\\\\\\\src\\\\\\\\app\" -maxdepth 1 -type d)",
+      "Bash(find \"c:\\\\\\\\Users\\\\\\\\joe\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\RichardM2\\\\\\\\src\" -name \"utils.ts\" -o -name \"lib.ts\" -o -name \"tailwind.config.*\")",
+      "Bash(cat \"c:\\\\\\\\Users\\\\\\\\joe\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\RichardM2\\\\\\\\tsconfig.json\")"
+    ]
+  }
+}

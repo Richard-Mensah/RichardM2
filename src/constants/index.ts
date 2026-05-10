@@ -1,14 +1,71 @@
 import type { NavItem, SdgColour, PriorityGoal, IdentityCard, ResearchPillar, SystemProject } from "@/types";
 
 export const NAVIGATION: NavItem[] = [
-  { label: "Identity", href: "/identity" },
-  { label: "SDGs", href: "/sdgs" },
-  { label: "Research", href: "/research" },
-  { label: "Systems", href: "/systems" },
-  { label: "Leadership", href: "/leadership" },
-  { label: "Collaborate", href: "/collaborate" },
-  { label: "Writing", href: "/blog" },
-  { label: "Gallery", href: "/gallery" },
+  { label: "HOME", href: "/" },
+  {
+    label: "ABOUT RICHARD",
+    href: "/about",
+    children: [
+      { label: "About Richard", href: "/about" },
+      { label: "Biography", href: "/about#biography" },
+      { label: "Vision & Mission", href: "/about#vision" },
+      { label: "Leadership Journey", href: "/about#journey" },
+      { label: "Conferences & Summits", href: "/about#conferences" },
+      { label: "Media & Speaking", href: "/about#media" },
+      { label: "CV / Resume", href: "/about#cv" },
+    ],
+  },
+  {
+    label: "RESEARCH",
+    href: "/research",
+    children: [
+      { label: "Publications", href: "/research#publications" },
+      { label: "Research Papers", href: "/research#papers" },
+      { label: "Conference Presentations", href: "/research#conferences" },
+      { label: "Research Collaborations", href: "/research#collaborations" },
+      { label: "Articles", href: "/blog" },
+      { label: "Thought Leadership", href: "/research#thought" },
+      { label: "AI & Data Science", href: "/research#ai-data" },
+      { label: "Youth Development", href: "/research#youth" },
+      { label: "AI & Climate Change", href: "/research#climate" },
+      { label: "Global Development", href: "/research#global" },
+    ],
+  },
+  {
+    label: "PROJECTS",
+    href: "/projects",
+    children: [
+      { label: "AI Projects", href: "/projects#ai" },
+      { label: "Data Science Projects", href: "/projects#data-science" },
+      { label: "Climate Innovation", href: "/projects#climate" },
+      { label: "SDG Projects", href: "/projects#sdg" },
+      { label: "Community Initiatives", href: "/projects#community" },
+      { label: "Open Source Work", href: "/projects#open-source" },
+      { label: "Portfolio", href: "/projects#portfolio" },
+    ],
+  },
+  {
+    label: "OPPORTUNITIES",
+    href: "/opportunities",
+    children: [
+      { label: "Scholarships", href: "/opportunities#scholarships" },
+      { label: "Internships", href: "/opportunities#internships" },
+      { label: "Fellowships", href: "/opportunities#fellowships" },
+      { label: "Conferences", href: "/opportunities#conferences" },
+    ],
+  },
+  {
+    label: "LEADERSHIP",
+    href: "/leadership",
+    children: [
+      { label: "EGA Mentorship International", href: "/leadership#ega" },
+      { label: "S/Bekwai Youth Parliament", href: "/leadership#youth-parliament" },
+      { label: "Community Development", href: "/leadership#community" },
+    ],
+  },
+  { label: "IMPACT", href: "/impact" },
+  { label: "CONTACT", href: "/contact" },
+  { label: "GALLERY", href: "/gallery" },
 ];
 
 export const SDG_COLOURS: SdgColour[] = [
