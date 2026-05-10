@@ -244,3 +244,10 @@ body {
 .article-body img { border-radius: 1rem; width: 100%; height: auto; }
 .article-body a { color: #009EDB; text-decoration: underline; }
 .article-body strong { font-weight: 800; color: #1e293b; }
+
+/* ── Header dropdown animation ─────────────────────────────────── */
+@keyframes dropdown-appear {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.header-dropdown { animation: dropdown-appear 160ms ease both; }

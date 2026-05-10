@@ -3,15 +3,15 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 const SECTIONS = [
   {
-    label: "Identity",
-    href: "/identity",
+    label: "About Richard",
+    href: "/about",
     tagline: "From Ghana to the UK — grounded in development urgency",
     accent: "#009EDB",
   },
   {
-    label: "SDGs",
-    href: "/sdgs",
-    tagline: "Six priority goals driving every project and decision",
+    label: "Impact",
+    href: "/impact",
+    tagline: "Six priority SDGs driving every project and decision",
     accent: "#19486A",
   },
   {
@@ -21,9 +21,9 @@ const SECTIONS = [
     accent: "#3F7E44",
   },
   {
-    label: "Systems",
-    href: "/systems",
-    tagline: "Three AI system builds turning research into infrastructure",
+    label: "Projects",
+    href: "/projects",
+    tagline: "AI systems and data builds turning research into infrastructure",
     accent: "#FD6925",
   },
   {
@@ -33,13 +33,13 @@ const SECTIONS = [
     accent: "#FCC30B",
   },
   {
-    label: "Collaborate",
-    href: "/collaborate",
-    tagline: "Work with me on AI, climate, or youth systems projects",
+    label: "Opportunities",
+    href: "/opportunities",
+    tagline: "Scholarships, fellowships, internships, and conferences",
     accent: "#A21942",
   },
   {
-    label: "Writing",
+    label: "Publications",
     href: "/blog",
     tagline: "Articles on AI, climate intelligence, ethics, and youth leadership",
     accent: "#009EDB",
