@@ -468,64 +468,57 @@ export default function AboutPage() {
       {/* ── CV / Resume ───────────────────────────────────────────── */}
       <section id="cv" className="scroll-mt-24 bg-[#0B1F3A] px-5 py-20 text-white md:px-8 md:py-24">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.3em] text-[#62E8FF]">
-                CV / Resume
-              </p>
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-[#62E8FF]">CV / Resume</p>
               <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.04em] text-white md:text-5xl">
                 The full record of a career built with purpose.
               </h2>
-              <p className="mt-6 text-base leading-8 text-slate-400">
+              <p className="mt-4 max-w-2xl text-base leading-7 text-slate-400">
                 Richard&apos;s curriculum vitae covers his academic qualifications, professional
                 experience, research contributions, publications, leadership roles, and programme
-                outcomes. It is available on request or for download — and it tells the story of
-                someone who has spent over a decade making his work count.
+                outcomes. You can read it inline below or download a copy to keep.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href="mailto:rmensahuk@gmail.com?subject=CV Request — Richard Mensah"
-                  className="rounded-full bg-[#0077FF] px-7 py-3.5 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#0077FF]/30 transition hover:-translate-y-0.5 hover:bg-[#62E8FF]"
-                >
-                  Request CV →
-                </a>
-                <Link
-                  href="/contact"
-                  className="rounded-full border border-white/30 px-7 py-3.5 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:-translate-y-0.5 hover:bg-white/10"
-                >
-                  Get in touch
-                </Link>
-              </div>
             </div>
+            <div className="flex shrink-0 flex-wrap gap-3">
+              <a
+                href="/richard-mensah-cv.pdf"
+                download="Richard-Mensah-CV.pdf"
+                className="rounded-full bg-[#0077FF] px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#0077FF]/30 transition hover:-translate-y-0.5 hover:bg-[#62E8FF]"
+              >
+                Download CV
+              </a>
+              <a
+                href="/richard-mensah-cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-white/30 px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:-translate-y-0.5 hover:bg-white/10"
+              >
+                Open in new tab
+              </a>
+            </div>
+          </div>
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              {[
-                {
-                  label: "Academic Qualifications",
-                  desc: "Degree-level study in the UK and Ghana, specialising in data science, AI, and related disciplines.",
-                },
-                {
-                  label: "Research & Publications",
-                  desc: "Contributions to AI, climate intelligence, youth leadership, and sustainable development literature.",
-                },
-                {
-                  label: "Professional Experience",
-                  desc: "Practitioner roles spanning AI systems, data analytics, programme management, and institutional consulting.",
-                },
-                {
-                  label: "Leadership & Community",
-                  desc: "S/Bekwai Youth Parliament, EGA Mentorship International, and a decade of community development service.",
-                },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-5"
+          {/* Embedded PDF viewer */}
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-white shadow-2xl shadow-black/40">
+            <object
+              data="/richard-mensah-cv.pdf"
+              type="application/pdf"
+              className="h-[820px] w-full"
+              aria-label="Richard Mensah CV"
+            >
+              {/* Fallback for browsers that cannot render PDF inline */}
+              <div className="flex h-[820px] flex-col items-center justify-center gap-4 bg-slate-950 text-center">
+                <p className="text-lg font-black text-white">Your browser does not support inline PDFs.</p>
+                <a
+                  href="/richard-mensah-cv.pdf"
+                  download="Richard-Mensah-CV.pdf"
+                  className="rounded-full bg-[#0077FF] px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:bg-[#62E8FF]"
                 >
-                  <p className="text-sm font-black text-white">{item.label}</p>
-                  <p className="mt-2 text-sm leading-6 text-slate-400">{item.desc}</p>
-                </div>
-              ))}
-            </div>
+                  Download CV instead
+                </a>
+              </div>
+            </object>
           </div>
         </div>
       </section>

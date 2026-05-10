@@ -65,25 +65,25 @@ export default function HeroSection() {
             <span className="sdg-text-gradient">global impact.</span>
           </h1>
           <p className="mt-3 text-sm leading-6 text-white/80">
-            At the intersection of AI, leadership, and sustainable development — building systems
+            At the intersection of AI, leadership, and sustainable development, building systems
             that serve people and communities.
           </p>
-          <div className="mt-5 flex flex-wrap gap-2">
+          <div className="mt-5 flex flex-nowrap gap-2">
             <Link
               href="/sdgs"
-              className="rounded-full bg-[#0077FF] px-5 py-2.5 text-xs font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#0077FF]/30 transition hover:-translate-y-0.5 hover:bg-[#62E8FF]"
+              className="whitespace-nowrap rounded-full bg-[#0077FF] px-4 py-2.5 text-xs font-black uppercase tracking-[0.12em] text-white shadow-lg shadow-[#0077FF]/30 transition hover:-translate-y-0.5 hover:bg-[#62E8FF]"
             >
-              SDG impact
+              SDG Impact
             </Link>
             <Link
               href="/projects"
-              className="rounded-full border border-white/40 bg-white/10 px-5 py-2.5 text-xs font-black uppercase tracking-[0.15em] text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/25"
+              className="whitespace-nowrap rounded-full border border-white/40 bg-white/10 px-4 py-2.5 text-xs font-black uppercase tracking-[0.12em] text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/25"
             >
               Projects
             </Link>
             <Link
               href="/contact"
-              className="rounded-full border border-white/40 bg-white/10 px-5 py-2.5 text-xs font-black uppercase tracking-[0.15em] text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/25"
+              className="whitespace-nowrap rounded-full border border-white/40 bg-white/10 px-4 py-2.5 text-xs font-black uppercase tracking-[0.12em] text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/25"
             >
               Connect
             </Link>
