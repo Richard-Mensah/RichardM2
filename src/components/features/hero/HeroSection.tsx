@@ -7,11 +7,11 @@ import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const SLIDES = [
-  { src: "/hero-slides/slide-1.jpg", alt: "Richard Mensah, AI researcher and youth leader" },
-  { src: "/hero-slides/slide-2.jpg", alt: "Richard Mensah at a leadership event" },
-  { src: "/hero-slides/slide-3.jpg", alt: "Richard Mensah at a conference and summit" },
-  { src: "/hero-slides/slide-4.jpg", alt: "Richard Mensah speaking and engaging communities" },
-  { src: "/hero-slides/slide-5.jpg", alt: "Richard Mensah, SDG advocate and data scientist" },
+  { src: "/gallery/20240302_090453.jpg", alt: "Richard Mensah at a leadership programme" },
+  { src: "/gallery/20240229_120952.jpg", alt: "Richard Mensah at a community engagement" },
+  { src: "/gallery/20240304_094455.jpg", alt: "Richard Mensah during a development programme" },
+  { src: "/gallery/20240305_142937.jpg", alt: "Richard Mensah at a youth leadership session" },
+  { src: "/gallery/20240607_184209.jpg", alt: "Richard Mensah at an evening programme" },
 ] as const;
 
 const AUTOPLAY_INTERVAL = 5000;
@@ -46,14 +46,15 @@ export default function HeroSection() {
             src={slide.src}
             alt={slide.alt}
             fill
-            className="object-cover object-center"
+            className="object-cover object-center brightness-110 contrast-105 saturate-110"
             priority={i === 0}
+            quality={100}
             sizes="100vw"
           />
         </div>
       ))}
 
-      <div className="absolute inset-0 bg-gradient-to-r from-black/78 via-black/42 to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/76 via-black/30 to-transparent" />
 
       <div className="relative z-10 flex h-full flex-col items-start justify-center px-5 pt-24 text-left md:px-8 lg:px-14">
         <h1 className="max-w-2xl text-balance text-4xl font-black leading-[1.02] text-white drop-shadow-2xl md:text-5xl lg:text-6xl">
