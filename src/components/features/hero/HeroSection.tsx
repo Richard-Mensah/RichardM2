@@ -54,38 +54,40 @@ export default function HeroSection() {
         </div>
       ))}
 
-      <div className="absolute inset-0 bg-gradient-to-r from-black/76 via-black/30 to-transparent" />
+      {/* Gradient on the right so the photo on the left stays clear */}
+      <div className="absolute inset-0 bg-gradient-to-l from-black/80 via-black/30 to-transparent" />
 
-      <div className="relative z-10 flex h-full flex-col items-start justify-center px-5 pt-24 text-left md:px-8 lg:px-14">
-        <h1 className="max-w-2xl text-balance text-4xl font-black leading-[1.02] text-white drop-shadow-2xl md:text-5xl lg:text-6xl">
-          AI & Data Scientist building systems for{" "}
-          <span className="text-[#62E8FF]">global impact.</span>
-        </h1>
-
-        <p className="mt-6 max-w-xl text-base leading-7 text-white/90 drop-shadow-lg md:text-lg">
-          Richard Mensah operates at the intersection of AI, leadership, entrepreneurship, and
-          sustainable development - building systems that serve people and communities.
-        </p>
-
-        <div className="mt-8 flex flex-col justify-start gap-3 sm:flex-row">
-          <Link
-            href="/sdgs"
-            className="rounded-full bg-[#00A6FF] px-6 py-3 text-center text-xs font-black uppercase tracking-[0.18em] text-white shadow-xl shadow-[#00A6FF]/30 transition hover:-translate-y-1 hover:bg-white hover:text-[#0077FF]"
-          >
-            See SDG impact
-          </Link>
-          <Link
-            href="/projects"
-            className="rounded-full border border-white/40 bg-white/10 px-6 py-3 text-center text-xs font-black uppercase tracking-[0.18em] text-white backdrop-blur transition hover:-translate-y-1 hover:bg-white hover:text-slate-950"
-          >
-            Explore projects
-          </Link>
-          <Link
-            href="/contact"
-            className="rounded-full border border-white/60 px-6 py-3 text-center text-xs font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-1 hover:bg-white hover:text-slate-950"
-          >
-            Connect
-          </Link>
+      {/* Content card — pinned to the bottom-right corner */}
+      <div className="relative z-10 flex h-full items-end justify-end px-5 pb-24 pt-24 md:px-10">
+        <div className="max-w-xs rounded-2xl bg-[#06111f]/70 p-5 text-left shadow-2xl shadow-black/50 backdrop-blur-md md:max-w-sm md:p-6">
+          <h1 className="text-xl font-black leading-tight tracking-[-0.03em] text-white md:text-2xl">
+            AI &amp; Data Scientist building systems for{" "}
+            <span className="sdg-text-gradient">global impact.</span>
+          </h1>
+          <p className="mt-3 text-sm leading-6 text-white/80">
+            At the intersection of AI, leadership, and sustainable development — building systems
+            that serve people and communities.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            <Link
+              href="/sdgs"
+              className="rounded-full bg-[#0077FF] px-5 py-2.5 text-xs font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#0077FF]/30 transition hover:-translate-y-0.5 hover:bg-[#62E8FF]"
+            >
+              SDG impact
+            </Link>
+            <Link
+              href="/projects"
+              className="rounded-full border border-white/40 bg-white/10 px-5 py-2.5 text-xs font-black uppercase tracking-[0.15em] text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/25"
+            >
+              Projects
+            </Link>
+            <Link
+              href="/contact"
+              className="rounded-full border border-white/40 bg-white/10 px-5 py-2.5 text-xs font-black uppercase tracking-[0.15em] text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/25"
+            >
+              Connect
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -105,7 +107,7 @@ export default function HeroSection() {
         <ChevronRight size={24} />
       </button>
 
-      <div className="absolute bottom-8 right-6 z-10 flex items-center gap-4">
+      <div className="absolute bottom-8 left-6 z-10 flex items-center gap-4">
         <div className="flex gap-2">
           {SLIDES.map((_, i) => (
             <button
