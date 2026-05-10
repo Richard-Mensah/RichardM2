@@ -193,7 +193,45 @@ export default function SectionOverview() {
     });
   }, [chartData, selectedMetric]);
 
-  const trendPoints = POINTS.map((point) => `${point.x},${point.yTrend}`);
+  const yearSeries = useMemo(() => {
+    const years = Array.from(selectedYearsSet).sort();
+    const width = 640;
+    const height = 230;
+    const paddingX = 42;
+    const paddingTop = 28;
+    const paddingBottom = 44;
+    const chartWidth = width - paddingX * 2;
+    const chartHeight = height - paddingTop - paddingBottom;
+    const maxValue = 14;
+
+    return years.map((year) => {
+      const rows = (developmentData.length ? developmentData : INITIAL_DEVELOPMENT_DATA)
+        .filter(
+          (row) =>
+            row.year === year &&
+            (selectedMonth === "All" || selectedMonthsSet.has(row.month))
+        )
+        .sort(
+          (a, b) =>
+            MONTH_ORDER.indexOf(a.month as (typeof MONTH_ORDER)[number]) -
+            MONTH_ORDER.indexOf(b.month as (typeof MONTH_ORDER)[number])
+        );
+
+      const selectedPoints = rows.map((row) => {
+        const x = paddingX + (chartWidth / (MONTH_ORDER.length - 1)) * MONTH_ORDER.indexOf(row.month as (typeof MONTH_ORDER)[number]);
+        const selectedValue =
+          selectedMetric === "In-person"
+            ? row.inPerson
+            : selectedMetric === "Virtual"
+            ? row.virtual
+            : row.inPerson + row.virtual;
+        const y = paddingTop + chartHeight - (selectedValue / maxValue) * chartHeight;
+        return `${x.toFixed(1)},${y.toFixed(1)}`;
+      });
+
+      return { year, selectedPoints };
+    });
+  }, [selectedYearsSet, selectedMonthsSet, selectedMonth, selectedMetric]);
 
   const trendColor = selectedMetric === "In-person" ? "#62E8FF" : selectedMetric === "Virtual" ? "#FCC30B" : "#7AF8B7";
   const trendLabel = selectedMetric === "Total" ? "Total programmes" : selectedMetric;
@@ -431,14 +469,19 @@ export default function SectionOverview() {
                     strokeWidth="1"
                   />
                 ))}
-                <polyline
-                  points={trendPoints.join(" ")}
-                  fill="none"
-                  stroke={trendColor}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="5"
-                />
+                {yearSeries.map((series, index) => (
+                  <polyline
+                    key={`series-${series.year}`}
+                    points={series.selectedPoints.join(" ")}
+                    fill="none"
+                    stroke={trendColor}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="5"
+                    strokeOpacity={index === 0 ? 1 : 0.5}
+                    strokeDasharray={index === 0 ? "0" : "8 6"}
+                  />
+                ))}
                 {POINTS.map((point, index) => (
                   <g key={`${point.year}-${point.month}`}> 
                     <circle cx={point.x} cy={point.yTrend} r="6" fill={trendColor} />
