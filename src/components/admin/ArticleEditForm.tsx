@@ -82,7 +82,7 @@ export default function ArticleEditForm({ slug, initialData }: Props) {
           value={form.title}
           onChange={handleChange}
           required
-          className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20"
+          className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20"
         />
       </div>
 
@@ -93,7 +93,7 @@ export default function ArticleEditForm({ slug, initialData }: Props) {
             name="category"
             value={form.category}
             onChange={handleChange}
-            className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20"
+            className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20"
           >
             {CATEGORIES.map((cat) => (
               <option key={cat} value={cat}>
@@ -109,7 +109,7 @@ export default function ArticleEditForm({ slug, initialData }: Props) {
             type="date"
             value={form.date}
             onChange={handleChange}
-            className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20"
+            className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20"
           />
         </div>
       </div>
@@ -122,7 +122,7 @@ export default function ArticleEditForm({ slug, initialData }: Props) {
           onChange={handleChange}
           required
           rows={3}
-          className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20"
+          className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20"
         />
       </div>
 
@@ -136,7 +136,7 @@ export default function ArticleEditForm({ slug, initialData }: Props) {
           onChange={handleChange}
           required
           rows={24}
-          className="w-full rounded-xl border border-slate-200 px-4 py-3 font-mono text-sm focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20"
+          className="w-full rounded-xl border border-slate-200 px-4 py-3 font-mono text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20"
         />
       </div>
 
@@ -148,7 +148,7 @@ export default function ArticleEditForm({ slug, initialData }: Props) {
           name="coverImage"
           value={form.coverImage}
           onChange={handleChange}
-          className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20"
+          className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20"
           placeholder="/articles/cover.jpg"
         />
       </div>
@@ -168,7 +168,7 @@ export default function ArticleEditForm({ slug, initialData }: Props) {
         <button
           type="submit"
           disabled={loading}
-          className="rounded-xl bg-[#006FA6] px-6 py-3 text-sm font-black uppercase tracking-[0.1em] text-white transition hover:bg-[#009EDB] disabled:opacity-60"
+          className="rounded-xl bg-brand-primary-darker px-6 py-3 text-sm font-black uppercase tracking-[0.1em] text-white transition hover:bg-brand-primary-accent disabled:opacity-60"
         >
           {loading ? "Saving…" : "Save changes"}
         </button>

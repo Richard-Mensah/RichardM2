@@ -48,16 +48,17 @@ export default function OpportunitiesPage() {
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
       <div className="flex-1">
-        <div className="bg-[#006FA6] px-5 py-20 md:px-8 md:py-28">
+        <div className="bg-gradient-to-br from-[#021B4D] via-[#005BDB] to-[#0077FF] px-5 py-20 text-white md:px-8 md:py-28">
           <div className="mx-auto max-w-7xl text-center">
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-white/60">
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#BFEFFF]">
               Opportunities
             </p>
-            <h1 className="mt-4 text-4xl font-black leading-tight tracking-[-0.04em] text-white md:text-6xl">
+            <h1 className="mt-4 text-4xl font-black leading-tight text-white drop-shadow-lg md:text-6xl">
               Pathways for growth and impact
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/80">
-              Curated opportunities in AI, data science, climate, leadership, and sustainable development — for students, researchers, and emerging professionals.
+            <p className="mx-auto mt-6 max-w-2xl text-lg font-medium leading-8 text-white">
+              Curated opportunities in AI, data science, climate, leadership, and sustainable
+              development - for students, researchers, and emerging professionals.
             </p>
           </div>
         </div>

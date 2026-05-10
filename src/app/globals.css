@@ -2,7 +2,7 @@
 
 :root {
   color-scheme: light dark;
-  --sdg-blue: #009edb;
+  --sdg-blue: #00a6ff;
   --sdg-1: #e5243b;
   --sdg-2: #dda63a;
   --sdg-3: #4c9f38;
@@ -38,7 +38,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 8% 10%, rgba(0, 158, 219, 0.18), transparent 28rem),
+    radial-gradient(circle at 8% 10%, rgba(0, 166, 255, 0.20), transparent 28rem),
     radial-gradient(circle at 88% 6%, rgba(252, 195, 11, 0.16), transparent 26rem),
     radial-gradient(circle at 8% 70%, rgba(76, 159, 56, 0.12), transparent 24rem),
     linear-gradient(180deg, #f8fafc 0%, #ecfeff 24%, #ffffff 52%, #eff6ff 100%);
@@ -48,7 +48,7 @@ body {
 }
 
 ::selection {
-  background: rgba(0, 158, 219, 0.22);
+  background: rgba(0, 166, 255, 0.24);
   color: #031025;
 }
 
@@ -57,7 +57,7 @@ body {
 }
 
 .sdg-text-gradient {
-  background: linear-gradient(90deg, #009edb, #56c02b, #fcc30b, #fd6925, #dd1367, #19486a);
+  background: linear-gradient(90deg, #62e8ff, #00a6ff, #56c02b, #fcc30b, #fd6925, #dd1367);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -237,12 +237,12 @@ body {
 .article-body ul { list-style-type: disc; }
 .article-body ol { list-style-type: decimal; }
 .article-body li + li { margin-top: 0.375rem; }
-.article-body blockquote { border-left: 3px solid #009EDB; padding-left: 1.25rem; color: #64748b; font-style: italic; }
+.article-body blockquote { border-left: 3px solid #00A6FF; padding-left: 1.25rem; color: #64748b; font-style: italic; }
 .article-body code { background: #f1f5f9; border-radius: 0.25rem; padding: 0.125rem 0.375rem; font-size: 0.875rem; color: #1e293b; }
 .article-body pre { background: #0f172a; color: #e2e8f0; border-radius: 1rem; padding: 1.25rem; overflow-x: auto; }
 .article-body pre code { background: transparent; padding: 0; color: inherit; }
 .article-body img { border-radius: 1rem; width: 100%; height: auto; }
-.article-body a { color: #009EDB; text-decoration: underline; }
+.article-body a { color: #0077FF; text-decoration: underline; }
 .article-body strong { font-weight: 800; color: #1e293b; }
 
 /* ── Header dropdown animation ─────────────────────────────────── */

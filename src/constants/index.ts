@@ -45,7 +45,7 @@ export const NAVIGATION: NavItem[] = [
     ],
   },
   {
-    label: "OPPORTUNITIES",
+    label: "KOFIEVER",
     href: "/opportunities",
     children: [
       { label: "Scholarships", href: "/opportunities#scholarships" },
@@ -63,8 +63,7 @@ export const NAVIGATION: NavItem[] = [
       { label: "Community Development", href: "/leadership#community" },
     ],
   },
-  { label: "IMPACT", href: "/impact" },
-  { label: "CONTACT", href: "/contact" },
+  { label: "SDGs", href: "/sdgs" },
   { label: "GALLERY", href: "/gallery" },
 ];
 
