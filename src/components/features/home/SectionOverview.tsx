@@ -27,7 +27,7 @@ const IMPACT_STATS = [
 
 const MONTH_ORDER = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] as const;
 
-const YEAR_LABELS = { "2025": "2025", "2026": "2026" } as const;
+type Metric = "Total" | "In-person" | "Virtual";
 
 const TESTIMONIALS = [
   {
@@ -74,13 +74,12 @@ const GALLERY_FEATURES = [
   { src: "/gallery/FB_IMG_1746893901373.jpg", alt: "Richard Mensah in an SDG advocacy moment" },
 ] as const;
 
-function buildLinePoints(values: number[]) {
+function buildLinePoints(values: number[], maxValue = 14) {
   const width = 640;
   const height = 230;
   const paddingX = 42;
   const paddingTop = 28;
   const paddingBottom = 44;
-  const maxValue = 14;
   const chartWidth = width - paddingX * 2;
   const chartHeight = height - paddingTop - paddingBottom;
 
@@ -95,12 +94,26 @@ export default function SectionOverview() {
   const [developmentData, setDevelopmentData] = useState<DevelopmentDataRow[]>([]);
   const [loadingData, setLoadingData] = useState(true);
   const [dataError, setDataError] = useState<string | null>(null);
-  const [selectedYears, setSelectedYears] = useState<string[]>(["2026"]);
+  const [selectedYears, setSelectedYears] = useState<string[]>(() =>
+    Array.from(new Set(INITIAL_DEVELOPMENT_DATA.map((row) => row.year))).sort()
+  );
   const [selectedMonths, setSelectedMonths] = useState<string[]>([]);
+  const [selectedMetric, setSelectedMetric] = useState<Metric>("Total");
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const testimonialRef = useRef<HTMLDivElement | null>(null);
 
-  const selectedYearsSet = useMemo(() => new Set(selectedYears), [selectedYears]);
+  const availableYears = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          (developmentData.length ? developmentData : INITIAL_DEVELOPMENT_DATA).map((row) => row.year)
+        )
+      ).sort(),
+    [developmentData]
+  );
+
+  const effectiveSelectedYears = selectedYears.length ? selectedYears : availableYears;
+  const selectedYearsSet = useMemo(() => new Set(effectiveSelectedYears), [effectiveSelectedYears]);
   const selectedMonthsSet = useMemo(() => new Set(selectedMonths), [selectedMonths]);
 
   const filteredData = useMemo(
@@ -111,13 +124,26 @@ export default function SectionOverview() {
     [developmentData, selectedMonthsSet, selectedMonths.length, selectedYearsSet]
   );
 
+  const totalInPerson = useMemo(
+    () => filteredData.reduce((sum, row) => sum + row.inPerson, 0),
+    [filteredData]
+  );
+  const totalVirtual = useMemo(
+    () => filteredData.reduce((sum, row) => sum + row.virtual, 0),
+    [filteredData]
+  );
+  const totalProgrammes = useMemo(() => totalInPerson + totalVirtual, [totalInPerson, totalVirtual]);
+
   const chartData = filteredData;
 
-  const summary = useMemo(() => {
-    const inPerson = filteredData.reduce((sum, row) => sum + row.inPerson, 0);
-    const virtual = filteredData.reduce((sum, row) => sum + row.virtual, 0);
-    return { inPerson, virtual, total: inPerson + virtual };
-  }, [filteredData]);
+  const summary = useMemo(
+    () => ({
+      inPerson: totalInPerson,
+      virtual: totalVirtual,
+      total: totalProgrammes,
+    }),
+    [totalInPerson, totalVirtual, totalProgrammes]
+  );
 
   const highlightPoints = useMemo(() => {
     const categories = [
@@ -141,29 +167,35 @@ export default function SectionOverview() {
     });
   }, [filteredData]);
 
-  const POINTS = useMemo(
-    () =>
-      chartData.map((row) => {
-        const width = 640;
-        const height = 230;
-        const paddingX = 42;
-        const paddingTop = 28;
-        const paddingBottom = 44;
-        const maxValue = 14;
-        const chartWidth = width - paddingX * 2;
-        const chartHeight = height - paddingTop - paddingBottom;
-        const month = row.month as (typeof MONTH_ORDER)[number];
-        const monthIndex = MONTH_ORDER.indexOf(month);
-        const x = paddingX + (chartWidth / (MONTH_ORDER.length - 1)) * monthIndex;
-        const yInPerson = paddingTop + chartHeight - (row.inPerson / maxValue) * chartHeight;
-        const yVirtual = paddingTop + chartHeight - (row.virtual / maxValue) * chartHeight;
-        return { ...row, x, yInPerson, yVirtual };
-      }),
-    [chartData]
-  );
+  const POINTS = useMemo(() => {
+    const width = 640;
+    const height = 230;
+    const paddingX = 42;
+    const paddingTop = 28;
+    const paddingBottom = 44;
+    const chartWidth = width - paddingX * 2;
+    const chartHeight = height - paddingTop - paddingBottom;
+    const selectedValues = chartData.map((row) => {
+      if (selectedMetric === "In-person") return row.inPerson;
+      if (selectedMetric === "Virtual") return row.virtual;
+      return row.inPerson + row.virtual;
+    });
+    const maxValue = Math.max(14, ...selectedValues, 0);
 
-  const inPersonPoints = buildLinePoints(chartData.map((item) => item.inPerson));
-  const virtualPoints = buildLinePoints(chartData.map((item) => item.virtual));
+    return chartData.map((row, index) => {
+      const month = row.month as (typeof MONTH_ORDER)[number];
+      const monthIndex = MONTH_ORDER.indexOf(month);
+      const x = paddingX + (chartWidth / (MONTH_ORDER.length - 1)) * monthIndex;
+      const selectedValue = selectedMetric === "In-person" ? row.inPerson : selectedMetric === "Virtual" ? row.virtual : row.inPerson + row.virtual;
+      const yTrend = paddingTop + chartHeight - (selectedValue / maxValue) * chartHeight;
+      return { ...row, x, yTrend, total: row.inPerson + row.virtual, selectedValue };
+    });
+  }, [chartData, selectedMetric]);
+
+  const trendPoints = POINTS.map((point) => `${point.x},${point.yTrend}`);
+
+  const trendColor = selectedMetric === "In-person" ? "#62E8FF" : selectedMetric === "Virtual" ? "#FCC30B" : "#7AF8B7";
+  const trendLabel = selectedMetric === "Total" ? "Total programmes" : selectedMetric;
 
   const toggleYear = (year: string) => {
     setSelectedYears((current) =>
@@ -264,11 +296,10 @@ export default function SectionOverview() {
         </div>
 
         <div>
-          <SectionHeading eyebrow="Impact dashboard" title="Personal growth, youth empowerment, and global reach">
+          <SectionHeading eyebrow="Impact dashboard" title="A senior-engineered impact pulse for programmes and partnerships">
             <p>
-              This home section now focuses on the measurable story: study abroad support,
-              scholarships, youth leadership, global mentors, travel exposure, and monthly
-              development through conferences, trainings, summits, and virtual programmes.
+              Built to show the real story behind every cohort, this dashboard combines attendance,
+              mentorship, leadership development, and climate-focused learning into a single insight layer.
             </p>
           </SectionHeading>
 
@@ -292,10 +323,10 @@ export default function SectionOverview() {
       <div className="bg-slate-950 px-5 py-16 text-white md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <SectionHeading eyebrow="Monthly development" title="Conferences, trainings, summits, and virtual programmes" dark>
+            <SectionHeading eyebrow="Monthly development" title="Programme attendance, in-person vs virtual, and outcome momentum" dark>
               <p>
-                This section now allows you to filter the year and month, compare in-person and virtual
-                participation, and export the data as CSV for tracking over time.
+                This executive view surfaces trend lines for total programmes, in-person operations,
+                and virtual engagement — with CSV export for reporting and investment discussions.
               </p>
             </SectionHeading>
             <div>
@@ -319,7 +350,7 @@ export default function SectionOverview() {
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Year</p>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {Object.keys(YEAR_LABELS).map((year) => (
+                    {availableYears.map((year) => (
                       <button
                         key={year}
                         type="button"
@@ -354,15 +385,30 @@ export default function SectionOverview() {
                     ))}
                   </div>
                 </div>
-                <div className="rounded-3xl bg-slate-900/80 p-4">
-                  <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Selected view</p>
-                  <p className="mt-3 text-sm text-slate-300">{selectedYears.length ? selectedYears.join(", ") : "All years"}</p>
-                  <p className="mt-1 text-sm text-slate-300">{selectedMonths.length ? selectedMonths.join(", ") : "All months"}</p>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Metric</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {( ["Total", "In-person", "Virtual"] as const ).map((metric) => (
+                      <button
+                        key={metric}
+                        type="button"
+                        onClick={() => setSelectedMetric(metric)}
+                        className={`rounded-full border px-4 py-2 text-sm font-black transition ${
+                          selectedMetric === metric
+                            ? "border-white bg-white text-slate-950"
+                            : "border-slate-600 bg-slate-900/40 text-slate-300"
+                        }`}
+                      >
+                        {metric}
+                      </button>
+                    ))}
+                  </div>
+                  <p className="mt-3 text-sm text-slate-300">{trendLabel} trend over selected months and years.</p>
                 </div>
                 <button
                   type="button"
                   onClick={downloadCsv}
-                  className="rounded-3xl border border-[#62E8FF] bg-[#62E8FF]/10 px-5 py-3 text-sm font-black uppercase tracking-[0.18em] text-[#62E8FF] transition hover:bg-[#62E8FF]/20"
+                  className="rounded-3xl border border-[#62E8FF] bg-[#62E8FF] px-5 py-3 text-sm font-black uppercase tracking-[0.18em] text-white transition hover:bg-[#62E8FF]/90"
                 >
                   Download CSV
                 </button>
@@ -371,15 +417,15 @@ export default function SectionOverview() {
               <div className="rounded-3xl bg-slate-900/90 p-4 text-sm">
                 <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Summary</p>
                 <p className="mt-4 text-3xl font-black text-white">{summary.total}</p>
-                <p className="mt-2 text-slate-300">Total programmes selected</p>
+                <p className="mt-2 text-slate-300">Total programmes attended</p>
                 <div className="mt-5 grid gap-3 sm:grid-cols-2">
                   <div className="rounded-3xl bg-slate-950/80 p-4">
                     <p className="text-xs uppercase tracking-[0.18em] text-slate-400">In-person attended</p>
-                    <p className="mt-2 text-2xl font-black text-white">{summary.inPerson}</p>
+                    <p className="mt-2 text-2xl font-black text-[#62E8FF]">{summary.inPerson}</p>
                   </div>
                   <div className="rounded-3xl bg-slate-950/80 p-4">
-                    <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Online attended</p>
-                    <p className="mt-2 text-2xl font-black text-white">{summary.virtual}</p>
+                    <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Virtual attended</p>
+                    <p className="mt-2 text-2xl font-black text-[#FCC30B]">{summary.virtual}</p>
                   </div>
                 </div>
               </div>
@@ -399,25 +445,16 @@ export default function SectionOverview() {
                   />
                 ))}
                 <polyline
-                  points={inPersonPoints.join(" ")}
+                  points={trendPoints.join(" ")}
                   fill="none"
-                  stroke="#62E8FF"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="5"
-                />
-                <polyline
-                  points={virtualPoints.join(" ")}
-                  fill="none"
-                  stroke="#FCC30B"
+                  stroke={trendColor}
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="5"
                 />
                 {POINTS.map((point, index) => (
                   <g key={`${point.year}-${point.month}`}> 
-                    <circle cx={point.x} cy={point.yInPerson} r="6" fill="#62E8FF" />
-                    <circle cx={point.x} cy={point.yVirtual} r="6" fill="#FCC30B" />
+                    <circle cx={point.x} cy={point.yTrend} r="6" fill={trendColor} />
                     <rect
                       x={point.x - 22}
                       y="0"
@@ -450,7 +487,7 @@ export default function SectionOverview() {
                   className="pointer-events-none absolute z-10 rounded-3xl border border-white/15 bg-slate-950/95 px-4 py-3 text-sm text-white shadow-xl shadow-black/50"
                   style={{
                     left: `${Math.min(Math.max(POINTS[hoveredIndex].x - 90, 20), 520)}px`,
-                    top: `${Math.min(Math.max(POINTS[hoveredIndex].yInPerson - 90, 20), 140)}px`,
+                    top: `${Math.min(Math.max(POINTS[hoveredIndex].yTrend - 90, 20), 140)}px`,
                     width: 190,
                   }}
                 >
