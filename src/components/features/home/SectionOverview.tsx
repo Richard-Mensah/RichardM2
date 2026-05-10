@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -34,7 +34,7 @@ const TESTIMONIALS = [
     name: "Ama Osei",
     role: "Women in Data Ghana participant",
     quote:
-      "Richard�s mentorship helped me land my first data science fellowship. His guidance made the application process clear and gave me the confidence to speak about my impact.",
+      "Richard's mentorship helped me land my first data science fellowship. His guidance made the application process clear and gave me the confidence to speak about my impact.",
   },
   {
     name: "Samuel Nkrumah",
