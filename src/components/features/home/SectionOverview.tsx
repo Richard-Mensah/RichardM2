@@ -152,7 +152,8 @@ export default function SectionOverview() {
         const maxValue = 14;
         const chartWidth = width - paddingX * 2;
         const chartHeight = height - paddingTop - paddingBottom;
-        const monthIndex = (MONTH_ORDER as readonly string[]).indexOf(row.month);
+        const month = row.month as (typeof MONTH_ORDER)[number];
+        const monthIndex = MONTH_ORDER.indexOf(month);
         const x = paddingX + (chartWidth / (MONTH_ORDER.length - 1)) * monthIndex;
         const yInPerson = paddingTop + chartHeight - (row.inPerson / maxValue) * chartHeight;
         const yVirtual = paddingTop + chartHeight - (row.virtual / maxValue) * chartHeight;
