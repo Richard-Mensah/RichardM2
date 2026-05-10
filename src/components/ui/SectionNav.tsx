@@ -10,14 +10,14 @@ export default function SectionNav({ prev, next }: Props) {
         {prev ? (
           <Link
             href={prev.href}
-            className="flex items-center gap-2 rounded-full border border-slate-200 px-5 py-2.5 text-sm font-black text-slate-600 transition hover:-translate-x-0.5 hover:border-[#009EDB] hover:text-[#009EDB]"
+            className="flex items-center gap-2 rounded-full border border-slate-200 px-5 py-2.5 text-sm font-black text-slate-600 transition hover:-translate-x-0.5 hover:border-brand-primary-accent hover:text-brand-primary-accent"
           >
             ← {prev.label}
           </Link>
         ) : (
           <Link
             href="/"
-            className="flex items-center gap-2 rounded-full border border-slate-200 px-5 py-2.5 text-sm font-black text-slate-600 transition hover:border-[#009EDB] hover:text-[#009EDB]"
+            className="flex items-center gap-2 rounded-full border border-slate-200 px-5 py-2.5 text-sm font-black text-slate-600 transition hover:border-brand-primary-accent hover:text-brand-primary-accent"
           >
             ← Home
           </Link>
@@ -25,14 +25,14 @@ export default function SectionNav({ prev, next }: Props) {
         {next ? (
           <Link
             href={next.href}
-            className="flex items-center gap-2 rounded-full bg-slate-950 px-5 py-2.5 text-sm font-black text-white transition hover:translate-x-0.5 hover:bg-[#009EDB]"
+            className="flex items-center gap-2 rounded-full bg-slate-950 px-5 py-2.5 text-sm font-black text-white transition hover:translate-x-0.5 hover:bg-brand-primary-accent"
           >
             {next.label} →
           </Link>
         ) : (
           <Link
             href="/"
-            className="flex items-center gap-2 rounded-full bg-[#009EDB] px-5 py-2.5 text-sm font-black text-white transition hover:bg-slate-950"
+            className="flex items-center gap-2 rounded-full bg-brand-primary-accent px-5 py-2.5 text-sm font-black text-white transition hover:bg-slate-950"
           >
             Back to home
           </Link>

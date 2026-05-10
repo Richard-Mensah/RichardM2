@@ -15,7 +15,8 @@
       "Bash(find \"c:\\\\\\\\Users\\\\\\\\joe\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\RichardM2\" -maxdepth 1 -type f -name \"tailwind.config.*\")",
       "Bash(find \"c:\\\\\\\\Users\\\\\\\\joe\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\RichardM2\\\\\\\\src\\\\\\\\app\" -maxdepth 1 -type d)",
       "Bash(find \"c:\\\\\\\\Users\\\\\\\\joe\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\RichardM2\\\\\\\\src\" -name \"utils.ts\" -o -name \"lib.ts\" -o -name \"tailwind.config.*\")",
-      "Bash(cat \"c:\\\\\\\\Users\\\\\\\\joe\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\RichardM2\\\\\\\\tsconfig.json\")"
+      "Bash(cat \"c:\\\\\\\\Users\\\\\\\\joe\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\RichardM2\\\\\\\\tsconfig.json\")",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\joe\\\\Documents\\\\GitHub\\\\RichardM2\\\\src\\\\components\\\\features\\\\home\\\\\" -Force)"
     ]
   }
 }
