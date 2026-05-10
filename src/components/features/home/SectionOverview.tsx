@@ -94,10 +94,8 @@ export default function SectionOverview() {
   const [developmentData, setDevelopmentData] = useState<DevelopmentDataRow[]>([]);
   const [loadingData, setLoadingData] = useState(true);
   const [dataError, setDataError] = useState<string | null>(null);
-  const [selectedYears, setSelectedYears] = useState<string[]>(() =>
-    Array.from(new Set(INITIAL_DEVELOPMENT_DATA.map((row) => row.year))).sort()
-  );
-  const [selectedMonths, setSelectedMonths] = useState<string[]>([]);
+  const [selectedYear, setSelectedYear] = useState<string>("All");
+  const [selectedMonth, setSelectedMonth] = useState<string>("All");
   const [selectedMetric, setSelectedMetric] = useState<Metric>("Total");
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const testimonialRef = useRef<HTMLDivElement | null>(null);
@@ -112,16 +110,19 @@ export default function SectionOverview() {
     [developmentData]
   );
 
-  const effectiveSelectedYears = selectedYears.length ? selectedYears : availableYears;
-  const selectedYearsSet = useMemo(() => new Set(effectiveSelectedYears), [effectiveSelectedYears]);
-  const selectedMonthsSet = useMemo(() => new Set(selectedMonths), [selectedMonths]);
+  const selectedYearsSet = useMemo(
+    () => new Set(selectedYear === "All" ? availableYears : [selectedYear]),
+    [availableYears, selectedYear]
+  );
+  const selectedMonthsSet = useMemo(
+    () => new Set(selectedMonth === "All" ? MONTH_ORDER : [selectedMonth]), [selectedMonth]);
 
   const filteredData = useMemo(
     () =>
       developmentData.filter(
-        (row) => selectedYearsSet.has(row.year) && (selectedMonths.length === 0 || selectedMonthsSet.has(row.month))
+        (row) => selectedYearsSet.has(row.year) && (selectedMonth === "All" || selectedMonthsSet.has(row.month))
       ),
-    [developmentData, selectedMonthsSet, selectedMonths.length, selectedYearsSet]
+    [developmentData, selectedMonthsSet, selectedMonth, selectedYearsSet]
   );
 
   const totalInPerson = useMemo(
@@ -196,18 +197,6 @@ export default function SectionOverview() {
 
   const trendColor = selectedMetric === "In-person" ? "#62E8FF" : selectedMetric === "Virtual" ? "#FCC30B" : "#7AF8B7";
   const trendLabel = selectedMetric === "Total" ? "Total programmes" : selectedMetric;
-
-  const toggleYear = (year: string) => {
-    setSelectedYears((current) =>
-      current.includes(year) ? current.filter((item) => item !== year) : [...current, year]
-    );
-  };
-
-  const toggleMonth = (month: string) => {
-    setSelectedMonths((current) =>
-      current.includes(month) ? current.filter((item) => item !== month) : [...current, month]
-    );
-  };
 
   const downloadCsv = () => {
     const rows = filteredData.length ? filteredData : developmentData.filter((row) => selectedYearsSet.has(row.year));
@@ -350,39 +339,37 @@ export default function SectionOverview() {
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Year</p>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {availableYears.map((year) => (
-                      <button
-                        key={year}
-                        type="button"
-                        onClick={() => toggleYear(year)}
-                        className={`rounded-full border px-4 py-2 text-sm font-black transition ${
-                          selectedYears.includes(year)
-                            ? "border-[#62E8FF] bg-[#62E8FF]/15 text-white"
-                            : "border-slate-600 bg-slate-900/40 text-slate-300"
-                        }`}
+                    <div className="relative">
+                      <select
+                        value={selectedYear}
+                        onChange={(event) => setSelectedYear(event.target.value)}
+                        className="w-full rounded-3xl border border-slate-600 bg-slate-950/90 px-4 py-3 text-sm font-black text-white outline-none transition focus:border-[#62E8FF] focus:ring-2 focus:ring-[#62E8FF]/20"
                       >
-                        {year}
-                      </button>
-                    ))}
+                        <option value="All">All years</option>
+                        {availableYears.map((year) => (
+                          <option key={year} value={year} className="bg-slate-950 text-white">
+                            {year}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Months</p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {MONTH_ORDER.map((month) => (
-                      <button
-                        key={month}
-                        type="button"
-                        onClick={() => toggleMonth(month)}
-                        className={`rounded-full border px-4 py-2 text-sm font-black transition ${
-                          selectedMonths.includes(month)
-                            ? "border-[#FCC30B] bg-[#FCC30B]/15 text-white"
-                            : "border-slate-600 bg-slate-900/40 text-slate-300"
-                        }`}
-                      >
-                        {month}
-                      </button>
-                    ))}
+                  <div className="mt-3 relative">
+                    <select
+                      value={selectedMonth}
+                      onChange={(event) => setSelectedMonth(event.target.value)}
+                      className="w-full rounded-3xl border border-slate-600 bg-slate-950/90 px-4 py-3 text-sm font-black text-white outline-none transition focus:border-[#FCC30B] focus:ring-2 focus:ring-[#FCC30B]/20"
+                    >
+                      <option value="All">All months</option>
+                      {MONTH_ORDER.map((month) => (
+                        <option key={month} value={month} className="bg-slate-950 text-white">
+                          {month}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 </div>
                 <div>
