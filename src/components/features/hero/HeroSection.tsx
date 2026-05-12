@@ -61,12 +61,12 @@ export default function HeroSection() {
       <div className="relative z-10 flex h-full items-end justify-end px-5 pb-24 pt-24 md:px-10">
         <div className="max-w-xs rounded-2xl bg-[#06111f]/70 p-5 text-left shadow-2xl shadow-black/50 backdrop-blur-md md:max-w-sm md:p-6">
           <h1 className="text-xl font-black leading-tight tracking-[-0.03em] text-white md:text-2xl">
-            AI &amp; Data Scientist building systems for{" "}
-            <span className="sdg-text-gradient">global impact.</span>
+            Climate AI Scientist &amp; Full-Stack Developer building{" "}
+            <span className="sdg-text-gradient">human-centered systems.</span>
           </h1>
           <p className="mt-3 text-sm leading-6 text-white/80">
-            At the intersection of AI, leadership, and sustainable development, building systems
-            that serve people and communities.
+            Passionate about AI, data science, NLP, and large language models — designing
+            intelligent systems that put people first and drive meaningful global change.
           </p>
           <div className="mt-5 flex flex-nowrap gap-2">
             <Link

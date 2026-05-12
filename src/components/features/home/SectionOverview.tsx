@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { DEVELOPMENT_DATA as INITIAL_DEVELOPMENT_DATA, type DevelopmentDataRow } from "@/data/developmentData";
+import TestimonialsSection from "./TestimonialsSection";
 
 const IMPACT_STATS = [
   {
@@ -43,44 +44,6 @@ const MONTH_ORDER = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Se
 
 type Metric = "Total" | "In-person" | "Virtual";
 
-const TESTIMONIALS = [
-  {
-    name: "Ama Osei",
-    role: "Women in Data Ghana participant",
-    quote: "I came in not knowing how to apply for a fellowship. Richard sat with me, went through every section of the application, and helped me write a personal statement I was actually proud of. I got in. I still cannot believe it.",
-    initials: "AO",
-  },
-  {
-    name: "Samuel Nkrumah",
-    role: "Youth Network Lead",
-    quote: "Our community climate programme was struggling. Richard helped us redesign the structure, train our volunteers and measure outcomes properly. Within four months we had reached 120 young people. The change was night and day.",
-    initials: "SN",
-  },
-  {
-    name: "Amina Yusuf",
-    role: "AI and Climate Change fellow",
-    quote: "I had heard a lot about AI but had no idea where to start. The sessions with Richard were practical from day one. By the end my team had built a weather dashboard that actual farmers in our district were using.",
-    initials: "AY",
-  },
-  {
-    name: "Grace Mensah",
-    role: "Scholarship recipient",
-    quote: "Richard reviewed my personal statement three times without being asked. He caught things no one else noticed and pushed me to be specific about my goals. I got a fully funded offer. I keep telling people: find a mentor like this.",
-    initials: "GM",
-  },
-  {
-    name: "David Kwame",
-    role: "Conference delegate",
-    quote: "I was terrified to present at an international summit. Richard ran a preparation session with me, helped me rehearse questions, and connected me with two researchers I am still collaborating with today. That one summit changed my trajectory.",
-    initials: "DK",
-  },
-  {
-    name: "Esi Baah",
-    role: "Community development facilitator",
-    quote: "We had the energy but not the structure. Richard helped us build a proper curriculum, track participation and show funders the real numbers. We went from 20 active participants to 80 in one cohort. The impact was measurable.",
-    initials: "EB",
-  },
-] as const;
 
 const GALLERY_FEATURES = [
   { src: "/gallery/20240604_134602.jpg", alt: "Richard Mensah at a leadership event, June 2024" },
@@ -96,7 +59,6 @@ export default function SectionOverview() {
   const [selectedMonth, setSelectedMonth] = useState<string>("All");
   const [selectedMetric, setSelectedMetric] = useState<Metric>("Total");
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const testimonialRef = useRef<HTMLDivElement | null>(null);
 
   const availableYears = useMemo(
     () =>
@@ -244,19 +206,6 @@ export default function SectionOverview() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const el = testimonialRef.current;
-    if (!el) return;
-    let raf = 0;
-    const step = () => {
-      if (!el) return;
-      el.scrollLeft += 0.45;
-      if (el.scrollLeft >= el.scrollWidth / 2) el.scrollLeft = 0;
-      raf = requestAnimationFrame(step);
-    };
-    raf = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(raf);
-  }, []);
 
   return (
     <section className="bg-[#F8FBFF]">
@@ -275,8 +224,20 @@ export default function SectionOverview() {
             />
           </div>
           <h2 className="mt-5 text-2xl font-black leading-tight text-slate-950 md:text-4xl">
-            Building intelligence, leadership, and opportunity into one impact system.
+            Richard Mensah — Climate AI Scientist, Developer &amp; Human-Centred Systems Builder.
           </h2>
+          <p className="mt-4 text-sm leading-7 text-slate-600">
+            Richard is a Climate AI scientist with a deep interest in artificial intelligence, data
+            science, natural language processing (NLP), and large language models (LLMs). He
+            specialises in designing and building human-centred AI systems — technology that is
+            not only technically rigorous but genuinely useful to the people who depend on it.
+          </p>
+          <p className="mt-3 text-sm leading-7 text-slate-600">
+            As a full-stack developer, Richard bridges research and product — moving from model
+            to interface, from data pipeline to deployed application. His work sits at the
+            intersection of climate intelligence, responsible AI, and sustainable development,
+            with a focus on communities and institutions across the Global South.
+          </p>
         </div>
 
         <div>
@@ -540,43 +501,9 @@ export default function SectionOverview() {
           </div>
         </div>
 
-        {/* ── Testimonials ───────────────────────────────────────── */}
-        <div className="mt-16">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#0077FF]">Testimonials</p>
-          <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.04em] text-slate-950 md:text-4xl">
-            In their own words.
-          </h2>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-            These are not edited summaries. They are real accounts from people who went through
-            the programmes, applied for the scholarships, built the projects, and came out the
-            other side with something tangible to show for it.
-          </p>
-
-          <div
-            ref={testimonialRef}
-            className="mt-8 flex gap-5 overflow-hidden pb-4"
-            style={{ scrollBehavior: "auto" }}
-          >
-            {[...TESTIMONIALS, ...TESTIMONIALS].map((t, index) => (
-              <article
-                key={`${t.name}-${index}`}
-                className="inline-block min-w-[340px] max-w-[340px] rounded-2xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/60 whitespace-normal"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-full bg-gradient-to-br from-[#0077FF] to-[#62E8FF] text-sm font-black text-white">
-                    {t.initials}
-                  </div>
-                  <div>
-                    <p className="font-black text-slate-950">{t.name}</p>
-                    <p className="text-xs text-slate-500">{t.role}</p>
-                  </div>
-                </div>
-                <p className="mt-4 text-sm leading-7 text-slate-700">{t.quote}</p>
-              </article>
-            ))}
-          </div>
-        </div>
       </div>
+
+      <TestimonialsSection />
     </section>
   );
 }
