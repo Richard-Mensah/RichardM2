@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const STATS = [
@@ -70,15 +71,9 @@ export default function ConferencePresentationsPageSection() {
           ))}
         </div>
 
-        {/* Image placeholder */}
-        {/* IMAGE PLACEHOLDER — replace with:
-            <div className="relative mt-10 h-64 overflow-hidden rounded-2xl">
-              <Image src="/research/conference-presentations-hero.jpg" alt="Conference presentation" fill className="object-cover" />
-            </div> */}
-        <div
-          aria-hidden="true"
-          className="mt-10 h-64 rounded-2xl bg-gradient-to-r from-[#FD6925]/20 via-[#FCC30B]/15 to-[#FD6925]/5"
-        />
+        <div className="relative mt-10 h-64 overflow-hidden rounded-2xl">
+          <Image src="/research/conference-presentations-hero.jpg" alt="Richard Mensah presenting at a conference" fill className="object-cover" />
+        </div>
 
         {/* Timeline */}
         <div className="mt-12">

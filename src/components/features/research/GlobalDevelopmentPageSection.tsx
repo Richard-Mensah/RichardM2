@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { IDENTITY_TIMELINE, PRIORITY_GOALS } from "@/constants";
 
@@ -60,15 +61,9 @@ export default function GlobalDevelopmentPageSection() {
           </div>
         </div>
 
-        {/* Image placeholder */}
-        {/* IMAGE PLACEHOLDER — replace with:
-            <div className="relative mt-12 h-56 overflow-hidden rounded-2xl">
-              <Image src="/research/global-development-map.jpg" alt="Global development map" fill className="object-cover" />
-            </div> */}
-        <div
-          aria-hidden="true"
-          className="mt-12 h-56 rounded-2xl bg-gradient-to-r from-[#00689D]/20 via-[#19486A]/15 to-[#00689D]/5"
-        />
+        <div className="relative mt-12 h-56 overflow-hidden rounded-2xl">
+          <Image src="/research/global-development-map.jpg" alt="International team celebrating global collaboration" fill className="object-cover" />
+        </div>
 
         {/* Cross-border network */}
         <div className="mt-10 rounded-2xl bg-[#0B1F3A] p-8">

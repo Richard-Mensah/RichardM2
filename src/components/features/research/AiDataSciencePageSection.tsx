@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SYSTEMS } from "@/constants";
 import AiDataScienceCapabilities from "./AiDataScienceCapabilities";
@@ -63,15 +64,9 @@ export default function AiDataSciencePageSection() {
           </div>
         </div>
 
-        {/* Image placeholder */}
-        {/* IMAGE PLACEHOLDER — replace with:
-            <div className="relative mt-12 h-64 overflow-hidden rounded-2xl">
-              <Image src="/research/ai-data-science-dashboard.png" alt="AI dashboard" fill className="object-cover" />
-            </div> */}
-        <div
-          aria-hidden="true"
-          className="mt-12 h-64 rounded-2xl bg-gradient-to-r from-[#009EDB]/20 via-[#0077FF]/15 to-[#009EDB]/5"
-        />
+        <div className="relative mt-12 h-64 overflow-hidden rounded-2xl">
+          <Image src="/research/ai-data-science-dashboard.jpg" alt="Technology innovation expo" fill className="object-cover" />
+        </div>
 
         {/* Capabilities */}
         <AiDataScienceCapabilities />
