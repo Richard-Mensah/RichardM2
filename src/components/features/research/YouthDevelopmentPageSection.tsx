@@ -1,0 +1,122 @@
+import Link from "next/link";
+import { LEADERSHIP_TRACKS, FOCUS_AREAS } from "@/constants";
+
+const STATS = [
+  { value: "120+", label: "Study Abroad Journeys" },
+  { value: "35+", label: "Fully Funded Scholarships" },
+  { value: "2,500+", label: "Youth Impacted" },
+  { value: "180+", label: "Youth Leaders Empowered" },
+];
+
+export default function YouthDevelopmentPageSection() {
+  return (
+    <div className="research-ground relative px-5 py-20 md:px-8">
+      <div className="pointer-events-none absolute inset-0 data-grid-light opacity-30" />
+      <div className="relative mx-auto max-w-5xl">
+
+        {/* Hero */}
+        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#FCC30B]">Youth Development</p>
+        <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
+          From potential to execution — at scale.
+        </h1>
+        <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600">
+          Mentorship, training, and knowledge systems that help young people across Ghana and
+          beyond move from aspiration to action — with measurable, lasting outcomes.
+        </p>
+
+        {/* Impact stats strip */}
+        <div className="mt-10 rounded-2xl bg-[#0077FF] p-8">
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+            {STATS.map((s) => (
+              <div key={s.label} className="text-center">
+                <p className="text-3xl font-black tracking-[-0.04em] text-white">{s.value}</p>
+                <p className="mt-1 text-xs font-bold uppercase tracking-[0.16em] text-white/70">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Image placeholder */}
+        {/* IMAGE PLACEHOLDER — replace with:
+            <div className="relative mt-10 h-64 overflow-hidden rounded-2xl">
+              <Image src="/research/youth-development-group.jpg" alt="Youth development" fill className="object-cover" />
+            </div> */}
+        <div
+          aria-hidden="true"
+          className="mt-10 h-64 rounded-2xl bg-gradient-to-r from-[#FCC30B]/25 via-[#C5192D]/15 to-[#FCC30B]/5"
+        />
+
+        {/* 2-col narrative */}
+        <div className="mt-12 grid gap-10 lg:grid-cols-2">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#FCC30B]">EGA Mentorship International</p>
+            <h2 className="mt-4 text-2xl font-black tracking-[-0.03em] text-slate-950">
+              Building knowledge systems, not just motivation.
+            </h2>
+            <div className="mt-4 space-y-4 text-sm leading-7 text-slate-600">
+              <p>
+                EGA Mentorship International is the flagship youth development initiative Richard
+                leads — a structured platform connecting ambitious young Africans with the
+                information, mentors, and opportunities they need to access global education
+                and leadership pathways.
+              </p>
+              <p>
+                The programme focuses on scholarship applications, fellowship pipelines, study
+                abroad preparation, and youth network development. Every pathway is data-tracked,
+                with outcomes measured across cohort cycles to inform continuous programme improvement.
+              </p>
+              <p>
+                The goal is not inspiration — it is execution. Talent is distributed equally.
+                The programme&apos;s job is to remove the friction between aspiration and action.
+              </p>
+            </div>
+          </div>
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-slate-500">Programme pillars</p>
+            <div className="mt-4 space-y-4">
+              {LEADERSHIP_TRACKS.map((track, i) => (
+                <div key={i} className="flex items-start gap-4 rounded-xl border border-[#FCC30B]/20 bg-[#FFFBF0] p-4">
+                  <div className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-lg bg-[#FCC30B] text-xs font-black text-white">
+                    {i + 1}
+                  </div>
+                  <p className="text-sm leading-6 text-slate-700">{track}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Focus areas */}
+        <div className="mt-12">
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-slate-500">Focus areas</p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {FOCUS_AREAS.map((area) => (
+              <span
+                key={area}
+                className="rounded-full border border-[#FCC30B]/30 px-4 py-2 text-sm font-bold text-[#FCC30B]"
+              >
+                {area}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-12 rounded-2xl bg-[#FFFBF0] p-8">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#FCC30B]">Get involved</p>
+          <p className="mt-3 text-base leading-7 text-slate-600">
+            Partner on a youth programme, support the scholarship pipeline, or connect young people in your network with EGA Mentorship International.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link href="/contact" className="rounded-full bg-[#FCC30B] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#E0A800]">
+              Partner with us
+            </Link>
+            <Link href="/leadership" className="rounded-full border border-slate-300 px-6 py-2.5 text-sm font-black text-slate-700 transition hover:border-slate-400">
+              EGA Mentorship
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
