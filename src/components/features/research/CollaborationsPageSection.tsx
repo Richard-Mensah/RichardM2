@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { COLLABORATION_TYPES, FOCUS_AREAS } from "@/constants";
 
@@ -69,18 +70,13 @@ export default function CollaborationsPageSection() {
           </div>
         </div>
 
-        {/* Geography + image placeholder */}
-        {/* IMAGE PLACEHOLDER — replace with:
-            <div className="relative mt-10 h-56 overflow-hidden rounded-2xl">
-              <Image src="/research/collaborations-map.png" alt="Global collaboration map" fill className="object-cover" />
-            </div> */}
-        <div
-          aria-hidden="true"
-          className="relative mt-10 flex h-56 items-center justify-center rounded-2xl bg-gradient-to-br from-[#A21942]/15 via-[#00689D]/10 to-[#A21942]/5"
-        >
-          <p className="text-center text-sm font-black text-slate-500">
-            Active across Ghana &middot; United Kingdom &middot; India &middot; Global South
-          </p>
+        <div className="relative mt-10 h-56 overflow-hidden rounded-2xl">
+          <Image src="/research/collaborations-hero.jpg" alt="Cross-border research collaboration meeting" fill className="object-cover" />
+          <div className="absolute inset-0 flex items-end justify-center bg-black/30 pb-5">
+            <p className="text-center text-sm font-black text-white">
+              Active across Ghana &middot; United Kingdom &middot; India &middot; Global South
+            </p>
+          </div>
         </div>
 
         {/* Open for block */}

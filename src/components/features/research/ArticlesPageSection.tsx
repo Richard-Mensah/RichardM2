@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { WRITING_IDEAS } from "@/constants";
 
@@ -48,15 +49,9 @@ export default function ArticlesPageSection() {
           anyone can engage with — because good ideas deserve to reach beyond academic journals.
         </p>
 
-        {/* Image placeholder */}
-        {/* IMAGE PLACEHOLDER — replace with:
-            <div className="relative mt-10 h-56 overflow-hidden rounded-2xl">
-              <Image src="/research/articles-writing.jpg" alt="Writing and articles" fill className="object-cover" />
-            </div> */}
-        <div
-          aria-hidden="true"
-          className="mt-10 h-56 rounded-2xl bg-gradient-to-r from-[#19486A]/20 via-[#009EDB]/12 to-[#19486A]/5"
-        />
+        <div className="relative mt-10 h-56 overflow-hidden rounded-2xl">
+          <Image src="/research/articles-writing.jpg" alt="Richard Mensah in thought" fill className="object-cover object-top" />
+        </div>
 
         {/* Themes grid */}
         <div className="mt-12">

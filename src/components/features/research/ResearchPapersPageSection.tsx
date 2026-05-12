@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { PUBLICATIONS, TAG_COLOURS } from "@/constants";
 
@@ -62,15 +63,9 @@ export default function ResearchPapersPageSection() {
             </div>
           </div>
 
-          {/* Image placeholder — right column */}
-          {/* IMAGE PLACEHOLDER — replace with:
-              <div className="relative overflow-hidden rounded-2xl">
-                <Image src="/research/research-papers-hero.jpg" alt="Research papers" fill className="object-cover" />
-              </div> */}
-          <div
-            aria-hidden="true"
-            className="min-h-[280px] rounded-2xl bg-gradient-to-br from-[#009EDB]/20 via-[#0077FF]/12 to-[#009EDB]/5"
-          />
+          <div className="relative min-h-[280px] overflow-hidden rounded-2xl">
+            <Image src="/research/research-papers-hero.jpg" alt="Richard Mensah at an academic conference" fill className="object-cover" />
+          </div>
         </div>
 
         {/* Papers grid */}

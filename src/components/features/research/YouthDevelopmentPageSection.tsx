@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { LEADERSHIP_TRACKS, FOCUS_AREAS } from "@/constants";
 
@@ -36,15 +37,9 @@ export default function YouthDevelopmentPageSection() {
           </div>
         </div>
 
-        {/* Image placeholder */}
-        {/* IMAGE PLACEHOLDER — replace with:
-            <div className="relative mt-10 h-64 overflow-hidden rounded-2xl">
-              <Image src="/research/youth-development-group.jpg" alt="Youth development" fill className="object-cover" />
-            </div> */}
-        <div
-          aria-hidden="true"
-          className="mt-10 h-64 rounded-2xl bg-gradient-to-r from-[#FCC30B]/25 via-[#C5192D]/15 to-[#FCC30B]/5"
-        />
+        <div className="relative mt-10 h-64 overflow-hidden rounded-2xl">
+          <Image src="/research/youth-development-group.jpg" alt="Youth group at an international event" fill className="object-cover" />
+        </div>
 
         {/* 2-col narrative */}
         <div className="mt-12 grid gap-10 lg:grid-cols-2">

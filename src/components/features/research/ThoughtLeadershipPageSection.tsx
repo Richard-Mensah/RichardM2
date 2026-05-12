@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { RESEARCH_PILLARS, WRITING_IDEAS } from "@/constants";
 
@@ -56,15 +57,9 @@ export default function ThoughtLeadershipPageSection() {
           ))}
         </div>
 
-        {/* Image placeholder */}
-        {/* IMAGE PLACEHOLDER — replace with:
-            <div className="relative mt-12 h-56 overflow-hidden rounded-2xl">
-              <Image src="/research/thought-leadership-speaking.jpg" alt="Richard speaking" fill className="object-cover" />
-            </div> */}
-        <div
-          aria-hidden="true"
-          className="mt-12 h-56 rounded-2xl bg-gradient-to-r from-[#FCC30B]/20 via-[#FD6925]/12 to-[#FCC30B]/5"
-        />
+        <div className="relative mt-12 h-56 overflow-hidden rounded-2xl">
+          <Image src="/research/thought-leadership-speaking.jpg" alt="International roundtable discussion" fill className="object-cover" />
+        </div>
 
         {/* Pillar elaborations */}
         <div className="mt-12 grid gap-6 md:grid-cols-2">

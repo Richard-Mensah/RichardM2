@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { PUBLICATIONS } from "@/constants";
 import PublicationCard from "./PublicationCard";
@@ -19,15 +20,9 @@ export default function PublicationsPageSection() {
           institutional partnership.
         </p>
 
-        {/* Image placeholder */}
-        {/* IMAGE PLACEHOLDER — replace with:
-            <div className="relative mt-10 h-56 overflow-hidden rounded-2xl">
-              <Image src="/research/publications-hero.jpg" alt="Research publications" fill className="object-cover" />
-            </div> */}
-        <div
-          aria-hidden="true"
-          className="mt-10 h-56 rounded-2xl bg-gradient-to-r from-[#0077FF]/20 via-[#009EDB]/15 to-[#0077FF]/5"
-        />
+        <div className="relative mt-10 h-56 overflow-hidden rounded-2xl">
+          <Image src="/research/publications-hero.jpg" alt="Research publications" fill className="object-cover" />
+        </div>
 
         {/* Publications list */}
         <div className="mt-12 space-y-6">

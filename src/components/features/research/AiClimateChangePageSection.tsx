@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SYSTEMS } from "@/constants";
 
@@ -80,15 +81,9 @@ export default function AiClimateChangePageSection() {
           </div>
         </div>
 
-        {/* Image placeholder */}
-        {/* IMAGE PLACEHOLDER — replace with:
-            <div className="relative mt-12 h-64 overflow-hidden rounded-2xl">
-              <Image src="/research/ai-climate-change-satellite.jpg" alt="Climate satellite data" fill className="object-cover" />
-            </div> */}
-        <div
-          aria-hidden="true"
-          className="mt-12 h-64 rounded-2xl bg-gradient-to-r from-[#3F7E44]/20 via-[#009EDB]/15 to-[#3F7E44]/5"
-        />
+        <div className="relative mt-12 h-64 overflow-hidden rounded-2xl">
+          <Image src="/research/ai-climate-change-satellite.jpg" alt="Satellite view of earth's climate systems" fill className="object-cover" />
+        </div>
 
         {/* Approach strip */}
         <div className="mt-12">
