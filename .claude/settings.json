@@ -26,10 +26,14 @@
       "Bash(node -e \"const p=require\\('./package.json'\\); const deps={...p.dependencies,...p.devDependencies}; console.log\\(JSON.stringify\\(Object.keys\\(deps\\).filter\\(k=>['framer-motion','motion','lucide-react','clsx','tailwind-merge'].includes\\(k\\)\\),null,2\\)\\)\")",
       "Bash(xargs grep -l \"RESEARCH_PILLARS\")",
       "WebSearch",
-      "WebFetch(domain:unsplash.com)"
+      "WebFetch(domain:unsplash.com)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\joe\\\\Downloads\\\\Mypics-20260509T233441Z-3-001\\\\Mypics\\\\\" -Recurse -Directory | Select-Object -ExpandProperty FullName | Sort-Object)",
+      "Bash(dir \"c:\\\\Users\\\\joe\\\\Downloads\\\\Mypics-20260509T233441Z-3-001\\\\Mypics\\\\\" -Recurse | head -100)",
+      "Bash(find /c/Users/joe/Downloads/\"PERSONAL community development volunteering\"/*/team -maxdepth 1 -type f)"
     ],
     "additionalDirectories": [
-      "c:\\Users\\joe\\Documents\\GitHub\\RichardM2"
+      "c:\\Users\\joe\\Documents\\GitHub\\RichardM2",
+      "c:\\Users\\joe\\Documents\\GitHub\\RichardM2\\src\\app\\leadership"
     ]
   }
 }
