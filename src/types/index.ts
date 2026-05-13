@@ -54,6 +54,16 @@ export type SystemProject = {
   impact: string;
 };
 
+export type ProjectCategory = {
+  slug: string;
+  label: string;
+  tagline: string;
+  description: string;
+  accent: string;
+  icon: string;
+  image: string;
+};
+
 export type DatabaseSignal = "online" | "degraded";
 
 export type { CollaborationInquiry, NewCollaborationInquiry } from "@/db/schema";
