@@ -103,11 +103,11 @@ export default function SiteHeader() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3" aria-label="Richard Mensah home">
             <Image
-              src="/richard-mensah-profile.svg"
-              alt="Richard Mensah Logo"
-              width={44}
-              height={44}
-              className="rounded-2xl shadow-lg"
+              src="/Rich1.png"
+              alt="Richard Mensah logo"
+              width={52}
+              height={52}
+              className="h-11 w-11 rounded-xl bg-white object-cover shadow-lg ring-1 ring-white/30"
             />
             <span className="hidden leading-tight sm:block">
               <span className="block text-sm font-black uppercase tracking-[0.22em] text-white">
