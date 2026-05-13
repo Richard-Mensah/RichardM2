@@ -79,7 +79,7 @@ export default function HeroSection() {
             <span className="sdg-text-gradient">human-centered systems.</span>
           </h1>
           <p className="mt-3 text-sm leading-6 text-white/80">
-            Passionate about AI, data science, NLP, and large language models — designing
+            Passionate about AI, data science, NLP, and large language models - designing
             intelligent systems that put people first and drive meaningful global change.
           </p>
           <div className="mt-5 flex flex-nowrap gap-2">

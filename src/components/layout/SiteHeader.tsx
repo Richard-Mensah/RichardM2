@@ -4,6 +4,7 @@ import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone } from "lucide-react";
+import Image from "next/image";
 import DesktopNav from "./SiteHeader/DesktopNav";
 import MobileNav from "./SiteHeader/MobileNav";
 
@@ -101,9 +102,13 @@ export default function SiteHeader() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3" aria-label="Richard Mensah home">
-            <span className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-sm font-black text-[#005BDB] shadow-lg">
-              RM
-            </span>
+            <Image
+              src="/richard-mensah-profile.svg"
+              alt="Richard Mensah Logo"
+              width={44}
+              height={44}
+              className="rounded-2xl shadow-lg"
+            />
             <span className="hidden leading-tight sm:block">
               <span className="block text-sm font-black uppercase tracking-[0.22em] text-white">
                 Richard Mensah

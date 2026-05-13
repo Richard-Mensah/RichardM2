@@ -230,16 +230,16 @@ export default function SectionOverview() {
             />
           </div>
           <h2 className="mt-5 text-2xl font-black leading-tight text-slate-950 md:text-4xl">
-            Richard Mensah — Climate AI Scientist, Developer &amp; Human-Centred Systems Builder.
+            Richard Mensah - Climate AI Scientist, Developer &amp; Human-Centred Systems Builder.
           </h2>
           <p className="mt-4 text-sm leading-7 text-slate-600">
             Richard is a Climate AI scientist with a deep interest in artificial intelligence, data
             science, natural language processing (NLP), and large language models (LLMs). He
-            specialises in designing and building human-centred AI systems — technology that is
+            specialises in designing and building human-centred AI systems - technology that is
             not only technically rigorous but genuinely useful to the people who depend on it.
           </p>
           <p className="mt-3 text-sm leading-7 text-slate-600">
-            As a full-stack developer, Richard bridges research and product — moving from model
+            As a full-stack developer, Richard bridges research and product - moving from model
             to interface, from data pipeline to deployed application. His work sits at the
             intersection of climate intelligence, responsible AI, and sustainable development,
             with a focus on communities and institutions across the Global South.
