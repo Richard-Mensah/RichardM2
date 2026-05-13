@@ -7,12 +7,26 @@ import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const SLIDES = [
+  // Original curated set
   { src: "/gallery/20240302_090453.jpg", alt: "Richard Mensah at a leadership programme" },
-  { src: "/gallery/20240229_120952.jpg", alt: "Richard Mensah at a community engagement" },
+  { src: "/gallery/20240229_120952.jpg", alt: "Richard Mensah — international engagement" },
   { src: "/gallery/20240304_094455.jpg", alt: "Richard Mensah during a development programme" },
   { src: "/gallery/20240305_142937.jpg", alt: "Richard Mensah at a youth leadership session" },
   { src: "/gallery/20240607_184209.jpg", alt: "Richard Mensah at an evening programme" },
-] as const;
+  // clearforsidebar — additional selected images
+  { src: "/gallery/20251117_180354.jpg", alt: "Richard Mensah — 2025" },
+  { src: "/gallery/FB_IMG_1742347818191.jpg", alt: "Richard Mensah" },
+  { src: "/gallery/FB_IMG_1742347850249.jpg", alt: "Richard Mensah" },
+  { src: "/gallery/FB_IMG_1746893935206.jpg", alt: "Richard Mensah" },
+  { src: "/gallery/FB_IMG_1746893977402.jpg", alt: "Richard Mensah" },
+  { src: "/gallery/Screenshot_20240606_183355_WhatsAppBusiness.jpg", alt: "Richard Mensah — community engagement" },
+  { src: "/gallery/Screenshot_20240606_183400_WhatsAppBusiness.jpg", alt: "Richard Mensah — community event" },
+  { src: "/gallery/Screenshot_20240928_222847_Gallery.jpg", alt: "Richard Mensah" },
+  // Community development highlights
+  { src: "/community/teaching-morning.jpg", alt: "Free morning teaching during COVID-19 lockdown — Sefwi Bekwai" },
+  { src: "/community/sanitation-sweeping.jpg", alt: "Community sanitation exercise — DansoKrom, Sefwi Bekwai" },
+  { src: "/community/stem-excursion-main.jpg", alt: "STEM excursion with community children — Grace Hospital, Sefwi Bekwai" },
+];
 
 const AUTOPLAY_INTERVAL = 5000;
 
