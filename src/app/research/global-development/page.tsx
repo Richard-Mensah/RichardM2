@@ -5,7 +5,7 @@ import GlobalDevelopmentPageSection from "@/components/features/research/GlobalD
 export const metadata: Metadata = {
   title: "Global Development | Richard Mensah",
   description:
-    "Richard Mensah's global development work — cross-border research, SDG-aligned partnerships, and AI initiatives connecting Ghana, the UK, and global networks.",
+    "Richard Mensah's global development work: cross-border research, SDG-aligned partnerships, and AI initiatives connecting Ghana, the UK, and global networks.",
 };
 
 export default function GlobalDevelopmentPage() {

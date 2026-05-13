@@ -18,11 +18,11 @@ export default function YouthDevelopmentPageSection() {
         {/* Hero */}
         <p className="text-xs font-black uppercase tracking-[0.32em] text-[#FCC30B]">Youth Development</p>
         <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
-          From potential to execution — at scale.
+          From potential to execution, at scale.
         </h1>
         <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600">
           Mentorship, training, and knowledge systems that help young people across Ghana and
-          beyond move from aspiration to action — with measurable, lasting outcomes.
+          beyond move from aspiration to action, with measurable, lasting outcomes.
         </p>
 
         {/* Impact stats strip */}
@@ -51,7 +51,7 @@ export default function YouthDevelopmentPageSection() {
             <div className="mt-4 space-y-4 text-sm leading-7 text-slate-600">
               <p>
                 EGA Mentorship International is the flagship youth development initiative Richard
-                leads — a structured platform connecting ambitious young Africans with the
+                leads: a structured platform connecting ambitious young Africans with the
                 information, mentors, and opportunities they need to access global education
                 and leadership pathways.
               </p>
@@ -61,7 +61,7 @@ export default function YouthDevelopmentPageSection() {
                 with outcomes measured across cohort cycles to inform continuous programme improvement.
               </p>
               <p>
-                The goal is not inspiration — it is execution. Talent is distributed equally.
+                The goal is not inspiration. It is execution. Talent is distributed equally.
                 The programme&apos;s job is to remove the friction between aspiration and action.
               </p>
             </div>

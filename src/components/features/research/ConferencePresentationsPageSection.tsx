@@ -57,7 +57,7 @@ export default function ConferencePresentationsPageSection() {
         </h1>
         <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600">
           Speaking at AI ethics forums, UN SDG convenings, youth leadership assemblies, and
-          climate intelligence summits — bringing practitioner insight from Ghana, the UK, and
+          climate intelligence summits, bringing practitioner insight from Ghana, the UK, and
           the broader Global South.
         </p>
 

@@ -5,7 +5,7 @@ import YouthDevelopmentPageSection from "@/components/features/research/YouthDev
 export const metadata: Metadata = {
   title: "Youth Development | Richard Mensah",
   description:
-    "Richard Mensah's youth development work — mentorship, scholarship facilitation, training programmes, and knowledge systems that move young people from aspiration to action.",
+    "Richard Mensah's youth development work: mentorship, scholarship facilitation, training programmes, and knowledge systems that move young people from aspiration to action.",
 };
 
 export default function YouthDevelopmentPage() {

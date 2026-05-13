@@ -5,7 +5,7 @@ import AiClimateChangePageSection from "@/components/features/research/AiClimate
 export const metadata: Metadata = {
   title: "AI & Climate Change | Richard Mensah",
   description:
-    "Richard Mensah's climate AI research — translating satellite-derived climate signals into community-readable risk narratives for adaptation planning in Sub-Saharan Africa.",
+    "Richard Mensah's climate AI research: translating satellite-derived climate signals into community-readable risk narratives for adaptation planning in Sub-Saharan Africa.",
 };
 
 export default function AiClimateChangePage() {

@@ -46,11 +46,11 @@ export default function ArticlesPageSection() {
         </h1>
         <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600">
           Essays, blog posts, and public writing that translate complex research into ideas
-          anyone can engage with — because good ideas deserve to reach beyond academic journals.
+          anyone can engage with, because good ideas deserve to reach beyond academic journals.
         </p>
 
         <div className="relative mt-10 h-56 overflow-hidden rounded-2xl">
-          <Image src="/research/articles-writing.jpg" alt="Richard Mensah in thought" fill className="object-cover object-top" />
+          <Image src="/research/articles-writing.jpg" alt="Richard Mensah in thought" fill className="object-cover object-center" />
         </div>
 
         {/* Themes grid */}
@@ -102,7 +102,7 @@ export default function ArticlesPageSection() {
         <div className="mt-10 rounded-2xl bg-[#F0F4F8] p-8">
           <p className="text-sm font-black uppercase tracking-[0.22em] text-[#19486A]">Read more</p>
           <p className="mt-3 text-base leading-7 text-slate-600">
-            All articles, essays, and longer-form writing live on the main blog — updated regularly.
+            All articles, essays, and longer-form writing live on the main blog, updated regularly.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link href="/blog" className="rounded-full bg-[#19486A] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#123756]">

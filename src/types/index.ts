@@ -42,6 +42,7 @@ export type ResearchCategory = {
   accent: string;
   icon: string;
   sdgTag?: string;
+  image?: string;
 };
 
 export type SystemProject = {

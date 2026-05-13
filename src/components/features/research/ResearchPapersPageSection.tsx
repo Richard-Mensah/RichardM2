@@ -8,10 +8,10 @@ const GRID_PAPERS = PUBLICATIONS.filter(
 ).slice(1);
 
 const AGENDA = [
-  "NLP for low-resource African languages — bridging the digital language divide",
-  "Climate signal translation — turning satellite data into community-readable risk narratives",
-  "Human-centred AI design — building systems that work across literacy levels and device constraints",
-  "Institutional AI readiness — what governance and accountability look like in the Global South",
+  "NLP for low-resource African languages: bridging the digital language divide",
+  "Climate signal translation: turning satellite data into community-readable risk narratives",
+  "Human-centred AI design: building systems that work across literacy levels and device constraints",
+  "Institutional AI readiness: what governance and accountability look like in the Global South",
 ];
 
 export default function ResearchPapersPageSection() {
@@ -27,7 +27,7 @@ export default function ResearchPapersPageSection() {
         </h1>
         <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600">
           Peer-reviewed and working papers spanning NLP, climate AI, human-centred design,
-          and institutional governance — designed to inform practice, not just add to the literature.
+          and institutional governance, designed to inform practice, not just add to the literature.
         </p>
 
         {/* Featured paper */}
