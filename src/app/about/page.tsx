@@ -268,7 +268,7 @@ export default function AboutPage() {
                 {
                   era: "Early Beginnings · Ghana",
                   title: "Community roots and the leadership instinct",
-                  body: "Richard's leadership story did not begin in a boardroom or a lecture theatre. It began in Sekyere Bekwai, where a teenage Richard organised community youth events, rallied his peers around educational goals, and discovered that leadership is a daily choice. He served in the S/Bekwai Youth Parliament, contributing to local governance and building a reputation as someone who shows up and delivers.",
+                  body: "Richard's leadership story began in the Western North Region of Ghana. He co-founded the Sefwi Bekwai Youth Movement — a grassroots platform to organise and empower youth in his district. This evolved into the Sefwi Bekwai Youth Parliament, and he also represented the region in the UNYA-Ghana Youth Parliament at Parliament House in Accra, contributing to national youth policy and local governance.",
                 },
                 {
                   era: "Academic & Professional · UK",
@@ -306,19 +306,19 @@ export default function AboutPage() {
 
             <div className="grid grid-cols-2 gap-4">
               <PhotoLink
-                src="/gallery/FB_IMG_1742347850249.jpg"
-                alt="Richard Mensah — SDG community work"
+                src="/leadership/bym-media-engagement.jpg"
+                alt="Sefwi Bekwai Youth Movement — community media engagement"
                 height="h-64 col-span-2"
                 className="col-span-2"
               />
               <PhotoLink
-                src="/gallery/FB_IMG_1746893909499.jpg"
-                alt="Richard Mensah — leadership summit"
+                src="/leadership/unya-parliament-house.jpg"
+                alt="UNYA-Ghana Youth Parliament at Parliament House, Accra"
                 height="h-52"
               />
               <PhotoLink
-                src="/gallery/FB_IMG_1746893886695.jpg"
-                alt="Richard Mensah — youth leadership event"
+                src="/gallery/FB_IMG_1742347850249.jpg"
+                alt="Richard Mensah presenting at an international conference"
                 height="h-52"
               />
             </div>
