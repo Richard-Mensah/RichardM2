@@ -26,7 +26,7 @@ const IMPACT_STATS = [
   {
     value: "180+",
     label: "Youth leaders empowered",
-    detail: "Across Sekyere Bekwai, Ghana, and wider youth leadership communities.",
+    detail: "Across Sefwi Bekwai, Ghana, and wider youth leadership communities.",
   },
   {
     value: "65+",
@@ -45,11 +45,17 @@ const MONTH_ORDER = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Se
 type Metric = "Total" | "In-person" | "Virtual";
 
 
-const GALLERY_FEATURES = [
-  { src: "/gallery/20240604_134602.jpg", alt: "Richard Mensah at a leadership event, June 2024" },
-  { src: "/gallery/20240305_142937.jpg", alt: "Richard Mensah at a youth development engagement" },
-  { src: "/gallery/FB_IMG_1746893901373.jpg", alt: "Richard Mensah at an SDG advocacy session" },
-] as const;
+const GALLERY_THEN = [
+  { src: "/leadership/church-congregation-2.jpg", caption: "Speaking at a church campaign, Sefwi Bekwai" },
+  { src: "/community/winneba-sanitation-1.jpg",   caption: "Community volunteering in Winneba, 2019" },
+  { src: "/community/teaching-class-1.jpg",       caption: "Free teaching during COVID-19 lockdown" },
+];
+
+const GALLERY_NOW = [
+  { src: "/gallery/20240302_090453.jpg",      caption: "Leadership programme, Ghana 2024" },
+  { src: "/leadership/conference-sochi.jpg",  caption: "International conference, Sochi Russia" },
+  { src: "/gallery/FB_IMG_1746893901373.jpg", caption: "SDG advocacy session" },
+];
 
 export default function SectionOverview() {
   const [developmentData, setDevelopmentData] = useState<DevelopmentDataRow[]>([]);
@@ -444,7 +450,7 @@ export default function SectionOverview() {
 
       {/* ── In the field ─────────────────────────────────────────── */}
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
-        <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-start">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.3em] text-[#0077FF]">In the field</p>
             <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.04em] text-slate-950 md:text-4xl">
@@ -452,15 +458,15 @@ export default function SectionOverview() {
             </h2>
             <div className="mt-5 space-y-4 text-base leading-7 text-slate-600">
               <p>
-                Every statistic on this page has a face behind it. A young person who got into
-                a university they never thought would accept them. A community group that finally
-                had the tools to measure their own impact. A first-generation student who sat
-                down in a workshop and left with a skill that changed what was possible for them.
+                Before any conference stage, scholarship placement, or AI system, there were
+                church campaigns in Sefwi Bekwai, volunteer teaching during COVID-19 lockdowns,
+                and sanitation drives in communities nobody was watching. That is where the
+                work began.
               </p>
               <p>
-                These photos are from that work. Leadership sessions in Ghana, community
-                engagements, SDG advocacy moments, and the kind of in-between time that does not
-                make headlines but is where the real work happens.
+                These photos tell that story. From the villages that shaped the mission, to the
+                global rooms that the mission eventually reached. Every number on this page has
+                a face behind it and a community that made it possible.
               </p>
             </div>
             <div className="mt-7 flex flex-wrap gap-3">
@@ -479,28 +485,74 @@ export default function SectionOverview() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            {GALLERY_FEATURES.map((image, index) => (
-              <a
-                key={image.src}
-                href={image.src}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`group relative block overflow-hidden rounded-2xl ${index === 0 ? "col-span-2 h-72" : "h-52"}`}
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                  sizes="(min-width: 1024px) 45vw, 100vw"
-                />
-                <div className="absolute inset-0 bg-black/0 transition group-hover:bg-black/15" />
-              </a>
-            ))}
+          <div className="grid grid-cols-2 gap-5">
+            {/* Where it started */}
+            <div>
+              <div className="mb-3 flex items-center gap-2">
+                <div className="h-2 w-2 flex-shrink-0 rounded-full bg-amber-400" />
+                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-amber-600">
+                  Where it started
+                </p>
+              </div>
+              <div className="flex flex-col gap-3">
+                {GALLERY_THEN.map((img) => (
+                  <a
+                    key={img.src}
+                    href={img.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative block h-32 overflow-hidden rounded-xl"
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.caption}
+                      fill
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                      sizes="(min-width: 1024px) 22vw, 45vw"
+                    />
+                    <div className="absolute inset-0 bg-black/0 transition group-hover:bg-black/25" />
+                    <p className="absolute inset-x-0 bottom-0 translate-y-1 bg-gradient-to-t from-black/70 to-transparent px-2 py-2 text-[9px] font-semibold leading-tight text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                      {img.caption}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Where it led */}
+            <div>
+              <div className="mb-3 flex items-center gap-2">
+                <div className="h-2 w-2 flex-shrink-0 rounded-full bg-[#0077FF]" />
+                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-[#0077FF]">
+                  Where it led
+                </p>
+              </div>
+              <div className="flex flex-col gap-3">
+                {GALLERY_NOW.map((img) => (
+                  <a
+                    key={img.src}
+                    href={img.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative block h-32 overflow-hidden rounded-xl"
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.caption}
+                      fill
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                      sizes="(min-width: 1024px) 22vw, 45vw"
+                    />
+                    <div className="absolute inset-0 bg-black/0 transition group-hover:bg-black/25" />
+                    <p className="absolute inset-x-0 bottom-0 translate-y-1 bg-gradient-to-t from-black/70 to-transparent px-2 py-2 text-[9px] font-semibold leading-tight text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                      {img.caption}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-
       </div>
 
       <TestimonialsSection />
