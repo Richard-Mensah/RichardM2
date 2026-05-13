@@ -34,7 +34,13 @@
       "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\joe\\\\Downloads\\\\mY COMMUNITY DEVELOPMENT & LEADERSHIP JOURNEY PICTURES\\\\\" -Recurse -Force | Select-Object FullName, Name | Format-Table -AutoSize)",
       "Bash(Get-ChildItem \"c:\\\\Users\\\\joe\\\\Downloads\\\\Mypics-20260509T233441Z-3-001\\\\Mypics\\\\clearforsidebar\")",
       "Bash(Select-Object Name)",
-      "Bash(Sort-Object Name)"
+      "Bash(Sort-Object Name)",
+      "Bash(Get-ChildItem -Path . -Recurse -Filter \"*home*\" -Type f)",
+      "Bash(Select-Object -First 20)",
+      "Bash(cd \"/c/Users/joe/Documents/GitHub/RichardM2\" && find . -name \"*home*\" -type f 2>/dev/null | head -20)",
+      "Read(//c/c/Users/joe/Documents/GitHub/**)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\joe\\\\Documents\\\\GitHub\\\\RichardM2\" -Directory)",
+      "Bash(Select-Object -ExpandProperty Name)"
     ],
     "additionalDirectories": [
       "c:\\Users\\joe\\Documents\\GitHub\\RichardM2",
