@@ -1,4 +1,4 @@
-import type { NavItem, SdgColour, PriorityGoal, IdentityCard, ResearchPillar, ResearchCategory, SystemProject } from "@/types";
+import type { NavItem, SdgColour, PriorityGoal, IdentityCard, ResearchPillar, ResearchCategory, SystemProject, ProjectCategory } from "@/types";
 
 export const NAVIGATION: NavItem[] = [
   { label: "HOME", href: "/" },
@@ -35,13 +35,13 @@ export const NAVIGATION: NavItem[] = [
     label: "PROJECTS",
     href: "/projects",
     children: [
-      { label: "AI Projects", href: "/projects#ai" },
-      { label: "Data Science Projects", href: "/projects#data-science" },
-      { label: "Climate Innovation", href: "/projects#climate" },
-      { label: "SDG Projects", href: "/projects#sdg" },
-      { label: "Community Initiatives", href: "/projects#community" },
-      { label: "Open Source Work", href: "/projects#open-source" },
-      { label: "Portfolio", href: "/projects#portfolio" },
+      { label: "AI Projects",           href: "/projects/ai" },
+      { label: "Data Science",          href: "/projects/data-science" },
+      { label: "Climate Innovation",    href: "/projects/climate" },
+      { label: "SDG Projects",          href: "/projects/sdg" },
+      { label: "Community Initiatives", href: "/projects/community" },
+      { label: "Open Source",           href: "/projects/open-source" },
+      { label: "Portfolio",             href: "/projects/portfolio" },
     ],
   },
   {
@@ -205,6 +205,72 @@ export const SYSTEMS: SystemProject[] = [
     problem: "Mentorship programs often inspire people but fail to scale learning, measure growth, or preserve knowledge.",
     approach: "Program analytics, knowledge bases, skill maps, mentoring records, and opportunity pathways.",
     impact: "Makes youth leadership measurable, repeatable, and globally collaborative.",
+  },
+];
+
+export const PROJECT_CATEGORIES: ProjectCategory[] = [
+  {
+    slug: "/projects/ai",
+    label: "AI Projects",
+    tagline: "Applied intelligence for real-world decisions",
+    description: "Machine learning systems, NLP tools, predictive models, and intelligent decision-support platforms built for real-world institutional use.",
+    accent: "#009EDB",
+    icon: "🤖",
+    image: "/gallery/FB_IMG_1744840775657.jpg",
+  },
+  {
+    slug: "/projects/data-science",
+    label: "Data Science Projects",
+    tagline: "Turning raw data into institutional intelligence",
+    description: "Analytics pipelines, dashboards, data engineering, and visualisation systems that turn raw data into actionable institutional intelligence.",
+    accent: "#0A97D9",
+    icon: "📊",
+    image: "/gallery/20240302_090453.jpg",
+  },
+  {
+    slug: "/projects/climate",
+    label: "Climate Innovation",
+    tagline: "Climate signals as community tools",
+    description: "Climate signal observatories, resilience dashboards, and community-facing tools that translate complex climate data into understandable, actionable insights.",
+    accent: "#3F7E44",
+    icon: "🌍",
+    image: "/research/ai-climate-change-satellite.jpg",
+  },
+  {
+    slug: "/projects/sdg",
+    label: "SDG Projects",
+    tagline: "Aligning innovation with the global goals",
+    description: "Systems and programmes directly aligned with specific Sustainable Development Goals, from SDG 4 (education) to SDG 13 (climate action).",
+    accent: "#19486A",
+    icon: "🎯",
+    image: "/gallery/FB_IMG_1746893901373.jpg",
+  },
+  {
+    slug: "/projects/community",
+    label: "Community Initiatives",
+    tagline: "Technology built by and for communities",
+    description: "Youth-led and community-centred programmes combining skills training, mentorship, and local data to drive grassroots development.",
+    accent: "#D4A017",
+    icon: "🤝",
+    image: "/community/teaching-class-1.jpg",
+  },
+  {
+    slug: "/projects/open-source",
+    label: "Open Source Work",
+    tagline: "Sharing tools with the world",
+    description: "Publicly available tools, code, and frameworks contributed to the open-source community for AI, data science, and development applications.",
+    accent: "#FD6925",
+    icon: "💻",
+    image: "/gallery/20240604_134602.jpg",
+  },
+  {
+    slug: "/projects/portfolio",
+    label: "Portfolio",
+    tagline: "A career built with purpose, in code and community",
+    description: "A complete showcase of Richard's built systems, published work, and deployed tools across AI, climate intelligence, and youth development.",
+    accent: "#A21942",
+    icon: "🗂️",
+    image: "/gallery/FB_IMG_1742347850249.jpg",
   },
 ];
 
