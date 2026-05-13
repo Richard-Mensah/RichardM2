@@ -29,7 +29,9 @@
       "WebFetch(domain:unsplash.com)",
       "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\joe\\\\Downloads\\\\Mypics-20260509T233441Z-3-001\\\\Mypics\\\\\" -Recurse -Directory | Select-Object -ExpandProperty FullName | Sort-Object)",
       "Bash(dir \"c:\\\\Users\\\\joe\\\\Downloads\\\\Mypics-20260509T233441Z-3-001\\\\Mypics\\\\\" -Recurse | head -100)",
-      "Bash(find /c/Users/joe/Downloads/\"PERSONAL community development volunteering\"/*/team -maxdepth 1 -type f)"
+      "Bash(find /c/Users/joe/Downloads/\"PERSONAL community development volunteering\"/*/team -maxdepth 1 -type f)",
+      "Bash(Get-ChildItem \"c:\\\\Users\\\\joe\\\\Downloads\\\\mY COMMUNITY DEVELOPMENT & LEADERSHIP JOURNEY PICTURES\\\\\" -Directory | Select-Object Name)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\joe\\\\Downloads\\\\mY COMMUNITY DEVELOPMENT & LEADERSHIP JOURNEY PICTURES\\\\\" -Recurse -Force | Select-Object FullName, Name | Format-Table -AutoSize)"
     ],
     "additionalDirectories": [
       "c:\\Users\\joe\\Documents\\GitHub\\RichardM2",
