@@ -6,7 +6,7 @@ const APPROACH = [
   {
     icon: "DS",
     title: "Data Sources",
-    body: "Open geospatial datasets, satellite imagery, precipitation records, and temperature anomaly indices — sourced from publicly available climate data repositories.",
+    body: "Open geospatial datasets, satellite imagery, precipitation records, and temperature anomaly indices, sourced from publicly available climate data repositories.",
     accent: "#3F7E44",
   },
   {
@@ -38,7 +38,7 @@ export default function AiClimateChangePageSection() {
         </h1>
         <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600">
           Translating complex environmental signals into practical, community-readable
-          adaptation intelligence — particularly for Sub-Saharan Africa, where climate risk
+          adaptation intelligence, particularly for Sub-Saharan Africa, where climate risk
           is acute and data science capacity is limited.
         </p>
 
@@ -46,20 +46,20 @@ export default function AiClimateChangePageSection() {
         <div className="mt-12 space-y-4 text-base leading-7 text-slate-600">
           <p>
             Climate change is not an abstract threat for the communities Richard works with and
-            researches. It is a lived, daily reality — changing rainfall patterns, increasing
+            researches. It is a lived, daily reality: changing rainfall patterns, increasing
             drought frequency, shifting planting seasons, and growing flood risk. His climate AI
             research focuses on making this complexity legible to the people who need to act on it.
           </p>
           <p>
             Working with open geospatial datasets and satellite imagery, Richard develops models
             and dashboards that help local governments, NGOs, and communities understand what is
-            happening in their environment and plan adaptive responses — without needing a data
+            happening in their environment and plan adaptive responses, without needing a data
             science team to interpret the outputs.
           </p>
           <p>
             This research area directly informs his work on SDG 13 (Climate Action) and contributes
             to a broader evidence base on AI-assisted adaptation in Sub-Saharan Africa. The goal is
-            not just to produce climate data — but to produce climate intelligence that communities
+            not just to produce climate data, but to produce climate intelligence that communities
             can actually use.
           </p>
         </div>
@@ -70,7 +70,7 @@ export default function AiClimateChangePageSection() {
           <h2 className="mt-2 text-2xl font-black">Climate Action</h2>
           <div className="mt-4 space-y-3 text-sm leading-7 text-white/85">
             <p>
-              Richard&apos;s climate AI work is explicitly aligned with SDG 13 — strengthening
+              Richard&apos;s climate AI work is explicitly aligned with SDG 13, strengthening
               resilience and adaptive capacity to climate-related hazards through applied AI.
             </p>
             <p>

@@ -5,7 +5,7 @@ import ArticlesPageSection from "@/components/features/research/ArticlesPageSect
 export const metadata: Metadata = {
   title: "Articles | Richard Mensah",
   description:
-    "Public writing by Richard Mensah on AI, climate, youth leadership, and sustainable development — translating research into ideas anyone can engage with.",
+    "Public writing by Richard Mensah on AI, climate, youth leadership, and sustainable development, translating research into ideas anyone can engage with.",
 };
 
 export default function ArticlesPage() {

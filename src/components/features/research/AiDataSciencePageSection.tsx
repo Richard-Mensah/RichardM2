@@ -17,7 +17,7 @@ export default function AiDataSciencePageSection() {
           Applied intelligence for real-world decisions.
         </h1>
         <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600">
-          Machine learning, predictive modeling, NLP, and decision intelligence — designed
+          Machine learning, predictive modeling, NLP, and decision intelligence, designed
           to serve organisations and communities with genuinely useful, explainable outputs.
         </p>
 
@@ -31,7 +31,7 @@ export default function AiDataSciencePageSection() {
             <div className="mt-4 space-y-4 text-sm leading-7 text-slate-600">
               <p>
                 Richard&apos;s AI and data science research centres on building systems that are
-                genuinely useful to real people in real contexts — from smallholder farmers
+                genuinely useful to real people in real contexts, from smallholder farmers
                 in Ghana receiving localized climate risk signals to policymakers needing
                 transparent, explainable analytics to make better decisions.
               </p>
@@ -51,12 +51,12 @@ export default function AiDataSciencePageSection() {
             <div className="mt-4 space-y-4 text-sm leading-7 text-slate-600">
               <p>
                 As a full-stack developer, Richard closes the gap between research and
-                deployment — building end-to-end systems that move from data pipeline to
+                deployment, building end-to-end systems that move from data pipeline to
                 working application, ensuring that research insights are not lost in
                 technical handoffs.
               </p>
               <p>
-                This approach means research outputs are not just papers — they are
+                This approach means research outputs are not just papers. They are
                 functional tools, dashboards, and APIs that can be tested, iterated on,
                 and deployed in the environments they are designed for.
               </p>
@@ -65,7 +65,7 @@ export default function AiDataSciencePageSection() {
         </div>
 
         <div className="relative mt-12 h-64 overflow-hidden rounded-2xl">
-          <Image src="/research/ai-data-science-dashboard.jpg" alt="Technology innovation expo" fill className="object-cover" />
+          <Image src="/gallery/FB_IMG_1744840775657.jpg" alt="Richard Mensah at the St. Petersburg International Economic Forum, 2024" fill className="object-cover object-top" />
         </div>
 
         {/* Capabilities */}

@@ -246,6 +246,7 @@ export const RESEARCH_CATEGORIES: ResearchCategory[] = [
     description: "Working papers, policy notes, and essays on AI, climate, and global development.",
     accent: "#0077FF",
     icon: "PB",
+    image: "/research/publications-hero.jpg",
   },
   {
     slug: "/research/research-papers",
@@ -254,6 +255,7 @@ export const RESEARCH_CATEGORIES: ResearchCategory[] = [
     accent: "#009EDB",
     icon: "RP",
     sdgTag: "SDG 9",
+    image: "/research/research-papers-hero.jpg",
   },
   {
     slug: "/research/conference-presentations",
@@ -262,6 +264,7 @@ export const RESEARCH_CATEGORIES: ResearchCategory[] = [
     accent: "#FD6925",
     icon: "CP",
     sdgTag: "SDG 17",
+    image: "/research/conference-presentations-hero.jpg",
   },
   {
     slug: "/research/collaborations",
@@ -270,6 +273,7 @@ export const RESEARCH_CATEGORIES: ResearchCategory[] = [
     accent: "#A21942",
     icon: "RC",
     sdgTag: "SDG 17",
+    image: "/research/collaborations-hero.jpg",
   },
   {
     slug: "/research/articles",
@@ -277,6 +281,7 @@ export const RESEARCH_CATEGORIES: ResearchCategory[] = [
     description: "Public writing that translates research into ideas anyone can engage with.",
     accent: "#19486A",
     icon: "AR",
+    image: "/research/articles-writing.jpg",
   },
   {
     slug: "/research/thought-leadership",
@@ -285,6 +290,7 @@ export const RESEARCH_CATEGORIES: ResearchCategory[] = [
     accent: "#FCC30B",
     icon: "TL",
     sdgTag: "SDG 16",
+    image: "/research/thought-leadership-speaking.jpg",
   },
   {
     slug: "/research/ai-data-science",
@@ -293,6 +299,7 @@ export const RESEARCH_CATEGORIES: ResearchCategory[] = [
     accent: "#009EDB",
     icon: "DS",
     sdgTag: "SDG 9",
+    image: "/gallery/FB_IMG_1744840775657.jpg",
   },
   {
     slug: "/research/youth-development",
@@ -301,6 +308,7 @@ export const RESEARCH_CATEGORIES: ResearchCategory[] = [
     accent: "#FCC30B",
     icon: "YD",
     sdgTag: "SDG 4",
+    image: "/research/youth-development-group.jpg",
   },
   {
     slug: "/research/ai-climate-change",
@@ -309,6 +317,7 @@ export const RESEARCH_CATEGORIES: ResearchCategory[] = [
     accent: "#3F7E44",
     icon: "CC",
     sdgTag: "SDG 13",
+    image: "/research/ai-climate-change-satellite.jpg",
   },
   {
     slug: "/research/global-development",
@@ -317,6 +326,7 @@ export const RESEARCH_CATEGORIES: ResearchCategory[] = [
     accent: "#00689D",
     icon: "GD",
     sdgTag: "SDG 17",
+    image: "/research/global-development-map.jpg",
   },
 ];
 

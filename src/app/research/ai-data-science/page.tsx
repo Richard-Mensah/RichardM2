@@ -5,7 +5,7 @@ import AiDataSciencePageSection from "@/components/features/research/AiDataScien
 export const metadata: Metadata = {
   title: "AI & Data Science | Richard Mensah",
   description:
-    "Richard Mensah's applied AI and data science research — machine learning, NLP, predictive modeling, and decision intelligence for real-world contexts.",
+    "Richard Mensah's applied AI and data science research: machine learning, NLP, predictive modeling, and decision intelligence for real-world contexts.",
 };
 
 export default function AiDataSciencePage() {

@@ -5,25 +5,25 @@ import { RESEARCH_PILLARS, WRITING_IDEAS } from "@/constants";
 const THESES = [
   {
     accent: "#009EDB",
-    thesis: "AI adoption in Africa will be determined by institutional readiness — not just model access.",
+    thesis: "AI adoption in Africa will be determined by institutional readiness, not just model access.",
     elaboration: "The bottleneck is not the technology. It is whether universities, ministries, and NGOs are structured to adopt, govern, and maintain intelligent systems. Building AI capacity means building institutions first.",
   },
   {
     accent: "#3F7E44",
     thesis: "Climate intelligence must be community-readable before it can be community-actionable.",
-    elaboration: "The most sophisticated climate model is useless if communities cannot understand, trust, or act on its outputs. Translating complexity into practical intelligence is not a communications problem — it is a design problem.",
+    elaboration: "The most sophisticated climate model is useless if communities cannot understand, trust, or act on its outputs. Translating complexity into practical intelligence is not a communications problem. It is a design problem.",
   },
   {
     accent: "#FCC30B",
-    thesis: "The next generation of AI leaders will come from the Global South — if we build the pathways now.",
+    thesis: "The next generation of AI leaders will come from the Global South, if we build the pathways now.",
     elaboration: "Talent is evenly distributed. Opportunity is not. Every scholarship facilitated, every fellowship programme designed, and every training cohort delivered is infrastructure for a future that looks different from the present.",
   },
 ];
 
 const PILLAR_ELABORATIONS: Record<string, string> = {
-  "AI & Data Science": "Richard&apos;s research insists that applied machine learning must be grounded in the realities of the communities it serves. Predictive models that work only in high-resource environments are not universal — they are exclusive. The research agenda focuses on building intelligence that is genuinely portable across contexts.",
-  "AI & Climate Change": "Climate risk is not abstract for the communities Richard works with — it is a daily reality. His climate AI work focuses on translating complex signals into actionable intelligence, without requiring a data science team to interpret the outputs. The goal is community-readable risk.",
-  "Youth Leadership Systems": "Mentorship that inspires without equipping is insufficient. Richard&apos;s approach to youth leadership centres on building structured knowledge systems, measurable outcomes, and global pathways — not just inspiration. The aim is to make leadership development scalable and evidence-based.",
+  "AI & Data Science": "Richard&apos;s research insists that applied machine learning must be grounded in the realities of the communities it serves. Predictive models that work only in high-resource environments are not universal. They are exclusive. The research agenda focuses on building intelligence that is genuinely portable across contexts.",
+  "AI & Climate Change": "Climate risk is not abstract for the communities Richard works with. It is a daily reality. His climate AI work focuses on translating complex signals into actionable intelligence, without requiring a data science team to interpret the outputs. The goal is community-readable risk.",
+  "Youth Leadership Systems": "Mentorship that inspires without equipping is insufficient. Richard&apos;s approach to youth leadership centres on building structured knowledge systems, measurable outcomes, and global pathways, not just inspiration. The aim is to make leadership development scalable and evidence-based.",
   "Policy, Ethics & Institutions": "AI governance frameworks designed in the Global North often fail when applied elsewhere. Richard&apos;s policy work proposes locally-grounded accountability models that reflect the governance realities, institutional capacities, and community values of Sub-Saharan Africa and South Asia.",
 };
 
@@ -40,7 +40,7 @@ export default function ThoughtLeadershipPageSection() {
         </h1>
         <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600">
           Frameworks, perspectives, and provocations on the role of artificial intelligence
-          in society, governance, and the Global South — based on practice, not just theory.
+          in society, governance, and the Global South, based on practice, not just theory.
         </p>
 
         {/* Thesis cards */}

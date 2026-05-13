@@ -17,7 +17,7 @@ export default function GlobalDevelopmentPageSection() {
         </h1>
         <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600">
           Cross-border research and partnerships connecting Ghana, the UK, and global networks
-          around AI, climate intelligence, youth empowerment, and sustainable development — with
+          around AI, climate intelligence, youth empowerment, and sustainable development, with
           the UN Sustainable Development Goals as the organising framework.
         </p>
 
@@ -71,7 +71,7 @@ export default function GlobalDevelopmentPageSection() {
           <h2 className="mt-3 text-2xl font-black text-white">65+ global mentors and partners</h2>
           <p className="mt-4 text-sm leading-7 text-slate-400">
             The network spans universities, NGOs, government bodies, and private sector organisations
-            across Ghana, the United Kingdom, India, and beyond — connected around a shared belief
+            across Ghana, the United Kingdom, India, and beyond, connected around a shared belief
             that talent is universal, but opportunity must be built.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
