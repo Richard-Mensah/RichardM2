@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import { cn } from "@/lib/utils";
+import type { HomepageContent } from "@/lib/homepage";
 
 const SLIDES = [
   // Original curated set
@@ -30,7 +31,7 @@ const SLIDES = [
 
 const AUTOPLAY_INTERVAL = 5000;
 
-export default function HeroSection() {
+export default function HeroSection({ content }: { content: HomepageContent }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
 
@@ -75,17 +76,14 @@ export default function HeroSection() {
       <div className="relative z-10 flex h-full items-end justify-end px-5 pb-24 pt-24 md:px-10">
         <div className="max-w-xs rounded-2xl bg-[#06111f]/70 p-5 text-left shadow-2xl shadow-black/50 backdrop-blur-md md:max-w-sm md:p-6">
           <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#62E8FF]">
-            Richard Mensah
+            {content.heroEyebrow}
           </p>
           <h1 className="mt-1.5 text-xl font-bold leading-tight tracking-[-0.02em] text-white md:text-2xl">
-            AI &amp; data scientist building{" "}
-            <span className="sdg-text-gradient">climate and youth solutions</span> for the
-            Global South.
+            {content.heroTitleLead}
+            <span className="sdg-text-gradient">{content.heroTitleHighlight}</span>
+            {content.heroTitleTail}
           </h1>
-          <p className="mt-3 text-sm leading-6 text-white/85">
-            MSc, Artificial Intelligence &amp; Data Science (Bangor University) · Country
-            Representative for Ghana, United Nations Youth Association.
-          </p>
+          <p className="mt-3 text-sm leading-6 text-white/85">{content.heroSubtitle}</p>
           <div className="mt-5 flex flex-nowrap gap-2">
             <Link
               href="/about/profile"

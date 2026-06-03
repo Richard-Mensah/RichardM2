@@ -4,7 +4,11 @@ import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { getAllArticles, getArticle } from "@/lib/articles";
+import { getAuthor } from "@/lib/author";
+import AuthorBio from "@/components/features/blog/AuthorBio";
 import SectionNav from "@/components/ui/SectionNav";
+
+export const dynamic = "force-dynamic";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -34,6 +38,7 @@ export default async function ArticlePage({ params }: Props) {
   const article = getArticle(slug);
   if (!article) notFound();
 
+  const author = await getAuthor();
   const { meta, content } = article;
   const accent = CATEGORY_COLOURS[meta.category] ?? "#009EDB";
   const formattedDate = new Date(meta.date).toLocaleDateString("en-GB", {
@@ -70,6 +75,8 @@ export default async function ArticlePage({ params }: Props) {
         <div className="article-body mt-10">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
         </div>
+
+        <AuthorBio author={author} />
       </article>
 
       <SectionNav prev={{ label: "All Writing", href: "/blog" }} />

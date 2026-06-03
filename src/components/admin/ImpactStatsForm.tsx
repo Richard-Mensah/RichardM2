@@ -133,7 +133,7 @@ export default function ImpactStatsForm({ initialStats }: Props) {
         </p>
       )}
 
-      <div className="flex gap-4">
+      <div className="sticky bottom-0 z-10 -mx-1 flex items-center gap-4 border-t border-slate-200 bg-white/95 px-1 py-4 backdrop-blur">
         <button
           type="submit"
           disabled={loading}
@@ -148,6 +148,7 @@ export default function ImpactStatsForm({ initialStats }: Props) {
         >
           Back to dashboard
         </button>
+        {saved && <span className="text-sm font-semibold text-green-700">Saved ✓</span>}
       </div>
     </form>
   );

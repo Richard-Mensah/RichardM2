@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { cn } from "@/lib/utils";
 import type { ImpactStat } from "@/lib/impactStats";
+import type { Testimonial } from "@/lib/testimonials";
 import TestimonialsSection from "./TestimonialsSection";
 
 const GALLERY_THEN = [
@@ -18,9 +20,17 @@ const GALLERY_NOW = [
 
 type Props = {
   impactStats: ImpactStat[];
+  welcomeTitle: string;
+  welcomeParagraphs: string[];
+  testimonials: Testimonial[];
 };
 
-export default function SectionOverview({ impactStats }: Props) {
+export default function SectionOverview({
+  impactStats,
+  welcomeTitle,
+  welcomeParagraphs,
+  testimonials,
+}: Props) {
   return (
     <section className="bg-[#F8FBFF]">
 
@@ -38,20 +48,13 @@ export default function SectionOverview({ impactStats }: Props) {
             />
           </div>
           <h2 className="mt-5 text-2xl font-black leading-tight text-slate-950 md:text-4xl">
-            Richard Mensah - Climate AI Scientist, Developer &amp; Human-Centred Systems Builder.
+            {welcomeTitle}
           </h2>
-          <p className="mt-4 text-sm leading-7 text-slate-600">
-            Richard is a Climate AI scientist with a deep interest in artificial intelligence, data
-            science, natural language processing (NLP), and large language models (LLMs). He
-            specialises in designing and building human-centred AI systems - technology that is
-            not only technically rigorous but genuinely useful to the people who depend on it.
-          </p>
-          <p className="mt-3 text-sm leading-7 text-slate-600">
-            As a full-stack developer, Richard bridges research and product - moving from model
-            to interface, from data pipeline to deployed application. His work sits at the
-            intersection of climate intelligence, responsible AI, and sustainable development,
-            with a focus on communities and institutions across the Global South.
-          </p>
+          {welcomeParagraphs.map((para, i) => (
+            <p key={i} className={cn("text-sm leading-7 text-slate-600", i === 0 ? "mt-4" : "mt-3")}>
+              {para}
+            </p>
+          ))}
         </div>
 
         <div>
@@ -189,7 +192,7 @@ export default function SectionOverview({ impactStats }: Props) {
         </div>
       </div>
 
-      <TestimonialsSection />
+      <TestimonialsSection testimonials={testimonials} />
     </section>
   );
 }

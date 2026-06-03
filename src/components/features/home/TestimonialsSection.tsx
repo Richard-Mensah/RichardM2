@@ -3,81 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-type Testimonial = {
-  name: string;
-  role: string;
-  quote: string;
-  initials: string;
-  accent: string;
-};
-
-const TESTIMONIALS: Testimonial[] = [
-  {
-    name: "Ama Osei",
-    role: "Women in Data Ghana participant",
-    quote:
-      "I came in not knowing how to apply for a fellowship. Richard sat with me, went through every section of the application, and helped me write a personal statement I was actually proud of. I got in. I still cannot believe it.",
-    initials: "AO",
-    accent: "#A21942",
-  },
-  {
-    name: "Samuel Nkrumah",
-    role: "Youth Network Lead",
-    quote:
-      "Our community climate programme was struggling. Richard helped us redesign the structure, train our volunteers and measure outcomes properly. Within four months we had reached 120 young people. The change was night and day.",
-    initials: "SN",
-    accent: "#3F7E44",
-  },
-  {
-    name: "Amina Yusuf",
-    role: "AI and Climate Change fellow",
-    quote:
-      "I had heard a lot about AI but had no idea where to start. The sessions with Richard were practical from day one. By the end my team had built a weather dashboard that actual farmers in our district were using.",
-    initials: "AY",
-    accent: "#0077FF",
-  },
-  {
-    name: "Kweku Asante",
-    role: "Digital skills trainee",
-    quote:
-      "Before the programme I could not confidently use a spreadsheet. Twelve weeks later I was presenting a data dashboard to my entire department. Richard made it feel achievable at every step.",
-    initials: "KA",
-    accent: "#FD6925",
-  },
-  {
-    name: "Grace Mensah",
-    role: "Scholarship recipient",
-    quote:
-      "Richard reviewed my personal statement three times without being asked. He caught things no one else noticed and pushed me to be specific about my goals. I got a fully funded offer. I keep telling people: find a mentor like this.",
-    initials: "GM",
-    accent: "#009EDB",
-  },
-  {
-    name: "David Kwame",
-    role: "Conference delegate",
-    quote:
-      "I was terrified to present at an international summit. Richard ran a preparation session with me, helped me rehearse questions, and connected me with two researchers I am still collaborating with today. That summit changed my trajectory.",
-    initials: "DK",
-    accent: "#00689D",
-  },
-  {
-    name: "Esi Baah",
-    role: "Community development facilitator",
-    quote:
-      "We had the energy but not the structure. Richard helped us build a proper curriculum, track participation and show funders the real numbers. We went from 20 active participants to 80 in one cohort. Measurable impact.",
-    initials: "EB",
-    accent: "#0EA5A4",
-  },
-  {
-    name: "Nana Appiah",
-    role: "Leadership programme graduate",
-    quote:
-      "The mentorship was not just career advice — it was a whole systems shift in how I thought about my potential. I left with a roadmap, a network, and the confidence to actually execute it.",
-    initials: "NA",
-    accent: "#19486A",
-  },
-];
+import type { Testimonial } from "@/lib/testimonials";
 
 function Stars({ accentClass = "text-[#FCC30B]" }: { accentClass?: string }) {
   return (
@@ -121,12 +47,12 @@ function useCardsPerView() {
   return perView;
 }
 
-export default function TestimonialsSection() {
+export default function TestimonialsSection({ testimonials }: { testimonials: Testimonial[] }) {
   const perView = useCardsPerView();
   const [index, setIndex] = useState(0);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const count = TESTIMONIALS.length;
+  const count = testimonials.length;
   const maxIndex = Math.max(0, count - perView);
 
   // Keep the index in range when the viewport (perView) changes.
@@ -149,7 +75,9 @@ export default function TestimonialsSection() {
     return () => window.removeEventListener("keydown", handler);
   }, [activeIndex, close]);
 
-  const active = activeIndex !== null ? TESTIMONIALS[activeIndex] : null;
+  if (count === 0) return null;
+
+  const active = activeIndex !== null ? testimonials[activeIndex] : null;
 
   return (
     <div className="bg-white px-5 py-16 md:px-8 md:py-24">
@@ -198,9 +126,9 @@ export default function TestimonialsSection() {
             className="flex transition-transform duration-500 ease-out"
             style={{ transform: `translateX(-${index * (100 / perView)}%)` }}
           >
-            {TESTIMONIALS.map((t, i) => (
+            {testimonials.map((t, i) => (
               <div
-                key={t.name}
+                key={`${t.name}-${i}`}
                 className="flex-shrink-0 px-2.5"
                 style={{ width: `${100 / perView}%` }}
               >
