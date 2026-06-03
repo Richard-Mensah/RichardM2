@@ -87,8 +87,8 @@ export default function DataSciencePageSection() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {CAPABILITIES.map((cap) => (
               <Card key={cap.title} className="p-6" style={{ borderTop: `3px solid ${cap.accent}` }}>
-                <span className="text-2xl" aria-hidden="true">{cap.icon}</span>
-                <h3 className="mt-3 text-sm font-black text-slate-950">{cap.title}</h3>
+                <span className="inline-block h-2.5 w-10 rounded-full" style={{ backgroundColor: cap.accent }} aria-hidden="true" />
+                <h3 className="mt-3 text-sm font-bold text-slate-950">{cap.title}</h3>
                 <p className="mt-2 text-xs leading-6 text-slate-600">{cap.description}</p>
               </Card>
             ))}

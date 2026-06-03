@@ -127,9 +127,8 @@ export default function SdgPageSection() {
               <Link key={sdg.code} href={sdg.href} className="group">
                 <Card className="h-full p-6 transition group-hover:-translate-y-0.5 group-hover:shadow-lg" style={{ borderTop: `3px solid ${sdg.color}` }}>
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl" aria-hidden="true">{sdg.icon}</span>
                     <span
-                      className="rounded-full px-2.5 py-0.5 text-[0.65rem] font-black uppercase tracking-[0.15em] text-white"
+                      className="rounded-full px-2.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-[0.15em] text-white"
                       style={{ backgroundColor: sdg.color }}
                     >
                       {sdg.code}

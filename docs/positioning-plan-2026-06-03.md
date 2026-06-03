@@ -128,8 +128,12 @@ than no page.
    hub; repointed prev/next chains; footer "Research" column → useful "Explore"
    column (Profile, SDG Impact, Gallery, Opportunities) so demoted pages stay
    reachable. Build green. *(Deeper page-by-page thin-page pruning still optional.)*
-4. **Round 4 — UI gravitas pass:** type scale, iconography (replace emoji),
-   retire 9–10px text, calmer headings. (Pending.)
+4. **Round 4 — UI gravitas pass:** ✅ DONE — replaced emoji icons (project hub,
+   project/research sections, opportunities, EGA) with accent-bar marks / code
+   badges; retired 9–10px text on panel-first pages (Home, About, Biography);
+   softened `font-black` → `font-bold` on touched headings. Country flags kept
+   (appropriate for a UN audience). Build green. *(Admin-only emoji left as-is —
+   not public-facing.)*
 
 Each round is reviewable on its own; nothing irreversible happens without sign-off.
 

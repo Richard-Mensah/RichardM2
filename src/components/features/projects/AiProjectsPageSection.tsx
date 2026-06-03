@@ -114,8 +114,8 @@ export default function AiProjectsPageSection() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {FOCUS_AREAS.map((area) => (
               <Card key={area.title} className="p-6" style={{ borderTop: `3px solid ${area.accent}` }}>
-                <span className="text-2xl" aria-hidden="true">{area.icon}</span>
-                <h3 className="mt-3 text-sm font-black text-slate-950">{area.title}</h3>
+                <span className="inline-block h-2.5 w-10 rounded-full" style={{ backgroundColor: area.accent }} aria-hidden="true" />
+                <h3 className="mt-3 text-sm font-bold text-slate-950">{area.title}</h3>
                 <p className="mt-2 text-xs leading-6 text-slate-600">{area.description}</p>
               </Card>
             ))}

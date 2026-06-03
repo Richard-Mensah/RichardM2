@@ -260,8 +260,8 @@ export default function EgaPage() {
                 key={track.title}
                 className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6"
               >
-                <span className="text-2xl">{track.icon}</span>
-                <h3 className="mt-3 text-lg font-black text-slate-950">{track.title}</h3>
+                <span className="inline-block h-2.5 w-10 rounded-full bg-[#0077FF]" aria-hidden="true" />
+                <h3 className="mt-3 text-lg font-bold text-slate-950">{track.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">{track.body}</p>
               </div>
             ))}

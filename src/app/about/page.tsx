@@ -168,7 +168,7 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
                 <div className="relative z-10 p-6">
                   <span
-                    className="mb-2 inline-block rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-white"
+                    className="mb-2 inline-block rounded-full px-3 py-1 text-[11px] font-black uppercase tracking-[0.2em] text-white"
                     style={{ backgroundColor: card.accent }}
                   >
                     {card.tag}
