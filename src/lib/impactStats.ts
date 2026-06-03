@@ -1,5 +1,6 @@
-import fs from "fs";
-import path from "path";
+import { asc } from "drizzle-orm";
+import { db, pool } from "@/db";
+import { impactStats } from "@/db/schema";
 
 export type ImpactStat = {
   value: string;
@@ -7,9 +8,8 @@ export type ImpactStat = {
   detail: string;
 };
 
-const STATS_FILE = path.join(process.cwd(), "content", "impact-stats.json");
-
-// Used when no CMS file exists yet, and as the seed for the editor.
+// Seed used the first time the table is empty, and as a fallback if the
+// database is briefly unavailable so the public site never renders blank.
 export const DEFAULT_IMPACT_STATS: ImpactStat[] = [
   {
     value: "120+",
@@ -48,29 +48,60 @@ export const DEFAULT_IMPACT_STATS: ImpactStat[] = [
   },
 ];
 
-export function getImpactStats(): ImpactStat[] {
-  try {
-    if (fs.existsSync(STATS_FILE)) {
-      const raw = fs.readFileSync(STATS_FILE, "utf-8");
-      const parsed = JSON.parse(raw) as ImpactStat[];
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        return parsed
-          .filter((s) => s && typeof s.value === "string" && typeof s.label === "string")
-          .map((s) => ({
-            value: s.value,
-            label: s.label,
-            detail: typeof s.detail === "string" ? s.detail : "",
-          }));
-      }
-    }
-  } catch (error) {
-    console.error("Failed to read impact stats, using defaults", error);
-  }
-  return DEFAULT_IMPACT_STATS;
+// Create the table on demand so the feature works on a fresh database without a
+// separate migration step (idempotent; cached per server instance).
+let tableReady = false;
+async function ensureTable(): Promise<void> {
+  if (tableReady) return;
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS impact_stats (
+      id serial PRIMARY KEY,
+      position integer NOT NULL DEFAULT 0,
+      value varchar(64) NOT NULL,
+      label varchar(255) NOT NULL,
+      detail text NOT NULL DEFAULT ''
+    );
+  `);
+  tableReady = true;
 }
 
-export function saveImpactStats(stats: ImpactStat[]): void {
-  const dir = path.dirname(STATS_FILE);
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(STATS_FILE, JSON.stringify(stats, null, 2), "utf-8");
+export async function getImpactStats(): Promise<ImpactStat[]> {
+  try {
+    await ensureTable();
+    const rows = await db
+      .select()
+      .from(impactStats)
+      .orderBy(asc(impactStats.position), asc(impactStats.id));
+
+    if (rows.length === 0) {
+      await saveImpactStats(DEFAULT_IMPACT_STATS);
+      return DEFAULT_IMPACT_STATS;
+    }
+
+    return rows.map((r) => ({
+      value: r.value,
+      label: r.label,
+      detail: r.detail ?? "",
+    }));
+  } catch (error) {
+    console.error("Failed to read impact stats from database, using defaults", error);
+    return DEFAULT_IMPACT_STATS;
+  }
+}
+
+export async function saveImpactStats(stats: ImpactStat[]): Promise<void> {
+  await ensureTable();
+  await db.transaction(async (tx) => {
+    await tx.delete(impactStats);
+    if (stats.length > 0) {
+      await tx.insert(impactStats).values(
+        stats.map((s, i) => ({
+          position: i,
+          value: s.value,
+          label: s.label,
+          detail: s.detail ?? "",
+        }))
+      );
+    }
+  });
 }
