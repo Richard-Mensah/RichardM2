@@ -21,13 +21,14 @@ export default function ResearchPapersPageSection() {
       <div className="relative mx-auto max-w-5xl">
 
         {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#009EDB]">Research Papers</p>
-        <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
-          Rigorous inquiry at the frontier of AI and development.
+        <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#009EDB]">Research Papers</p>
+        <h1 className="mt-4 text-balance text-4xl font-bold tracking-[-0.02em] text-slate-950 md:text-5xl">
+          Working papers and applied research.
         </h1>
         <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600">
-          Peer-reviewed and working papers spanning NLP, climate AI, human-centred design,
-          and institutional governance, designed to inform practice, not just add to the literature.
+          Working drafts and applied research spanning NLP, climate AI, human-centred design, and
+          institutional governance — written to inform practice. These are working papers shared
+          openly for discussion and review, not peer-reviewed journal publications.
         </p>
 
         {/* Featured paper */}

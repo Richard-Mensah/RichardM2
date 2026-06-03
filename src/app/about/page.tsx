@@ -11,6 +11,14 @@ export const metadata: Metadata = {
 
 const HUB_CARDS = [
   {
+    href: "/about/profile",
+    image: "/Rich1.png",
+    tag: "Profile",
+    title: "Credentials, representation, and focus at a glance.",
+    body: "MSc in AI & Data Science (Bangor); Country Representative for Ghana, UN Youth Association; former Youth MP.",
+    accent: "#0077FF",
+  },
+  {
     href: "/about/biography",
     image: "/community/teaching-class-1.jpg",
     tag: "Biography",

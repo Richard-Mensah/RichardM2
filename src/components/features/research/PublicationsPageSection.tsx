@@ -10,18 +10,30 @@ export default function PublicationsPageSection() {
       <div className="relative mx-auto max-w-5xl">
 
         {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#0077FF]">Publications</p>
-        <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
-          Research contributions to global development.
+        <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#0077FF]">
+          Writing &amp; Working Papers
+        </p>
+        <h1 className="mt-4 text-balance text-4xl font-bold tracking-[-0.02em] text-slate-950 md:text-5xl">
+          Independent writing on AI, climate, and development.
         </h1>
         <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600">
-          Working papers, policy notes, and public essays at the intersection of AI, climate change,
-          and sustainable development. Several are open for collaboration, peer review, and
-          institutional partnership.
+          A collection of independent essays, working papers, and policy notes at the intersection
+          of AI, climate change, and sustainable development. They reflect ongoing thinking and are
+          shared openly for discussion, collaboration, and review.
         </p>
 
+        {/* Honest provenance note */}
+        <div className="mt-6 max-w-3xl rounded-xl border border-amber-300/60 bg-amber-50 p-4">
+          <p className="text-sm leading-6 text-amber-900">
+            <span className="font-bold">A note on status:</span> these are independent,
+            self-published works and working drafts — not peer-reviewed journal publications.
+            They are listed transparently as essays, working papers, and policy notes, and several
+            are open for collaboration and review.
+          </p>
+        </div>
+
         <div className="relative mt-10 h-56 overflow-hidden rounded-2xl">
-          <Image src="/research/publications-hero.jpg" alt="Research publications" fill className="object-cover" />
+          <Image src="/research/publications-hero.jpg" alt="Independent writing and working papers" fill className="object-cover" />
         </div>
 
         {/* Publications list */}
