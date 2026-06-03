@@ -11,7 +11,7 @@ function isAuthed(request: NextRequest): boolean {
 }
 
 export async function GET() {
-  return NextResponse.json({ ok: true, stats: getImpactStats() });
+  return NextResponse.json({ ok: true, stats: await getImpactStats() });
 }
 
 export async function PUT(request: NextRequest) {
@@ -53,7 +53,7 @@ export async function PUT(request: NextRequest) {
       );
     }
 
-    saveImpactStats(cleaned);
+    await saveImpactStats(cleaned);
     return NextResponse.json({ ok: true, stats: cleaned });
   } catch (error) {
     console.error("Failed to save impact stats", error);

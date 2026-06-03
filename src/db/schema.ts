@@ -1,4 +1,4 @@
-import { pgTable, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
+import { integer, pgTable, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
 
 export const collaborationInquiries = pgTable("collaboration_inquiries", {
   id: serial("id").primaryKey(),
@@ -13,3 +13,14 @@ export const collaborationInquiries = pgTable("collaboration_inquiries", {
 
 export type CollaborationInquiry = typeof collaborationInquiries.$inferSelect;
 export type NewCollaborationInquiry = typeof collaborationInquiries.$inferInsert;
+
+export const impactStats = pgTable("impact_stats", {
+  id: serial("id").primaryKey(),
+  position: integer("position").notNull().default(0),
+  value: varchar("value", { length: 64 }).notNull(),
+  label: varchar("label", { length: 255 }).notNull(),
+  detail: text("detail").notNull().default(""),
+});
+
+export type ImpactStatRow = typeof impactStats.$inferSelect;
+export type NewImpactStatRow = typeof impactStats.$inferInsert;

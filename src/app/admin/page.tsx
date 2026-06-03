@@ -6,9 +6,9 @@ import AdminSidebar from "@/components/admin/AdminSidebar";
 import AdminLogoutButton from "@/components/admin/AdminLogoutButton";
 import AdminDeleteButton from "@/components/admin/AdminDeleteButton";
 
-export default function AdminDashboardPage() {
+export default async function AdminDashboardPage() {
   const articles = getAllArticles();
-  const impactStats = getImpactStats();
+  const impactStats = await getImpactStats();
 
   return (
     <div className="flex min-h-screen w-full">

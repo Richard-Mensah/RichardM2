@@ -4,8 +4,8 @@ import { getImpactStats } from "@/lib/impactStats";
 
 export const dynamic = "force-dynamic";
 
-export default function HomePage() {
-  const impactStats = getImpactStats();
+export default async function HomePage() {
+  const impactStats = await getImpactStats();
 
   return (
     <>

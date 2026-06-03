@@ -5,8 +5,8 @@ import { getImpactStats } from "@/lib/impactStats";
 
 export const dynamic = "force-dynamic";
 
-export default function AdminImpactStatsPage() {
-  const stats = getImpactStats();
+export default async function AdminImpactStatsPage() {
+  const stats = await getImpactStats();
 
   return (
     <div className="flex min-h-screen w-full">

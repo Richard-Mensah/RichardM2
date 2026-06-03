@@ -71,8 +71,8 @@ const HUB_CARDS = [
   },
 ] as const;
 
-export default function AboutPage() {
-  const QUICK_STATS = getImpactStats();
+export default async function AboutPage() {
+  const QUICK_STATS = await getImpactStats();
 
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
