@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { NAVIGATION } from "@/constants";
 
-const RESEARCH_LINKS = [
-  { label: "AI & Data Science", href: "/research#ai-data" },
-  { label: "AI & Climate Change", href: "/research#climate" },
-  { label: "Youth Leadership", href: "/research#youth" },
-  { label: "Policy & Ethics", href: "/research#thought" },
+const EXPLORE_LINKS = [
+  { label: "Profile", href: "/about/profile" },
+  { label: "SDG Impact", href: "/sdgs" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Opportunities (Kofiever)", href: "/opportunities" },
 ];
 
 export default function SiteFooter() {
@@ -49,9 +49,9 @@ export default function SiteFooter() {
           </div>
 
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-white/40">Research</p>
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-white/40">Explore</p>
             <ul className="mt-5 space-y-3">
-              {RESEARCH_LINKS.map((link) => (
+              {EXPLORE_LINKS.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}

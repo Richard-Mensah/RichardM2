@@ -5,7 +5,7 @@ import ResearchPapersPageSection from "@/components/features/research/ResearchPa
 export const metadata: Metadata = {
   title: "Research Papers | Richard Mensah",
   description:
-    "Peer-reviewed and working papers by Richard Mensah spanning NLP, climate AI, human-centred design, and AI governance in the Global South.",
+    "Working papers and applied research by Richard Mensah spanning NLP, climate AI, human-centred design, and AI governance in the Global South. Working drafts shared for review, not peer-reviewed journal publications.",
 };
 
 export default function ResearchPapersPage() {

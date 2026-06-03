@@ -3,9 +3,9 @@ import SectionNav from "@/components/ui/SectionNav";
 import PublicationsPageSection from "@/components/features/research/PublicationsPageSection";
 
 export const metadata: Metadata = {
-  title: "Publications | Richard Mensah",
+  title: "Writing & Working Papers | Richard Mensah",
   description:
-    "Working papers, policy notes, and public essays by Richard Mensah at the intersection of AI, climate, and sustainable development.",
+    "Independent essays, working papers, and policy notes by Richard Mensah at the intersection of AI, climate, and sustainable development. Self-published works, not peer-reviewed journal publications.",
 };
 
 export default function PublicationsPage() {
@@ -16,7 +16,7 @@ export default function PublicationsPage() {
       </div>
       <SectionNav
         prev={{ label: "Research Hub", href: "/research" }}
-        next={{ label: "Research Papers", href: "/research/research-papers" }}
+        next={{ label: "Conference Presentations", href: "/research/conference-presentations" }}
       />
     </div>
   );

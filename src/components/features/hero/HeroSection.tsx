@@ -74,30 +74,34 @@ export default function HeroSection() {
       {/* Content card — pinned to the bottom-right corner */}
       <div className="relative z-10 flex h-full items-end justify-end px-5 pb-24 pt-24 md:px-10">
         <div className="max-w-xs rounded-2xl bg-[#06111f]/70 p-5 text-left shadow-2xl shadow-black/50 backdrop-blur-md md:max-w-sm md:p-6">
-          <h1 className="text-xl font-black leading-tight tracking-[-0.03em] text-white md:text-2xl">
-            Climate AI Scientist &amp; Full-Stack Developer building{" "}
-            <span className="sdg-text-gradient">human-centered systems.</span>
+          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#62E8FF]">
+            Richard Mensah
+          </p>
+          <h1 className="mt-1.5 text-xl font-bold leading-tight tracking-[-0.02em] text-white md:text-2xl">
+            AI &amp; data scientist building{" "}
+            <span className="sdg-text-gradient">climate and youth solutions</span> for the
+            Global South.
           </h1>
-          <p className="mt-3 text-sm leading-6 text-white/80">
-            Passionate about AI, data science, NLP, and large language models - designing
-            intelligent systems that put people first and drive meaningful global change.
+          <p className="mt-3 text-sm leading-6 text-white/85">
+            MSc, Artificial Intelligence &amp; Data Science (Bangor University) · Country
+            Representative for Ghana, United Nations Youth Association.
           </p>
           <div className="mt-5 flex flex-nowrap gap-2">
             <Link
+              href="/about/profile"
+              className="whitespace-nowrap rounded-full bg-[#0077FF] px-4 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg shadow-[#0077FF]/30 transition hover:-translate-y-0.5 hover:bg-[#62E8FF] hover:text-[#06111f]"
+            >
+              Profile
+            </Link>
+            <Link
               href="/sdgs"
-              className="whitespace-nowrap rounded-full bg-[#0077FF] px-4 py-2.5 text-xs font-black uppercase tracking-[0.12em] text-white shadow-lg shadow-[#0077FF]/30 transition hover:-translate-y-0.5 hover:bg-[#62E8FF]"
+              className="whitespace-nowrap rounded-full border border-white/40 bg-white/10 px-4 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/25"
             >
               SDG Impact
             </Link>
             <Link
-              href="/projects"
-              className="whitespace-nowrap rounded-full border border-white/40 bg-white/10 px-4 py-2.5 text-xs font-black uppercase tracking-[0.12em] text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/25"
-            >
-              Projects
-            </Link>
-            <Link
               href="/contact"
-              className="whitespace-nowrap rounded-full border border-white/40 bg-white/10 px-4 py-2.5 text-xs font-black uppercase tracking-[0.12em] text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/25"
+              className="whitespace-nowrap rounded-full border border-white/40 bg-white/10 px-4 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-white backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/25"
             >
               Connect
             </Link>

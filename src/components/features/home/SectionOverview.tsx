@@ -247,10 +247,11 @@ export default function SectionOverview() {
         </div>
 
         <div>
-          <SectionHeading eyebrow="Impact dashboard" title="Real numbers behind the work">
+          <SectionHeading eyebrow="Impact dashboard" title="The scale of the work, in numbers">
             <p>
-              Every figure here represents a real person, a real programme, or a real outcome.
-              This is not a summary of ambition. It is a record of what has actually been done.
+              These figures are drawn from programme records and are self-reported. They are
+              indicative of the reach of a decade of mentorship, training, and community work
+              across Ghana and beyond, and are being formalised into a fuller monitoring record.
             </p>
           </SectionHeading>
 

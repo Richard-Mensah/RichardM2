@@ -1,70 +1,46 @@
 import type { NavItem, SdgColour, PriorityGoal, IdentityCard, ResearchPillar, ResearchCategory, SystemProject, ProjectCategory } from "@/types";
 
+// Information architecture: a tight 6-section spine.
+// Labels are self-evident; every route below already exists. The deeper pages
+// (research sub-categories, individual project pages, Kofiever sections) remain
+// reachable from their hub landing pages and the footer — they are simply no
+// longer surfaced as top-level clutter.
 export const NAVIGATION: NavItem[] = [
   { label: "HOME", href: "/" },
   {
-    label: "ABOUT RICHARD",
+    label: "ABOUT",
     href: "/about",
     children: [
-      { label: "About Richard",         href: "/about" },
-      { label: "Biography",             href: "/about/biography" },
-      { label: "Vision & Mission",      href: "/about/vision" },
-      { label: "Leadership Journey",    href: "/about/leadership-journey" },
-      { label: "Conferences & Summits", href: "/about/conferences" },
-      { label: "Media & Speaking",      href: "/about/media" },
-      { label: "CV / Resume",           href: "/about/cv" },
+      { label: "Profile",            href: "/about/profile" },
+      { label: "Biography",          href: "/about/biography" },
+      { label: "Leadership Journey", href: "/about/leadership-journey" },
+      { label: "Vision & Mission",   href: "/about/vision" },
+      { label: "CV / Resume",        href: "/about/cv" },
     ],
   },
   {
-    label: "RESEARCH",
+    label: "WORK",
     href: "/research",
     children: [
-      { label: "Publications",             href: "/research/publications" },
-      { label: "Research Papers",           href: "/research/research-papers" },
-      { label: "Conference Presentations",  href: "/research/conference-presentations" },
-      { label: "Research Collaborations",   href: "/research/collaborations" },
-      { label: "Articles",                  href: "/research/articles" },
-      { label: "Thought Leadership",        href: "/research/thought-leadership" },
-      { label: "AI & Data Science",         href: "/research/ai-data-science" },
-      { label: "Youth Development",         href: "/research/youth-development" },
-      { label: "AI & Climate Change",       href: "/research/ai-climate-change" },
-      { label: "Global Development",        href: "/research/global-development" },
+      { label: "AI & Data Science",        href: "/research/ai-data-science" },
+      { label: "Climate Intelligence",     href: "/research/ai-climate-change" },
+      { label: "Youth & Community",        href: "/leadership" },
+      { label: "Projects & Portfolio",     href: "/projects" },
+      { label: "Writing & Working Papers", href: "/research/publications" },
     ],
   },
+  { label: "SDG IMPACT", href: "/sdgs" },
   {
-    label: "PROJECTS",
-    href: "/projects",
+    label: "ENGAGEMENT",
+    href: "/about/conferences",
     children: [
-      { label: "AI Projects",           href: "/projects/ai" },
-      { label: "Data Science",          href: "/projects/data-science" },
-      { label: "Climate Innovation",    href: "/projects/climate" },
-      { label: "SDG Projects",          href: "/projects/sdg" },
-      { label: "Community Initiatives", href: "/projects/community" },
-      { label: "Open Source",           href: "/projects/open-source" },
-      { label: "Portfolio",             href: "/projects/portfolio" },
+      { label: "Conferences & Summits",   href: "/about/conferences" },
+      { label: "Media & Speaking",        href: "/about/media" },
+      { label: "Research Collaborations", href: "/research/collaborations" },
+      { label: "Opportunities (Kofiever)", href: "/opportunities" },
     ],
   },
-  {
-    label: "KOFIEVER",
-    href: "/opportunities",
-    children: [
-      { label: "Scholarships", href: "/opportunities#scholarships" },
-      { label: "Internships", href: "/opportunities#internships" },
-      { label: "Fellowships", href: "/opportunities#fellowships" },
-      { label: "Conferences", href: "/opportunities#conferences" },
-    ],
-  },
-  {
-    label: "LEADERSHIP",
-    href: "/leadership",
-    children: [
-      { label: "EGA Mentorship International", href: "/leadership/ega" },
-      { label: "Sefwi Bekwai Youth Movement",  href: "/leadership/sefwi-bekwai" },
-      { label: "Community Development",         href: "/leadership/community" },
-    ],
-  },
-  { label: "SDGs", href: "/sdgs" },
-  { label: "GALLERY", href: "/gallery" },
+  { label: "CONTACT", href: "/contact" },
 ];
 
 export const SDG_COLOURS: SdgColour[] = [
@@ -215,7 +191,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     tagline: "Applied intelligence for real-world decisions",
     description: "Machine learning systems, NLP tools, predictive models, and intelligent decision-support platforms built for real-world institutional use.",
     accent: "#009EDB",
-    icon: "🤖",
+    icon: "AI",
     image: "/gallery/FB_IMG_1744840775657.jpg",
   },
   {
@@ -224,7 +200,7 @@ export const PROJECT_CATEGORIES: ProjectCategory[] = [
     tagline: "Turning raw data into institutional intelligence",
     description: "Analytics pipelines, dashboards, data engineering, and visualisation systems that turn raw data into actionable institutional intelligence.",
     accent: "#0A97D9",
-    icon: "📊",
+    icon: "DS",
     image: "/gallery/20240302_090453.jpg",
   },
   {
@@ -308,25 +284,16 @@ export const FOCUS_AREAS: string[] = [
 export const RESEARCH_CATEGORIES: ResearchCategory[] = [
   {
     slug: "/research/publications",
-    label: "Publications",
-    description: "Working papers, policy notes, and essays on AI, climate, and global development.",
+    label: "Writing & Working Papers",
+    description: "Independent essays, working papers, and policy notes on AI, climate, and global development.",
     accent: "#0077FF",
     icon: "PB",
     image: "/research/publications-hero.jpg",
   },
   {
-    slug: "/research/research-papers",
-    label: "Research Papers",
-    description: "Peer-reviewed and working papers spanning NLP, climate AI, and institutional governance.",
-    accent: "#009EDB",
-    icon: "RP",
-    sdgTag: "SDG 9",
-    image: "/research/research-papers-hero.jpg",
-  },
-  {
     slug: "/research/conference-presentations",
     label: "Conference Presentations",
-    description: "Talks at AI ethics forums, UN SDG convenings, and climate intelligence summits.",
+    description: "Presentations and talks on AI ethics, climate intelligence, and youth policy at academic and youth forums.",
     accent: "#FD6925",
     icon: "CP",
     sdgTag: "SDG 17",
@@ -413,7 +380,7 @@ export const PUBLICATIONS = [
     year: "2024",
     title: "Large Language Models and the Promise of Multilingual AI for Development",
     authors: "Mensah, R.",
-    venue: "Thought leadership — Richard Mensah Blog",
+    venue: "Independent essay — self-published",
     abstract:
       "Explores how LLMs can be adapted for multilingual African contexts, with a focus on low-resource languages and the design considerations needed to ensure these systems serve rather than exclude communities on the margins of the global digital economy.",
     tags: ["LLMs", "NLP", "SDG 4", "Multilingual AI"],
@@ -424,7 +391,7 @@ export const PUBLICATIONS = [
     year: "2024",
     title: "Responsible AI for the Global South: Institutional Readiness, Ethics, and Governance Gaps",
     authors: "Mensah, R.",
-    venue: "Policy brief — under review",
+    venue: "Policy note — working draft",
     abstract:
       "This policy note examines the structural gaps that make AI governance frameworks developed in the Global North unsuitable for direct application in Sub-Saharan Africa and South Asia. It proposes a locally-grounded ethics and accountability model aligned with the UN SDG agenda.",
     tags: ["AI Ethics", "Policy", "SDG 16", "Governance"],
@@ -457,7 +424,7 @@ export const PUBLICATIONS = [
     year: "2023",
     title: "The Future of AI in Africa Is Institutional, Not Just Technical",
     authors: "Mensah, R.",
-    venue: "Public essay — Richard Mensah Blog",
+    venue: "Independent essay — self-published",
     abstract:
       "Argues that AI adoption in Africa will be determined less by access to models and more by whether institutions — universities, ministries, NGOs — are structured to adopt, govern, and maintain intelligent systems. Outlines what institutional AI readiness looks like in practice.",
     tags: ["AI in Africa", "Institutions", "SDG 9", "SDG 16"],

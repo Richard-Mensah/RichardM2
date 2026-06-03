@@ -15,7 +15,7 @@ export default function ConferencePresentationsPage() {
         <ConferencePresentationsPageSection />
       </div>
       <SectionNav
-        prev={{ label: "Research Papers", href: "/research/research-papers" }}
+        prev={{ label: "Writing & Working Papers", href: "/research/publications" }}
         next={{ label: "Research Collaborations", href: "/research/collaborations" }}
       />
     </div>
