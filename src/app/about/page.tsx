@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import SectionNav from "@/components/ui/SectionNav";
+import { getImpactStats } from "@/lib/impactStats";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "About Richard Mensah | AI Researcher, Youth Leader, SDG Advocate",
@@ -68,16 +71,9 @@ const HUB_CARDS = [
   },
 ] as const;
 
-const QUICK_STATS = [
-  { value: "120+", label: "People helped study abroad" },
-  { value: "35+", label: "Fully funded scholarships" },
-  { value: "2,500+", label: "Youth impacted" },
-  { value: "180+", label: "Youth leaders empowered" },
-  { value: "65+", label: "Global mentors networked" },
-  { value: "8", label: "Countries travelled" },
-] as const;
-
 export default function AboutPage() {
+  const QUICK_STATS = getImpactStats();
+
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
 
