@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllArticles } from "@/lib/articles";
+import { getImpactStats } from "@/lib/impactStats";
 import { GALLERY } from "@/data/gallery";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import AdminLogoutButton from "@/components/admin/AdminLogoutButton";
@@ -7,6 +8,7 @@ import AdminDeleteButton from "@/components/admin/AdminDeleteButton";
 
 export default function AdminDashboardPage() {
   const articles = getAllArticles();
+  const impactStats = getImpactStats();
 
   return (
     <div className="flex min-h-screen w-full">
@@ -40,12 +42,13 @@ export default function AdminDashboardPage() {
             </Link>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-4xl font-black text-[#006FA6]">{impactStats.length}</p>
+            <p className="mt-1 text-sm font-semibold text-slate-500">Impact stats</p>
             <Link
-              href="/admin/articles/new"
-              className="flex h-full flex-col items-center justify-center gap-2 text-center"
+              href="/admin/impact-stats"
+              className="mt-4 block text-sm font-black text-[#009EDB] hover:underline"
             >
-              <span className="text-3xl">✍️</span>
-              <p className="text-sm font-black text-[#006FA6]">Write new article</p>
+              Edit impact stats →
             </Link>
           </div>
         </div>
