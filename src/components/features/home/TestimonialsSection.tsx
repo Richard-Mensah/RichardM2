@@ -1,11 +1,25 @@
-const ROW_A = [
+"use client";
+
+import { useState, useEffect, useCallback } from "react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+type Testimonial = {
+  name: string;
+  role: string;
+  quote: string;
+  initials: string;
+  accent: string;
+};
+
+const TESTIMONIALS: Testimonial[] = [
   {
     name: "Ama Osei",
     role: "Women in Data Ghana participant",
     quote:
       "I came in not knowing how to apply for a fellowship. Richard sat with me, went through every section of the application, and helped me write a personal statement I was actually proud of. I got in. I still cannot believe it.",
     initials: "AO",
-    accent: "#62E8FF",
+    accent: "#A21942",
   },
   {
     name: "Samuel Nkrumah",
@@ -13,7 +27,7 @@ const ROW_A = [
     quote:
       "Our community climate programme was struggling. Richard helped us redesign the structure, train our volunteers and measure outcomes properly. Within four months we had reached 120 young people. The change was night and day.",
     initials: "SN",
-    accent: "#7AF8B7",
+    accent: "#3F7E44",
   },
   {
     name: "Amina Yusuf",
@@ -29,18 +43,15 @@ const ROW_A = [
     quote:
       "Before the programme I could not confidently use a spreadsheet. Twelve weeks later I was presenting a data dashboard to my entire department. Richard made it feel achievable at every step.",
     initials: "KA",
-    accent: "#FCC30B",
+    accent: "#FD6925",
   },
-] as const;
-
-const ROW_B = [
   {
     name: "Grace Mensah",
     role: "Scholarship recipient",
     quote:
       "Richard reviewed my personal statement three times without being asked. He caught things no one else noticed and pushed me to be specific about my goals. I got a fully funded offer. I keep telling people: find a mentor like this.",
     initials: "GM",
-    accent: "#FCC30B",
+    accent: "#009EDB",
   },
   {
     name: "David Kwame",
@@ -48,7 +59,7 @@ const ROW_B = [
     quote:
       "I was terrified to present at an international summit. Richard ran a preparation session with me, helped me rehearse questions, and connected me with two researchers I am still collaborating with today. That summit changed my trajectory.",
     initials: "DK",
-    accent: "#62E8FF",
+    accent: "#00689D",
   },
   {
     name: "Esi Baah",
@@ -56,7 +67,7 @@ const ROW_B = [
     quote:
       "We had the energy but not the structure. Richard helped us build a proper curriculum, track participation and show funders the real numbers. We went from 20 active participants to 80 in one cohort. Measurable impact.",
     initials: "EB",
-    accent: "#7AF8B7",
+    accent: "#0EA5A4",
   },
   {
     name: "Nana Appiah",
@@ -64,97 +75,239 @@ const ROW_B = [
     quote:
       "The mentorship was not just career advice — it was a whole systems shift in how I thought about my potential. I left with a roadmap, a network, and the confidence to actually execute it.",
     initials: "NA",
-    accent: "#0077FF",
+    accent: "#19486A",
   },
-] as const;
+];
 
-type CardProps = {
-  name: string;
-  role: string;
-  quote: string;
-  initials: string;
-  accent: string;
-};
-
-function TestimonialCard({ name, role, quote, initials, accent }: CardProps) {
+function Stars({ accentClass = "text-[#FCC30B]" }: { accentClass?: string }) {
   return (
-    <article className="relative mx-3 flex w-[340px] flex-shrink-0 flex-col rounded-2xl border border-white/[0.07] bg-[#0D1B2E] p-6 shadow-2xl shadow-black/40">
-      <div
-        className="absolute inset-x-0 top-0 h-px rounded-t-2xl"
-        style={{ background: `linear-gradient(90deg, transparent 10%, ${accent}80, transparent 90%)` }}
-      />
-      <div
-        className="select-none text-5xl font-black leading-none"
-        style={{ color: accent, opacity: 0.22 }}
-        aria-hidden="true"
-      >
-        &ldquo;
-      </div>
-      <p className="mt-2 flex-1 text-sm leading-[1.8] text-slate-300">{quote}</p>
-      <div className="mt-5 flex items-center gap-3">
-        <div
-          className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full text-xs font-black text-white"
-          style={{ background: `linear-gradient(135deg, ${accent}50, ${accent}18)`, border: `1px solid ${accent}40` }}
-        >
-          {initials}
-        </div>
-        <div className="min-w-0">
-          <p className="text-sm font-black text-white">{name}</p>
-          <p className="mt-0.5 truncate text-xs text-slate-500">{role}</p>
-        </div>
-        <div className="ml-auto flex gap-0.5 text-[#FCC30B]" aria-label="5 stars">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <span key={i} className="text-xs">★</span>
-          ))}
-        </div>
-      </div>
-    </article>
+    <div className={cn("flex gap-0.5", accentClass)} aria-label="5 out of 5 stars">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <span key={i} className="text-xs" aria-hidden="true">
+          ★
+        </span>
+      ))}
+    </div>
   );
 }
 
+function Avatar({ initials, accent }: { initials: string; accent: string }) {
+  return (
+    <div
+      className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full text-xs font-black text-white"
+      style={{ background: `linear-gradient(135deg, ${accent}, ${accent}cc)` }}
+    >
+      {initials}
+    </div>
+  );
+}
+
+function useCardsPerView() {
+  const [perView, setPerView] = useState(1);
+
+  useEffect(() => {
+    const lg = window.matchMedia("(min-width: 1024px)");
+    const md = window.matchMedia("(min-width: 768px)");
+    const update = () => setPerView(lg.matches ? 3 : md.matches ? 2 : 1);
+    update();
+    lg.addEventListener("change", update);
+    md.addEventListener("change", update);
+    return () => {
+      lg.removeEventListener("change", update);
+      md.removeEventListener("change", update);
+    };
+  }, []);
+
+  return perView;
+}
+
 export default function TestimonialsSection() {
-  const rowA = [...ROW_A, ...ROW_A];
-  const rowB = [...ROW_B, ...ROW_B];
+  const perView = useCardsPerView();
+  const [index, setIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const count = TESTIMONIALS.length;
+  const maxIndex = Math.max(0, count - perView);
+
+  // Keep the index in range when the viewport (perView) changes.
+  useEffect(() => {
+    setIndex((i) => Math.min(i, maxIndex));
+  }, [maxIndex]);
+
+  const prev = useCallback(() => setIndex((i) => Math.max(0, i - 1)), []);
+  const next = useCallback(() => setIndex((i) => Math.min(maxIndex, i + 1)), [maxIndex]);
+
+  const close = useCallback(() => setActiveIndex(null), []);
+
+  // Esc closes the read-more modal.
+  useEffect(() => {
+    if (activeIndex === null) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [activeIndex, close]);
+
+  const active = activeIndex !== null ? TESTIMONIALS[activeIndex] : null;
 
   return (
-    <div className="relative overflow-hidden bg-[#060D1A] px-0 py-16 md:py-24">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse at 15% 50%, rgba(0,119,255,0.09) 0%, transparent 55%), radial-gradient(ellipse at 85% 50%, rgba(98,232,255,0.07) 0%, transparent 55%)",
-        }}
-      />
+    <div className="bg-white px-5 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        {/* Heading */}
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#0077FF]">
+              Testimonials
+            </p>
+            <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.03em] text-slate-950 md:text-4xl">
+              In their own words.
+            </h2>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-500">
+              Real accounts from people who went through the programmes, applied for scholarships,
+              built projects, and came out the other side with something tangible to show for it.
+            </p>
+          </div>
 
-      <div className="relative mx-auto mb-12 max-w-7xl px-5 md:px-8">
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#62E8FF]">
-          Testimonials
-        </p>
-        <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.04em] text-white md:text-4xl">
-          In their own words.
-        </h2>
-        <p className="mt-4 max-w-2xl text-base leading-7 text-slate-400">
-          Real accounts from people who went through the programmes, applied for scholarships,
-          built projects, and came out the other side with something tangible to show for it.
-        </p>
-      </div>
+          {/* Arrow controls */}
+          <div className="flex shrink-0 gap-2">
+            <button
+              type="button"
+              onClick={prev}
+              disabled={index === 0}
+              aria-label="Previous testimonials"
+              className="grid h-11 w-11 place-items-center rounded-full border border-slate-300 text-slate-700 transition hover:border-[#0077FF] hover:text-[#0077FF] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:border-slate-300 disabled:hover:text-slate-700"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              type="button"
+              onClick={next}
+              disabled={index >= maxIndex}
+              aria-label="Next testimonials"
+              className="grid h-11 w-11 place-items-center rounded-full border border-slate-300 text-slate-700 transition hover:border-[#0077FF] hover:text-[#0077FF] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:border-slate-300 disabled:hover:text-slate-700"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        </div>
 
-      <div className="marquee-fade overflow-hidden">
-        <div className="marquee-left flex py-2">
-          {rowA.map((t, i) => (
-            <TestimonialCard key={`a-${i}`} {...t} />
+        {/* Carousel track */}
+        <div className="mt-10 overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(-${index * (100 / perView)}%)` }}
+          >
+            {TESTIMONIALS.map((t, i) => (
+              <div
+                key={t.name}
+                className="flex-shrink-0 px-2.5"
+                style={{ width: `${100 / perView}%` }}
+              >
+                <article className="flex h-full min-h-[300px] flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/60">
+                  <span
+                    className="block h-1 w-12 rounded-full"
+                    style={{ backgroundColor: t.accent }}
+                  />
+                  <div
+                    className="mt-4 select-none text-5xl font-black leading-none"
+                    style={{ color: t.accent }}
+                    aria-hidden="true"
+                  >
+                    &ldquo;
+                  </div>
+                  <p className="mt-2 flex-1 text-sm leading-[1.8] text-slate-600 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:4] overflow-hidden">
+                    {t.quote}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setActiveIndex(i)}
+                    className="mt-3 self-start text-xs font-bold uppercase tracking-[0.12em] transition hover:underline"
+                    style={{ color: t.accent }}
+                  >
+                    Read more
+                  </button>
+                  <div className="mt-5 flex items-center gap-3 border-t border-slate-100 pt-4">
+                    <Avatar initials={t.initials} accent={t.accent} />
+                    <div className="min-w-0">
+                      <p className="text-sm font-black text-slate-950">{t.name}</p>
+                      <p className="mt-0.5 truncate text-xs text-slate-500">{t.role}</p>
+                    </div>
+                    <div className="ml-auto">
+                      <Stars />
+                    </div>
+                  </div>
+                </article>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dots */}
+        <div className="mt-8 flex justify-center gap-2">
+          {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setIndex(i)}
+              aria-label={`Go to testimonial group ${i + 1}`}
+              className={cn(
+                "h-2 rounded-full transition-all duration-300",
+                i === index ? "w-8 bg-[#0077FF]" : "w-2 bg-slate-300 hover:bg-slate-400"
+              )}
+            />
           ))}
         </div>
       </div>
 
-      <div className="marquee-fade mt-4 overflow-hidden">
-        <div className="marquee-right flex py-2">
-          {rowB.map((t, i) => (
-            <TestimonialCard key={`b-${i}`} {...t} />
-          ))}
+      {/* Read-more modal */}
+      {active && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/70 p-4"
+          onClick={close}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Testimonial from ${active.name}`}
+        >
+          <div
+            className="relative w-full max-w-lg rounded-3xl bg-white p-8 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={close}
+              aria-label="Close"
+              className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+            >
+              <X size={18} />
+            </button>
+
+            <span
+              className="block h-1 w-12 rounded-full"
+              style={{ backgroundColor: active.accent }}
+            />
+            <div
+              className="mt-3 select-none text-6xl font-black leading-none"
+              style={{ color: active.accent }}
+              aria-hidden="true"
+            >
+              &ldquo;
+            </div>
+            <p className="mt-2 text-base leading-[1.9] text-slate-700">{active.quote}</p>
+
+            <div className="mt-6 flex items-center gap-3 border-t border-slate-100 pt-5">
+              <Avatar initials={active.initials} accent={active.accent} />
+              <div className="min-w-0">
+                <p className="text-sm font-black text-slate-950">{active.name}</p>
+                <p className="mt-0.5 text-xs text-slate-500">{active.role}</p>
+              </div>
+              <div className="ml-auto">
+                <Stars />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
