@@ -40,8 +40,13 @@ export default function ProjectsPage() {
                       />
                     </div>
                     <div className="relative z-10 flex flex-1 flex-col p-5">
-                      <span className="text-2xl" aria-hidden="true">{cat.icon}</span>
-                      <h2 className="mt-3 text-sm font-black leading-snug text-white">{cat.label}</h2>
+                      <span
+                        className="grid h-9 w-9 place-items-center rounded-lg bg-white/20 text-xs font-bold tracking-wide text-white ring-1 ring-white/30 backdrop-blur-sm"
+                        aria-hidden="true"
+                      >
+                        {cat.icon}
+                      </span>
+                      <h2 className="mt-3 text-sm font-bold leading-snug text-white">{cat.label}</h2>
                       <p className="mt-1 flex-1 text-xs leading-5 text-white/75 line-clamp-3">
                         {cat.description}
                       </p>

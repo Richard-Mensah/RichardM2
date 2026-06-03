@@ -70,8 +70,8 @@ export default function OpportunitiesPage() {
               {OPPORTUNITY_TYPES.map((opp) => (
                 <section key={opp.id} id={opp.id} className="scroll-mt-24">
                   <Card className="h-full p-8" style={{ borderTop: `3px solid ${opp.accent}` }}>
-                    <span className="text-4xl">{opp.icon}</span>
-                    <h2 className="mt-4 text-2xl font-black text-slate-950">{opp.title}</h2>
+                    <span className="inline-block h-2.5 w-12 rounded-full" style={{ backgroundColor: opp.accent }} aria-hidden="true" />
+                    <h2 className="mt-4 text-2xl font-bold text-slate-950">{opp.title}</h2>
                     <p className="mt-3 text-sm leading-7 text-slate-600">{opp.description}</p>
                     <p className="mt-6 text-xs font-semibold text-slate-400">
                       Opportunities listed soon — check back regularly.

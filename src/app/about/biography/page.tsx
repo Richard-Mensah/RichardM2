@@ -81,7 +81,7 @@ export default function BiographyPage() {
                   />
                   <div className="absolute inset-0 bg-black/20 transition group-hover:bg-black/10" />
                 </div>
-                <p className="mt-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#0077FF]">
+                <p className="mt-2 text-[11px] font-black uppercase tracking-[0.18em] text-[#0077FF]">
                   {photo.label}
                 </p>
                 <p className="mt-0.5 text-xs leading-5 text-slate-600">{photo.caption}</p>

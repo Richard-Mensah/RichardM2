@@ -79,7 +79,7 @@ export default function CommunityPageSection() {
             {INITIATIVES.map((init) => (
               <Card key={init.title} className="p-6 md:p-8" style={{ borderLeft: `4px solid ${init.accent}` }}>
                 <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-8">
-                  <span className="text-3xl" aria-hidden="true">{init.icon}</span>
+                  <span className="mt-1.5 inline-block h-2.5 w-10 shrink-0 rounded-full" style={{ backgroundColor: init.accent }} aria-hidden="true" />
                   <div className="flex-1">
                     <h3 className="text-base font-black text-slate-950">{init.title}</h3>
                     <p className="mt-2 text-sm leading-7 text-slate-600">{init.description}</p>

@@ -491,7 +491,7 @@ export default function SectionOverview() {
             <div>
               <div className="mb-3 flex items-center gap-2">
                 <div className="h-2 w-2 flex-shrink-0 rounded-full bg-amber-400" />
-                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-amber-600">
+                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-amber-600">
                   Where it started
                 </p>
               </div>
@@ -512,7 +512,7 @@ export default function SectionOverview() {
                       sizes="(min-width: 1024px) 22vw, 45vw"
                     />
                     <div className="absolute inset-0 bg-black/0 transition group-hover:bg-black/25" />
-                    <p className="absolute inset-x-0 bottom-0 translate-y-1 bg-gradient-to-t from-black/70 to-transparent px-2 py-2 text-[9px] font-semibold leading-tight text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                    <p className="absolute inset-x-0 bottom-0 translate-y-1 bg-gradient-to-t from-black/70 to-transparent px-2 py-2 text-[11px] font-semibold leading-tight text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                       {img.caption}
                     </p>
                   </a>
@@ -524,7 +524,7 @@ export default function SectionOverview() {
             <div>
               <div className="mb-3 flex items-center gap-2">
                 <div className="h-2 w-2 flex-shrink-0 rounded-full bg-[#0077FF]" />
-                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-[#0077FF]">
+                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-[#0077FF]">
                   Where it led
                 </p>
               </div>
@@ -545,7 +545,7 @@ export default function SectionOverview() {
                       sizes="(min-width: 1024px) 22vw, 45vw"
                     />
                     <div className="absolute inset-0 bg-black/0 transition group-hover:bg-black/25" />
-                    <p className="absolute inset-x-0 bottom-0 translate-y-1 bg-gradient-to-t from-black/70 to-transparent px-2 py-2 text-[9px] font-semibold leading-tight text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                    <p className="absolute inset-x-0 bottom-0 translate-y-1 bg-gradient-to-t from-black/70 to-transparent px-2 py-2 text-[11px] font-semibold leading-tight text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                       {img.caption}
                     </p>
                   </a>
