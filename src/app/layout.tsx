@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
+import PageViewTracker from "@/components/analytics/PageViewTracker";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <SiteHeader />
         <main className="overflow-hidden pt-28">{children}</main>
         <SiteFooter />
+        <PageViewTracker />
       </body>
     </html>
   );

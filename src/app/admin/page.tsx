@@ -53,6 +53,31 @@ export default async function AdminDashboardPage() {
           </div>
         </div>
 
+        {/* Manage content */}
+        <div className="mt-10">
+          <h2 className="mb-4 text-lg font-black text-slate-950">Manage content</h2>
+          <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-4">
+            {[
+              { label: "Homepage content", href: "/admin/homepage" },
+              { label: "About the Author", href: "/admin/author" },
+              { label: "Impact stats", href: "/admin/impact-stats" },
+              { label: "Testimonials", href: "/admin/testimonials" },
+              { label: "Opportunities", href: "/admin/opportunities" },
+              { label: "Gallery", href: "/admin/gallery" },
+              { label: "Contact inquiries", href: "/admin/inquiries" },
+              { label: "Analytics", href: "/admin/analytics" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-2xl border border-slate-200 bg-white px-5 py-4 text-sm font-black text-slate-700 shadow-sm transition hover:border-[#009EDB] hover:text-[#006FA6]"
+              >
+                {item.label} →
+              </Link>
+            ))}
+          </div>
+        </div>
+
         {/* Recent articles */}
         <div className="mt-10">
           <div className="mb-4 flex items-center justify-between">

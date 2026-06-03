@@ -1,0 +1,128 @@
+"use client";
+
+import { useState, FormEvent, useRef } from "react";
+import { useRouter } from "next/navigation";
+import type { GalleryItem } from "@/lib/gallery";
+
+export default function GalleryManager({ initial }: { initial: GalleryItem[] }) {
+  const router = useRouter();
+  const fileRef = useRef<HTMLInputElement>(null);
+  const [alt, setAlt] = useState("");
+  const [caption, setCaption] = useState("");
+  const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [deletingId, setDeletingId] = useState<number | null>(null);
+
+  async function handleUpload(e: FormEvent) {
+    e.preventDefault();
+    setError(null);
+    const file = fileRef.current?.files?.[0];
+    if (!file) {
+      setError("Choose an image to upload.");
+      return;
+    }
+    setUploading(true);
+    const fd = new FormData();
+    fd.append("file", file);
+    fd.append("alt", alt);
+    fd.append("caption", caption);
+
+    const res = await fetch("/api/admin/gallery", { method: "POST", body: fd });
+    const data = (await res.json()) as { ok: boolean; message?: string };
+    if (data.ok) {
+      setAlt("");
+      setCaption("");
+      if (fileRef.current) fileRef.current.value = "";
+      router.refresh();
+    } else {
+      setError(data.message ?? "Upload failed.");
+    }
+    setUploading(false);
+  }
+
+  async function handleDelete(id: number) {
+    if (!confirm("Delete this photo? This cannot be undone.")) return;
+    setDeletingId(id);
+    const res = await fetch("/api/admin/gallery", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id }),
+    });
+    const data = (await res.json()) as { ok: boolean; message?: string };
+    if (data.ok) {
+      router.refresh();
+    } else {
+      setError(data.message ?? "Delete failed.");
+    }
+    setDeletingId(null);
+  }
+
+  return (
+    <div className="space-y-8">
+      {/* Upload form */}
+      <form onSubmit={handleUpload} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <p className="text-xs font-black uppercase tracking-[0.15em] text-slate-400">Upload a photo</p>
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+          <div className="sm:col-span-2">
+            <label className="mb-1.5 block text-sm font-semibold text-slate-700">Image file *</label>
+            <input
+              ref={fileRef}
+              type="file"
+              accept="image/*"
+              className="block w-full text-sm text-slate-600 file:mr-4 file:rounded-full file:border-0 file:bg-[#006FA6] file:px-5 file:py-2.5 file:text-sm file:font-black file:text-white hover:file:bg-[#009EDB]"
+            />
+          </div>
+          <div>
+            <label className="mb-1.5 block text-sm font-semibold text-slate-700">Alt text (accessibility)</label>
+            <input
+              value={alt}
+              onChange={(e) => setAlt(e.target.value)}
+              placeholder="Describe the photo"
+              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20"
+            />
+          </div>
+          <div>
+            <label className="mb-1.5 block text-sm font-semibold text-slate-700">Caption</label>
+            <input
+              value={caption}
+              onChange={(e) => setCaption(e.target.value)}
+              placeholder="Shown under the photo"
+              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20"
+            />
+          </div>
+        </div>
+        {error && <p className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-600">{error}</p>}
+        <button
+          type="submit"
+          disabled={uploading}
+          className="mt-5 rounded-xl bg-[#006FA6] px-6 py-3 text-sm font-black uppercase tracking-[0.1em] text-white transition hover:bg-[#009EDB] disabled:opacity-60"
+        >
+          {uploading ? "Uploading…" : "Upload photo"}
+        </button>
+      </form>
+
+      {/* Grid */}
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        {initial.map((photo) => (
+          <div key={photo.id} className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <div className="relative aspect-square">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={photo.src} alt={photo.alt} className="h-full w-full object-cover" />
+            </div>
+            {photo.caption && <p className="truncate px-3 py-2 text-xs text-slate-500">{photo.caption}</p>}
+            {photo.id > 0 && (
+              <button
+                type="button"
+                onClick={() => handleDelete(photo.id)}
+                disabled={deletingId === photo.id}
+                className="absolute right-2 top-2 rounded-full bg-red-600/90 px-3 py-1 text-xs font-bold text-white opacity-0 transition group-hover:opacity-100 disabled:opacity-60"
+              >
+                {deletingId === photo.id ? "…" : "Delete"}
+              </button>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

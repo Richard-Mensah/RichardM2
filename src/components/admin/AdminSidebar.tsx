@@ -4,8 +4,14 @@ const NAV_ITEMS = [
   { label: "Dashboard", href: "/admin" },
   { label: "Articles", href: "/admin/articles" },
   { label: "New Article", href: "/admin/articles/new" },
+  { label: "Homepage", href: "/admin/homepage" },
+  { label: "About the Author", href: "/admin/author" },
   { label: "Impact Stats", href: "/admin/impact-stats" },
+  { label: "Testimonials", href: "/admin/testimonials" },
+  { label: "Opportunities", href: "/admin/opportunities" },
   { label: "Gallery", href: "/admin/gallery" },
+  { label: "Inquiries", href: "/admin/inquiries" },
+  { label: "Analytics", href: "/admin/analytics" },
   { label: "← View Site", href: "/" },
 ];
 
