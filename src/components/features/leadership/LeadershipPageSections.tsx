@@ -8,7 +8,7 @@ const HUB_CARDS = [
     tag: "The Origin Story",
     title: "Sefwi Bekwai Youth Movement",
     body: "How a grassroots youth platform in Ghana's Western North Region became the training ground for everything that followed — from church civic education to UNYA-Ghana Youth Parliament.",
-    accent: "#F59E0B",
+    accent: "#2BA8B4",
   },
   {
     href: "/leadership/ega",
@@ -16,7 +16,7 @@ const HUB_CARDS = [
     tag: "International Organisation",
     title: "EGA Mentorship International",
     body: "Founded to remove friction between ambition and access — 120+ study abroad journeys, 35+ fully funded scholarships, and partners across Serbia, USA, Zambia, and Liberia.",
-    accent: "#0077FF",
+    accent: "#2BA8B4",
   },
   {
     href: "/leadership/community",
@@ -33,7 +33,7 @@ export default function LeadershipPageSections() {
     <section className="bg-slate-950 px-5 py-20 md:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-14">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#0077FF]">
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#2BA8B4]">
             Leadership · Community · Institution-Building
           </p>
           <h2 className="mt-4 max-w-3xl text-balance text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">

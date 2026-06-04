@@ -12,7 +12,7 @@ export default function AiDataSciencePageSection() {
       <div className="relative mx-auto max-w-5xl">
 
         {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#009EDB]">AI & Data Science</p>
+        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#2BA8B4]">AI & Data Science</p>
         <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
           Applied intelligence for real-world decisions.
         </h1>
@@ -24,7 +24,7 @@ export default function AiDataSciencePageSection() {
         {/* 2-col research narrative */}
         <div className="mt-12 grid gap-10 lg:grid-cols-2">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#009EDB]">Core research focus</p>
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#2BA8B4]">Core research focus</p>
             <h2 className="mt-4 text-2xl font-black tracking-[-0.03em] text-slate-950">
               AI that works for people, not the other way around.
             </h2>
@@ -44,7 +44,7 @@ export default function AiDataSciencePageSection() {
             </div>
           </div>
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#0077FF]">Research to deployment</p>
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#2BA8B4]">Research to deployment</p>
             <h2 className="mt-4 text-2xl font-black tracking-[-0.03em] text-slate-950">
               Closing the gap between insight and application.
             </h2>
@@ -96,12 +96,12 @@ export default function AiDataSciencePageSection() {
 
         {/* CTA */}
         <div className="mt-12 rounded-2xl bg-[#F0FAFF] p-8">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#009EDB]">Work together</p>
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#2BA8B4]">Work together</p>
           <p className="mt-3 text-base leading-7 text-slate-600">
             Explore the full systems portfolio or discuss a project, collaboration, or advisory engagement.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/systems" className="rounded-full bg-[#009EDB] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#007DB8]">
+            <Link href="/systems" className="rounded-full bg-[#2BA8B4] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#007DB8]">
               Explore AI systems
             </Link>
             <Link href="/contact" className="rounded-full border border-slate-300 px-6 py-2.5 text-sm font-black text-slate-700 transition hover:border-slate-400">

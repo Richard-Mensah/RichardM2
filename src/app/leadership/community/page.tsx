@@ -99,10 +99,10 @@ const WINNEBA_PHOTOS = [
 ];
 
 const SDG_TAGS = [
-  { code: "SDG 4", label: "Quality Education", color: "#C5192D" },
+  { code: "SDG 4", label: "Quality Education", color: "#176E78" },
   { code: "SDG 6", label: "Clean Water & Sanitation", color: "#26BDE2" },
-  { code: "SDG 11", label: "Sustainable Communities", color: "#FD9D24" },
-  { code: "SDG 3", label: "Good Health & Wellbeing", color: "#4C9F38" },
+  { code: "SDG 11", label: "Sustainable Communities", color: "#2BA8B4" },
+  { code: "SDG 3", label: "Good Health & Wellbeing", color: "#1E8A95" },
   { code: "SDG 17", label: "Partnerships for the Goals", color: "#19486A" },
 ];
 
@@ -111,10 +111,10 @@ export default function CommunityDevelopmentPage() {
     <div className="min-h-screen bg-white">
       {/* Back nav */}
       <div className="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 bg-white/90 px-5 py-3 backdrop-blur md:px-8">
-        <Link href="/leadership" className="text-sm font-bold text-[#0077FF] hover:underline">
+        <Link href="/leadership" className="text-sm font-bold text-[#2BA8B4] hover:underline">
           ← Back to Leadership
         </Link>
-        <Link href="/sdgs" className="text-sm font-bold text-slate-600 hover:text-[#0077FF]">
+        <Link href="/sdgs" className="text-sm font-bold text-slate-600 hover:text-[#2BA8B4]">
           SDGs Alignment →
         </Link>
       </div>
@@ -150,8 +150,8 @@ export default function CommunityDevelopmentPage() {
         {/* Teaching — COVID-19 */}
         <div>
           <div className="flex items-center gap-3">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#C5192D] text-xs font-black text-white">4</span>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#C5192D]">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#176E78] text-xs font-black text-white">4</span>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#176E78]">
               SDG 4 · Quality Education · 2019–2021
             </p>
           </div>
@@ -220,8 +220,8 @@ export default function CommunityDevelopmentPage() {
         {/* STEM Excursion */}
         <div className="mt-20">
           <div className="flex items-center gap-3">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#4C9F38] text-xs font-black text-white">3</span>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#4C9F38]">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#1E8A95] text-xs font-black text-white">3</span>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#1E8A95]">
               SDG 3 & 4 · Health & Education · Sefwi Bekwai
             </p>
           </div>
@@ -258,7 +258,7 @@ export default function CommunityDevelopmentPage() {
             <Image src="/community/teaching-radio-skills.jpg" alt="Community Radio Communication Skills Programme" fill className="object-cover" />
           </div>
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#0077FF]">
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#2BA8B4]">
               Community Radio Communication Project
             </p>
             <h2 className="mt-3 text-2xl font-black tracking-[-0.03em] text-slate-950">
@@ -277,7 +277,7 @@ export default function CommunityDevelopmentPage() {
         <div className="mt-20">
           <div className="flex items-center gap-3">
             <span className="grid h-8 w-8 place-items-center rounded-full bg-[#26BDE2] text-xs font-black text-white">6</span>
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#FD9D24] text-xs font-black text-white">11</span>
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#2BA8B4] text-xs font-black text-white">11</span>
             <p className="text-xs font-black uppercase tracking-[0.25em] text-slate-500">
               SDG 6 & 11 · Sanitation & Communities · January 2020
             </p>
@@ -393,7 +393,7 @@ export default function CommunityDevelopmentPage() {
 
         {/* School Outreach */}
         <div className="mt-20">
-          <p className="text-xs font-black uppercase tracking-[0.25em] text-[#C5192D]">
+          <p className="text-xs font-black uppercase tracking-[0.25em] text-[#176E78]">
             2020 · Sefwi Bekwai · Roman Catholic Church
           </p>
           <h2 className="mt-3 text-3xl font-black tracking-[-0.03em] text-slate-950 md:text-4xl">
@@ -445,7 +445,7 @@ export default function CommunityDevelopmentPage() {
         <div className="mt-14 flex flex-wrap gap-5">
           <Link
             href="/leadership/sefwi-bekwai"
-            className="rounded-full bg-[#0077FF] px-7 py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:bg-blue-600"
+            className="rounded-full bg-[#2BA8B4] px-7 py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:bg-blue-600"
           >
             ← Sefwi Bekwai Youth Movement
           </Link>

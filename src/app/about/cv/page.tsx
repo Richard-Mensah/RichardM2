@@ -17,11 +17,11 @@ export default function CvPage() {
         <div className="mx-auto max-w-7xl">
           <Link
             href="/about"
-            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#62E8FF] transition hover:text-white"
+            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#7FD6D2] transition hover:text-white"
           >
             ← About Richard
           </Link>
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#62E8FF]">CV / Resume</p>
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7FD6D2]">CV / Resume</p>
           <h1 className="mt-4 max-w-3xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-white md:text-6xl">
             The full record of a career built with purpose.
           </h1>
@@ -35,7 +35,7 @@ export default function CvPage() {
             <a
               href="/richard-mensah-cv.pdf"
               download="Richard-Mensah-CV.pdf"
-              className="rounded-full bg-[#0077FF] px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#0077FF]/30 transition hover:-translate-y-0.5 hover:bg-[#62E8FF]"
+              className="rounded-full bg-[#2BA8B4] px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#2BA8B4]/30 transition hover:-translate-y-0.5 hover:bg-[#7FD6D2]"
             >
               Download CV
             </a>
@@ -74,7 +74,7 @@ export default function CvPage() {
                   <a
                     href="/richard-mensah-cv.pdf"
                     download="Richard-Mensah-CV.pdf"
-                    className="rounded-full bg-[#0077FF] px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:bg-[#62E8FF]"
+                    className="rounded-full bg-[#2BA8B4] px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:bg-[#7FD6D2]"
                   >
                     Download CV
                   </a>
@@ -82,7 +82,7 @@ export default function CvPage() {
                     href="/richard-mensah-cv.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full border border-slate-300 px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-slate-700 transition hover:border-[#0077FF] hover:text-[#0077FF]"
+                    className="rounded-full border border-slate-300 px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-slate-700 transition hover:border-[#2BA8B4] hover:text-[#2BA8B4]"
                   >
                     Open in new tab
                   </a>

@@ -21,7 +21,7 @@ export default function ResearchPapersPageSection() {
       <div className="relative mx-auto max-w-5xl">
 
         {/* Hero */}
-        <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#009EDB]">Research Papers</p>
+        <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#2BA8B4]">Research Papers</p>
         <h1 className="mt-4 text-balance text-4xl font-bold tracking-[-0.02em] text-slate-950 md:text-5xl">
           Working papers and applied research.
         </h1>
@@ -54,8 +54,8 @@ export default function ResearchPapersPageSection() {
                   key={tag}
                   className="rounded-full border px-3 py-0.5 text-[0.65rem] font-bold uppercase tracking-[0.18em]"
                   style={{
-                    borderColor: `${TAG_COLOURS[tag] ?? "#009EDB"}44`,
-                    color: TAG_COLOURS[tag] ?? "#009EDB",
+                    borderColor: `${TAG_COLOURS[tag] ?? "#2BA8B4"}44`,
+                    color: TAG_COLOURS[tag] ?? "#2BA8B4",
                   }}
                 >
                   {tag}
@@ -97,13 +97,13 @@ export default function ResearchPapersPageSection() {
         )}
 
         {/* Research agenda */}
-        <div className="mt-12 rounded-2xl border border-[#009EDB]/20 bg-[#F0FAFF] p-8">
-          <p className="text-xs font-black uppercase tracking-[0.26em] text-[#009EDB]">Current research agenda</p>
+        <div className="mt-12 rounded-2xl border border-[#2BA8B4]/20 bg-[#F0FAFF] p-8">
+          <p className="text-xs font-black uppercase tracking-[0.26em] text-[#2BA8B4]">Current research agenda</p>
           <h2 className="mt-3 text-xl font-black text-slate-950">What Richard is working on now</h2>
           <ul className="mt-5 space-y-3">
             {AGENDA.map((item) => (
               <li key={item} className="flex items-start gap-3 text-sm leading-6 text-slate-700">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#009EDB]" />
+                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#2BA8B4]" />
                 {item}
               </li>
             ))}
@@ -112,12 +112,12 @@ export default function ResearchPapersPageSection() {
 
         {/* CTA */}
         <div className="mt-12 rounded-2xl bg-[#F0FAFF] p-8">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#009EDB]">Collaborate</p>
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#2BA8B4]">Collaborate</p>
           <p className="mt-3 text-base leading-7 text-slate-600">
             Interested in proposing a joint research project or providing peer review?
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/contact" className="rounded-full bg-[#009EDB] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#007DB8]">
+            <Link href="/contact" className="rounded-full bg-[#2BA8B4] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#007DB8]">
               Get in touch
             </Link>
             <Link href="/research" className="rounded-full border border-slate-300 px-6 py-2.5 text-sm font-black text-slate-700 transition hover:border-slate-400">

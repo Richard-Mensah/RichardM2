@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 };
 
 const SDG_CARDS = [
-  { code: "SDG 4", label: "Quality Education", color: "#C5192D" },
-  { code: "SDG 9", label: "Industry & Innovation", color: "#FD6925" },
-  { code: "SDG 13", label: "Climate Action", color: "#3F7E44" },
+  { code: "SDG 4", label: "Quality Education", color: "#176E78" },
+  { code: "SDG 9", label: "Industry & Innovation", color: "#2BA8B4" },
+  { code: "SDG 13", label: "Climate Action", color: "#1E8A95" },
   { code: "SDG 17", label: "Partnerships for the Goals", color: "#19486A" },
 ] as const;
 
@@ -20,19 +20,19 @@ const PILLARS = [
     icon: "04",
     title: "Education as the foundation",
     body: "No sustainable progress is possible without access to quality knowledge. Richard's work in AI literacy, mentorship, and community teaching is rooted in the belief that learning changes trajectories.",
-    color: "#C5192D",
+    color: "#176E78",
   },
   {
     icon: "09",
     title: "Innovation in service of people",
     body: "Technology should solve real problems, not create new hierarchies. Every system Richard builds is designed to be understandable, accessible, and beneficial to the communities it serves.",
-    color: "#FD6925",
+    color: "#2BA8B4",
   },
   {
     icon: "13",
     title: "Climate intelligence for resilience",
     body: "Communities in the Global South face disproportionate climate risk. Richard works to translate complex environmental data into locally actionable intelligence that communities can actually use.",
-    color: "#3F7E44",
+    color: "#1E8A95",
   },
   {
     icon: "17",
@@ -51,11 +51,11 @@ export default function VisionPage() {
         <div className="mx-auto max-w-7xl">
           <Link
             href="/about"
-            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#0077FF] transition hover:text-slate-950"
+            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#2BA8B4] transition hover:text-slate-950"
           >
             ← About Richard
           </Link>
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#0077FF]">Vision &amp; Mission</p>
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#2BA8B4]">Vision &amp; Mission</p>
           <h1 className="mt-4 max-w-3xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-slate-950 md:text-6xl">
             Intelligence that serves the many, not the few.
           </h1>
@@ -72,7 +72,7 @@ export default function VisionPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-14 lg:grid-cols-2 lg:items-start">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.3em] text-[#0077FF]">The Vision</p>
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-[#2BA8B4]">The Vision</p>
               <h2 className="mt-4 text-balance text-2xl font-black tracking-[-0.03em] text-slate-950 md:text-3xl">
                 A world where intelligence serves people first.
               </h2>
@@ -93,7 +93,7 @@ export default function VisionPage() {
             </div>
 
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.3em] text-[#0077FF]">The Mission</p>
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-[#2BA8B4]">The Mission</p>
               <h2 className="mt-4 text-balance text-2xl font-black tracking-[-0.03em] text-slate-950 md:text-3xl">
                 Build the systems that make the vision real.
               </h2>
@@ -120,7 +120,7 @@ export default function VisionPage() {
       {/* ── SDG focus cards ───────────────────────────────────────── */}
       <section className="bg-[#0B1F3A] px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#62E8FF]">SDG Focus</p>
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7FD6D2]">SDG Focus</p>
           <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.04em] text-white md:text-4xl">
             The interlocking goals that guide the work.
           </h2>
@@ -142,7 +142,7 @@ export default function VisionPage() {
       {/* ── Four pillars ──────────────────────────────────────────── */}
       <section className="bg-white px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#0077FF]">How it works</p>
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#2BA8B4]">How it works</p>
           <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.04em] text-slate-950 md:text-4xl">
             Four pillars, one coherent system.
           </h2>
@@ -167,7 +167,7 @@ export default function VisionPage() {
       </section>
 
       {/* ── North star strip ──────────────────────────────────────── */}
-      <section className="bg-[#0077FF] px-5 py-12 md:px-8">
+      <section className="bg-[#2BA8B4] px-5 py-12 md:px-8">
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-xs font-black uppercase tracking-[0.3em] text-white/70">North Star</p>
           <p className="mt-4 text-balance text-2xl font-black leading-snug text-white md:text-3xl">
@@ -176,7 +176,7 @@ export default function VisionPage() {
           </p>
           <Link
             href="/sdgs"
-            className="mt-8 inline-flex rounded-full bg-white px-7 py-3.5 text-sm font-black uppercase tracking-[0.15em] text-[#0077FF] shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-100"
+            className="mt-8 inline-flex rounded-full bg-white px-7 py-3.5 text-sm font-black uppercase tracking-[0.15em] text-[#2BA8B4] shadow-lg transition hover:-translate-y-0.5 hover:bg-slate-100"
           >
             Explore SDG Impact
           </Link>

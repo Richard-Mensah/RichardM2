@@ -58,10 +58,10 @@ export default function SefwiBekwaiPage() {
     <div className="min-h-screen bg-white">
       {/* Back nav */}
       <div className="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 bg-white/90 px-5 py-3 backdrop-blur md:px-8">
-        <Link href="/leadership" className="text-sm font-bold text-[#0077FF] hover:underline">
+        <Link href="/leadership" className="text-sm font-bold text-[#2BA8B4] hover:underline">
           ← Back to Leadership
         </Link>
-        <Link href="/leadership/ega" className="text-sm font-bold text-slate-600 hover:text-[#0077FF]">
+        <Link href="/leadership/ega" className="text-sm font-bold text-slate-600 hover:text-[#2BA8B4]">
           Next: EGA Mentorship →
         </Link>
       </div>
@@ -77,7 +77,7 @@ export default function SefwiBekwaiPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 px-5 pb-12 md:px-16">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#F59E0B]">
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#2BA8B4]">
             Sefwi Bekwai · Western North Region · Ghana
           </p>
           <h1 className="mt-3 max-w-3xl text-balance text-4xl font-black tracking-[-0.04em] text-white md:text-6xl">
@@ -97,8 +97,8 @@ export default function SefwiBekwaiPage() {
         {/* Section 1: Church Civic Education */}
         <div>
           <div className="flex items-center gap-3">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#F59E0B] text-xs font-black text-white">1</span>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#F59E0B]">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#2BA8B4] text-xs font-black text-white">1</span>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#2BA8B4]">
               2018–2019 · Western North Region
             </p>
           </div>
@@ -170,8 +170,8 @@ export default function SefwiBekwaiPage() {
         {/* Section 3: BYM Founding */}
         <div className="mt-20">
           <div className="flex items-center gap-3">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#F59E0B] text-xs font-black text-white">3</span>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#F59E0B]">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#2BA8B4] text-xs font-black text-white">3</span>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#2BA8B4]">
               2019 · Sefwi Bekwai District
             </p>
           </div>
@@ -212,8 +212,8 @@ export default function SefwiBekwaiPage() {
         {/* Section 4: UNYA-Ghana */}
         <div className="mt-20 rounded-[2rem] bg-[#0B1F3A] p-8 text-white">
           <div className="flex items-center gap-3">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#0077FF] text-xs font-black text-white">4</span>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#62E8FF]">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#2BA8B4] text-xs font-black text-white">4</span>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#7FD6D2]">
               2020 · National · Accra, Ghana
             </p>
           </div>
@@ -248,8 +248,8 @@ export default function SefwiBekwaiPage() {
         {/* Section 5: Bibiani Anhwiaso Parliament */}
         <div className="mt-20">
           <div className="flex items-center gap-3">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#F59E0B] text-xs font-black text-white">5</span>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#F59E0B]">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#2BA8B4] text-xs font-black text-white">5</span>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#2BA8B4]">
               2021 · Bibiani Anhwiaso District
             </p>
           </div>
@@ -304,8 +304,8 @@ export default function SefwiBekwaiPage() {
         {/* Section 7: Visiting UN Organisations */}
         <div className="mt-20">
           <div className="flex items-center gap-3">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#0077FF] text-xs font-black text-white">7</span>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#0077FF]">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#2BA8B4] text-xs font-black text-white">7</span>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#2BA8B4]">
               2021 · Accra, Ghana
             </p>
           </div>
@@ -337,7 +337,7 @@ export default function SefwiBekwaiPage() {
         </div>
 
         {/* Lead-in to EGA */}
-        <div className="mt-20 rounded-[2rem] bg-[#0077FF] px-8 py-12 text-white">
+        <div className="mt-20 rounded-[2rem] bg-[#2BA8B4] px-8 py-12 text-white">
           <p className="text-xs font-black uppercase tracking-[0.3em] text-white/70">
             What all of this built
           </p>
@@ -355,7 +355,7 @@ export default function SefwiBekwaiPage() {
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/leadership/ega"
-              className="rounded-full bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.15em] text-[#0077FF] transition hover:bg-slate-100"
+              className="rounded-full bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.15em] text-[#2BA8B4] transition hover:bg-slate-100"
             >
               Explore EGA Mentorship →
             </Link>

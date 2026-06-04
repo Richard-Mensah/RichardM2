@@ -13,7 +13,7 @@ export default function OpenSourcePageSection({ repos }: Props) {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#FD6925]">
+              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#2BA8B4]">
                 Projects / Open Source
               </p>
               <h1 className="mt-4 text-4xl font-black leading-tight text-white md:text-5xl">
@@ -27,7 +27,7 @@ export default function OpenSourcePageSection({ repos }: Props) {
                   href="https://github.com/Richard-Mensah"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#FD6925] px-5 py-2.5 text-sm font-black text-white transition hover:bg-[#FD6925]/90"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#2BA8B4] px-5 py-2.5 text-sm font-black text-white transition hover:bg-[#2BA8B4]/90"
                 >
                   github.com/Richard-Mensah →
                 </a>
@@ -54,7 +54,7 @@ export default function OpenSourcePageSection({ repos }: Props) {
             href="https://github.com/Richard-Mensah"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-slate-50 p-5 transition hover:border-[#FD6925]/40 hover:shadow-lg"
+            className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-slate-50 p-5 transition hover:border-[#2BA8B4]/40 hover:shadow-lg"
           >
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-900 text-white">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -67,7 +67,7 @@ export default function OpenSourcePageSection({ repos }: Props) {
                 Public repositories, active projects, and open contributions
               </p>
             </div>
-            <span className="text-xs font-black text-[#FD6925]">View Profile →</span>
+            <span className="text-xs font-black text-[#2BA8B4]">View Profile →</span>
           </a>
         </div>
       </section>
@@ -91,7 +91,7 @@ export default function OpenSourcePageSection({ repos }: Props) {
                   href="https://github.com/Richard-Mensah"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-[#FD6925] hover:underline"
+                  className="font-semibold text-[#2BA8B4] hover:underline"
                 >
                   github.com/Richard-Mensah
                 </a>{" "}

@@ -33,10 +33,10 @@ function LoginForm() {
   }
 
   return (
-    <div className="flex min-h-screen w-full items-center justify-center bg-[#006FA6] p-8">
+    <div className="flex min-h-screen w-full items-center justify-center bg-[#176E78] p-8">
       <div className="w-full max-w-md rounded-3xl bg-white p-10 shadow-2xl">
         <div className="mb-8 flex items-center gap-3">
-          <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#006FA6] text-sm font-black text-white">
+          <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#176E78] text-sm font-black text-white">
             RM
           </span>
           <div>
@@ -63,7 +63,7 @@ function LoginForm() {
               onChange={(e) => setPassword(e.target.value)}
               required
               autoFocus
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm transition focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20"
+              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm transition focus:border-[#2BA8B4] focus:outline-none focus:ring-2 focus:ring-[#2BA8B4]/20"
               placeholder="Enter admin password"
             />
           </div>
@@ -77,7 +77,7 @@ function LoginForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-xl bg-[#006FA6] py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:bg-[#009EDB] disabled:opacity-60"
+            className="w-full rounded-xl bg-[#176E78] py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:bg-[#2BA8B4] disabled:opacity-60"
           >
             {loading ? "Signing in…" : "Sign in"}
           </button>

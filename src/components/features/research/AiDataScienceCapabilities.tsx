@@ -1,12 +1,12 @@
 const CAPABILITIES = [
-  { icon: "ML", label: "Machine Learning", accent: "#009EDB" },
-  { icon: "NLP", label: "Natural Language Processing", accent: "#0077FF" },
-  { icon: "PM", label: "Predictive Modeling", accent: "#009EDB" },
-  { icon: "XAI", label: "Explainable AI", accent: "#0077FF" },
-  { icon: "DD", label: "Decision Dashboards", accent: "#009EDB" },
-  { icon: "FS", label: "Full-Stack AI Systems", accent: "#0077FF" },
-  { icon: "GS", label: "Geospatial Analytics", accent: "#3F7E44" },
-  { icon: "LLM", label: "Large Language Models", accent: "#009EDB" },
+  { icon: "ML", label: "Machine Learning", accent: "#2BA8B4" },
+  { icon: "NLP", label: "Natural Language Processing", accent: "#2BA8B4" },
+  { icon: "PM", label: "Predictive Modeling", accent: "#2BA8B4" },
+  { icon: "XAI", label: "Explainable AI", accent: "#2BA8B4" },
+  { icon: "DD", label: "Decision Dashboards", accent: "#2BA8B4" },
+  { icon: "FS", label: "Full-Stack AI Systems", accent: "#2BA8B4" },
+  { icon: "GS", label: "Geospatial Analytics", accent: "#1E8A95" },
+  { icon: "LLM", label: "Large Language Models", accent: "#2BA8B4" },
 ];
 
 export default function AiDataScienceCapabilities() {

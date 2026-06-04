@@ -67,7 +67,7 @@ export default function GlobalDevelopmentPageSection() {
 
         {/* Cross-border network */}
         <div className="mt-10 rounded-2xl bg-[#0B1F3A] p-8">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#62E8FF]">Global network</p>
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#7FD6D2]">Global network</p>
           <h2 className="mt-3 text-2xl font-black text-white">65+ global mentors and partners</h2>
           <p className="mt-4 text-sm leading-7 text-slate-400">
             The network spans universities, NGOs, government bodies, and private sector organisations
@@ -78,7 +78,7 @@ export default function GlobalDevelopmentPageSection() {
             {GEO_PILLS.map((geo) => (
               <span
                 key={geo}
-                className="rounded-full border border-[#00689D]/50 px-4 py-2 text-sm font-bold text-[#62E8FF]"
+                className="rounded-full border border-[#00689D]/50 px-4 py-2 text-sm font-bold text-[#7FD6D2]"
               >
                 {geo}
               </span>

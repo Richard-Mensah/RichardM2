@@ -25,7 +25,7 @@ const ROLES = [
     period: "",
     detail:
       "Represents Ghanaian youth within a United Nations–affiliated association, contributing to youth policy dialogue, advocacy, and international engagement.",
-    accent: "#009EDB",
+    accent: "#2BA8B4",
   },
   {
     role: "Youth Member of Parliament",
@@ -50,19 +50,19 @@ const PILLARS = [
     title: "AI & data for development",
     sdg: "SDG 9 · SDG 16",
     body: "Applied machine learning, analytics, and responsible-AI practice for decisions in the public and development sector.",
-    accent: "#009EDB",
+    accent: "#2BA8B4",
   },
   {
     title: "Climate intelligence",
     sdg: "SDG 13",
     body: "Translating environmental and emissions data into evidence for adaptation, resilience, and consumer and policy decision-making — the focus of the MSc thesis.",
-    accent: "#3F7E44",
+    accent: "#1E8A95",
   },
   {
     title: "Youth opportunity at scale",
     sdg: "SDG 4 · SDG 17",
     body: "Mentorship, scholarships, and leadership pathways that move young people from potential to opportunity across Ghana and beyond.",
-    accent: "#FCC30B",
+    accent: "#2BA8B4",
   },
 ] as const;
 
@@ -75,11 +75,11 @@ export default function ProfilePage() {
           <div>
             <Link
               href="/about"
-              className="mb-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#62E8FF] transition hover:text-white"
+              className="mb-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#7FD6D2] transition hover:text-white"
             >
               ← About Richard
             </Link>
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#62E8FF]">Profile</p>
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#7FD6D2]">Profile</p>
             <h1 className="mt-4 max-w-3xl text-balance text-4xl font-bold leading-[1.05] tracking-[-0.02em] text-white md:text-5xl">
               Richard Mensah
             </h1>
@@ -93,7 +93,7 @@ export default function ProfilePage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/about/cv"
-                className="rounded-full bg-[#0077FF] px-6 py-3 text-sm font-bold tracking-[0.02em] text-white shadow-lg shadow-[#0077FF]/30 transition hover:-translate-y-0.5 hover:bg-[#62E8FF] hover:text-[#0B1F3A]"
+                className="rounded-full bg-[#2BA8B4] px-6 py-3 text-sm font-bold tracking-[0.02em] text-white shadow-lg shadow-[#2BA8B4]/30 transition hover:-translate-y-0.5 hover:bg-[#7FD6D2] hover:text-[#0B1F3A]"
               >
                 View full CV
               </Link>
@@ -120,7 +120,7 @@ export default function ProfilePage() {
       </section>
 
       {/* ── At a glance ───────────────────────────────────────────── */}
-      <section className="bg-[#0077FF] px-5 py-8 md:px-8">
+      <section className="bg-[#2BA8B4] px-5 py-8 md:px-8">
         <div className="mx-auto grid max-w-7xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {AT_A_GLANCE.map((item) => (
             <div key={item.label} className="border-l-2 border-white/30 pl-4">
@@ -136,7 +136,7 @@ export default function ProfilePage() {
       {/* ── Education ─────────────────────────────────────────────── */}
       <section className="bg-white px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#0077FF]">Education</p>
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#2BA8B4]">Education</p>
           <h2 className="mt-3 text-balance text-3xl font-bold tracking-[-0.02em] text-slate-950 md:text-4xl">
             A research foundation in AI for environmental decision-making.
           </h2>
@@ -146,7 +146,7 @@ export default function ProfilePage() {
               <h3 className="text-xl font-bold text-slate-950">
                 MSc, Artificial Intelligence &amp; Data Science
               </h3>
-              <span className="text-sm font-bold text-[#0077FF]">2026</span>
+              <span className="text-sm font-bold text-[#2BA8B4]">2026</span>
             </div>
             <p className="mt-1 text-base font-semibold text-slate-700">
               Bangor University, United Kingdom
@@ -173,7 +173,7 @@ export default function ProfilePage() {
       {/* ── Representation & governance ───────────────────────────── */}
       <section className="bg-[#F0F7FF] px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#0077FF]">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#2BA8B4]">
             Representation &amp; governance
           </p>
           <h2 className="mt-3 text-balance text-3xl font-bold tracking-[-0.02em] text-slate-950 md:text-4xl">
@@ -198,7 +198,7 @@ export default function ProfilePage() {
                 <h3 className="mt-4 text-lg font-bold leading-snug text-slate-950">{r.role}</h3>
                 <p className="mt-1 text-sm font-semibold text-slate-700">{r.org}</p>
                 {r.period && (
-                  <p className="mt-1 text-xs font-bold uppercase tracking-[0.15em] text-[#0077FF]">
+                  <p className="mt-1 text-xs font-bold uppercase tracking-[0.15em] text-[#2BA8B4]">
                     {r.period}
                   </p>
                 )}
@@ -212,7 +212,7 @@ export default function ProfilePage() {
       {/* ── Focus areas ───────────────────────────────────────────── */}
       <section className="bg-white px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#0077FF]">Focus areas</p>
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#2BA8B4]">Focus areas</p>
           <h2 className="mt-3 text-balance text-3xl font-bold tracking-[-0.02em] text-slate-950 md:text-4xl">
             Three pillars, aligned with the Sustainable Development Goals.
           </h2>

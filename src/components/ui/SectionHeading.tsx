@@ -12,7 +12,7 @@ type Props = {
 export default function SectionHeading({ eyebrow, title, children, center = false, dark = false }: Props) {
   return (
     <div className={cn(center ? "mx-auto max-w-3xl text-center" : "max-w-3xl")}>
-      <p className={cn("text-xs font-black uppercase tracking-[0.3em]", dark ? "text-[#62E8FF]" : "text-[#005BDB]")}>
+      <p className={cn("text-xs font-black uppercase tracking-[0.3em]", dark ? "text-[#7FD6D2]" : "text-[#0F2438]")}>
         {eyebrow}
       </p>
       <h2 className={cn("mt-4 text-balance text-3xl font-black tracking-[-0.04em] md:text-5xl", dark ? "text-white" : "text-slate-950")}>

@@ -14,13 +14,13 @@ const CAPABILITIES = [
   {
     title: "Dashboard Systems",
     description: "Interactive reporting and visualisation systems that surface the right metrics at the right time for the people who need to act on them.",
-    accent: "#009EDB",
+    accent: "#2BA8B4",
     icon: "📊",
   },
   {
     title: "Predictive Analytics",
     description: "Forecasting and classification models that help organizations anticipate outcomes, allocate resources more effectively, and reduce operational uncertainty.",
-    accent: "#0077FF",
+    accent: "#2BA8B4",
     icon: "🎯",
   },
   {
@@ -120,7 +120,7 @@ export default function DataSciencePageSection() {
               href="https://github.com/Richard-Mensah"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-slate-50 p-5 transition hover:border-[#FD6925]/40 hover:shadow-lg"
+              className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-slate-50 p-5 transition hover:border-[#2BA8B4]/40 hover:shadow-lg"
             >
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-900 text-white">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -131,7 +131,7 @@ export default function DataSciencePageSection() {
                 <p className="text-sm font-black text-slate-950">github.com/Richard-Mensah</p>
                 <p className="text-xs text-slate-500">Browse public repositories and active projects</p>
               </div>
-              <span className="text-xs font-black text-[#FD6925]">View →</span>
+              <span className="text-xs font-black text-[#2BA8B4]">View →</span>
             </a>
             <LinkedInProfileCard />
           </div>

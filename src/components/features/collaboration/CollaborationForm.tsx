@@ -24,7 +24,7 @@ const INITIAL_FIELDS: FormFields = {
 };
 
 const INPUT_CLASS =
-  "w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20";
+  "w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:border-[#2BA8B4] focus:outline-none focus:ring-2 focus:ring-[#2BA8B4]/20";
 
 export default function CollaborationForm() {
   const [fields, setFields] = useState<FormFields>(INITIAL_FIELDS);
@@ -75,7 +75,7 @@ export default function CollaborationForm() {
         </p>
         <button
           onClick={() => setState("idle")}
-          className="mt-6 rounded-full border border-slate-300 px-6 py-2.5 text-sm font-black text-slate-700 transition hover:border-[#009EDB] hover:text-[#009EDB]"
+          className="mt-6 rounded-full border border-slate-300 px-6 py-2.5 text-sm font-black text-slate-700 transition hover:border-[#2BA8B4] hover:text-[#2BA8B4]"
         >
           Send another
         </button>
@@ -194,7 +194,7 @@ export default function CollaborationForm() {
       <button
         type="submit"
         disabled={state === "submitting"}
-        className="mt-6 w-full rounded-full bg-slate-950 py-4 text-sm font-black uppercase tracking-[0.22em] text-white shadow-lg shadow-slate-300 transition hover:-translate-y-0.5 hover:bg-[#009EDB] disabled:cursor-not-allowed disabled:opacity-60"
+        className="mt-6 w-full rounded-full bg-slate-950 py-4 text-sm font-black uppercase tracking-[0.22em] text-white shadow-lg shadow-slate-300 transition hover:-translate-y-0.5 hover:bg-[#2BA8B4] disabled:cursor-not-allowed disabled:opacity-60"
       >
         {state === "submitting" ? "Sending…" : "Send collaboration request"}
       </button>

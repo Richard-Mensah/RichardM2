@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Testimonial } from "@/lib/testimonials";
 
-function Stars({ accentClass = "text-[#FCC30B]" }: { accentClass?: string }) {
+function Stars({ accentClass = "text-[#2BA8B4]" }: { accentClass?: string }) {
   return (
     <div className={cn("flex gap-0.5", accentClass)} aria-label="5 out of 5 stars">
       {Array.from({ length: 5 }).map((_, i) => (
@@ -85,7 +85,7 @@ export default function TestimonialsSection({ testimonials }: { testimonials: Te
         {/* Heading */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#0077FF]">
+            <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#2BA8B4]">
               Testimonials
             </p>
             <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.03em] text-slate-950 md:text-4xl">
@@ -104,7 +104,7 @@ export default function TestimonialsSection({ testimonials }: { testimonials: Te
               onClick={prev}
               disabled={index === 0}
               aria-label="Previous testimonials"
-              className="grid h-11 w-11 place-items-center rounded-full border border-slate-300 text-slate-700 transition hover:border-[#0077FF] hover:text-[#0077FF] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:border-slate-300 disabled:hover:text-slate-700"
+              className="grid h-11 w-11 place-items-center rounded-full border border-slate-300 text-slate-700 transition hover:border-[#2BA8B4] hover:text-[#2BA8B4] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:border-slate-300 disabled:hover:text-slate-700"
             >
               <ChevronLeft size={20} />
             </button>
@@ -113,7 +113,7 @@ export default function TestimonialsSection({ testimonials }: { testimonials: Te
               onClick={next}
               disabled={index >= maxIndex}
               aria-label="Next testimonials"
-              className="grid h-11 w-11 place-items-center rounded-full border border-slate-300 text-slate-700 transition hover:border-[#0077FF] hover:text-[#0077FF] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:border-slate-300 disabled:hover:text-slate-700"
+              className="grid h-11 w-11 place-items-center rounded-full border border-slate-300 text-slate-700 transition hover:border-[#2BA8B4] hover:text-[#2BA8B4] disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:border-slate-300 disabled:hover:text-slate-700"
             >
               <ChevronRight size={20} />
             </button>
@@ -181,7 +181,7 @@ export default function TestimonialsSection({ testimonials }: { testimonials: Te
               aria-label={`Go to testimonial group ${i + 1}`}
               className={cn(
                 "h-2 rounded-full transition-all duration-300",
-                i === index ? "w-8 bg-[#0077FF]" : "w-2 bg-slate-300 hover:bg-slate-400"
+                i === index ? "w-8 bg-[#2BA8B4]" : "w-2 bg-slate-300 hover:bg-slate-400"
               )}
             />
           ))}

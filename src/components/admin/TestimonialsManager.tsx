@@ -8,7 +8,7 @@ const FIELD =
   "w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20";
 const LABEL = "mb-1.5 block text-sm font-semibold text-slate-700";
 
-const EMPTY: Testimonial = { name: "", role: "", quote: "", initials: "", accent: "#0077FF" };
+const EMPTY: Testimonial = { name: "", role: "", quote: "", initials: "", accent: "#2BA8B4" };
 
 export default function TestimonialsManager({ initial }: { initial: Testimonial[] }) {
   const router = useRouter();

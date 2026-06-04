@@ -51,7 +51,7 @@ export default function GalleryLightbox({ photos }: Props) {
           <button
             key={photo.src}
             onClick={() => setActiveIndex(i)}
-            className="group relative aspect-square overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#009EDB]"
+            className="group relative aspect-square overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2BA8B4]"
             aria-label={`Open photo: ${photo.alt}`}
           >
             <Image
