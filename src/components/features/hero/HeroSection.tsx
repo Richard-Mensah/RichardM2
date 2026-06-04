@@ -87,7 +87,7 @@ export default function HeroSection({ content }: { content: HomepageContent }) {
           <div className="mt-5 flex flex-nowrap gap-2">
             <Link
               href="/about/profile"
-              className="whitespace-nowrap rounded-full bg-[#2BA8B4] px-4 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg shadow-[#2BA8B4]/30 transition hover:-translate-y-0.5 hover:bg-[#7FD6D2] hover:text-[#06111f]"
+              className="whitespace-nowrap rounded-full bg-[#da1e3c] px-4 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg shadow-[#da1e3c]/30 transition hover:-translate-y-0.5 hover:bg-[#b81733]"
             >
               Profile
             </Link>

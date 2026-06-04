@@ -2,6 +2,9 @@ node_modules
 .next
 tsconfig.tsbuildinfo
 
+# Claude Code local runtime artifacts
+.claude/scheduled_tasks.lock
+
 # Environment variables — never commit these
 .env
 .env.local

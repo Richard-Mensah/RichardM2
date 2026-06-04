@@ -8,20 +8,23 @@
    so components still using them adopt the new palette automatically.
    ────────────────────────────────────────────────────────────────── */
 @theme {
-  /* ── Structure (navy) ── */
-  --color-navy-950: #0b1b2d;
-  --color-navy-900: #0f2438;
-  --color-navy-800: #16314a;
-  --color-navy-700: #1f3f5c;
+  /* ── Structure (navy-indigo, CFI billboard) ── */
+  --color-navy-950: #0a1a30;
+  --color-navy-900: #122a4e;
+  --color-navy-800: #1b3a66;
+  --color-navy-700: #264b82;
 
-  /* ── Accent (teal) ── */
+  /* ── Accent (teal) — links, data, section highlights ── */
   --color-accent: #2ba8b4;
   --color-accent-strong: #1e8a95;
   --color-accent-soft: #7fd6d2;
   --color-accent-tint: #e6f5f5;
 
-  /* ── Brand spark (logo / one CTA only) ── */
-  --color-brand-spark: #e11b2e;
+  /* ── Brand (CFI red) — header strip, logo, primary CTAs ── */
+  --color-brand: #da1e3c;
+  --color-brand-strong: #b81733;
+  --color-brand-tint: #fbe7eb;
+  --color-brand-spark: #da1e3c;
 
   /* ── Surfaces ── */
   --color-surface: #f4f7fa;
