@@ -18,8 +18,8 @@ export default async function AdminEditArticlePage({ params }: Props) {
       <main className="flex-1 overflow-auto p-8">
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-black text-slate-950">Edit Article</h1>
-            <p className="mt-1 text-sm text-slate-500">slug: {slug}</p>
+            <h1 className="text-2xl font-black text-white">Edit Article</h1>
+            <p className="mt-1 text-sm text-[#8aa0c4]">slug: {slug}</p>
           </div>
           <AdminLogoutButton />
         </div>

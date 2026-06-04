@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-slate-50 text-slate-950 antialiased">
+      <body className="min-h-screen bg-transparent text-white antialiased">
         <div className="sdg-band fixed inset-x-0 top-0 z-[60] h-1.5" />
         <SiteHeader />
         <main className="overflow-hidden pt-28">{children}</main>

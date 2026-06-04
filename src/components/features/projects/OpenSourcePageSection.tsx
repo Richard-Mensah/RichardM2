@@ -13,7 +13,7 @@ export default function OpenSourcePageSection({ repos }: Props) {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#2BA8B4]">
+              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#4f8bff]">
                 Projects / Open Source
               </p>
               <h1 className="mt-4 text-4xl font-black leading-tight text-white md:text-5xl">
@@ -27,7 +27,7 @@ export default function OpenSourcePageSection({ repos }: Props) {
                   href="https://github.com/Richard-Mensah"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#2BA8B4] px-5 py-2.5 text-sm font-black text-white transition hover:bg-[#2BA8B4]/90"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#4f8bff] px-5 py-2.5 text-sm font-black text-white transition hover:bg-[#4f8bff]/90"
                 >
                   github.com/Richard-Mensah →
                 </a>
@@ -48,13 +48,13 @@ export default function OpenSourcePageSection({ repos }: Props) {
       </section>
 
       {/* GitHub profile card */}
-      <section className="bg-white px-5 py-12 md:px-8">
+      <section className="bg-transparent px-5 py-12 md:px-8">
         <div className="mx-auto max-w-7xl">
           <a
             href="https://github.com/Richard-Mensah"
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-slate-50 p-5 transition hover:border-[#2BA8B4]/40 hover:shadow-lg"
+            className="group flex items-center gap-4 rounded-xl border border-white/10 bg-transparent p-5 transition hover:border-[#4f8bff]/40 hover:shadow-lg"
           >
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-900 text-white">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -62,18 +62,18 @@ export default function OpenSourcePageSection({ repos }: Props) {
               </svg>
             </div>
             <div className="flex-1">
-              <p className="text-sm font-black text-slate-950">github.com/Richard-Mensah</p>
-              <p className="text-xs text-slate-500">
+              <p className="text-sm font-black text-white">github.com/Richard-Mensah</p>
+              <p className="text-xs text-[#8aa0c4]">
                 Public repositories, active projects, and open contributions
               </p>
             </div>
-            <span className="text-xs font-black text-[#2BA8B4]">View Profile →</span>
+            <span className="text-xs font-black text-[#4f8bff]">View Profile →</span>
           </a>
         </div>
       </section>
 
       {/* Repos */}
-      <section className="bg-slate-50 px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionHeading eyebrow="Repositories" title="Public repositories" />
           {repos.length > 0 ? (
@@ -83,15 +83,15 @@ export default function OpenSourcePageSection({ repos }: Props) {
               ))}
             </div>
           ) : (
-            <div className="mt-10 rounded-xl border border-slate-200 bg-white p-10 text-center">
-              <p className="text-sm font-black text-slate-950">No public repositories found</p>
-              <p className="mt-2 text-xs text-slate-500">
+            <div className="mt-10 glass rounded-xl p-10 text-center">
+              <p className="text-sm font-black text-white">No public repositories found</p>
+              <p className="mt-2 text-xs text-[#8aa0c4]">
                 Visit{" "}
                 <a
                   href="https://github.com/Richard-Mensah"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-[#2BA8B4] hover:underline"
+                  className="font-semibold text-[#4f8bff] hover:underline"
                 >
                   github.com/Richard-Mensah
                 </a>{" "}

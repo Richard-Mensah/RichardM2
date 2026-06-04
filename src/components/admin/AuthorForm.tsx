@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import type { Author } from "@/lib/author";
 
 const FIELD =
-  "w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20";
-const LABEL = "mb-1.5 block text-sm font-semibold text-slate-700";
+  "w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20";
+const LABEL = "mb-1.5 block text-sm font-semibold text-[#cdd9ee]";
 
 export default function AuthorForm({ initial }: { initial: Author }) {
   const router = useRouter();
@@ -56,7 +56,7 @@ export default function AuthorForm({ initial }: { initial: Author }) {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-2xl space-y-5">
-      <p className="text-sm leading-6 text-slate-500">
+      <p className="text-sm leading-6 text-[#8aa0c4]">
         This bio appears in the &ldquo;About the author&rdquo; box at the bottom of every article.
       </p>
 
@@ -78,7 +78,7 @@ export default function AuthorForm({ initial }: { initial: Author }) {
 
       <div>
         <label className={LABEL}>
-          Photo path / URL <span className="font-normal text-slate-400">(e.g. /Rich1.png)</span>
+          Photo path / URL <span className="font-normal text-[#7e92b6]">(e.g. /Rich1.png)</span>
         </label>
         <input className={FIELD} value={form.photo} onChange={(e) => update("photo", e.target.value)} />
       </div>
@@ -96,7 +96,7 @@ export default function AuthorForm({ initial }: { initial: Author }) {
 
       {error && <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-600">{error}</p>}
 
-      <div className="sticky bottom-0 z-10 -mx-1 flex items-center gap-4 border-t border-slate-200 bg-white/95 px-1 py-4 backdrop-blur">
+      <div className="sticky bottom-0 z-10 -mx-1 flex items-center gap-4 border-t border-white/10 bg-white/95 px-1 py-4 backdrop-blur">
         <button
           type="submit"
           disabled={loading}
@@ -107,7 +107,7 @@ export default function AuthorForm({ initial }: { initial: Author }) {
         <button
           type="button"
           onClick={() => router.push("/admin")}
-          className="rounded-xl border border-slate-200 px-6 py-3 text-sm font-black text-slate-600 transition hover:border-slate-400"
+          className="rounded-xl border border-white/10 px-6 py-3 text-sm font-black text-[#a9bcdc] transition hover:border-slate-400"
         >
           Back to dashboard
         </button>

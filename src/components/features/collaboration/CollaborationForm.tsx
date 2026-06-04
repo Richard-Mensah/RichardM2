@@ -24,7 +24,7 @@ const INITIAL_FIELDS: FormFields = {
 };
 
 const INPUT_CLASS =
-  "w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 placeholder:text-slate-400 shadow-sm transition focus:border-[#2BA8B4] focus:outline-none focus:ring-2 focus:ring-[#2BA8B4]/20";
+  "w-full glass rounded-2xl px-4 py-3 text-sm font-semibold text-white placeholder:text-[#7e92b6] shadow-sm transition focus:border-[#4f8bff] focus:outline-none focus:ring-2 focus:ring-[#4f8bff]/20";
 
 export default function CollaborationForm() {
   const [fields, setFields] = useState<FormFields>(INITIAL_FIELDS);
@@ -68,14 +68,14 @@ export default function CollaborationForm() {
         <div className="sdg-conic mx-auto mb-6 grid h-16 w-16 place-items-center rounded-full text-2xl text-white shadow-lg">
           ✓
         </div>
-        <h3 className="text-2xl font-black text-slate-950">Message received</h3>
-        <p className="mt-3 text-base leading-7 text-slate-600">
+        <h3 className="text-2xl font-black text-white">Message received</h3>
+        <p className="mt-3 text-base leading-7 text-[#a9bcdc]">
           Thank you for reaching out. I&apos;ll review your collaboration request and be in touch
           shortly.
         </p>
         <button
           onClick={() => setState("idle")}
-          className="mt-6 rounded-full border border-slate-300 px-6 py-2.5 text-sm font-black text-slate-700 transition hover:border-[#2BA8B4] hover:text-[#2BA8B4]"
+          className="mt-6 rounded-full border border-white/15 px-6 py-2.5 text-sm font-black text-[#cdd9ee] transition hover:border-[#4f8bff] hover:text-[#4f8bff]"
         >
           Send another
         </button>
@@ -90,7 +90,7 @@ export default function CollaborationForm() {
     >
       <div className="grid gap-5 md:grid-cols-2">
         <div>
-          <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-slate-600">
+          <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-[#a9bcdc]">
             Name *
           </label>
           <input
@@ -103,7 +103,7 @@ export default function CollaborationForm() {
           />
         </div>
         <div>
-          <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-slate-600">
+          <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-[#a9bcdc]">
             Email *
           </label>
           <input
@@ -119,7 +119,7 @@ export default function CollaborationForm() {
       </div>
 
       <div className="mt-5">
-        <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-slate-600">
+        <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-[#a9bcdc]">
           Organisation
         </label>
         <input
@@ -133,7 +133,7 @@ export default function CollaborationForm() {
 
       <div className="mt-5 grid gap-5 md:grid-cols-2">
         <div>
-          <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-slate-600">
+          <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-[#a9bcdc]">
             Collaboration type *
           </label>
           <select
@@ -151,7 +151,7 @@ export default function CollaborationForm() {
           </select>
         </div>
         <div>
-          <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-slate-600">
+          <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-[#a9bcdc]">
             Focus area *
           </label>
           <select
@@ -171,7 +171,7 @@ export default function CollaborationForm() {
       </div>
 
       <div className="mt-5">
-        <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-slate-600">
+        <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-[#a9bcdc]">
           Message *
         </label>
         <textarea
@@ -194,7 +194,7 @@ export default function CollaborationForm() {
       <button
         type="submit"
         disabled={state === "submitting"}
-        className="mt-6 w-full rounded-full bg-slate-950 py-4 text-sm font-black uppercase tracking-[0.22em] text-white shadow-lg shadow-slate-300 transition hover:-translate-y-0.5 hover:bg-[#2BA8B4] disabled:cursor-not-allowed disabled:opacity-60"
+        className="mt-6 w-full rounded-full bg-slate-950 py-4 text-sm font-black uppercase tracking-[0.22em] text-white shadow-lg shadow-slate-300 transition hover:-translate-y-0.5 hover:bg-[#4f8bff] disabled:cursor-not-allowed disabled:opacity-60"
       >
         {state === "submitting" ? "Sending…" : "Send collaboration request"}
       </button>

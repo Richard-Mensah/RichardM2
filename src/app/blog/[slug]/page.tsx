@@ -13,9 +13,9 @@ export const dynamic = "force-dynamic";
 type Props = { params: Promise<{ slug: string }> };
 
 const CATEGORY_COLOURS: Record<string, string> = {
-  "AI, Data & Climate": "#2BA8B4",
-  "AI Ethics & Technologies": "#2BA8B4",
-  "Youth Leadership": "#2BA8B4",
+  "AI, Data & Climate": "#4f8bff",
+  "AI Ethics & Technologies": "#4f8bff",
+  "Youth Leadership": "#4f8bff",
   "Community & SDGs": "#19486A",
 };
 
@@ -40,7 +40,7 @@ export default async function ArticlePage({ params }: Props) {
 
   const author = await getAuthor();
   const { meta, content } = article;
-  const accent = CATEGORY_COLOURS[meta.category] ?? "#2BA8B4";
+  const accent = CATEGORY_COLOURS[meta.category] ?? "#4f8bff";
   const formattedDate = new Date(meta.date).toLocaleDateString("en-GB", {
     year: "numeric",
     month: "long",
@@ -57,14 +57,14 @@ export default async function ArticlePage({ params }: Props) {
           >
             {meta.category}
           </span>
-          <span className="text-xs text-slate-400">{formattedDate}</span>
+          <span className="text-xs text-[#7e92b6]">{formattedDate}</span>
         </div>
 
-        <h1 className="mt-6 text-4xl font-black leading-tight tracking-[-0.04em] text-slate-950 md:text-5xl">
+        <h1 className="mt-6 text-4xl font-black leading-tight tracking-[-0.04em] text-white md:text-5xl">
           {meta.title}
         </h1>
 
-        <p className="mt-4 text-lg leading-8 text-slate-500">{meta.excerpt}</p>
+        <p className="mt-4 text-lg leading-8 text-[#8aa0c4]">{meta.excerpt}</p>
 
         {meta.coverImage && (
           <div className="relative mt-8 aspect-video overflow-hidden rounded-2xl">

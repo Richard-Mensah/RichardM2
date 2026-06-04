@@ -55,28 +55,28 @@ export default function AdminNewArticlePage() {
     <div className="flex min-h-screen w-full">
       <AdminSidebar />
       <main className="flex-1 overflow-auto p-8">
-        <h1 className="mb-8 text-2xl font-black text-slate-950">New Article</h1>
+        <h1 className="mb-8 text-2xl font-black text-white">New Article</h1>
 
         <form onSubmit={handleSubmit} className="max-w-3xl space-y-6">
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-slate-700">Title *</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#cdd9ee]">Title *</label>
             <input
               name="title"
               value={form.title}
               onChange={handleChange}
               required
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#2BA8B4] focus:outline-none focus:ring-2 focus:ring-[#2BA8B4]/20"
+              className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-[#4f8bff] focus:outline-none focus:ring-2 focus:ring-[#4f8bff]/20"
               placeholder="Article title"
             />
           </div>
 
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-slate-700">Category *</label>
+            <label className="mb-1.5 block text-sm font-semibold text-[#cdd9ee]">Category *</label>
             <select
               name="category"
               value={form.category}
               onChange={handleChange}
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#2BA8B4] focus:outline-none focus:ring-2 focus:ring-[#2BA8B4]/20"
+              className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-[#4f8bff] focus:outline-none focus:ring-2 focus:ring-[#4f8bff]/20"
             >
               {CATEGORIES.map((cat) => (
                 <option key={cat} value={cat}>
@@ -87,8 +87,8 @@ export default function AdminNewArticlePage() {
           </div>
 
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-              Excerpt * <span className="font-normal text-slate-400">(shown in article list)</span>
+            <label className="mb-1.5 block text-sm font-semibold text-[#cdd9ee]">
+              Excerpt * <span className="font-normal text-[#7e92b6]">(shown in article list)</span>
             </label>
             <textarea
               name="excerpt"
@@ -96,14 +96,14 @@ export default function AdminNewArticlePage() {
               onChange={handleChange}
               required
               rows={3}
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#2BA8B4] focus:outline-none focus:ring-2 focus:ring-[#2BA8B4]/20"
+              className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-[#4f8bff] focus:outline-none focus:ring-2 focus:ring-[#4f8bff]/20"
               placeholder="Brief summary of the article"
             />
           </div>
 
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-slate-700">
-              Content * <span className="font-normal text-slate-400">(Markdown supported)</span>
+            <label className="mb-1.5 block text-sm font-semibold text-[#cdd9ee]">
+              Content * <span className="font-normal text-[#7e92b6]">(Markdown supported)</span>
             </label>
             <textarea
               name="content"
@@ -111,21 +111,21 @@ export default function AdminNewArticlePage() {
               onChange={handleChange}
               required
               rows={20}
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 font-mono text-sm focus:border-[#2BA8B4] focus:outline-none focus:ring-2 focus:ring-[#2BA8B4]/20"
+              className="w-full rounded-xl border border-white/10 px-4 py-3 font-mono text-sm focus:border-[#4f8bff] focus:outline-none focus:ring-2 focus:ring-[#4f8bff]/20"
               placeholder="Write your article in Markdown…&#10;&#10;## Introduction&#10;&#10;Your content here…"
             />
           </div>
 
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-slate-700">
+            <label className="mb-1.5 block text-sm font-semibold text-[#cdd9ee]">
               Cover image path{" "}
-              <span className="font-normal text-slate-400">(optional, e.g. /articles/my-image.jpg)</span>
+              <span className="font-normal text-[#7e92b6]">(optional, e.g. /articles/my-image.jpg)</span>
             </label>
             <input
               name="coverImage"
               value={form.coverImage}
               onChange={handleChange}
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#2BA8B4] focus:outline-none focus:ring-2 focus:ring-[#2BA8B4]/20"
+              className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-[#4f8bff] focus:outline-none focus:ring-2 focus:ring-[#4f8bff]/20"
               placeholder="/articles/cover.jpg"
             />
           </div>
@@ -140,14 +140,14 @@ export default function AdminNewArticlePage() {
             <button
               type="submit"
               disabled={loading}
-              className="rounded-xl bg-[#176E78] px-6 py-3 text-sm font-black uppercase tracking-[0.1em] text-white transition hover:bg-[#2BA8B4] disabled:opacity-60"
+              className="rounded-xl bg-[#3a78e0] px-6 py-3 text-sm font-black uppercase tracking-[0.1em] text-white transition hover:bg-[#4f8bff] disabled:opacity-60"
             >
               {loading ? "Publishing…" : "Publish article"}
             </button>
             <button
               type="button"
               onClick={() => router.back()}
-              className="rounded-xl border border-slate-200 px-6 py-3 text-sm font-black text-slate-600 transition hover:border-slate-400"
+              className="rounded-xl border border-white/10 px-6 py-3 text-sm font-black text-[#a9bcdc] transition hover:border-slate-400"
             >
               Cancel
             </button>

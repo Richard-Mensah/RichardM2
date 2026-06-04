@@ -17,11 +17,11 @@ export default function CvPage() {
         <div className="mx-auto max-w-7xl">
           <Link
             href="/about"
-            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#7FD6D2] transition hover:text-white"
+            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#7fb0ff] transition hover:text-white"
           >
             ← About Richard
           </Link>
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7FD6D2]">CV / Resume</p>
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7fb0ff]">CV / Resume</p>
           <h1 className="mt-4 max-w-3xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-white md:text-6xl">
             The full record of a career built with purpose.
           </h1>
@@ -35,7 +35,7 @@ export default function CvPage() {
             <a
               href="/richard-mensah-cv.pdf"
               download="Richard-Mensah-CV.pdf"
-              className="rounded-full bg-[#2BA8B4] px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#2BA8B4]/30 transition hover:-translate-y-0.5 hover:bg-[#7FD6D2]"
+              className="rounded-full bg-[#4f8bff] px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#4f8bff]/30 transition hover:-translate-y-0.5 hover:bg-[#7fb0ff]"
             >
               Download CV
             </a>
@@ -58,23 +58,23 @@ export default function CvPage() {
       </section>
 
       {/* ── CV viewer ─────────────────────────────────────────────── */}
-      <section className="flex-1 bg-slate-100 px-5 py-10 md:px-8">
+      <section className="flex-1 bg-white/5 px-5 py-10 md:px-8">
         <div className="mx-auto max-w-5xl">
-          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-black/10">
+          <div className="overflow-hidden glass rounded-2xl shadow-xl shadow-black/10">
             <object
               data="/richard-mensah-cv.pdf"
               type="application/pdf"
               className="h-[860px] w-full"
               aria-label="Richard Mensah CV"
             >
-              <div className="flex h-[860px] flex-col items-center justify-center gap-5 bg-slate-50 text-center">
-                <p className="text-lg font-black text-slate-950">Your browser does not support inline PDF viewing.</p>
-                <p className="text-sm text-slate-500">You can still download or open the CV using the buttons below.</p>
+              <div className="flex h-[860px] flex-col items-center justify-center gap-5 bg-transparent text-center">
+                <p className="text-lg font-black text-white">Your browser does not support inline PDF viewing.</p>
+                <p className="text-sm text-[#8aa0c4]">You can still download or open the CV using the buttons below.</p>
                 <div className="flex flex-wrap justify-center gap-3">
                   <a
                     href="/richard-mensah-cv.pdf"
                     download="Richard-Mensah-CV.pdf"
-                    className="rounded-full bg-[#2BA8B4] px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:bg-[#7FD6D2]"
+                    className="rounded-full bg-[#4f8bff] px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:bg-[#7fb0ff]"
                   >
                     Download CV
                   </a>
@@ -82,7 +82,7 @@ export default function CvPage() {
                     href="/richard-mensah-cv.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-full border border-slate-300 px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-slate-700 transition hover:border-[#2BA8B4] hover:text-[#2BA8B4]"
+                    className="rounded-full border border-white/15 px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-[#cdd9ee] transition hover:border-[#4f8bff] hover:text-[#4f8bff]"
                   >
                     Open in new tab
                   </a>

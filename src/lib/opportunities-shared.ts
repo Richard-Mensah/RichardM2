@@ -12,14 +12,14 @@ export const OPPORTUNITY_CATEGORIES: OpportunityCategory[] = [
   {
     id: "scholarships",
     title: "Scholarships",
-    accent: "#2BA8B4",
+    accent: "#4f8bff",
     description:
       "Funding opportunities for students and researchers in AI, data science, climate change, and sustainable development — with a focus on the Global South.",
   },
   {
     id: "internships",
     title: "Internships",
-    accent: "#1E8A95",
+    accent: "#2f6bea",
     description:
       "Practical placements and work experience opportunities in AI, analytics, and development organisations for emerging talent.",
   },
@@ -33,14 +33,14 @@ export const OPPORTUNITY_CATEGORIES: OpportunityCategory[] = [
   {
     id: "conferences",
     title: "Conferences",
-    accent: "#2BA8B4",
+    accent: "#4f8bff",
     description:
       "Upcoming and notable conferences on AI, climate change, youth leadership, and the SDGs — with call-for-papers and registration information.",
   },
 ];
 
 export function accentForType(type: string): string {
-  return OPPORTUNITY_CATEGORIES.find((c) => c.id === type)?.accent ?? "#2BA8B4";
+  return OPPORTUNITY_CATEGORIES.find((c) => c.id === type)?.accent ?? "#4f8bff";
 }
 
 // An individual listing within a category.

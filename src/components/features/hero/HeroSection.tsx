@@ -74,20 +74,20 @@ export default function HeroSection({ content }: { content: HomepageContent }) {
 
       {/* Content card — pinned to the bottom-right corner */}
       <div className="relative z-10 flex h-full items-end justify-end px-5 pb-24 pt-24 md:px-10">
-        <div className="max-w-xs rounded-2xl bg-[#06111f]/70 p-5 text-left shadow-2xl shadow-black/50 backdrop-blur-md md:max-w-sm md:p-6">
-          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#7FD6D2]">
+        <div className="glass-strong max-w-xs rounded-2xl p-5 text-left md:max-w-sm md:p-6">
+          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#7fb0ff]">
             {content.heroEyebrow}
           </p>
           <h1 className="mt-1.5 text-xl font-bold leading-tight tracking-[-0.02em] text-white md:text-2xl">
             {content.heroTitleLead}
-            <span className="text-accent-soft">{content.heroTitleHighlight}</span>
+            <span className="text-[#7fb0ff]">{content.heroTitleHighlight}</span>
             {content.heroTitleTail}
           </h1>
-          <p className="mt-3 text-sm leading-6 text-white/85">{content.heroSubtitle}</p>
+          <p className="mt-3 text-sm leading-6 text-[#cdd9ee]">{content.heroSubtitle}</p>
           <div className="mt-5 flex flex-nowrap gap-2">
             <Link
               href="/about/profile"
-              className="whitespace-nowrap rounded-full bg-[#da1e3c] px-4 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg shadow-[#da1e3c]/30 transition hover:-translate-y-0.5 hover:bg-[#b81733]"
+              className="btn-azure whitespace-nowrap rounded-full px-4 py-2.5 text-xs font-bold uppercase tracking-[0.12em] shadow-lg shadow-[#4f8bff]/30 transition hover:-translate-y-0.5"
             >
               Profile
             </Link>

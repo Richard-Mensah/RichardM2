@@ -19,7 +19,7 @@ const HUB_CARDS = [
     tag: "Profile",
     title: "Credentials, representation, and focus at a glance.",
     body: "MSc in AI & Data Science (Bangor); Country Representative for Ghana, UN Youth Association; former Youth MP.",
-    accent: "#2BA8B4",
+    accent: "#4f8bff",
   },
   {
     href: "/about/biography",
@@ -27,7 +27,7 @@ const HUB_CARDS = [
     tag: "Biography",
     title: "A story built on conviction, community, and code.",
     body: "From grassroots campaigns in Sefwi Bekwai to AI research and global advocacy.",
-    accent: "#2BA8B4",
+    accent: "#4f8bff",
   },
   {
     href: "/about/vision",
@@ -35,7 +35,7 @@ const HUB_CARDS = [
     tag: "Vision & Mission",
     title: "Intelligence that serves the many, not the few.",
     body: "A commitment to equitable development, aligned with the United Nations SDGs.",
-    accent: "#2BA8B4",
+    accent: "#4f8bff",
   },
   {
     href: "/about/leadership-journey",
@@ -81,7 +81,7 @@ export default async function AboutPage() {
       <section className="relative overflow-hidden bg-[#0B1F3A] pt-10 pb-0 md:pt-16">
         <div className="mx-auto grid max-w-7xl items-end gap-10 px-5 md:px-8 lg:grid-cols-2">
           <div className="pb-12 md:pb-16">
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7FD6D2]">About Richard</p>
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7fb0ff]">About Richard</p>
             <h1 className="mt-4 text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-white md:text-6xl">
               From Ghana to the world, one impact system at a time.
             </h1>
@@ -93,7 +93,7 @@ export default async function AboutPage() {
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 href="/about/biography"
-                className="rounded-full bg-[#2BA8B4] px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#2BA8B4]/30 transition hover:-translate-y-0.5 hover:bg-[#7FD6D2]"
+                className="rounded-full bg-[#4f8bff] px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#4f8bff]/30 transition hover:-translate-y-0.5 hover:bg-[#7fb0ff]"
               >
                 Read Biography
               </Link>
@@ -124,7 +124,7 @@ export default async function AboutPage() {
       </section>
 
       {/* ── Quick stats bar ───────────────────────────────────────── */}
-      <section className="bg-[#2BA8B4] px-5 py-7 md:px-8">
+      <section className="bg-[#4f8bff] px-5 py-7 md:px-8">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
           {QUICK_STATS.map((stat) => (
             <div key={stat.label} className="text-center">
@@ -136,13 +136,13 @@ export default async function AboutPage() {
       </section>
 
       {/* ── Hub cards ─────────────────────────────────────────────── */}
-      <section className="bg-white px-5 py-16 md:px-8 md:py-24">
+      <section className="bg-transparent px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#2BA8B4]">Explore</p>
-          <h2 className="mt-3 text-balance text-3xl font-black tracking-[-0.04em] text-slate-950 md:text-4xl">
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#4f8bff]">Explore</p>
+          <h2 className="mt-3 text-balance text-3xl font-black tracking-[-0.04em] text-white md:text-4xl">
             Everything about Richard in one place.
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-slate-500">
+          <p className="mt-4 max-w-2xl text-base leading-7 text-[#8aa0c4]">
             Select a section to explore the full story, from personal biography and grassroots
             community work to international conferences, media, and the full CV.
           </p>

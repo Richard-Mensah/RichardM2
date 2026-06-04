@@ -11,21 +11,21 @@ const SYSTEMS_SUMMARY = [
   {
     title: "Predictive Intelligence System for Financial Behaviour",
     label: "AI + SDG 8",
-    color: "#176E78",
+    color: "#3a78e0",
     summary: "Classification, segmentation, and decision dashboards for ethical financial inclusion.",
     href: "/projects/ai",
   },
   {
     title: "Climate Signal Observatory for Community Resilience",
     label: "Climate + SDG 13",
-    color: "#1E8A95",
+    color: "#2f6bea",
     summary: "Satellite-derived climate intelligence translated into community-readable risk narratives.",
     href: "/projects/climate",
   },
   {
     title: "Youth Leadership Knowledge Engine",
     label: "Leadership + SDG 4/17",
-    color: "#176E78",
+    color: "#3a78e0",
     summary: "Programme analytics and knowledge systems making youth leadership measurable and repeatable.",
     href: "/projects/community",
   },
@@ -40,7 +40,7 @@ export default function PortfolioPageSection({ repos }: Props) {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#176E78]">
+              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#3a78e0]">
                 Projects / Portfolio
               </p>
               <h1 className="mt-4 text-4xl font-black leading-tight text-white md:text-5xl">
@@ -72,7 +72,7 @@ export default function PortfolioPageSection({ repos }: Props) {
       </section>
 
       {/* Connect */}
-      <section className="bg-white px-5 py-12 md:px-8">
+      <section className="bg-transparent px-5 py-12 md:px-8">
         <div className="mx-auto max-w-3xl">
           <SectionHeading eyebrow="Connect" title="Find me on" center />
           <div className="mt-8 flex flex-col gap-4">
@@ -81,7 +81,7 @@ export default function PortfolioPageSection({ repos }: Props) {
               href="https://github.com/Richard-Mensah"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-slate-50 p-5 transition hover:border-[#2BA8B4]/40 hover:shadow-lg"
+              className="group flex items-center gap-4 rounded-xl border border-white/10 bg-transparent p-5 transition hover:border-[#4f8bff]/40 hover:shadow-lg"
             >
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-900 text-white">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -89,17 +89,17 @@ export default function PortfolioPageSection({ repos }: Props) {
                 </svg>
               </div>
               <div className="flex-1">
-                <p className="text-sm font-black text-slate-950">github.com/Richard-Mensah</p>
-                <p className="text-xs text-slate-500">Browse public repositories and active projects</p>
+                <p className="text-sm font-black text-white">github.com/Richard-Mensah</p>
+                <p className="text-xs text-[#8aa0c4]">Browse public repositories and active projects</p>
               </div>
-              <span className="text-xs font-black text-[#2BA8B4]">View →</span>
+              <span className="text-xs font-black text-[#4f8bff]">View →</span>
             </a>
           </div>
         </div>
       </section>
 
       {/* Flagship Systems */}
-      <section className="bg-slate-50 px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionHeading eyebrow="Flagship Systems" title="Three systems that define the work" />
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -112,8 +112,8 @@ export default function PortfolioPageSection({ repos }: Props) {
                   >
                     {sys.label}
                   </span>
-                  <h3 className="mt-3 text-sm font-black leading-snug text-slate-950">{sys.title}</h3>
-                  <p className="mt-2 text-xs leading-6 text-slate-600">{sys.summary}</p>
+                  <h3 className="mt-3 text-sm font-black leading-snug text-white">{sys.title}</h3>
+                  <p className="mt-2 text-xs leading-6 text-[#a9bcdc]">{sys.summary}</p>
                   <p className="mt-4 text-xs font-black transition group-hover:gap-2" style={{ color: sys.color }}>
                     Explore →
                   </p>
@@ -125,7 +125,7 @@ export default function PortfolioPageSection({ repos }: Props) {
       </section>
 
       {/* GitHub Repos */}
-      <section className="bg-white px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionHeading eyebrow="GitHub" title="Latest public repositories" />
           {repos.length > 0 ? (
@@ -135,15 +135,15 @@ export default function PortfolioPageSection({ repos }: Props) {
               ))}
             </div>
           ) : (
-            <div className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-10 text-center">
-              <p className="text-sm font-black text-slate-950">No public repositories found</p>
-              <p className="mt-2 text-xs text-slate-500">
+            <div className="mt-10 rounded-xl border border-white/10 bg-transparent p-10 text-center">
+              <p className="text-sm font-black text-white">No public repositories found</p>
+              <p className="mt-2 text-xs text-[#8aa0c4]">
                 Visit{" "}
                 <a
                   href="https://github.com/Richard-Mensah"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-[#2BA8B4] hover:underline"
+                  className="font-semibold text-[#4f8bff] hover:underline"
                 >
                   github.com/Richard-Mensah
                 </a>{" "}

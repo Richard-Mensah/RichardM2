@@ -15,13 +15,13 @@ export default async function AdminGalleryPage() {
       <main className="flex-1 overflow-auto p-8">
         <div className="mb-6 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-black text-slate-950">Gallery</h1>
-            <p className="mt-1 text-sm text-slate-500">{photos.length} photos · upload new images below</p>
+            <h1 className="text-2xl font-black text-white">Gallery</h1>
+            <p className="mt-1 text-sm text-[#8aa0c4]">{photos.length} photos · upload new images below</p>
           </div>
           <div className="flex items-center gap-3">
             <Link
               href="/gallery"
-              className="rounded-full border border-slate-200 px-4 py-2 text-xs font-black text-slate-600 transition hover:border-slate-400"
+              className="rounded-full border border-white/10 px-4 py-2 text-xs font-black text-[#a9bcdc] transition hover:border-slate-400"
               target="_blank"
             >
               View gallery →

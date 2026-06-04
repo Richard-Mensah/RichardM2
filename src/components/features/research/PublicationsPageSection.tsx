@@ -10,13 +10,13 @@ export default function PublicationsPageSection() {
       <div className="relative mx-auto max-w-5xl">
 
         {/* Hero */}
-        <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#2BA8B4]">
+        <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#4f8bff]">
           Writing &amp; Working Papers
         </p>
-        <h1 className="mt-4 text-balance text-4xl font-bold tracking-[-0.02em] text-slate-950 md:text-5xl">
+        <h1 className="mt-4 text-balance text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
           Independent writing on AI, climate, and development.
         </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600">
+        <p className="mt-5 max-w-3xl text-base leading-7 text-[#a9bcdc]">
           A collection of independent essays, working papers, and policy notes at the intersection
           of AI, climate change, and sustainable development. They reflect ongoing thinking and are
           shared openly for discussion, collaboration, and review.
@@ -44,21 +44,21 @@ export default function PublicationsPageSection() {
         </div>
 
         {/* CTA */}
-        <div className="mt-14 rounded-2xl bg-[#F0F7FF] p-8">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#2BA8B4]">Open for collaboration</p>
-          <p className="mt-3 text-base leading-7 text-slate-600">
+        <div className="mt-14 rounded-2xl bg-transparent p-8">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#4f8bff]">Open for collaboration</p>
+          <p className="mt-3 text-base leading-7 text-[#a9bcdc]">
             Interested in collaborating on research, providing peer review, or forming an institutional partnership?
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="rounded-full bg-[#2BA8B4] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#005FCC]"
+              className="rounded-full bg-[#4f8bff] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#005FCC]"
             >
               Get in touch
             </Link>
             <Link
               href="/research"
-              className="rounded-full border border-slate-300 px-6 py-2.5 text-sm font-black text-slate-700 transition hover:border-slate-400"
+              className="rounded-full border border-white/15 px-6 py-2.5 text-sm font-black text-[#cdd9ee] transition hover:border-slate-400"
             >
               Back to Research Hub
             </Link>

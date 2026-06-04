@@ -17,7 +17,7 @@ export default function IdentityStepperClient({ items }: Props) {
         <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.04em] text-white md:text-5xl">
           A personal brand that feels like a living institution, not a normal portfolio.
         </h2>
-        <p className="mt-5 text-base leading-8 text-slate-400 md:text-lg">
+        <p className="mt-5 text-base leading-8 text-[#7e92b6] md:text-lg">
           The website presents Richard as a thought leader in formation: technical enough for AI
           work, strategic enough for institutions, and human enough for leadership and youth
           transformation.
@@ -30,13 +30,13 @@ export default function IdentityStepperClient({ items }: Props) {
             {/* Connector line */}
             {index < items.length - 1 && (
               <div
-                className="absolute left-[1.375rem] top-11 bottom-0 w-px bg-gradient-to-b from-[#2BA8B4]/40 to-transparent"
+                className="absolute left-[1.375rem] top-11 bottom-0 w-px bg-gradient-to-b from-[#4f8bff]/40 to-transparent"
                 aria-hidden="true"
               />
             )}
 
             {/* Number badge */}
-            <div className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-[#2BA8B4] bg-slate-950 text-sm font-black text-[#2BA8B4]">
+            <div className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-[#4f8bff] bg-slate-950 text-sm font-black text-[#4f8bff]">
               0{index + 1}
             </div>
 
@@ -46,7 +46,7 @@ export default function IdentityStepperClient({ items }: Props) {
                 {item.place}
               </p>
               <h3 className="mt-2 text-xl font-black text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-400">{item.body}</p>
+              <p className="mt-3 text-sm leading-7 text-[#7e92b6]">{item.body}</p>
 
               {index === 2 && (
                 <div className="mt-5 flex items-center gap-3 border-t border-white/10 pt-4">
@@ -59,7 +59,7 @@ export default function IdentityStepperClient({ items }: Props) {
                       sizes="56px"
                     />
                   </div>
-                  <p className="text-xs font-bold leading-tight text-slate-400">
+                  <p className="text-xs font-bold leading-tight text-[#7e92b6]">
                     Cross-border<br />impact builder
                   </p>
                 </div>

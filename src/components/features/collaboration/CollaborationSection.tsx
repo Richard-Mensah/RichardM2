@@ -8,14 +8,14 @@ export default function CollaborationSection() {
 
       <div className="grid min-h-[680px] lg:grid-cols-[1fr_1fr]">
         {/* Left: dark context panel */}
-        <div className="flex flex-col justify-center bg-slate-950 px-8 py-24 md:px-12">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#26BDE2]">
+        <div className="flex flex-col justify-center bg-black/20 px-8 py-24 md:px-12">
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7fb0ff]">
             Contact + collaboration
           </p>
           <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.04em] text-white md:text-5xl">
             I work with institutions, startups, and governments building the future with AI.
           </h2>
-          <p className="mt-5 text-base leading-8 text-slate-400">
+          <p className="mt-5 text-base leading-8 text-[#7e92b6]">
             Use the collaboration desk for research partnerships, AI systems, institutional
             training, youth programs, speaking, climate intelligence, and SDG-aligned innovation.
           </p>
@@ -38,12 +38,12 @@ export default function CollaborationSection() {
         </div>
 
         {/* Right: form panel */}
-        <div className="flex items-center justify-center bg-white px-8 py-24 md:px-12">
+        <div className="flex items-center justify-center bg-white/[0.03] px-8 py-24 md:px-12">
           <div className="w-full max-w-lg">
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#00689D]">
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#7fb0ff]">
               Collaboration desk
             </p>
-            <h3 className="mt-2 text-2xl font-black text-slate-950">Start a conversation</h3>
+            <h3 className="mt-2 text-2xl font-black text-white">Start a conversation</h3>
             <div className="mt-7">
               <CollaborationForm />
             </div>

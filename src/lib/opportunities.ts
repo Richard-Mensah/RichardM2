@@ -23,7 +23,7 @@ async function ensureTable(): Promise<void> {
       type varchar(80) NOT NULL DEFAULT '',
       description text NOT NULL DEFAULT '',
       link text NOT NULL DEFAULT '',
-      accent varchar(16) NOT NULL DEFAULT '#2BA8B4'
+      accent varchar(16) NOT NULL DEFAULT '#4f8bff'
     );
   `);
   tableReady = true;

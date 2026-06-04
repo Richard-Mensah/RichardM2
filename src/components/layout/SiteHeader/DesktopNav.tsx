@@ -70,7 +70,7 @@ export default function DesktopNav({
             </button>
 
             {openDropdown === item.label && (
-              <div className="header-dropdown absolute left-0 top-full z-50 mt-1 min-w-[220px] rounded-2xl border border-white/10 bg-[#0F2438] p-2 shadow-2xl shadow-black/30">
+              <div className="header-dropdown absolute left-0 top-full z-50 mt-1 min-w-[220px] rounded-2xl border border-white/10 bg-[#122a4e] p-2 shadow-2xl shadow-black/30">
                 {item.children!.map((child) => (
                   <Link
                     key={child.href}

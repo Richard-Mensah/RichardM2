@@ -12,10 +12,10 @@ export default function GlobalDevelopmentPageSection() {
 
         {/* Hero */}
         <p className="text-xs font-black uppercase tracking-[0.32em] text-[#00689D]">Global Development</p>
-        <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
+        <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
           Intelligence that serves the many, not the few.
         </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600">
+        <p className="mt-5 max-w-3xl text-base leading-7 text-[#a9bcdc]">
           Cross-border research and partnerships connecting Ghana, the UK, and global networks
           around AI, climate intelligence, youth empowerment, and sustainable development, with
           the UN Sustainable Development Goals as the organising framework.
@@ -28,11 +28,11 @@ export default function GlobalDevelopmentPageSection() {
             {IDENTITY_TIMELINE.map((card) => (
               <div
                 key={card.place}
-                className="rounded-2xl border border-[#00689D]/15 bg-white p-6 shadow-sm"
+                className="rounded-2xl border border-[#00689D]/15 glass p-6 shadow-sm"
               >
                 <p className="text-xs font-black uppercase tracking-[0.22em] text-[#00689D]">{card.place}</p>
-                <h3 className="mt-3 text-base font-black leading-snug text-slate-950">{card.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-500">{card.body}</p>
+                <h3 className="mt-3 text-base font-black leading-snug text-white">{card.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-[#8aa0c4]">{card.body}</p>
               </div>
             ))}
           </div>
@@ -40,12 +40,12 @@ export default function GlobalDevelopmentPageSection() {
 
         {/* Priority SDG goals */}
         <div className="mt-12">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-slate-500">Priority SDG goals</p>
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#8aa0c4]">Priority SDG goals</p>
           <div className="mt-5 grid gap-4 grid-cols-2 md:grid-cols-3">
             {PRIORITY_GOALS.map((goal) => (
               <div
                 key={goal.code}
-                className="rounded-2xl border-2 bg-white p-5 shadow-sm"
+                className="rounded-2xl border-2 glass p-5 shadow-sm"
                 style={{ borderColor: `${goal.color}30` }}
               >
                 <span
@@ -54,8 +54,8 @@ export default function GlobalDevelopmentPageSection() {
                 >
                   {goal.code}
                 </span>
-                <h3 className="mt-3 text-sm font-black text-slate-950">{goal.title}</h3>
-                <p className="mt-2 text-xs leading-5 text-slate-500">{goal.contribution}</p>
+                <h3 className="mt-3 text-sm font-black text-white">{goal.title}</h3>
+                <p className="mt-2 text-xs leading-5 text-[#8aa0c4]">{goal.contribution}</p>
               </div>
             ))}
           </div>
@@ -67,9 +67,9 @@ export default function GlobalDevelopmentPageSection() {
 
         {/* Cross-border network */}
         <div className="mt-10 rounded-2xl bg-[#0B1F3A] p-8">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#7FD6D2]">Global network</p>
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#7fb0ff]">Global network</p>
           <h2 className="mt-3 text-2xl font-black text-white">65+ global mentors and partners</h2>
-          <p className="mt-4 text-sm leading-7 text-slate-400">
+          <p className="mt-4 text-sm leading-7 text-[#7e92b6]">
             The network spans universities, NGOs, government bodies, and private sector organisations
             across Ghana, the United Kingdom, India, and beyond, connected around a shared belief
             that talent is universal, but opportunity must be built.
@@ -78,7 +78,7 @@ export default function GlobalDevelopmentPageSection() {
             {GEO_PILLS.map((geo) => (
               <span
                 key={geo}
-                className="rounded-full border border-[#00689D]/50 px-4 py-2 text-sm font-bold text-[#7FD6D2]"
+                className="rounded-full border border-[#00689D]/50 px-4 py-2 text-sm font-bold text-[#7fb0ff]"
               >
                 {geo}
               </span>
@@ -87,16 +87,16 @@ export default function GlobalDevelopmentPageSection() {
         </div>
 
         {/* CTA */}
-        <div className="mt-10 rounded-2xl bg-[#F0F6FB] p-8">
+        <div className="mt-10 rounded-2xl bg-transparent p-8">
           <p className="text-sm font-black uppercase tracking-[0.22em] text-[#00689D]">Join the global network</p>
-          <p className="mt-3 text-base leading-7 text-slate-600">
+          <p className="mt-3 text-base leading-7 text-[#a9bcdc]">
             Connect as a partner, mentor, institutional collaborator, or SDG advocate working at the intersection of AI and development.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link href="/contact" className="rounded-full bg-[#00689D] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#005580]">
               Join the network
             </Link>
-            <Link href="/sdgs" className="rounded-full border border-slate-300 px-6 py-2.5 text-sm font-black text-slate-700 transition hover:border-slate-400">
+            <Link href="/sdgs" className="rounded-full border border-white/15 px-6 py-2.5 text-sm font-black text-[#cdd9ee] transition hover:border-slate-400">
               Explore SDG work
             </Link>
           </div>

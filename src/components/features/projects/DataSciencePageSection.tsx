@@ -14,13 +14,13 @@ const CAPABILITIES = [
   {
     title: "Dashboard Systems",
     description: "Interactive reporting and visualisation systems that surface the right metrics at the right time for the people who need to act on them.",
-    accent: "#2BA8B4",
+    accent: "#4f8bff",
     icon: "📊",
   },
   {
     title: "Predictive Analytics",
     description: "Forecasting and classification models that help organizations anticipate outcomes, allocate resources more effectively, and reduce operational uncertainty.",
-    accent: "#2BA8B4",
+    accent: "#4f8bff",
     icon: "🎯",
   },
   {
@@ -81,15 +81,15 @@ export default function DataSciencePageSection() {
       </section>
 
       {/* Capabilities */}
-      <section className="bg-white px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionHeading eyebrow="Capabilities" title="What these projects cover" center />
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {CAPABILITIES.map((cap) => (
               <Card key={cap.title} className="p-6" style={{ borderTop: `3px solid ${cap.accent}` }}>
                 <span className="inline-block h-2.5 w-10 rounded-full" style={{ backgroundColor: cap.accent }} aria-hidden="true" />
-                <h3 className="mt-3 text-sm font-bold text-slate-950">{cap.title}</h3>
-                <p className="mt-2 text-xs leading-6 text-slate-600">{cap.description}</p>
+                <h3 className="mt-3 text-sm font-bold text-white">{cap.title}</h3>
+                <p className="mt-2 text-xs leading-6 text-[#a9bcdc]">{cap.description}</p>
               </Card>
             ))}
           </div>
@@ -97,22 +97,22 @@ export default function DataSciencePageSection() {
       </section>
 
       {/* Thesis */}
-      <section className="bg-slate-50 px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-black uppercase tracking-[0.28em] text-[#0A97D9]">
             Core thesis
           </p>
-          <p className="mt-4 text-2xl font-black leading-tight text-slate-950 md:text-3xl">
+          <p className="mt-4 text-2xl font-black leading-tight text-white md:text-3xl">
             Data is only valuable when institutions can act on it. The work is building that bridge.
           </p>
-          <p className="mt-6 text-sm leading-8 text-slate-600">
+          <p className="mt-6 text-sm leading-8 text-[#a9bcdc]">
             From raw ingestion to final dashboard, every data science project is designed to reduce the gap between what organizations know and what they do. The goal is not more data, it is better decisions.
           </p>
         </div>
       </section>
 
       {/* Connect */}
-      <section className="bg-white px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-3xl">
           <SectionHeading eyebrow="Connect" title="Follow the work" center />
           <div className="mt-8 flex flex-col gap-4">
@@ -120,7 +120,7 @@ export default function DataSciencePageSection() {
               href="https://github.com/Richard-Mensah"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-slate-50 p-5 transition hover:border-[#2BA8B4]/40 hover:shadow-lg"
+              className="group flex items-center gap-4 rounded-xl border border-white/10 bg-transparent p-5 transition hover:border-[#4f8bff]/40 hover:shadow-lg"
             >
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-900 text-white">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -128,10 +128,10 @@ export default function DataSciencePageSection() {
                 </svg>
               </div>
               <div className="flex-1">
-                <p className="text-sm font-black text-slate-950">github.com/Richard-Mensah</p>
-                <p className="text-xs text-slate-500">Browse public repositories and active projects</p>
+                <p className="text-sm font-black text-white">github.com/Richard-Mensah</p>
+                <p className="text-xs text-[#8aa0c4]">Browse public repositories and active projects</p>
               </div>
-              <span className="text-xs font-black text-[#2BA8B4]">View →</span>
+              <span className="text-xs font-black text-[#4f8bff]">View →</span>
             </a>
             <LinkedInProfileCard />
           </div>

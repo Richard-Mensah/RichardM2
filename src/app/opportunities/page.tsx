@@ -18,7 +18,7 @@ export default async function OpportunitiesPage() {
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
       <div className="flex-1">
-        <div className="bg-gradient-to-br from-[#0B1B2D] via-[#0F2438] to-[#2BA8B4] px-5 py-20 text-white md:px-8 md:py-28">
+        <div className="bg-gradient-to-br from-[#0a1730] via-[#122a4e] to-[#4f8bff] px-5 py-20 text-white md:px-8 md:py-28">
           <div className="mx-auto max-w-7xl text-center">
             <p className="text-xs font-black uppercase tracking-[0.28em] text-[#BFEFFF]">
               Opportunities
@@ -33,7 +33,7 @@ export default async function OpportunitiesPage() {
           </div>
         </div>
 
-        <div className="bg-slate-50 px-5 py-16 md:px-8 md:py-24">
+        <div className="bg-transparent px-5 py-16 md:px-8 md:py-24">
           <div className="mx-auto max-w-7xl">
             <SectionHeading eyebrow="Browse" title="Opportunity categories" center />
             <div className="mt-14 grid gap-8 sm:grid-cols-2">
@@ -47,11 +47,11 @@ export default async function OpportunitiesPage() {
                         style={{ backgroundColor: cat.accent }}
                         aria-hidden="true"
                       />
-                      <h2 className="mt-4 text-2xl font-bold text-slate-950">{cat.title}</h2>
-                      <p className="mt-3 text-sm leading-7 text-slate-600">{cat.description}</p>
+                      <h2 className="mt-4 text-2xl font-bold text-white">{cat.title}</h2>
+                      <p className="mt-3 text-sm leading-7 text-[#a9bcdc]">{cat.description}</p>
 
                       {entries.length === 0 ? (
-                        <p className="mt-6 text-xs font-semibold text-slate-400">
+                        <p className="mt-6 text-xs font-semibold text-[#7e92b6]">
                           Opportunities listed soon — check back regularly.
                         </p>
                       ) : (
@@ -59,18 +59,18 @@ export default async function OpportunitiesPage() {
                           {entries.map((o, i) => (
                             <li
                               key={`${cat.id}-${i}`}
-                              className="rounded-xl border border-slate-200 bg-white p-4"
+                              className="glass rounded-xl p-4"
                             >
-                              <p className="text-sm font-black text-slate-950">{o.title}</p>
+                              <p className="text-sm font-black text-white">{o.title}</p>
                               {o.description && (
-                                <p className="mt-1 text-sm leading-6 text-slate-600">{o.description}</p>
+                                <p className="mt-1 text-sm leading-6 text-[#a9bcdc]">{o.description}</p>
                               )}
                               {o.link && (
                                 <a
                                   href={o.link}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="mt-2 inline-block text-xs font-bold uppercase tracking-[0.12em] text-[#2BA8B4] hover:underline"
+                                  className="mt-2 inline-block text-xs font-bold uppercase tracking-[0.12em] text-[#4f8bff] hover:underline"
                                 >
                                   Learn more →
                                 </a>

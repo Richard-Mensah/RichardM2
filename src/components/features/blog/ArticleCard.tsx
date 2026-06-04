@@ -2,16 +2,16 @@ import Link from "next/link";
 import type { ArticleMeta } from "@/lib/articles";
 
 const CATEGORY_COLOURS: Record<string, string> = {
-  "AI, Data & Climate": "#2BA8B4",
-  "AI Ethics & Technologies": "#2BA8B4",
-  "Youth Leadership": "#2BA8B4",
+  "AI, Data & Climate": "#4f8bff",
+  "AI Ethics & Technologies": "#4f8bff",
+  "Youth Leadership": "#4f8bff",
   "Community & SDGs": "#19486A",
 };
 
 type Props = { article: ArticleMeta };
 
 export default function ArticleCard({ article }: Props) {
-  const accent = CATEGORY_COLOURS[article.category] ?? "#2BA8B4";
+  const accent = CATEGORY_COLOURS[article.category] ?? "#4f8bff";
   const formattedDate = new Date(article.date).toLocaleDateString("en-GB", {
     year: "numeric",
     month: "long",
@@ -21,7 +21,7 @@ export default function ArticleCard({ article }: Props) {
   return (
     <Link href={`/blog/${article.slug}`} className="group">
       <div
-        className="flex h-full flex-col rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/70 transition hover:-translate-y-0.5"
+        className="flex h-full flex-col glass rounded-[2rem] p-6 shadow-xl shadow-slate-200/70 transition hover:-translate-y-0.5"
         style={{ borderTop: `3px solid ${accent}` }}
       >
         <div className="flex flex-wrap items-center gap-3">
@@ -31,12 +31,12 @@ export default function ArticleCard({ article }: Props) {
           >
             {article.category}
           </span>
-          <span className="text-xs text-slate-400">{formattedDate}</span>
+          <span className="text-xs text-[#7e92b6]">{formattedDate}</span>
         </div>
-        <p className="mt-4 flex-1 text-lg font-black leading-snug text-slate-950">
+        <p className="mt-4 flex-1 text-lg font-black leading-snug text-white">
           {article.title}
         </p>
-        <p className="mt-2 text-sm leading-6 text-slate-500">{article.excerpt}</p>
+        <p className="mt-2 text-sm leading-6 text-[#8aa0c4]">{article.excerpt}</p>
         <p
           className="mt-4 text-sm font-black transition group-hover:translate-x-1"
           style={{ color: accent }}

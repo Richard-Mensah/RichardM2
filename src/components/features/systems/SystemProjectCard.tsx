@@ -34,18 +34,18 @@ export default function SystemProjectCard({ system }: Props) {
         >
           {system.label}
         </div>
-        <h3 className="text-xl font-black leading-tight text-slate-950">{system.title}</h3>
+        <h3 className="text-xl font-black leading-tight text-white">{system.title}</h3>
       </div>
 
       {/* Tab bar */}
-      <div className="flex border-b border-slate-100 px-7">
+      <div className="flex border-b border-white/10 px-7">
         {TABS.map((tab) => (
           <button
             key={tab.key}
             onClick={() => setActiveTab(tab.key)}
             className={cn(
               "relative pb-3 pr-6 text-xs font-black uppercase tracking-[0.2em] transition",
-              activeTab === tab.key ? "text-slate-950" : "text-slate-400 hover:text-slate-600"
+              activeTab === tab.key ? "text-white" : "text-[#7e92b6] hover:text-[#a9bcdc]"
             )}
           >
             {tab.label}
@@ -62,7 +62,7 @@ export default function SystemProjectCard({ system }: Props) {
 
       {/* Content */}
       <div className="flex-1 px-7 py-5">
-        <p key={activeTab} className="reveal-up text-sm leading-7 text-slate-600">
+        <p key={activeTab} className="reveal-up text-sm leading-7 text-[#a9bcdc]">
           {content[activeTab]}
         </p>
       </div>

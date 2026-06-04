@@ -67,7 +67,7 @@ export default function SdgsSection() {
             <div>
               <div className="flex items-center gap-3">
                 <span className="grid h-10 w-10 place-items-center rounded-xl text-sm font-black text-white" style={{ backgroundColor: "#C5192D" }}>4</span>
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-400">SDG 4 · Quality Education</p>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-[#7e92b6]">SDG 4 · Quality Education</p>
               </div>
               <h3 className="mt-4 text-2xl font-black text-white">
                 Free teaching during COVID-19 lockdowns.
@@ -124,7 +124,7 @@ export default function SdgsSection() {
               <div className="flex items-center gap-3">
                 <span className="grid h-10 w-10 place-items-center rounded-xl text-sm font-black text-white" style={{ backgroundColor: "#26BDE2" }}>6</span>
                 <span className="grid h-10 w-10 place-items-center rounded-xl text-sm font-black text-white" style={{ backgroundColor: "#FD9D24" }}>11</span>
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-400">SDG 6 & 11 · Sanitation & Communities</p>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-[#7e92b6]">SDG 6 & 11 · Sanitation & Communities</p>
               </div>
               <h3 className="mt-4 text-2xl font-black text-white">
                 Community sanitation and cleaning exercises.
@@ -153,7 +153,7 @@ export default function SdgsSection() {
             <div>
               <div className="flex items-center gap-3">
                 <span className="grid h-10 w-10 place-items-center rounded-xl text-sm font-black text-white" style={{ backgroundColor: "#00689D" }}>16</span>
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-400">SDG 16 · Peace & Strong Institutions</p>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-[#7e92b6]">SDG 16 · Peace & Strong Institutions</p>
               </div>
               <h3 className="mt-4 text-2xl font-black text-white">
                 Peace campaigns and civic education.
