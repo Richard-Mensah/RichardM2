@@ -20,8 +20,8 @@ export default async function AdminAnalyticsPage() {
       <main className="flex-1 overflow-auto p-8">
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-black text-slate-950">Analytics</h1>
-            <p className="mt-1 text-sm text-slate-500">Cookieless page views — no personal data collected.</p>
+            <h1 className="text-2xl font-black text-white">Analytics</h1>
+            <p className="mt-1 text-sm text-[#8aa0c4]">Cookieless page views — no personal data collected.</p>
           </div>
           <AdminLogoutButton />
         </div>
@@ -35,30 +35,30 @@ export default async function AdminAnalyticsPage() {
         {/* Summary cards */}
         <div className="grid gap-6 sm:grid-cols-3">
           {cards.map((c) => (
-            <div key={c.label} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <p className="text-4xl font-black text-[#176E78]">{c.value.toLocaleString()}</p>
-              <p className="mt-1 text-sm font-semibold text-slate-500">{c.label}</p>
+            <div key={c.label} className="glass rounded-2xl p-6 shadow-sm">
+              <p className="text-4xl font-black text-[#3a78e0]">{c.value.toLocaleString()}</p>
+              <p className="mt-1 text-sm font-semibold text-[#8aa0c4]">{c.label}</p>
             </div>
           ))}
         </div>
 
         {/* Per-day chart */}
-        <div className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <p className="text-xs font-black uppercase tracking-[0.15em] text-slate-400">Views — last 14 days</p>
+        <div className="mt-8 glass rounded-2xl p-6 shadow-sm">
+          <p className="text-xs font-black uppercase tracking-[0.15em] text-[#7e92b6]">Views — last 14 days</p>
           <div className="mt-6 flex h-40 items-end gap-2">
             {a.perDay.length === 0 ? (
-              <p className="text-sm text-slate-400">No data yet.</p>
+              <p className="text-sm text-[#7e92b6]">No data yet.</p>
             ) : (
               a.perDay.map((d) => (
                 <div key={d.day} className="flex flex-1 flex-col items-center gap-2">
                   <div className="flex w-full flex-1 items-end">
                     <div
-                      className="w-full rounded-t bg-[#2BA8B4]"
+                      className="w-full rounded-t bg-[#4f8bff]"
                       style={{ height: `${Math.max(4, (d.views / maxDay) * 100)}%` }}
                       title={`${d.day}: ${d.views} views`}
                     />
                   </div>
-                  <span className="text-[10px] text-slate-400">{d.day.slice(5)}</span>
+                  <span className="text-[10px] text-[#7e92b6]">{d.day.slice(5)}</span>
                 </div>
               ))
             )}
@@ -85,16 +85,16 @@ function TopList({
   emptyText?: string;
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <p className="text-xs font-black uppercase tracking-[0.15em] text-slate-400">{title}</p>
+    <div className="glass rounded-2xl p-6 shadow-sm">
+      <p className="text-xs font-black uppercase tracking-[0.15em] text-[#7e92b6]">{title}</p>
       {rows.length === 0 ? (
-        <p className="mt-4 text-sm text-slate-400">{emptyText}</p>
+        <p className="mt-4 text-sm text-[#7e92b6]">{emptyText}</p>
       ) : (
-        <ul className="mt-4 divide-y divide-slate-100">
+        <ul className="mt-4 divide-y divide-white/10">
           {rows.map((r) => (
             <li key={r.path} className="flex items-center justify-between gap-4 py-2.5">
-              <span className="truncate text-sm font-semibold text-slate-700">{r.path}</span>
-              <span className="shrink-0 text-sm font-black text-[#176E78]">{r.views.toLocaleString()}</span>
+              <span className="truncate text-sm font-semibold text-[#cdd9ee]">{r.path}</span>
+              <span className="shrink-0 text-sm font-black text-[#3a78e0]">{r.views.toLocaleString()}</span>
             </li>
           ))}
         </ul>

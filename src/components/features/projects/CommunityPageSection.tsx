@@ -7,7 +7,7 @@ const INITIATIVES = [
   {
     title: "EGA Mentorship Platform",
     description: "A structured mentorship and opportunity management platform for the EGA Mentorship International programme, tracking cohort progress, skill development, and scholarship outcomes.",
-    accent: "#1F3F5C",
+    accent: "#3a78e0",
     icon: "🎓",
     link: "/leadership/ega",
     linkLabel: "About EGA",
@@ -15,7 +15,7 @@ const INITIATIVES = [
   {
     title: "BYM Digital Tools",
     description: "Data collection, member management, and communication tools built to support the Bekwai Youth Movement's community mobilisation, sanitation drives, and education campaigns.",
-    accent: "#2BA8B4",
+    accent: "#4f8bff",
     icon: "📱",
     link: "/leadership/sefwi-bekwai",
     linkLabel: "About BYM",
@@ -23,7 +23,7 @@ const INITIATIVES = [
   {
     title: "Community Data for Sefwi Bekwai",
     description: "Grassroots data collection and analysis work documenting water access, sanitation conditions, and educational barriers in Sefwi Bekwai to inform local advocacy and resource allocation.",
-    accent: "#1E8A95",
+    accent: "#2f6bea",
     icon: "📊",
     link: "/leadership/community",
     linkLabel: "Community Work",
@@ -39,7 +39,7 @@ export default function CommunityPageSection() {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#1F3F5C]">
+              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#3a78e0]">
                 Projects / Community
               </p>
               <h1 className="mt-4 text-4xl font-black leading-tight text-white md:text-5xl">
@@ -72,7 +72,7 @@ export default function CommunityPageSection() {
       </section>
 
       {/* Initiatives */}
-      <section className="bg-white px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionHeading eyebrow="Initiatives" title="Three areas of community technology" />
           <div className="mt-10 flex flex-col gap-6">
@@ -81,8 +81,8 @@ export default function CommunityPageSection() {
                 <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-8">
                   <span className="mt-1.5 inline-block h-2.5 w-10 shrink-0 rounded-full" style={{ backgroundColor: init.accent }} aria-hidden="true" />
                   <div className="flex-1">
-                    <h3 className="text-base font-black text-slate-950">{init.title}</h3>
-                    <p className="mt-2 text-sm leading-7 text-slate-600">{init.description}</p>
+                    <h3 className="text-base font-black text-white">{init.title}</h3>
+                    <p className="mt-2 text-sm leading-7 text-[#a9bcdc]">{init.description}</p>
                   </div>
                   <Link
                     href={init.link}
@@ -99,7 +99,7 @@ export default function CommunityPageSection() {
       </section>
 
       {/* Image strip */}
-      <section className="bg-slate-50 px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionHeading eyebrow="From the field" title="Community work in pictures" center />
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
@@ -118,7 +118,7 @@ export default function CommunityPageSection() {
                     sizes="(min-width: 640px) 33vw, 100vw"
                   />
                 </div>
-                <p className="mt-2 text-xs text-slate-500">{img.caption}</p>
+                <p className="mt-2 text-xs text-[#8aa0c4]">{img.caption}</p>
               </div>
             ))}
           </div>
@@ -126,17 +126,17 @@ export default function CommunityPageSection() {
       </section>
 
       {/* Closing */}
-      <section className="bg-white px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-2xl font-black leading-tight text-slate-950">
+          <p className="text-2xl font-black leading-tight text-white">
             Community work taught Richard what technology can and cannot do.
           </p>
-          <p className="mt-4 text-sm leading-7 text-slate-600">
+          <p className="mt-4 text-sm leading-7 text-[#a9bcdc]">
             Before data science, there were sanitation drives, late-night teaching sessions, and motorbike rides into communities without clean water. The technical tools built since then are shaped by that experience of what communities actually need, not what technology wants to offer them.
           </p>
           <Link
             href="/about/leadership-journey"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-black text-[#1F3F5C] transition hover:gap-3"
+            className="mt-8 inline-flex items-center gap-2 text-sm font-black text-[#3a78e0] transition hover:gap-3"
           >
             Read the journey →
           </Link>

@@ -55,13 +55,13 @@ const PEACE_PHOTOS = [
 
 export default function SefwiBekwaiPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       {/* Back nav */}
-      <div className="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 bg-white/90 px-5 py-3 backdrop-blur md:px-8">
-        <Link href="/leadership" className="text-sm font-bold text-[#2BA8B4] hover:underline">
+      <div className="sticky top-0 z-50 flex items-center justify-between border-b border-white/10 bg-white/90 px-5 py-3 backdrop-blur md:px-8">
+        <Link href="/leadership" className="text-sm font-bold text-[#4f8bff] hover:underline">
           ← Back to Leadership
         </Link>
-        <Link href="/leadership/ega" className="text-sm font-bold text-slate-600 hover:text-[#2BA8B4]">
+        <Link href="/leadership/ega" className="text-sm font-bold text-[#a9bcdc] hover:text-[#4f8bff]">
           Next: EGA Mentorship →
         </Link>
       </div>
@@ -77,7 +77,7 @@ export default function SefwiBekwaiPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 px-5 pb-12 md:px-16">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#2BA8B4]">
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#4f8bff]">
             Sefwi Bekwai · Western North Region · Ghana
           </p>
           <h1 className="mt-3 max-w-3xl text-balance text-4xl font-black tracking-[-0.04em] text-white md:text-6xl">
@@ -97,15 +97,15 @@ export default function SefwiBekwaiPage() {
         {/* Section 1: Church Civic Education */}
         <div>
           <div className="flex items-center gap-3">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#2BA8B4] text-xs font-black text-white">1</span>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#2BA8B4]">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#4f8bff] text-xs font-black text-white">1</span>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#4f8bff]">
               2018–2019 · Western North Region
             </p>
           </div>
-          <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-slate-950 md:text-4xl">
+          <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-white md:text-4xl">
             Self church education and civic identity.
           </h2>
-          <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
+          <p className="mt-4 max-w-3xl text-base leading-8 text-[#a9bcdc]">
             Richard&apos;s civic journey began in churches across Sefwi Bekwai and the Western North
             Region — not as a recipient but as an organiser. He led sensitisation sessions on youth
             development, education, and community responsibility inside congregations that trusted him
@@ -137,11 +137,11 @@ export default function SefwiBekwaiPage() {
               2019–2021 · Western North Region
             </p>
           </div>
-          <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-slate-950 md:text-4xl">
+          <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-white md:text-4xl">
             Peace campaigns, radio, and the NCCE.
           </h2>
           <div className="mt-5 grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-start">
-            <p className="text-base leading-8 text-slate-600">
+            <p className="text-base leading-8 text-[#a9bcdc]">
               Richard joined national peace campaigns under NUSSA, participated in radio peace talks
               with regional media across the Western North Region, and collaborated with Ghana&apos;s
               National Commission for Civic Education (NCCE) in Bibiani Anhwiaso. In a region where
@@ -152,7 +152,7 @@ export default function SefwiBekwaiPage() {
             </p>
             <div className="flex flex-wrap gap-3">
               {["NUSSA Peace Campaign", "Regional Radio Tours", "Bibiani NCCE", "SDG 16"].map((tag) => (
-                <span key={tag} className="rounded-full bg-slate-100 px-4 py-2 text-xs font-bold text-slate-700">
+                <span key={tag} className="rounded-full bg-white/5 px-4 py-2 text-xs font-bold text-[#cdd9ee]">
                   {tag}
                 </span>
               ))}
@@ -170,17 +170,17 @@ export default function SefwiBekwaiPage() {
         {/* Section 3: BYM Founding */}
         <div className="mt-20">
           <div className="flex items-center gap-3">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#2BA8B4] text-xs font-black text-white">3</span>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#2BA8B4]">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#4f8bff] text-xs font-black text-white">3</span>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#4f8bff]">
               2019 · Sefwi Bekwai District
             </p>
           </div>
           <div className="mt-4 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
             <div>
-              <h2 className="text-3xl font-black tracking-[-0.03em] text-slate-950 md:text-4xl">
+              <h2 className="text-3xl font-black tracking-[-0.03em] text-white md:text-4xl">
                 Co-founding the Sefwi Bekwai Youth Movement.
               </h2>
-              <p className="mt-5 text-base leading-8 text-slate-600">
+              <p className="mt-5 text-base leading-8 text-[#a9bcdc]">
                 In 2019, Richard co-founded the Sefwi Bekwai Youth Movement (BYM) — a grassroots
                 platform designed to organise, inform, and mobilise young people across the Sefwi
                 Bekwai district of Ghana&apos;s Western North Region. BYM was built on a core
@@ -212,8 +212,8 @@ export default function SefwiBekwaiPage() {
         {/* Section 4: UNYA-Ghana */}
         <div className="mt-20 rounded-[2rem] bg-[#0B1F3A] p-8 text-white">
           <div className="flex items-center gap-3">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#2BA8B4] text-xs font-black text-white">4</span>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#7FD6D2]">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#4f8bff] text-xs font-black text-white">4</span>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#7fb0ff]">
               2020 · National · Accra, Ghana
             </p>
           </div>
@@ -248,8 +248,8 @@ export default function SefwiBekwaiPage() {
         {/* Section 5: Bibiani Anhwiaso Parliament */}
         <div className="mt-20">
           <div className="flex items-center gap-3">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#2BA8B4] text-xs font-black text-white">5</span>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#2BA8B4]">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#4f8bff] text-xs font-black text-white">5</span>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#4f8bff]">
               2021 · Bibiani Anhwiaso District
             </p>
           </div>
@@ -258,10 +258,10 @@ export default function SefwiBekwaiPage() {
               <Image src="/leadership/bibiani-parliament-1.jpg" alt="Bibiani Anhwiaso Municipal Youth Parliament" fill className="object-cover" />
             </div>
             <div>
-              <h2 className="text-3xl font-black tracking-[-0.03em] text-slate-950 md:text-4xl">
+              <h2 className="text-3xl font-black tracking-[-0.03em] text-white md:text-4xl">
                 Bibiani Anhwiaso Municipal Youth Parliament.
               </h2>
-              <p className="mt-5 text-base leading-8 text-slate-600">
+              <p className="mt-5 text-base leading-8 text-[#a9bcdc]">
                 Elected to the Bibiani Anhwiaso Municipal Youth Parliament, Richard deepened his
                 engagement with local government and district-level policy processes. This institutional
                 fluency — understanding how district assemblies function, how motions are debated,
@@ -283,10 +283,10 @@ export default function SefwiBekwaiPage() {
           </div>
           <div className="mt-5 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <div>
-              <h2 className="text-3xl font-black tracking-[-0.03em] text-slate-950 md:text-4xl">
+              <h2 className="text-3xl font-black tracking-[-0.03em] text-white md:text-4xl">
                 Forming the Ubuntu UEW Chapter.
               </h2>
-              <p className="mt-5 text-base leading-8 text-slate-600">
+              <p className="mt-5 text-base leading-8 text-[#a9bcdc]">
                 While studying at the University of Education, Winneba, Richard founded the Ubuntu
                 UEW Chapter — a peer network grounded in the African philosophy of Ubuntu: &ldquo;I
                 am because we are.&rdquo; The chapter created space for students to support each
@@ -304,8 +304,8 @@ export default function SefwiBekwaiPage() {
         {/* Section 7: Visiting UN Organisations */}
         <div className="mt-20">
           <div className="flex items-center gap-3">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#2BA8B4] text-xs font-black text-white">7</span>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#2BA8B4]">
+            <span className="grid h-8 w-8 place-items-center rounded-full bg-[#4f8bff] text-xs font-black text-white">7</span>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#4f8bff]">
               2021 · Accra, Ghana
             </p>
           </div>
@@ -319,10 +319,10 @@ export default function SefwiBekwaiPage() {
               </div>
             </div>
             <div>
-              <h2 className="text-3xl font-black tracking-[-0.03em] text-slate-950 md:text-4xl">
+              <h2 className="text-3xl font-black tracking-[-0.03em] text-white md:text-4xl">
                 Visiting UN organisations to pitch youth empowerment ideas.
               </h2>
-              <p className="mt-5 text-base leading-8 text-slate-600">
+              <p className="mt-5 text-base leading-8 text-[#a9bcdc]">
                 In 2021, Richard travelled to Accra to visit UN organisations and international
                 institutions — not as a delegate but as a young person with ideas and the confidence
                 to present them. These visits to international offices demonstrated something important:
@@ -337,7 +337,7 @@ export default function SefwiBekwaiPage() {
         </div>
 
         {/* Lead-in to EGA */}
-        <div className="mt-20 rounded-[2rem] bg-[#2BA8B4] px-8 py-12 text-white">
+        <div className="mt-20 rounded-[2rem] bg-[#4f8bff] px-8 py-12 text-white">
           <p className="text-xs font-black uppercase tracking-[0.3em] text-white/70">
             What all of this built
           </p>
@@ -355,7 +355,7 @@ export default function SefwiBekwaiPage() {
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/leadership/ega"
-              className="rounded-full bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.15em] text-[#2BA8B4] transition hover:bg-slate-100"
+              className="rounded-full bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.15em] text-[#4f8bff] transition hover:bg-white/5"
             >
               Explore EGA Mentorship →
             </Link>

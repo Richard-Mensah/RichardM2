@@ -39,7 +39,7 @@ export const testimonials = pgTable("testimonials", {
   role: varchar("role", { length: 200 }).notNull().default(""),
   quote: text("quote").notNull(),
   initials: varchar("initials", { length: 8 }).notNull().default(""),
-  accent: varchar("accent", { length: 16 }).notNull().default("#2BA8B4"),
+  accent: varchar("accent", { length: 16 }).notNull().default("#4f8bff"),
 });
 
 export type TestimonialRow = typeof testimonials.$inferSelect;
@@ -52,7 +52,7 @@ export const opportunities = pgTable("opportunities", {
   type: varchar("type", { length: 80 }).notNull().default(""),
   description: text("description").notNull().default(""),
   link: text("link").notNull().default(""),
-  accent: varchar("accent", { length: 16 }).notNull().default("#2BA8B4"),
+  accent: varchar("accent", { length: 16 }).notNull().default("#4f8bff"),
 });
 
 export type OpportunityRow = typeof opportunities.$inferSelect;

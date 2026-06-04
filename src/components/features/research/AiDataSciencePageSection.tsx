@@ -12,11 +12,11 @@ export default function AiDataSciencePageSection() {
       <div className="relative mx-auto max-w-5xl">
 
         {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#2BA8B4]">AI & Data Science</p>
-        <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
+        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#4f8bff]">AI & Data Science</p>
+        <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
           Applied intelligence for real-world decisions.
         </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-slate-600">
+        <p className="mt-5 max-w-3xl text-base leading-7 text-[#a9bcdc]">
           Machine learning, predictive modeling, NLP, and decision intelligence, designed
           to serve organisations and communities with genuinely useful, explainable outputs.
         </p>
@@ -24,11 +24,11 @@ export default function AiDataSciencePageSection() {
         {/* 2-col research narrative */}
         <div className="mt-12 grid gap-10 lg:grid-cols-2">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#2BA8B4]">Core research focus</p>
-            <h2 className="mt-4 text-2xl font-black tracking-[-0.03em] text-slate-950">
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#4f8bff]">Core research focus</p>
+            <h2 className="mt-4 text-2xl font-black tracking-[-0.03em] text-white">
               AI that works for people, not the other way around.
             </h2>
-            <div className="mt-4 space-y-4 text-sm leading-7 text-slate-600">
+            <div className="mt-4 space-y-4 text-sm leading-7 text-[#a9bcdc]">
               <p>
                 Richard&apos;s AI and data science research centres on building systems that are
                 genuinely useful to real people in real contexts, from smallholder farmers
@@ -44,11 +44,11 @@ export default function AiDataSciencePageSection() {
             </div>
           </div>
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#2BA8B4]">Research to deployment</p>
-            <h2 className="mt-4 text-2xl font-black tracking-[-0.03em] text-slate-950">
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#4f8bff]">Research to deployment</p>
+            <h2 className="mt-4 text-2xl font-black tracking-[-0.03em] text-white">
               Closing the gap between insight and application.
             </h2>
-            <div className="mt-4 space-y-4 text-sm leading-7 text-slate-600">
+            <div className="mt-4 space-y-4 text-sm leading-7 text-[#a9bcdc]">
               <p>
                 As a full-stack developer, Richard closes the gap between research and
                 deployment, building end-to-end systems that move from data pipeline to
@@ -73,12 +73,12 @@ export default function AiDataSciencePageSection() {
 
         {/* Systems teasers */}
         <div className="mt-12">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-slate-500">Featured systems</p>
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#8aa0c4]">Featured systems</p>
           <div className="mt-5 grid gap-5 md:grid-cols-2">
             {featuredSystems.map((sys) => (
               <div
                 key={sys.title}
-                className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+                className="relative overflow-hidden glass rounded-2xl p-6 shadow-sm"
               >
                 <div className="absolute inset-x-0 top-0 h-1" style={{ backgroundColor: sys.color }} />
                 <span
@@ -87,24 +87,24 @@ export default function AiDataSciencePageSection() {
                 >
                   {sys.label}
                 </span>
-                <h3 className="mt-4 text-base font-black text-slate-950">{sys.title}</h3>
-                <p className="mt-2 text-xs leading-5 text-slate-500">{sys.approach}</p>
+                <h3 className="mt-4 text-base font-black text-white">{sys.title}</h3>
+                <p className="mt-2 text-xs leading-5 text-[#8aa0c4]">{sys.approach}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* CTA */}
-        <div className="mt-12 rounded-2xl bg-[#F0FAFF] p-8">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#2BA8B4]">Work together</p>
-          <p className="mt-3 text-base leading-7 text-slate-600">
+        <div className="mt-12 rounded-2xl bg-transparent p-8">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#4f8bff]">Work together</p>
+          <p className="mt-3 text-base leading-7 text-[#a9bcdc]">
             Explore the full systems portfolio or discuss a project, collaboration, or advisory engagement.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/systems" className="rounded-full bg-[#2BA8B4] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#007DB8]">
+            <Link href="/systems" className="rounded-full bg-[#4f8bff] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#007DB8]">
               Explore AI systems
             </Link>
-            <Link href="/contact" className="rounded-full border border-slate-300 px-6 py-2.5 text-sm font-black text-slate-700 transition hover:border-slate-400">
+            <Link href="/contact" className="rounded-full border border-white/15 px-6 py-2.5 text-sm font-black text-[#cdd9ee] transition hover:border-slate-400">
               Discuss a project
             </Link>
           </div>

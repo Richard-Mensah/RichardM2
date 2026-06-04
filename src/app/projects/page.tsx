@@ -19,13 +19,13 @@ export default function ProjectsPage() {
       <div className="flex-1">
         <SystemsSection />
 
-        <div className="bg-slate-50 px-5 py-16 md:px-8 md:py-24">
+        <div className="bg-transparent px-5 py-16 md:px-8 md:py-24">
           <div className="mx-auto max-w-7xl">
             <SectionHeading eyebrow="Projects" title="Full project portfolio" center />
             <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {PROJECT_CATEGORIES.map((cat) => (
                 <Link key={cat.slug} href={cat.slug} className="group focus-visible:outline-none">
-                  <Card className="relative flex h-52 flex-col overflow-hidden p-0 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl group-focus-visible:ring-2 group-focus-visible:ring-[#2BA8B4]">
+                  <Card className="relative flex h-52 flex-col overflow-hidden p-0 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl group-focus-visible:ring-2 group-focus-visible:ring-[#4f8bff]">
                     <div className="absolute inset-0">
                       <Image
                         src={cat.image}

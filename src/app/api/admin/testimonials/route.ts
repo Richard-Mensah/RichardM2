@@ -33,7 +33,7 @@ export async function PUT(request: NextRequest) {
         role: (t.role ?? "").toString().trim(),
         quote,
         initials: (t.initials ?? "").toString().trim(),
-        accent: (t.accent ?? "#2BA8B4").toString().trim() || "#2BA8B4",
+        accent: (t.accent ?? "#4f8bff").toString().trim() || "#4f8bff",
       });
     }
 

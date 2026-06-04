@@ -11,7 +11,7 @@ export default function Card({ children, className, style }: Props) {
   return (
     <div
       className={cn(
-        "rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/70",
+        "glass rounded-[2rem] p-6 shadow-xl shadow-slate-200/70",
         className
       )}
       style={style}

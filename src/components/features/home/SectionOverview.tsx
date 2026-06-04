@@ -32,13 +32,13 @@ export default function SectionOverview({
   testimonials,
 }: Props) {
   return (
-    <section className="bg-[#F8FBFF]">
+    <section>
 
       {/* ── Welcome + Impact stats ───────────────────────────────── */}
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-2xl shadow-slate-200/80">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#2BA8B4]">Welcome</p>
-          <div className="relative mt-4 min-h-[440px] overflow-hidden rounded-[1.5rem] bg-slate-100">
+        <div className="glass rounded-[2rem] p-5">
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#7fb0ff]">Welcome</p>
+          <div className="relative mt-4 min-h-[440px] overflow-hidden rounded-[1.5rem] bg-white/5">
             <Image
               src="/Rich1.png"
               alt="Richard Mensah"
@@ -47,11 +47,11 @@ export default function SectionOverview({
               sizes="(min-width: 1024px) 45vw, 100vw"
             />
           </div>
-          <h2 className="mt-5 text-2xl font-black leading-tight text-slate-950 md:text-4xl">
+          <h2 className="mt-5 text-2xl font-black leading-tight text-white md:text-4xl">
             {welcomeTitle}
           </h2>
           {welcomeParagraphs.map((para, i) => (
-            <p key={i} className={cn("text-sm leading-7 text-slate-600", i === 0 ? "mt-4" : "mt-3")}>
+            <p key={i} className={cn("text-sm leading-7 text-[#a9bcdc]", i === 0 ? "mt-4" : "mt-3")}>
               {para}
             </p>
           ))}
@@ -70,14 +70,14 @@ export default function SectionOverview({
             {impactStats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/70"
+                className="glass rounded-2xl p-5"
               >
-                <p className="text-4xl font-black text-[#2BA8B4]">{stat.value}</p>
-                <p className="mt-2 text-sm font-black uppercase tracking-[0.12em] text-slate-950">
+                <p className="text-4xl font-black text-[#7fb0ff]">{stat.value}</p>
+                <p className="mt-2 text-sm font-black uppercase tracking-[0.12em] text-white">
                   {stat.label}
                 </p>
                 {stat.detail && (
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{stat.detail}</p>
+                  <p className="mt-2 text-sm leading-6 text-[#a9bcdc]">{stat.detail}</p>
                 )}
               </div>
             ))}
@@ -89,11 +89,11 @@ export default function SectionOverview({
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-start">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-[#2BA8B4]">In the field</p>
-            <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.04em] text-slate-950 md:text-4xl">
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7fb0ff]">In the field</p>
+            <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.04em] text-white md:text-4xl">
               This is what the numbers actually look like.
             </h2>
-            <div className="mt-5 space-y-4 text-base leading-7 text-slate-600">
+            <div className="mt-5 space-y-4 text-base leading-7 text-[#a9bcdc]">
               <p>
                 Before any conference stage, scholarship placement, or AI system, there were
                 church campaigns in Sefwi Bekwai, volunteer teaching during COVID-19 lockdowns,
@@ -109,13 +109,13 @@ export default function SectionOverview({
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
                 href="/gallery"
-                className="rounded-full bg-[#2BA8B4] px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-white shadow-lg shadow-[#2BA8B4]/25 transition hover:-translate-y-0.5 hover:bg-slate-950"
+                className="btn-azure rounded-full px-6 py-3 text-xs font-black uppercase tracking-[0.18em] shadow-lg shadow-[#4f8bff]/25 transition hover:-translate-y-0.5"
               >
                 View full gallery
               </Link>
               <Link
                 href="/opportunities"
-                className="rounded-full border border-slate-300 px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-slate-950 transition hover:-translate-y-0.5 hover:border-[#2BA8B4] hover:text-[#2BA8B4]"
+                className="rounded-full border border-white/20 px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-0.5 hover:border-[#4f8bff] hover:text-[#7fb0ff]"
               >
                 Kofiever opportunities
               </Link>
@@ -127,7 +127,7 @@ export default function SectionOverview({
             <div>
               <div className="mb-3 flex items-center gap-2">
                 <div className="h-2 w-2 flex-shrink-0 rounded-full bg-amber-400" />
-                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-amber-600">
+                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-amber-300">
                   Where it started
                 </p>
               </div>
@@ -159,8 +159,8 @@ export default function SectionOverview({
             {/* Where it led */}
             <div>
               <div className="mb-3 flex items-center gap-2">
-                <div className="h-2 w-2 flex-shrink-0 rounded-full bg-[#2BA8B4]" />
-                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-[#2BA8B4]">
+                <div className="h-2 w-2 flex-shrink-0 rounded-full bg-[#4f8bff]" />
+                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-[#7fb0ff]">
                   Where it led
                 </p>
               </div>

@@ -5,8 +5,8 @@ import { useRouter } from "next/navigation";
 import { OPPORTUNITY_CATEGORIES, type Opportunity } from "@/lib/opportunities-shared";
 
 const FIELD =
-  "w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20";
-const LABEL = "mb-1.5 block text-sm font-semibold text-slate-700";
+  "w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20";
+const LABEL = "mb-1.5 block text-sm font-semibold text-[#cdd9ee]";
 
 const EMPTY: Opportunity = {
   type: OPPORTUNITY_CATEGORIES[0].id,
@@ -73,21 +73,21 @@ export default function OpportunitiesManager({ initial }: { initial: Opportunity
 
   return (
     <form onSubmit={handleSubmit} className="max-w-3xl space-y-5">
-      <p className="text-sm leading-6 text-slate-500">
+      <p className="text-sm leading-6 text-[#8aa0c4]">
         Add scholarships, internships, fellowships, and conferences. Each entry shows under its
         category on the public Opportunities page.
       </p>
 
       {items.length === 0 && (
-        <p className="rounded-2xl border border-dashed border-slate-300 px-6 py-8 text-center text-sm text-slate-400">
+        <p className="rounded-2xl border border-dashed border-white/15 px-6 py-8 text-center text-sm text-[#7e92b6]">
           No opportunities yet. Add one below.
         </p>
       )}
 
       {items.map((o, i) => (
-        <div key={i} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <div key={i} className="glass rounded-2xl p-5 shadow-sm">
           <div className="flex items-center justify-between">
-            <p className="text-xs font-black uppercase tracking-[0.15em] text-slate-400">
+            <p className="text-xs font-black uppercase tracking-[0.15em] text-[#7e92b6]">
               Opportunity {i + 1}
             </p>
             <button
@@ -131,14 +131,14 @@ export default function OpportunitiesManager({ initial }: { initial: Opportunity
       <button
         type="button"
         onClick={addRow}
-        className="rounded-xl border border-dashed border-slate-300 px-5 py-3 text-sm font-bold text-slate-600 transition hover:border-brand-primary-accent hover:text-brand-primary-accent"
+        className="rounded-xl border border-dashed border-white/15 px-5 py-3 text-sm font-bold text-[#a9bcdc] transition hover:border-brand-primary-accent hover:text-brand-primary-accent"
       >
         + Add opportunity
       </button>
 
       {error && <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-600">{error}</p>}
 
-      <div className="sticky bottom-0 z-10 -mx-1 flex items-center gap-4 border-t border-slate-200 bg-white/95 px-1 py-4 backdrop-blur">
+      <div className="sticky bottom-0 z-10 -mx-1 flex items-center gap-4 border-t border-white/10 bg-white/95 px-1 py-4 backdrop-blur">
         <button
           type="submit"
           disabled={loading}
@@ -149,7 +149,7 @@ export default function OpportunitiesManager({ initial }: { initial: Opportunity
         <button
           type="button"
           onClick={() => router.push("/admin")}
-          className="rounded-xl border border-slate-200 px-6 py-3 text-sm font-black text-slate-600 transition hover:border-slate-400"
+          className="rounded-xl border border-white/10 px-6 py-3 text-sm font-black text-[#a9bcdc] transition hover:border-slate-400"
         >
           Back to dashboard
         </button>

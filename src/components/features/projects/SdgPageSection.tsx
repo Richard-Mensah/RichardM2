@@ -8,7 +8,7 @@ const SDG_FOCUS = [
     code: "SDG 4",
     title: "Quality Education",
     description: "AI literacy tools, community teaching initiatives, and knowledge systems that make learning accessible regardless of resource levels.",
-    color: "#176E78",
+    color: "#3a78e0",
     icon: "📚",
     href: "/sdgs",
   },
@@ -16,7 +16,7 @@ const SDG_FOCUS = [
     code: "SDG 9",
     title: "Industry, Innovation & Infrastructure",
     description: "Intelligent systems that help institutions modernize their decisions, products, and services with responsible AI and data science.",
-    color: "#2BA8B4",
+    color: "#4f8bff",
     icon: "⚙️",
     href: "/sdgs",
   },
@@ -24,7 +24,7 @@ const SDG_FOCUS = [
     code: "SDG 13",
     title: "Climate Action",
     description: "Climate intelligence tools for resilience planning, risk communication, and adaptation conversations at community level.",
-    color: "#1E8A95",
+    color: "#2f6bea",
     icon: "🌍",
     href: "/projects/climate",
   },
@@ -47,7 +47,7 @@ export default function SdgPageSection() {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#2BA8B4]">
+              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#4f8bff]">
                 Projects / SDGs
               </p>
               <h1 className="mt-4 text-4xl font-black leading-tight text-white md:text-5xl">
@@ -86,7 +86,7 @@ export default function SdgPageSection() {
       </section>
 
       {/* Featured System */}
-      <section className="bg-white px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionHeading eyebrow="Flagship System" title="Youth Leadership Knowledge Engine" />
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -94,12 +94,12 @@ export default function SdgPageSection() {
               {
                 tab: "Problem",
                 content: "Mentorship programmes often inspire young people but fail to scale learning, measure growth, or preserve institutional knowledge across cohorts.",
-                accent: "#176E78",
+                accent: "#3a78e0",
               },
               {
                 tab: "Approach",
                 content: "Programme analytics, structured knowledge bases, skill progression maps, mentoring records, and curated opportunity pathways designed for young leaders.",
-                accent: "#2BA8B4",
+                accent: "#4f8bff",
               },
               {
                 tab: "Impact",
@@ -111,7 +111,7 @@ export default function SdgPageSection() {
                 <p className="text-xs font-black uppercase tracking-[0.2em]" style={{ color: item.accent }}>
                   {item.tab}
                 </p>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{item.content}</p>
+                <p className="mt-3 text-sm leading-7 text-[#a9bcdc]">{item.content}</p>
               </Card>
             ))}
           </div>
@@ -119,7 +119,7 @@ export default function SdgPageSection() {
       </section>
 
       {/* SDG Focus Cards */}
-      <section className="bg-slate-50 px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <SectionHeading eyebrow="Priority Goals" title="Four SDGs driving the work" center />
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
@@ -134,8 +134,8 @@ export default function SdgPageSection() {
                       {sdg.code}
                     </span>
                   </div>
-                  <h3 className="mt-3 text-sm font-black text-slate-950">{sdg.title}</h3>
-                  <p className="mt-2 text-xs leading-6 text-slate-600">{sdg.description}</p>
+                  <h3 className="mt-3 text-sm font-black text-white">{sdg.title}</h3>
+                  <p className="mt-2 text-xs leading-6 text-[#a9bcdc]">{sdg.description}</p>
                   <p className="mt-4 text-xs font-black transition group-hover:gap-2" style={{ color: sdg.color }}>
                     Explore →
                   </p>
@@ -147,12 +147,12 @@ export default function SdgPageSection() {
       </section>
 
       {/* Closing statement */}
-      <section className="bg-white px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-2xl font-black leading-tight text-slate-950">
+          <p className="text-2xl font-black leading-tight text-white">
             The SDGs are not aspirations. They are the specification.
           </p>
-          <p className="mt-4 text-sm leading-7 text-slate-600">
+          <p className="mt-4 text-sm leading-7 text-[#a9bcdc]">
             When Richard designs a project, the SDG alignment is not added at the end. It is built into the problem definition, the system architecture, and the way impact is measured. The goals are operational, not decorative.
           </p>
         </div>
