@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { isAuthed } from "@/lib/adminAuth";
 import { getTestimonials, saveTestimonials, type Testimonial } from "@/lib/testimonials";
 
@@ -37,6 +38,7 @@ export async function PUT(request: NextRequest) {
     }
 
     await saveTestimonials(cleaned);
+    revalidatePath("/");
     return NextResponse.json({ ok: true, testimonials: cleaned });
   } catch (error) {
     console.error("Failed to save testimonials", error);

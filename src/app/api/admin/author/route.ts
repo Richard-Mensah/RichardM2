@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { isAuthed } from "@/lib/adminAuth";
 import { getAuthor, saveAuthor, DEFAULT_AUTHOR, type Author } from "@/lib/author";
 
@@ -23,6 +24,7 @@ export async function PUT(request: NextRequest) {
       github: (body.github ?? "").toString().trim(),
     };
     await saveAuthor(author);
+    revalidatePath("/blog/[slug]", "page");
     return NextResponse.json({ ok: true, author });
   } catch (error) {
     console.error("Failed to save author", error);

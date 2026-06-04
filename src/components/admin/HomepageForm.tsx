@@ -24,19 +24,34 @@ export default function HomepageForm({ initial }: { initial: HomepageContent }) 
     e.preventDefault();
     setLoading(true);
     setError(null);
-    const res = await fetch("/api/admin/homepage", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
-    const data = (await res.json()) as { ok: boolean; message?: string };
-    if (data.ok) {
-      setSaved(true);
-      router.refresh();
-    } else {
-      setError(data.message ?? "Failed to save.");
+    try {
+      const res = await fetch("/api/admin/homepage", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        credentials: "same-origin",
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        setError(
+          res.status === 401
+            ? "Your admin session expired. Please sign out and log in again."
+            : `Save failed (HTTP ${res.status}).`
+        );
+        return;
+      }
+      const data = (await res.json()) as { ok: boolean; message?: string };
+      if (data.ok) {
+        setSaved(true);
+        router.refresh();
+      } else {
+        setError(data.message ?? "Failed to save.");
+      }
+    } catch (err) {
+      console.error("Homepage save failed", err);
+      setError("Could not reach the server. Check your connection and try again.");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   return (
