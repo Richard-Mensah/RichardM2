@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { put } from "@vercel/blob";
 import { isAuthed } from "@/lib/adminAuth";
 import { addGalleryPhoto, deleteGalleryPhoto } from "@/lib/gallery";
@@ -40,6 +41,7 @@ export async function POST(request: NextRequest) {
     });
 
     await addGalleryPhoto({ url: blob.url, alt: alt || file.name, caption });
+    revalidatePath("/gallery");
     return NextResponse.json({ ok: true, url: blob.url }, { status: 201 });
   } catch (error) {
     console.error("Failed to upload gallery image", error);
@@ -57,6 +59,7 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ ok: false, message: "Missing photo id." }, { status: 400 });
     }
     await deleteGalleryPhoto(body.id);
+    revalidatePath("/gallery");
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("Failed to delete gallery image", error);

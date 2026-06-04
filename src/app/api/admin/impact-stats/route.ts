@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getImpactStats, saveImpactStats, type ImpactStat } from "@/lib/impactStats";
 
 export const dynamic = "force-dynamic";
@@ -54,6 +55,8 @@ export async function PUT(request: NextRequest) {
     }
 
     await saveImpactStats(cleaned);
+    revalidatePath("/");
+    revalidatePath("/about");
     return NextResponse.json({ ok: true, stats: cleaned });
   } catch (error) {
     console.error("Failed to save impact stats", error);

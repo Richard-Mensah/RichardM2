@@ -34,20 +34,35 @@ export default function TestimonialsManager({ initial }: { initial: Testimonial[
     e.preventDefault();
     setLoading(true);
     setError(null);
-    const res = await fetch("/api/admin/testimonials", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ testimonials: items }),
-    });
-    const data = (await res.json()) as { ok: boolean; message?: string; testimonials?: Testimonial[] };
-    if (data.ok) {
-      setSaved(true);
-      if (data.testimonials) setItems(data.testimonials.length ? data.testimonials : [{ ...EMPTY }]);
-      router.refresh();
-    } else {
-      setError(data.message ?? "Failed to save.");
+    try {
+      const res = await fetch("/api/admin/testimonials", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        credentials: "same-origin",
+        body: JSON.stringify({ testimonials: items }),
+      });
+      if (!res.ok) {
+        setError(
+          res.status === 401
+            ? "Your admin session expired. Please sign out and log in again."
+            : `Save failed (HTTP ${res.status}).`
+        );
+        return;
+      }
+      const data = (await res.json()) as { ok: boolean; message?: string; testimonials?: Testimonial[] };
+      if (data.ok) {
+        setSaved(true);
+        if (data.testimonials) setItems(data.testimonials.length ? data.testimonials : [{ ...EMPTY }]);
+        router.refresh();
+      } else {
+        setError(data.message ?? "Failed to save.");
+      }
+    } catch (err) {
+      console.error("Testimonials save failed", err);
+      setError("Could not reach the server. Check your connection and try again.");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   return (

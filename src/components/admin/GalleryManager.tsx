@@ -27,34 +27,72 @@ export default function GalleryManager({ initial }: { initial: GalleryItem[] }) 
     fd.append("alt", alt);
     fd.append("caption", caption);
 
-    const res = await fetch("/api/admin/gallery", { method: "POST", body: fd });
-    const data = (await res.json()) as { ok: boolean; message?: string };
-    if (data.ok) {
-      setAlt("");
-      setCaption("");
-      if (fileRef.current) fileRef.current.value = "";
-      router.refresh();
-    } else {
-      setError(data.message ?? "Upload failed.");
+    try {
+      const res = await fetch("/api/admin/gallery", {
+        method: "POST",
+        credentials: "same-origin",
+        body: fd,
+      });
+      if (!res.ok) {
+        let msg = `Upload failed (HTTP ${res.status}).`;
+        try {
+          const d = (await res.json()) as { message?: string };
+          if (d?.message) msg = d.message;
+        } catch {
+          /* non-JSON */
+        }
+        if (res.status === 401) msg = "Your admin session expired. Please sign out and log in again.";
+        setError(msg);
+        return;
+      }
+      const data = (await res.json()) as { ok: boolean; message?: string };
+      if (data.ok) {
+        setAlt("");
+        setCaption("");
+        if (fileRef.current) fileRef.current.value = "";
+        router.refresh();
+      } else {
+        setError(data.message ?? "Upload failed.");
+      }
+    } catch (err) {
+      console.error("Gallery upload failed", err);
+      setError("Could not reach the server. Check your connection and try again.");
+    } finally {
+      setUploading(false);
     }
-    setUploading(false);
   }
 
   async function handleDelete(id: number) {
     if (!confirm("Delete this photo? This cannot be undone.")) return;
     setDeletingId(id);
-    const res = await fetch("/api/admin/gallery", {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id }),
-    });
-    const data = (await res.json()) as { ok: boolean; message?: string };
-    if (data.ok) {
-      router.refresh();
-    } else {
-      setError(data.message ?? "Delete failed.");
+    setError(null);
+    try {
+      const res = await fetch("/api/admin/gallery", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        credentials: "same-origin",
+        body: JSON.stringify({ id }),
+      });
+      if (!res.ok) {
+        setError(
+          res.status === 401
+            ? "Your admin session expired. Please sign out and log in again."
+            : `Delete failed (HTTP ${res.status}).`
+        );
+        return;
+      }
+      const data = (await res.json()) as { ok: boolean; message?: string };
+      if (data.ok) {
+        router.refresh();
+      } else {
+        setError(data.message ?? "Delete failed.");
+      }
+    } catch (err) {
+      console.error("Gallery delete failed", err);
+      setError("Could not reach the server. Check your connection and try again.");
+    } finally {
+      setDeletingId(null);
     }
-    setDeletingId(null);
   }
 
   return (

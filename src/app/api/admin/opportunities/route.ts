@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { isAuthed } from "@/lib/adminAuth";
 import {
   getOpportunities,
@@ -42,6 +43,7 @@ export async function PUT(request: NextRequest) {
     }
 
     await saveOpportunities(cleaned);
+    revalidatePath("/opportunities");
     return NextResponse.json({ ok: true, opportunities: cleaned });
   } catch (error) {
     console.error("Failed to save opportunities", error);

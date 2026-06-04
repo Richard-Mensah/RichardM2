@@ -40,22 +40,41 @@ export default function ImpactStatsForm({ initialStats }: Props) {
     setError(null);
     setSaved(false);
 
-    const res = await fetch("/api/admin/impact-stats", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ stats }),
-    });
+    try {
+      const res = await fetch("/api/admin/impact-stats", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        credentials: "same-origin",
+        body: JSON.stringify({ stats }),
+      });
 
-    const data = (await res.json()) as { ok: boolean; message?: string; stats?: ImpactStat[] };
+      if (!res.ok) {
+        let msg = `Save failed (HTTP ${res.status}).`;
+        try {
+          const d = (await res.json()) as { message?: string };
+          if (d?.message) msg = d.message;
+        } catch {
+          /* non-JSON response */
+        }
+        if (res.status === 401) msg = "Your admin session expired. Please sign out and log in again.";
+        setError(msg);
+        return;
+      }
 
-    if (data.ok) {
-      setSaved(true);
-      if (data.stats) setStats(data.stats);
-      router.refresh();
-    } else {
-      setError(data.message ?? "Failed to save stats.");
+      const data = (await res.json()) as { ok: boolean; message?: string; stats?: ImpactStat[] };
+      if (data.ok) {
+        setSaved(true);
+        if (data.stats) setStats(data.stats);
+        router.refresh();
+      } else {
+        setError(data.message ?? "Failed to save stats.");
+      }
+    } catch (err) {
+      console.error("Impact stats save failed", err);
+      setError("Could not reach the server. Check your connection and try again.");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   return (

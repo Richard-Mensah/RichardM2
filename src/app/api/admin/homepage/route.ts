@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { isAuthed } from "@/lib/adminAuth";
 import { getHomepage, saveHomepage, DEFAULT_HOMEPAGE, type HomepageContent } from "@/lib/homepage";
 
@@ -26,6 +27,7 @@ export async function PUT(request: NextRequest) {
       welcomeBody: str(body.welcomeBody, DEFAULT_HOMEPAGE.welcomeBody),
     };
     await saveHomepage(content);
+    revalidatePath("/");
     return NextResponse.json({ ok: true, homepage: content });
   } catch (error) {
     console.error("Failed to save homepage content", error);
