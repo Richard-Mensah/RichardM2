@@ -78,7 +78,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#2BA8B4] px-5 py-2.5 text-xs font-black uppercase tracking-[0.18em] text-white shadow-md shadow-[#2BA8B4]/25 transition hover:-translate-y-0.5 hover:bg-white hover:text-[#0B1B2D]"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#da1e3c] px-5 py-2.5 text-xs font-black uppercase tracking-[0.18em] text-white shadow-md shadow-[#da1e3c]/25 transition hover:-translate-y-0.5 hover:bg-[#b81733]"
                 >
                   Contact desk -&gt;
                 </Link>

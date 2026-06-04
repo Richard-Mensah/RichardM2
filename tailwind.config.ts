@@ -12,10 +12,10 @@ const config: Config = {
         // CFI "Navy + Teal" system — mirror of the @theme tokens in globals.css
         // (Tailwind v4 reads @theme; this keeps the legacy config in sync).
         navy: {
-          950: '#0B1B2D',
-          900: '#0F2438',
-          800: '#16314A',
-          700: '#1F3F5C',
+          950: '#0A1A30',
+          900: '#122A4E',
+          800: '#1B3A66',
+          700: '#264B82',
         },
         accent: {
           DEFAULT: '#2BA8B4',
@@ -27,7 +27,19 @@ const config: Config = {
           'cyan-light': '#7FD6D2',
           'blue-dark': '#155E66',
         },
-        'brand-spark': '#E11B2E',
+        // CFI red brand + legacy brand-* aliases (re-pointed to teal) in one object
+        brand: {
+          DEFAULT: '#DA1E3C',
+          strong: '#B81733',
+          tint: '#FBE7EB',
+          primary: '#2BA8B4',
+          'primary-light': '#3BC4C9',
+          'primary-lighter': '#7FD6D2',
+          'primary-dark': '#1E8A95',
+          'primary-darker': '#176E78',
+          'primary-accent': '#2BA8B4',
+        },
+        'brand-spark': '#DA1E3C',
         surface: {
           DEFAULT: '#F4F7FA',
           card: '#FFFFFF',
@@ -40,15 +52,6 @@ const config: Config = {
         line: '#E2E8F0',
         up: { DEFAULT: '#16A34A', tint: '#E9F7EF' },
         down: { DEFAULT: '#E5484D', tint: '#FDECEC' },
-        // legacy brand-* names re-pointed to teal
-        brand: {
-          primary: '#2BA8B4',
-          'primary-light': '#3BC4C9',
-          'primary-lighter': '#7FD6D2',
-          'primary-dark': '#1E8A95',
-          'primary-darker': '#176E78',
-          'primary-accent': '#2BA8B4',
-        },
         sdg: {
           footer: '#0B1B2D',
           'climate': '#3F7E44',
