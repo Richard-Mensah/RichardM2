@@ -107,7 +107,7 @@ export default function GalleryManager({ initial }: { initial: GalleryItem[] }) 
               ref={fileRef}
               type="file"
               accept="image/*"
-              className="block w-full text-sm text-slate-600 file:mr-4 file:rounded-full file:border-0 file:bg-[#006FA6] file:px-5 file:py-2.5 file:text-sm file:font-black file:text-white hover:file:bg-[#009EDB]"
+              className="block w-full text-sm text-slate-600 file:mr-4 file:rounded-full file:border-0 file:bg-[#176E78] file:px-5 file:py-2.5 file:text-sm file:font-black file:text-white hover:file:bg-[#2BA8B4]"
             />
           </div>
           <div>
@@ -116,7 +116,7 @@ export default function GalleryManager({ initial }: { initial: GalleryItem[] }) 
               value={alt}
               onChange={(e) => setAlt(e.target.value)}
               placeholder="Describe the photo"
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20"
+              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#2BA8B4] focus:outline-none focus:ring-2 focus:ring-[#2BA8B4]/20"
             />
           </div>
           <div>
@@ -125,7 +125,7 @@ export default function GalleryManager({ initial }: { initial: GalleryItem[] }) 
               value={caption}
               onChange={(e) => setCaption(e.target.value)}
               placeholder="Shown under the photo"
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20"
+              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#2BA8B4] focus:outline-none focus:ring-2 focus:ring-[#2BA8B4]/20"
             />
           </div>
         </div>
@@ -133,7 +133,7 @@ export default function GalleryManager({ initial }: { initial: GalleryItem[] }) 
         <button
           type="submit"
           disabled={uploading}
-          className="mt-5 rounded-xl bg-[#006FA6] px-6 py-3 text-sm font-black uppercase tracking-[0.1em] text-white transition hover:bg-[#009EDB] disabled:opacity-60"
+          className="mt-5 rounded-xl bg-[#176E78] px-6 py-3 text-sm font-black uppercase tracking-[0.1em] text-white transition hover:bg-[#2BA8B4] disabled:opacity-60"
         >
           {uploading ? "Uploading…" : "Upload photo"}
         </button>

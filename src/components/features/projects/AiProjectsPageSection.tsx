@@ -8,19 +8,19 @@ const FOCUS_AREAS = [
   {
     title: "Natural Language Processing",
     description: "Text classification, sentiment analysis, multilingual models, and NLP tools designed for African language contexts and institutional communication needs.",
-    accent: "#009EDB",
+    accent: "#2BA8B4",
     icon: "💬",
   },
   {
     title: "Decision-Support Dashboards",
     description: "Interactive dashboards that translate ML outputs into clear institutional decisions, removing complexity from the path between data and action.",
-    accent: "#0077FF",
+    accent: "#2BA8B4",
     icon: "📈",
   },
   {
     title: "Explainable AI Scoring",
     description: "Classification and scoring systems built with interpretability at the core, so institutions can trust, audit, and act on every prediction.",
-    accent: "#A21942",
+    accent: "#176E78",
     icon: "🔍",
   },
 ];
@@ -34,7 +34,7 @@ export default function AiProjectsPageSection() {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#009EDB]">
+              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#2BA8B4]">
                 Projects / AI
               </p>
               <h1 className="mt-4 text-4xl font-black leading-tight text-white md:text-5xl">
@@ -83,17 +83,17 @@ export default function AiProjectsPageSection() {
               {
                 tab: "Problem",
                 content: "Organizations need better insight into financial behaviour without overwhelming people with irrelevant campaigns or intrusive data practices.",
-                accent: "#A21942",
+                accent: "#176E78",
               },
               {
                 tab: "Approach",
                 content: "Classification models, behavioural segmentation, explainable scoring, and decision dashboards built to inform rather than replace human judgment.",
-                accent: "#009EDB",
+                accent: "#2BA8B4",
               },
               {
                 tab: "Impact",
                 content: "Improves targeting, reduces waste, and creates a pathway toward ethical financial inclusion for underserved communities.",
-                accent: "#3F7E44",
+                accent: "#1E8A95",
               },
             ].map((item) => (
               <Card key={item.tab} className="p-6" style={{ borderTop: `3px solid ${item.accent}` }}>
@@ -132,7 +132,7 @@ export default function AiProjectsPageSection() {
               href="https://github.com/Richard-Mensah"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-slate-50 p-5 transition hover:border-[#FD6925]/40 hover:shadow-lg"
+              className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-slate-50 p-5 transition hover:border-[#2BA8B4]/40 hover:shadow-lg"
             >
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-900 text-white">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -143,7 +143,7 @@ export default function AiProjectsPageSection() {
                 <p className="text-sm font-black text-slate-950">github.com/Richard-Mensah</p>
                 <p className="text-xs text-slate-500">Browse public repositories and active projects</p>
               </div>
-              <span className="text-xs font-black text-[#FD6925]">View →</span>
+              <span className="text-xs font-black text-[#2BA8B4]">View →</span>
             </a>
             <LinkedInProfileCard />
           </div>

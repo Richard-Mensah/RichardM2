@@ -1,20 +1,61 @@
 @import "tailwindcss";
 
-/* Brand / accent / SDG colours.
-   Tailwind v4 configures the theme in CSS (it ignores tailwind.config.ts by
-   default), so these must live here for classes like `bg-brand-primary-darker`
-   and `text-brand-primary-accent` to generate. */
+/* ──────────────────────────────────────────────────────────────────
+   DESIGN TOKENS — single source of truth (CFI "Navy + Teal" system).
+   Tailwind v4 reads the theme from CSS (@theme), so every token below
+   generates utilities like `bg-navy-900`, `text-accent`, `border-line`.
+   Legacy names (brand-*/accent-cyan/…) are re-pointed to the new values
+   so components still using them adopt the new palette automatically.
+   ────────────────────────────────────────────────────────────────── */
 @theme {
-  --color-brand-primary: #0077ff;
-  --color-brand-primary-light: #00a6ff;
-  --color-brand-primary-lighter: #02d1ff;
-  --color-brand-primary-dark: #006de5;
-  --color-brand-primary-darker: #006fa6;
-  --color-brand-primary-accent: #009edb;
-  --color-accent-cyan: #26bde2;
-  --color-accent-cyan-light: #62e8ff;
-  --color-accent-blue-dark: #00689d;
-  --color-sdg-footer: #021b4d;
+  /* ── Structure (navy) ── */
+  --color-navy-950: #0b1b2d;
+  --color-navy-900: #0f2438;
+  --color-navy-800: #16314a;
+  --color-navy-700: #1f3f5c;
+
+  /* ── Accent (teal) ── */
+  --color-accent: #2ba8b4;
+  --color-accent-strong: #1e8a95;
+  --color-accent-soft: #7fd6d2;
+  --color-accent-tint: #e6f5f5;
+
+  /* ── Brand spark (logo / one CTA only) ── */
+  --color-brand-spark: #e11b2e;
+
+  /* ── Surfaces ── */
+  --color-surface: #f4f7fa;
+  --color-surface-card: #ffffff;
+  --color-surface-muted: #eef3f7;
+
+  /* ── Text ── */
+  --color-ink: #16273b;
+  --color-body: #5a6b7d;
+  --color-on-dark: #e8eef4;
+  --color-on-dark-muted: #9fb0c2;
+
+  /* ── Lines ── */
+  --color-line: #e2e8f0;
+
+  /* ── Data (semantic, used for gains/losses only) ── */
+  --color-up: #16a34a;
+  --color-up-tint: #e9f7ef;
+  --color-down: #e5484d;
+  --color-down-tint: #fdecec;
+
+  /* ── Legacy names → re-pointed to the new teal/navy system ── */
+  --color-brand-primary: #2ba8b4;
+  --color-brand-primary-light: #3bc4c9;
+  --color-brand-primary-lighter: #7fd6d2;
+  --color-brand-primary-dark: #1e8a95;
+  --color-brand-primary-darker: #176e78;
+  --color-brand-primary-accent: #2ba8b4;
+  --color-accent-cyan: #3bc4c9;
+  --color-accent-cyan-light: #7fd6d2;
+  --color-accent-blue-dark: #155e66;
+  --color-sdg-footer: #0b1b2d;
+
+  /* ── SDG hues — DATA ONLY (the SDG wheel + SDG tags/badges) ── */
   --color-sdg-climate: #3f7e44;
   --color-sdg-data-science: #0a97d9;
   --color-sdg-community: #fcc30b;
@@ -24,6 +65,7 @@
 
 :root {
   color-scheme: light dark;
+  /* SDG palette — referenced only by SDG data viz (wheel, badges). */
   --sdg-blue: #00a6ff;
   --sdg-1: #e5243b;
   --sdg-2: #dda63a;
@@ -42,8 +84,9 @@
   --sdg-15: #56c02b;
   --sdg-16: #00689d;
   --sdg-17: #19486a;
-  --ink: #06111f;
-  --paper: #f8fafc;
+  /* Core neutrals */
+  --ink: #16273b;
+  --paper: #f4f7fa;
 }
 
 * {
@@ -59,25 +102,25 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
+  /* Calm surface with a single, faint teal glow — no competing colours. */
   background:
-    radial-gradient(circle at 8% 10%, rgba(0, 166, 255, 0.20), transparent 28rem),
-    radial-gradient(circle at 88% 6%, rgba(252, 195, 11, 0.16), transparent 26rem),
-    radial-gradient(circle at 8% 70%, rgba(76, 159, 56, 0.12), transparent 24rem),
-    linear-gradient(180deg, #f8fafc 0%, #ecfeff 24%, #ffffff 52%, #eff6ff 100%);
+    radial-gradient(circle at 88% -6%, rgba(43, 168, 180, 0.10), transparent 30rem),
+    var(--paper);
   color: var(--ink);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 ::selection {
-  background: rgba(0, 166, 255, 0.24);
-  color: #031025;
+  background: rgba(43, 168, 180, 0.22);
+  color: #04201f;
 }
 
 .text-balance {
   text-wrap: balance;
 }
 
+/* SDG rainbow text — reserved for genuine SDG headings only. */
 .sdg-text-gradient {
   background: linear-gradient(90deg, #62e8ff, #00a6ff, #56c02b, #fcc30b, #fd6925, #dd1367);
   -webkit-background-clip: text;
@@ -85,30 +128,17 @@ body {
   color: transparent;
 }
 
-.sdg-hero-mesh {
-  background:
-    linear-gradient(120deg, rgba(0, 158, 219, 0.16), transparent 26%),
-    linear-gradient(220deg, rgba(252, 195, 11, 0.16), transparent 26%),
-    linear-gradient(310deg, rgba(221, 19, 103, 0.12), transparent 24%),
-    radial-gradient(circle at 18% 72%, rgba(86, 192, 43, 0.14), transparent 20rem),
-    #f8fafc;
-}
-
+/* Slim brand accent line (was a 9-colour rainbow band). */
 .sdg-band {
   background: linear-gradient(
     90deg,
-    var(--sdg-1),
-    var(--sdg-2),
-    var(--sdg-3),
-    var(--sdg-6),
-    var(--sdg-7),
-    var(--sdg-9),
-    var(--sdg-10),
-    var(--sdg-14),
-    var(--sdg-17)
+    var(--color-navy-900),
+    var(--color-accent),
+    var(--color-navy-900)
   );
 }
 
+/* SDG wheel — genuine SDG data, keeps the full spectrum. */
 .sdg-conic {
   background: conic-gradient(
     from -90deg,
@@ -135,15 +165,15 @@ body {
 
 .data-grid-light {
   background-image:
-    linear-gradient(rgba(0, 104, 157, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 104, 157, 0.08) 1px, transparent 1px),
-    radial-gradient(circle at 1px 1px, rgba(0, 158, 219, 0.16) 1px, transparent 0);
+    linear-gradient(rgba(22, 49, 74, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 49, 74, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 1px 1px, rgba(43, 168, 180, 0.16) 1px, transparent 0);
   background-size: 72px 72px, 72px 72px, 24px 24px;
 }
 
 
 .logo-wheel-shadow {
-  filter: drop-shadow(0 24px 45px rgba(0, 104, 157, 0.22));
+  filter: drop-shadow(0 24px 45px rgba(11, 27, 45, 0.22));
 }
 
 .float-soft {
@@ -185,26 +215,33 @@ body {
   }
 }
 
-/* ── Section backgrounds ───────────────────────────────────────── */
+/* ── Section backgrounds — navy structure + single teal glow ───── */
 .identity-ground {
   background:
-    radial-gradient(circle at 15% 50%, rgba(0, 158, 219, 0.12), transparent 35rem),
-    radial-gradient(circle at 85% 20%, rgba(252, 195, 11, 0.10), transparent 28rem),
-    #0f172a;
+    radial-gradient(circle at 15% 50%, rgba(43, 168, 180, 0.14), transparent 35rem),
+    radial-gradient(circle at 85% 20%, rgba(127, 214, 210, 0.08), transparent 28rem),
+    var(--color-navy-900);
 }
 
 .research-ground {
   background:
-    radial-gradient(circle at 90% 10%, rgba(253, 105, 37, 0.10), transparent 30rem),
-    radial-gradient(circle at 5% 80%, rgba(0, 158, 219, 0.09), transparent 26rem),
-    #fafaf9;
+    radial-gradient(circle at 90% 10%, rgba(43, 168, 180, 0.08), transparent 30rem),
+    radial-gradient(circle at 5% 80%, rgba(127, 214, 210, 0.08), transparent 26rem),
+    var(--paper);
 }
 
 .leadership-ground {
   background:
-    radial-gradient(circle at 20% 60%, rgba(0, 104, 157, 0.22), transparent 32rem),
-    radial-gradient(circle at 80% 30%, rgba(86, 192, 43, 0.10), transparent 24rem),
-    #0c1a2e;
+    radial-gradient(circle at 20% 60%, rgba(43, 168, 180, 0.20), transparent 32rem),
+    radial-gradient(circle at 80% 30%, rgba(127, 214, 210, 0.10), transparent 24rem),
+    var(--color-navy-950);
+}
+
+.sdg-hero-mesh {
+  background:
+    linear-gradient(120deg, rgba(43, 168, 180, 0.10), transparent 26%),
+    radial-gradient(circle at 18% 72%, rgba(127, 214, 210, 0.12), transparent 20rem),
+    var(--paper);
 }
 
 /* ── Scroll-reveal ─────────────────────────────────────────────── */
@@ -252,20 +289,20 @@ body {
 
 /* Article body prose styles */
 .article-body > * + * { margin-top: 1.25rem; }
-.article-body h2 { font-size: 1.5rem; font-weight: 900; color: #020617; margin-top: 2.5rem; letter-spacing: -0.02em; }
-.article-body h3 { font-size: 1.125rem; font-weight: 800; color: #020617; margin-top: 2rem; }
-.article-body p { font-size: 1.0625rem; line-height: 1.875; color: #475569; }
-.article-body ul, .article-body ol { padding-left: 1.5rem; color: #475569; line-height: 1.875; }
+.article-body h2 { font-size: 1.5rem; font-weight: 900; color: #16273b; margin-top: 2.5rem; letter-spacing: -0.02em; }
+.article-body h3 { font-size: 1.125rem; font-weight: 800; color: #16273b; margin-top: 2rem; }
+.article-body p { font-size: 1.0625rem; line-height: 1.875; color: #5a6b7d; }
+.article-body ul, .article-body ol { padding-left: 1.5rem; color: #5a6b7d; line-height: 1.875; }
 .article-body ul { list-style-type: disc; }
 .article-body ol { list-style-type: decimal; }
 .article-body li + li { margin-top: 0.375rem; }
-.article-body blockquote { border-left: 3px solid #00A6FF; padding-left: 1.25rem; color: #64748b; font-style: italic; }
-.article-body code { background: #f1f5f9; border-radius: 0.25rem; padding: 0.125rem 0.375rem; font-size: 0.875rem; color: #1e293b; }
-.article-body pre { background: #0f172a; color: #e2e8f0; border-radius: 1rem; padding: 1.25rem; overflow-x: auto; }
+.article-body blockquote { border-left: 3px solid #2ba8b4; padding-left: 1.25rem; color: #64748b; font-style: italic; }
+.article-body code { background: #f1f5f9; border-radius: 0.25rem; padding: 0.125rem 0.375rem; font-size: 0.875rem; color: #16273b; }
+.article-body pre { background: #0f2438; color: #e2e8f0; border-radius: 1rem; padding: 1.25rem; overflow-x: auto; }
 .article-body pre code { background: transparent; padding: 0; color: inherit; }
 .article-body img { border-radius: 1rem; width: 100%; height: auto; }
-.article-body a { color: #0077FF; text-decoration: underline; }
-.article-body strong { font-weight: 800; color: #1e293b; }
+.article-body a { color: #1e8a95; text-decoration: underline; }
+.article-body strong { font-weight: 800; color: #16273b; }
 
 /* ── Header dropdown animation ─────────────────────────────────── */
 @keyframes dropdown-appear {
@@ -273,4 +310,3 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 .header-dropdown { animation: dropdown-appear 160ms ease both; }
-

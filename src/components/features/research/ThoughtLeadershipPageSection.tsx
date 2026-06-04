@@ -4,17 +4,17 @@ import { RESEARCH_PILLARS, WRITING_IDEAS } from "@/constants";
 
 const THESES = [
   {
-    accent: "#009EDB",
+    accent: "#2BA8B4",
     thesis: "AI adoption in Africa will be determined by institutional readiness, not just model access.",
     elaboration: "The bottleneck is not the technology. It is whether universities, ministries, and NGOs are structured to adopt, govern, and maintain intelligent systems. Building AI capacity means building institutions first.",
   },
   {
-    accent: "#3F7E44",
+    accent: "#1E8A95",
     thesis: "Climate intelligence must be community-readable before it can be community-actionable.",
     elaboration: "The most sophisticated climate model is useless if communities cannot understand, trust, or act on its outputs. Translating complexity into practical intelligence is not a communications problem. It is a design problem.",
   },
   {
-    accent: "#FCC30B",
+    accent: "#2BA8B4",
     thesis: "The next generation of AI leaders will come from the Global South, if we build the pathways now.",
     elaboration: "Talent is evenly distributed. Opportunity is not. Every scholarship facilitated, every fellowship programme designed, and every training cohort delivered is infrastructure for a future that looks different from the present.",
   },
@@ -34,7 +34,7 @@ export default function ThoughtLeadershipPageSection() {
       <div className="relative mx-auto max-w-5xl">
 
         {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#FCC30B]">Thought Leadership</p>
+        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#2BA8B4]">Thought Leadership</p>
         <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
           AI that works for people, not the other way around.
         </h1>
@@ -81,12 +81,12 @@ export default function ThoughtLeadershipPageSection() {
         </div>
 
         {/* Essays in progress */}
-        <div className="mt-12 rounded-2xl border border-[#FCC30B]/25 bg-[#FFFBF0] p-8">
-          <p className="text-xs font-black uppercase tracking-[0.26em] text-[#FCC30B]">Public essays in progress</p>
+        <div className="mt-12 rounded-2xl border border-[#2BA8B4]/25 bg-[#E6F5F5] p-8">
+          <p className="text-xs font-black uppercase tracking-[0.26em] text-[#2BA8B4]">Public essays in progress</p>
           <ul className="mt-5 space-y-3">
             {WRITING_IDEAS.map((idea) => (
               <li key={idea} className="flex items-start gap-3 text-sm leading-6 text-slate-700">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#FCC30B]" />
+                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#2BA8B4]" />
                 {idea}
               </li>
             ))}
@@ -94,13 +94,13 @@ export default function ThoughtLeadershipPageSection() {
         </div>
 
         {/* CTA */}
-        <div className="mt-10 rounded-2xl bg-[#FFFBF0] p-8">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#FCC30B]">Engage with the ideas</p>
+        <div className="mt-10 rounded-2xl bg-[#E6F5F5] p-8">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#2BA8B4]">Engage with the ideas</p>
           <p className="mt-3 text-base leading-7 text-slate-600">
             Read the full essays on the blog, or reach out to discuss frameworks, collaborations, or speaking engagements.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/blog" className="rounded-full bg-[#FCC30B] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#E0A800]">
+            <Link href="/blog" className="rounded-full bg-[#2BA8B4] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#1E8A95]">
               Read essays
             </Link>
             <Link href="/contact" className="rounded-full border border-slate-300 px-6 py-2.5 text-sm font-black text-slate-700 transition hover:border-slate-400">

@@ -38,8 +38,8 @@ export default function PublicationCard({ pub }: { pub: Publication }) {
               key={tag}
               className="rounded-full border px-3 py-0.5 text-[0.65rem] font-bold uppercase tracking-[0.18em]"
               style={{
-                borderColor: `${TAG_COLOURS[tag] ?? "#0077FF"}44`,
-                color: TAG_COLOURS[tag] ?? "#0077FF",
+                borderColor: `${TAG_COLOURS[tag] ?? "#2BA8B4"}44`,
+                color: TAG_COLOURS[tag] ?? "#2BA8B4",
               }}
             >
               {tag}

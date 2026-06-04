@@ -21,7 +21,7 @@ export default function MobileNav({
   if (!menuOpen) return null;
 
   return (
-    <div className="border-t border-white/10 bg-[#005BDB] px-5 pb-6 pt-4 lg:hidden">
+    <div className="border-t border-white/10 bg-[#0F2438] px-5 pb-6 pt-4 lg:hidden">
       <nav className="flex flex-col gap-1">
         {NAVIGATION.map((item) => {
           const hasChildren = item.children && item.children.length > 0;

@@ -27,11 +27,11 @@ export default function MediaPage() {
         <div className="mx-auto max-w-7xl">
           <Link
             href="/about"
-            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#0077FF] transition hover:text-slate-950"
+            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#2BA8B4] transition hover:text-slate-950"
           >
             ← About Richard
           </Link>
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#0077FF]">Media &amp; Speaking</p>
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#2BA8B4]">Media &amp; Speaking</p>
           <h1 className="mt-4 max-w-3xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-slate-950 md:text-6xl">
             A voice that bridges data and lived development experience.
           </h1>
@@ -68,7 +68,7 @@ export default function MediaPage() {
               </div>
 
               <div className="mt-8">
-                <p className="text-xs font-black uppercase tracking-[0.3em] text-[#0077FF]">Speaking Topics</p>
+                <p className="text-xs font-black uppercase tracking-[0.3em] text-[#2BA8B4]">Speaking Topics</p>
                 <div className="mt-5 grid gap-3 sm:grid-cols-2">
                   {SPEAKING_TOPICS.map((item) => (
                     <div
@@ -84,7 +84,7 @@ export default function MediaPage() {
 
               <Link
                 href="/contact"
-                className="mt-8 inline-flex rounded-full bg-[#0077FF] px-7 py-3.5 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#0077FF]/25 transition hover:-translate-y-0.5 hover:bg-slate-950"
+                className="mt-8 inline-flex rounded-full bg-[#2BA8B4] px-7 py-3.5 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#2BA8B4]/25 transition hover:-translate-y-0.5 hover:bg-slate-950"
               >
                 Book a speaking engagement
               </Link>
@@ -137,7 +137,7 @@ export default function MediaPage() {
           </div>
           <Link
             href="/contact"
-            className="whitespace-nowrap rounded-full bg-[#0077FF] px-7 py-3.5 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#0077FF]/30 transition hover:-translate-y-0.5 hover:bg-[#62E8FF]"
+            className="whitespace-nowrap rounded-full bg-[#2BA8B4] px-7 py-3.5 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#2BA8B4]/30 transition hover:-translate-y-0.5 hover:bg-[#7FD6D2]"
           >
             Get in touch
           </Link>

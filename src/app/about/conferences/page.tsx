@@ -46,11 +46,11 @@ export default function ConferencesPage() {
           <div className="max-w-2xl">
             <Link
               href="/about"
-              className="mb-5 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#62E8FF] transition hover:text-white"
+              className="mb-5 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#7FD6D2] transition hover:text-white"
             >
               ← About Richard
             </Link>
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-[#62E8FF]">Conferences &amp; Summits</p>
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7FD6D2]">Conferences &amp; Summits</p>
             <h1 className="mt-3 text-balance text-4xl font-black leading-tight tracking-[-0.04em] text-white md:text-5xl">
               Carrying the Global South&apos;s voice into global rooms.
             </h1>
@@ -89,7 +89,7 @@ export default function ConferencesPage() {
               <div className="mt-8 grid grid-cols-2 gap-3 rounded-2xl border border-slate-100 bg-[#F0F7FF] p-6">
                 {CONFERENCE_AREAS.map((area) => (
                   <div key={area} className="flex items-center gap-2">
-                    <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#0077FF]" />
+                    <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#2BA8B4]" />
                     <p className="text-sm font-semibold text-slate-700">{area}</p>
                   </div>
                 ))}
@@ -98,13 +98,13 @@ export default function ConferencesPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/about"
-                  className="rounded-full bg-[#0077FF] px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#0077FF]/25 transition hover:-translate-y-0.5 hover:bg-slate-950"
+                  className="rounded-full bg-[#2BA8B4] px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#2BA8B4]/25 transition hover:-translate-y-0.5 hover:bg-slate-950"
                 >
                   Back to About
                 </Link>
                 <Link
                   href="/contact"
-                  className="rounded-full border border-slate-300 px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-slate-950 transition hover:-translate-y-0.5 hover:border-[#0077FF] hover:text-[#0077FF]"
+                  className="rounded-full border border-slate-300 px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-slate-950 transition hover:-translate-y-0.5 hover:border-[#2BA8B4] hover:text-[#2BA8B4]"
                 >
                   Invite Richard to Speak
                 </Link>
@@ -134,7 +134,7 @@ export default function ConferencesPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.7fr] lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.3em] text-[#62E8FF]">Recognition</p>
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7FD6D2]">Recognition</p>
               <h2 className="mt-4 text-balance text-2xl font-black tracking-[-0.03em] text-white md:text-3xl">
                 Invited to Cambridge Climate Governance programme.
               </h2>

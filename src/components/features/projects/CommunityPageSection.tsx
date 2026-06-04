@@ -7,7 +7,7 @@ const INITIATIVES = [
   {
     title: "EGA Mentorship Platform",
     description: "A structured mentorship and opportunity management platform for the EGA Mentorship International programme, tracking cohort progress, skill development, and scholarship outcomes.",
-    accent: "#D4A017",
+    accent: "#1F3F5C",
     icon: "🎓",
     link: "/leadership/ega",
     linkLabel: "About EGA",
@@ -15,7 +15,7 @@ const INITIATIVES = [
   {
     title: "BYM Digital Tools",
     description: "Data collection, member management, and communication tools built to support the Bekwai Youth Movement's community mobilisation, sanitation drives, and education campaigns.",
-    accent: "#FD6925",
+    accent: "#2BA8B4",
     icon: "📱",
     link: "/leadership/sefwi-bekwai",
     linkLabel: "About BYM",
@@ -23,7 +23,7 @@ const INITIATIVES = [
   {
     title: "Community Data for Sefwi Bekwai",
     description: "Grassroots data collection and analysis work documenting water access, sanitation conditions, and educational barriers in Sefwi Bekwai to inform local advocacy and resource allocation.",
-    accent: "#3F7E44",
+    accent: "#1E8A95",
     icon: "📊",
     link: "/leadership/community",
     linkLabel: "Community Work",
@@ -39,7 +39,7 @@ export default function CommunityPageSection() {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#D4A017]">
+              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#1F3F5C]">
                 Projects / Community
               </p>
               <h1 className="mt-4 text-4xl font-black leading-tight text-white md:text-5xl">
@@ -136,7 +136,7 @@ export default function CommunityPageSection() {
           </p>
           <Link
             href="/about/leadership-journey"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-black text-[#D4A017] transition hover:gap-3"
+            className="mt-8 inline-flex items-center gap-2 text-sm font-black text-[#1F3F5C] transition hover:gap-3"
           >
             Read the journey →
           </Link>

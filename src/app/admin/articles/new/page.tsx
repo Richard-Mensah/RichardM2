@@ -65,7 +65,7 @@ export default function AdminNewArticlePage() {
               value={form.title}
               onChange={handleChange}
               required
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20"
+              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#2BA8B4] focus:outline-none focus:ring-2 focus:ring-[#2BA8B4]/20"
               placeholder="Article title"
             />
           </div>
@@ -76,7 +76,7 @@ export default function AdminNewArticlePage() {
               name="category"
               value={form.category}
               onChange={handleChange}
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20"
+              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#2BA8B4] focus:outline-none focus:ring-2 focus:ring-[#2BA8B4]/20"
             >
               {CATEGORIES.map((cat) => (
                 <option key={cat} value={cat}>
@@ -96,7 +96,7 @@ export default function AdminNewArticlePage() {
               onChange={handleChange}
               required
               rows={3}
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20"
+              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#2BA8B4] focus:outline-none focus:ring-2 focus:ring-[#2BA8B4]/20"
               placeholder="Brief summary of the article"
             />
           </div>
@@ -111,7 +111,7 @@ export default function AdminNewArticlePage() {
               onChange={handleChange}
               required
               rows={20}
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 font-mono text-sm focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20"
+              className="w-full rounded-xl border border-slate-200 px-4 py-3 font-mono text-sm focus:border-[#2BA8B4] focus:outline-none focus:ring-2 focus:ring-[#2BA8B4]/20"
               placeholder="Write your article in Markdown…&#10;&#10;## Introduction&#10;&#10;Your content here…"
             />
           </div>
@@ -125,7 +125,7 @@ export default function AdminNewArticlePage() {
               name="coverImage"
               value={form.coverImage}
               onChange={handleChange}
-              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]/20"
+              className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-[#2BA8B4] focus:outline-none focus:ring-2 focus:ring-[#2BA8B4]/20"
               placeholder="/articles/cover.jpg"
             />
           </div>
@@ -140,7 +140,7 @@ export default function AdminNewArticlePage() {
             <button
               type="submit"
               disabled={loading}
-              className="rounded-xl bg-[#006FA6] px-6 py-3 text-sm font-black uppercase tracking-[0.1em] text-white transition hover:bg-[#009EDB] disabled:opacity-60"
+              className="rounded-xl bg-[#176E78] px-6 py-3 text-sm font-black uppercase tracking-[0.1em] text-white transition hover:bg-[#2BA8B4] disabled:opacity-60"
             >
               {loading ? "Publishing…" : "Publish article"}
             </button>

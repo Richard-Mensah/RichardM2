@@ -18,7 +18,7 @@ export default async function OpportunitiesPage() {
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
       <div className="flex-1">
-        <div className="bg-gradient-to-br from-[#021B4D] via-[#005BDB] to-[#0077FF] px-5 py-20 text-white md:px-8 md:py-28">
+        <div className="bg-gradient-to-br from-[#0B1B2D] via-[#0F2438] to-[#2BA8B4] px-5 py-20 text-white md:px-8 md:py-28">
           <div className="mx-auto max-w-7xl text-center">
             <p className="text-xs font-black uppercase tracking-[0.28em] text-[#BFEFFF]">
               Opportunities
@@ -70,7 +70,7 @@ export default async function OpportunitiesPage() {
                                   href={o.link}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="mt-2 inline-block text-xs font-bold uppercase tracking-[0.12em] text-[#0077FF] hover:underline"
+                                  className="mt-2 inline-block text-xs font-bold uppercase tracking-[0.12em] text-[#2BA8B4] hover:underline"
                                 >
                                   Learn more →
                                 </a>

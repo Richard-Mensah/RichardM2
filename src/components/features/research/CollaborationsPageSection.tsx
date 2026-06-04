@@ -24,7 +24,7 @@ export default function CollaborationsPageSection() {
       <div className="relative mx-auto max-w-5xl">
 
         {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#A21942]">Research Collaborations</p>
+        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#176E78]">Research Collaborations</p>
         <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
           Building partnerships that multiply impact.
         </h1>
@@ -36,14 +36,14 @@ export default function CollaborationsPageSection() {
 
         {/* Collaboration types */}
         <div className="mt-12">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#A21942]">Collaboration types</p>
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#176E78]">Collaboration types</p>
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[...COLLABORATION_TYPES, "Joint Publication"].map((type) => (
               <div
                 key={type}
-                className="rounded-2xl border border-[#A21942]/15 bg-white p-6 shadow-sm"
+                className="rounded-2xl border border-[#176E78]/15 bg-white p-6 shadow-sm"
               >
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#A21942] text-xs font-black text-white">
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#176E78] text-xs font-black text-white">
                   {type.slice(0, 2).toUpperCase()}
                 </div>
                 <h3 className="mt-4 text-sm font-black text-slate-950">{type}</h3>
@@ -62,7 +62,7 @@ export default function CollaborationsPageSection() {
             {FOCUS_AREAS.map((area) => (
               <span
                 key={area}
-                className="rounded-full border border-[#A21942]/30 px-4 py-2 text-sm font-bold text-[#A21942]"
+                className="rounded-full border border-[#176E78]/30 px-4 py-2 text-sm font-bold text-[#176E78]"
               >
                 {area}
               </span>
@@ -81,11 +81,11 @@ export default function CollaborationsPageSection() {
 
         {/* Open for block */}
         <div className="mt-10 rounded-2xl bg-[#0B1F3A] p-8">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#A21942]">Currently open for</p>
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#176E78]">Currently open for</p>
           <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {OPEN_FOR.map((item) => (
               <div key={item} className="flex items-center gap-3">
-                <div className="h-2 w-2 flex-shrink-0 rounded-full bg-[#A21942]" />
+                <div className="h-2 w-2 flex-shrink-0 rounded-full bg-[#176E78]" />
                 <span className="text-sm font-semibold text-white">{item}</span>
               </div>
             ))}
@@ -93,13 +93,13 @@ export default function CollaborationsPageSection() {
         </div>
 
         {/* CTA */}
-        <div className="mt-10 rounded-2xl bg-[#FFF5F7] p-8">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#A21942]">Propose a collaboration</p>
+        <div className="mt-10 rounded-2xl bg-[#E6F5F5] p-8">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#176E78]">Propose a collaboration</p>
           <p className="mt-3 text-base leading-7 text-slate-600">
             Have a research idea, institutional need, or partnership proposal? Get in touch and let&apos;s explore what we can build together.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/contact" className="rounded-full bg-[#A21942] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#881537]">
+            <Link href="/contact" className="rounded-full bg-[#176E78] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#881537]">
               Get in touch
             </Link>
             <Link href="/research" className="rounded-full border border-slate-300 px-6 py-2.5 text-sm font-black text-slate-700 transition hover:border-slate-400">

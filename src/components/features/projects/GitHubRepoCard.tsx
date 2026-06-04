@@ -20,13 +20,13 @@ export default function GitHubRepoCard({ repo }: { repo: GitHubRepo }) {
       href={repo.html_url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col rounded-xl border border-slate-200 bg-white p-5 transition hover:border-[#FD6925]/40 hover:shadow-lg"
+      className="group flex flex-col rounded-xl border border-slate-200 bg-white p-5 transition hover:border-[#2BA8B4]/40 hover:shadow-lg"
     >
       <div className="flex items-start justify-between gap-3">
-        <h3 className="text-sm font-black text-slate-950 transition group-hover:text-[#FD6925]">
+        <h3 className="text-sm font-black text-slate-950 transition group-hover:text-[#2BA8B4]">
           {repo.name}
         </h3>
-        <span className="shrink-0 text-slate-400 transition group-hover:text-[#FD6925]" aria-hidden="true">
+        <span className="shrink-0 text-slate-400 transition group-hover:text-[#2BA8B4]" aria-hidden="true">
           ↗
         </span>
       </div>

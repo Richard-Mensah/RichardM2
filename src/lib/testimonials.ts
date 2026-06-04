@@ -11,11 +11,11 @@ export type Testimonial = {
 };
 
 export const DEFAULT_TESTIMONIALS: Testimonial[] = [
-  { name: "Ama Osei", role: "Women in Data Ghana participant", initials: "AO", accent: "#A21942", quote: "I came in not knowing how to apply for a fellowship. Richard sat with me, went through every section of the application, and helped me write a personal statement I was actually proud of. I got in. I still cannot believe it." },
-  { name: "Samuel Nkrumah", role: "Youth Network Lead", initials: "SN", accent: "#3F7E44", quote: "Our community climate programme was struggling. Richard helped us redesign the structure, train our volunteers and measure outcomes properly. Within four months we had reached 120 young people. The change was night and day." },
-  { name: "Amina Yusuf", role: "AI and Climate Change fellow", initials: "AY", accent: "#0077FF", quote: "I had heard a lot about AI but had no idea where to start. The sessions with Richard were practical from day one. By the end my team had built a weather dashboard that actual farmers in our district were using." },
-  { name: "Kweku Asante", role: "Digital skills trainee", initials: "KA", accent: "#FD6925", quote: "Before the programme I could not confidently use a spreadsheet. Twelve weeks later I was presenting a data dashboard to my entire department. Richard made it feel achievable at every step." },
-  { name: "Grace Mensah", role: "Scholarship recipient", initials: "GM", accent: "#009EDB", quote: "Richard reviewed my personal statement three times without being asked. He caught things no one else noticed and pushed me to be specific about my goals. I got a fully funded offer. I keep telling people: find a mentor like this." },
+  { name: "Ama Osei", role: "Women in Data Ghana participant", initials: "AO", accent: "#176E78", quote: "I came in not knowing how to apply for a fellowship. Richard sat with me, went through every section of the application, and helped me write a personal statement I was actually proud of. I got in. I still cannot believe it." },
+  { name: "Samuel Nkrumah", role: "Youth Network Lead", initials: "SN", accent: "#1E8A95", quote: "Our community climate programme was struggling. Richard helped us redesign the structure, train our volunteers and measure outcomes properly. Within four months we had reached 120 young people. The change was night and day." },
+  { name: "Amina Yusuf", role: "AI and Climate Change fellow", initials: "AY", accent: "#2BA8B4", quote: "I had heard a lot about AI but had no idea where to start. The sessions with Richard were practical from day one. By the end my team had built a weather dashboard that actual farmers in our district were using." },
+  { name: "Kweku Asante", role: "Digital skills trainee", initials: "KA", accent: "#2BA8B4", quote: "Before the programme I could not confidently use a spreadsheet. Twelve weeks later I was presenting a data dashboard to my entire department. Richard made it feel achievable at every step." },
+  { name: "Grace Mensah", role: "Scholarship recipient", initials: "GM", accent: "#2BA8B4", quote: "Richard reviewed my personal statement three times without being asked. He caught things no one else noticed and pushed me to be specific about my goals. I got a fully funded offer. I keep telling people: find a mentor like this." },
   { name: "David Kwame", role: "Conference delegate", initials: "DK", accent: "#00689D", quote: "I was terrified to present at an international summit. Richard ran a preparation session with me, helped me rehearse questions, and connected me with two researchers I am still collaborating with today. That summit changed my trajectory." },
   { name: "Esi Baah", role: "Community development facilitator", initials: "EB", accent: "#0EA5A4", quote: "We had the energy but not the structure. Richard helped us build a proper curriculum, track participation and show funders the real numbers. We went from 20 active participants to 80 in one cohort. Measurable impact." },
   { name: "Nana Appiah", role: "Leadership programme graduate", initials: "NA", accent: "#19486A", quote: "The mentorship was not just career advice — it was a whole systems shift in how I thought about my potential. I left with a roadmap, a network, and the confidence to actually execute it." },
@@ -32,7 +32,7 @@ async function ensureTable(): Promise<void> {
       role varchar(200) NOT NULL DEFAULT '',
       quote text NOT NULL,
       initials varchar(8) NOT NULL DEFAULT '',
-      accent varchar(16) NOT NULL DEFAULT '#0077FF'
+      accent varchar(16) NOT NULL DEFAULT '#2BA8B4'
     );
   `);
   tableReady = true;
@@ -63,7 +63,7 @@ export async function getTestimonials(): Promise<Testimonial[]> {
       role: r.role ?? "",
       quote: r.quote,
       initials: r.initials || initialsFor(r.name),
-      accent: r.accent || "#0077FF",
+      accent: r.accent || "#2BA8B4",
     }));
   } catch (error) {
     console.error("Failed to read testimonials, using defaults", error);
@@ -83,7 +83,7 @@ export async function saveTestimonials(items: Testimonial[]): Promise<void> {
           role: t.role ?? "",
           quote: t.quote,
           initials: t.initials || initialsFor(t.name),
-          accent: t.accent || "#0077FF",
+          accent: t.accent || "#2BA8B4",
         }))
       );
     }

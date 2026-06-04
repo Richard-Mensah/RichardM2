@@ -30,13 +30,13 @@ export default function IdentityStepperClient({ items }: Props) {
             {/* Connector line */}
             {index < items.length - 1 && (
               <div
-                className="absolute left-[1.375rem] top-11 bottom-0 w-px bg-gradient-to-b from-[#009EDB]/40 to-transparent"
+                className="absolute left-[1.375rem] top-11 bottom-0 w-px bg-gradient-to-b from-[#2BA8B4]/40 to-transparent"
                 aria-hidden="true"
               />
             )}
 
             {/* Number badge */}
-            <div className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-[#009EDB] bg-slate-950 text-sm font-black text-[#009EDB]">
+            <div className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-[#2BA8B4] bg-slate-950 text-sm font-black text-[#2BA8B4]">
               0{index + 1}
             </div>
 

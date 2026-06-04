@@ -11,21 +11,21 @@ const SYSTEMS_SUMMARY = [
   {
     title: "Predictive Intelligence System for Financial Behaviour",
     label: "AI + SDG 8",
-    color: "#A21942",
+    color: "#176E78",
     summary: "Classification, segmentation, and decision dashboards for ethical financial inclusion.",
     href: "/projects/ai",
   },
   {
     title: "Climate Signal Observatory for Community Resilience",
     label: "Climate + SDG 13",
-    color: "#3F7E44",
+    color: "#1E8A95",
     summary: "Satellite-derived climate intelligence translated into community-readable risk narratives.",
     href: "/projects/climate",
   },
   {
     title: "Youth Leadership Knowledge Engine",
     label: "Leadership + SDG 4/17",
-    color: "#C5192D",
+    color: "#176E78",
     summary: "Programme analytics and knowledge systems making youth leadership measurable and repeatable.",
     href: "/projects/community",
   },
@@ -40,7 +40,7 @@ export default function PortfolioPageSection({ repos }: Props) {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#A21942]">
+              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#176E78]">
                 Projects / Portfolio
               </p>
               <h1 className="mt-4 text-4xl font-black leading-tight text-white md:text-5xl">
@@ -81,7 +81,7 @@ export default function PortfolioPageSection({ repos }: Props) {
               href="https://github.com/Richard-Mensah"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-slate-50 p-5 transition hover:border-[#FD6925]/40 hover:shadow-lg"
+              className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-slate-50 p-5 transition hover:border-[#2BA8B4]/40 hover:shadow-lg"
             >
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-900 text-white">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -92,7 +92,7 @@ export default function PortfolioPageSection({ repos }: Props) {
                 <p className="text-sm font-black text-slate-950">github.com/Richard-Mensah</p>
                 <p className="text-xs text-slate-500">Browse public repositories and active projects</p>
               </div>
-              <span className="text-xs font-black text-[#FD6925]">View →</span>
+              <span className="text-xs font-black text-[#2BA8B4]">View →</span>
             </a>
           </div>
         </div>
@@ -143,7 +143,7 @@ export default function PortfolioPageSection({ repos }: Props) {
                   href="https://github.com/Richard-Mensah"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold text-[#FD6925] hover:underline"
+                  className="font-semibold text-[#2BA8B4] hover:underline"
                 >
                   github.com/Richard-Mensah
                 </a>{" "}

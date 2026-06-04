@@ -10,7 +10,7 @@ export default function PublicationsPageSection() {
       <div className="relative mx-auto max-w-5xl">
 
         {/* Hero */}
-        <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#0077FF]">
+        <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#2BA8B4]">
           Writing &amp; Working Papers
         </p>
         <h1 className="mt-4 text-balance text-4xl font-bold tracking-[-0.02em] text-slate-950 md:text-5xl">
@@ -45,14 +45,14 @@ export default function PublicationsPageSection() {
 
         {/* CTA */}
         <div className="mt-14 rounded-2xl bg-[#F0F7FF] p-8">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#0077FF]">Open for collaboration</p>
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#2BA8B4]">Open for collaboration</p>
           <p className="mt-3 text-base leading-7 text-slate-600">
             Interested in collaborating on research, providing peer review, or forming an institutional partnership?
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="rounded-full bg-[#0077FF] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#005FCC]"
+              className="rounded-full bg-[#2BA8B4] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#005FCC]"
             >
               Get in touch
             </Link>

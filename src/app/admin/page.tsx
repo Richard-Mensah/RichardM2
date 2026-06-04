@@ -22,31 +22,31 @@ export default async function AdminDashboardPage() {
         {/* Stats */}
         <div className="grid gap-6 sm:grid-cols-3">
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-4xl font-black text-[#006FA6]">{articles.length}</p>
+            <p className="text-4xl font-black text-[#176E78]">{articles.length}</p>
             <p className="mt-1 text-sm font-semibold text-slate-500">Articles published</p>
             <Link
               href="/admin/articles"
-              className="mt-4 block text-sm font-black text-[#009EDB] hover:underline"
+              className="mt-4 block text-sm font-black text-[#2BA8B4] hover:underline"
             >
               Manage articles →
             </Link>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-4xl font-black text-[#006FA6]">{GALLERY.length}</p>
+            <p className="text-4xl font-black text-[#176E78]">{GALLERY.length}</p>
             <p className="mt-1 text-sm font-semibold text-slate-500">Gallery photos</p>
             <Link
               href="/gallery"
-              className="mt-4 block text-sm font-black text-[#009EDB] hover:underline"
+              className="mt-4 block text-sm font-black text-[#2BA8B4] hover:underline"
             >
               View gallery →
             </Link>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-4xl font-black text-[#006FA6]">{impactStats.length}</p>
+            <p className="text-4xl font-black text-[#176E78]">{impactStats.length}</p>
             <p className="mt-1 text-sm font-semibold text-slate-500">Impact stats</p>
             <Link
               href="/admin/impact-stats"
-              className="mt-4 block text-sm font-black text-[#009EDB] hover:underline"
+              className="mt-4 block text-sm font-black text-[#2BA8B4] hover:underline"
             >
               Edit impact stats →
             </Link>
@@ -70,7 +70,7 @@ export default async function AdminDashboardPage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-2xl border border-slate-200 bg-white px-5 py-4 text-sm font-black text-slate-700 shadow-sm transition hover:border-[#009EDB] hover:text-[#006FA6]"
+                className="rounded-2xl border border-slate-200 bg-white px-5 py-4 text-sm font-black text-slate-700 shadow-sm transition hover:border-[#2BA8B4] hover:text-[#176E78]"
               >
                 {item.label} →
               </Link>
@@ -84,7 +84,7 @@ export default async function AdminDashboardPage() {
             <h2 className="text-lg font-black text-slate-950">Recent articles</h2>
             <Link
               href="/admin/articles/new"
-              className="rounded-full bg-[#006FA6] px-4 py-2 text-xs font-black text-white transition hover:bg-[#009EDB]"
+              className="rounded-full bg-[#176E78] px-4 py-2 text-xs font-black text-white transition hover:bg-[#2BA8B4]"
             >
               + New article
             </Link>
@@ -111,7 +111,7 @@ export default async function AdminDashboardPage() {
                   </Link>
                   <Link
                     href={`/admin/articles/${article.slug}/edit`}
-                    className="text-xs font-black text-[#009EDB] hover:underline"
+                    className="text-xs font-black text-[#2BA8B4] hover:underline"
                   >
                     Edit
                   </Link>
@@ -122,7 +122,7 @@ export default async function AdminDashboardPage() {
             {articles.length === 0 && (
               <p className="px-6 py-8 text-center text-slate-400">
                 No articles yet.{" "}
-                <Link href="/admin/articles/new" className="font-black text-[#009EDB]">
+                <Link href="/admin/articles/new" className="font-black text-[#2BA8B4]">
                   Start writing →
                 </Link>
               </p>

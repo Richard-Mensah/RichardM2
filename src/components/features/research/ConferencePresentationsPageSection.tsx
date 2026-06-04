@@ -51,7 +51,7 @@ export default function ConferencePresentationsPageSection() {
       <div className="relative mx-auto max-w-5xl">
 
         {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#FD6925]">Conference Presentations</p>
+        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#2BA8B4]">Conference Presentations</p>
         <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
           Carrying the Global South&apos;s voice into global rooms.
         </h1>
@@ -64,8 +64,8 @@ export default function ConferencePresentationsPageSection() {
         {/* Stats strip */}
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
           {STATS.map((s) => (
-            <div key={s.label} className="rounded-2xl border border-[#FD6925]/20 bg-white p-5 text-center shadow-sm">
-              <p className="text-3xl font-black tracking-[-0.04em] text-[#FD6925]">{s.value}</p>
+            <div key={s.label} className="rounded-2xl border border-[#2BA8B4]/20 bg-white p-5 text-center shadow-sm">
+              <p className="text-3xl font-black tracking-[-0.04em] text-[#2BA8B4]">{s.value}</p>
               <p className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-slate-500">{s.label}</p>
             </div>
           ))}
@@ -77,18 +77,18 @@ export default function ConferencePresentationsPageSection() {
 
         {/* Timeline */}
         <div className="mt-12">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#FD6925]">Selected presentations</p>
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#2BA8B4]">Selected presentations</p>
           <div className="mt-6 space-y-0">
             {PRESENTATIONS.map((p, i) => (
               <div key={i} className="flex gap-6">
                 <div className="flex flex-col items-center">
-                  <div className="h-4 w-4 flex-shrink-0 rounded-full border-2 border-[#FD6925] bg-white" />
+                  <div className="h-4 w-4 flex-shrink-0 rounded-full border-2 border-[#2BA8B4] bg-white" />
                   {i < PRESENTATIONS.length - 1 && (
-                    <div className="w-px flex-1 bg-[#FD6925]/20" />
+                    <div className="w-px flex-1 bg-[#2BA8B4]/20" />
                   )}
                 </div>
                 <div className="pb-8">
-                  <span className="text-xs font-black text-[#FD6925]">{p.era}</span>
+                  <span className="text-xs font-black text-[#2BA8B4]">{p.era}</span>
                   <h3 className="mt-1 text-lg font-black text-slate-950">{p.title}</h3>
                   <p className="mt-0.5 text-xs font-semibold text-slate-400">{p.location}</p>
                   <p className="mt-2 text-sm leading-7 text-slate-600">{p.contribution}</p>
@@ -103,7 +103,7 @@ export default function ConferencePresentationsPageSection() {
           <p className="text-xs font-black uppercase tracking-[0.28em] text-slate-500">Speaking topics</p>
           <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3">
             {TOPICS.map((topic) => (
-              <div key={topic} className="rounded-xl border border-[#FD6925]/20 bg-[#FFF8F5] px-4 py-3 text-sm font-bold text-[#FD6925]">
+              <div key={topic} className="rounded-xl border border-[#2BA8B4]/20 bg-[#E6F5F5] px-4 py-3 text-sm font-bold text-[#2BA8B4]">
                 {topic}
               </div>
             ))}
@@ -111,13 +111,13 @@ export default function ConferencePresentationsPageSection() {
         </div>
 
         {/* CTA */}
-        <div className="mt-12 rounded-2xl bg-[#FFF8F5] p-8">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#FD6925]">Speaking invitations</p>
+        <div className="mt-12 rounded-2xl bg-[#E6F5F5] p-8">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#2BA8B4]">Speaking invitations</p>
           <p className="mt-3 text-base leading-7 text-slate-600">
             Available for keynotes, panel discussions, and workshops on AI, climate, youth leadership, and global development.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/contact" className="rounded-full bg-[#FD6925] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#E05A18]">
+            <Link href="/contact" className="rounded-full bg-[#2BA8B4] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#1E8A95]">
               Invite Richard to speak
             </Link>
             <Link href="/research" className="rounded-full border border-slate-300 px-6 py-2.5 text-sm font-black text-slate-700 transition hover:border-slate-400">

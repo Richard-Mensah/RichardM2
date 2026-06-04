@@ -84,12 +84,12 @@ export default function LeadershipJourneyPage() {
     <div className="min-h-screen bg-white">
       {/* Print button — hidden when printing */}
       <div className="no-print sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 bg-white/90 px-5 py-3 backdrop-blur md:px-8">
-        <Link href="/leadership" className="text-sm font-bold text-[#0077FF] hover:underline">
+        <Link href="/leadership" className="text-sm font-bold text-[#2BA8B4] hover:underline">
           ← Back to Leadership
         </Link>
         <button
           onClick={() => window.print()}
-          className="rounded-full bg-[#0077FF] px-5 py-2 text-sm font-black uppercase tracking-[0.12em] text-white transition hover:bg-slate-950"
+          className="rounded-full bg-[#2BA8B4] px-5 py-2 text-sm font-black uppercase tracking-[0.12em] text-white transition hover:bg-slate-950"
         >
           Save as PDF / Print
         </button>
@@ -100,7 +100,7 @@ export default function LeadershipJourneyPage() {
 
         {/* Header */}
         <div className="border-b border-slate-200 pb-10">
-          <p className="text-xs font-black uppercase tracking-[0.32em] text-[#0077FF]">
+          <p className="text-xs font-black uppercase tracking-[0.32em] text-[#2BA8B4]">
             Richard Mensah · Leadership Journey
           </p>
           <h1 className="mt-4 text-4xl font-black tracking-[-0.04em] text-slate-950 md:text-5xl">
@@ -119,7 +119,7 @@ export default function LeadershipJourneyPage() {
         </div>
 
         {/* Impact stats */}
-        <div className="mt-10 rounded-2xl bg-[#0077FF] p-8">
+        <div className="mt-10 rounded-2xl bg-[#2BA8B4] p-8">
           <p className="text-xs font-black uppercase tracking-[0.28em] text-white/70">Impact Summary</p>
           <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-3">
             {IMPACT_STATS.map((stat) => (
@@ -142,10 +142,10 @@ export default function LeadershipJourneyPage() {
               <div key={i} className="grid gap-8 md:grid-cols-[1fr_0.85fr] md:items-start">
                 <div>
                   <div className="flex items-center gap-3">
-                    <span className="grid h-8 w-8 place-items-center rounded-full bg-[#0077FF] text-xs font-black text-white">
+                    <span className="grid h-8 w-8 place-items-center rounded-full bg-[#2BA8B4] text-xs font-black text-white">
                       {i + 1}
                     </span>
-                    <p className="text-xs font-black uppercase tracking-[0.22em] text-[#0077FF]">
+                    <p className="text-xs font-black uppercase tracking-[0.22em] text-[#2BA8B4]">
                       {entry.year} · {entry.era}
                     </p>
                   </div>
@@ -169,7 +169,7 @@ export default function LeadershipJourneyPage() {
 
         {/* EGA International Team */}
         <div className="mt-14 rounded-2xl bg-[#0B1F3A] p-8 text-white">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#62E8FF]">
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#7FD6D2]">
             EGA Mentorship International · Founding Partners
           </p>
           <p className="mt-4 text-base leading-8 text-slate-300">
@@ -207,10 +207,10 @@ export default function LeadershipJourneyPage() {
           </p>
           <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
             {[
-              { code: "SDG 4", label: "Quality Education", color: "#C5192D" },
+              { code: "SDG 4", label: "Quality Education", color: "#176E78" },
               { code: "SDG 6", label: "Clean Water & Sanitation", color: "#26BDE2" },
-              { code: "SDG 8", label: "Decent Work & Growth", color: "#A21942" },
-              { code: "SDG 11", label: "Sustainable Communities", color: "#FD9D24" },
+              { code: "SDG 8", label: "Decent Work & Growth", color: "#176E78" },
+              { code: "SDG 11", label: "Sustainable Communities", color: "#2BA8B4" },
               { code: "SDG 16", label: "Peace & Strong Institutions", color: "#00689D" },
               { code: "SDG 17", label: "Partnerships for the Goals", color: "#19486A" },
             ].map((sdg) => (

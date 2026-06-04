@@ -7,13 +7,13 @@ const FOCUS_AREAS = [
   {
     title: "Satellite Data Analysis",
     description: "Processing open satellite datasets to extract localized climate indicators, land use patterns, and environmental stress signals relevant to community-level planning.",
-    accent: "#3F7E44",
+    accent: "#1E8A95",
     icon: "🛰️",
   },
   {
     title: "Community Risk Narratives",
     description: "Translating technical climate outputs into plain-language risk summaries that communities and local authorities can actually understand and plan around.",
-    accent: "#56C02B",
+    accent: "#1E8A95",
     icon: "📋",
   },
   {
@@ -33,7 +33,7 @@ export default function ClimatePageSection() {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#56C02B]">
+              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#1E8A95]">
                 Projects / Climate
               </p>
               <h1 className="mt-4 text-4xl font-black leading-tight text-white md:text-5xl">
@@ -80,12 +80,12 @@ export default function ClimatePageSection() {
               {
                 tab: "Problem",
                 content: "Communities in Sub-Saharan Africa face acute climate risk but lack access to localized intelligence that is understandable, relevant, and timely enough to inform adaptation decisions.",
-                accent: "#A21942",
+                accent: "#176E78",
               },
               {
                 tab: "Approach",
                 content: "Open climate datasets, geospatial indicators, risk narrative generation using NLP, and youth-facing resilience dashboards combining multiple data sources into a single actionable view.",
-                accent: "#3F7E44",
+                accent: "#1E8A95",
               },
               {
                 tab: "Impact",
@@ -123,7 +123,7 @@ export default function ClimatePageSection() {
       {/* SDG connection */}
       <section className="bg-white px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-block rounded-full bg-[#3F7E44]/10 px-4 py-1.5 text-xs font-black uppercase tracking-[0.2em] text-[#3F7E44]">
+          <span className="inline-block rounded-full bg-[#1E8A95]/10 px-4 py-1.5 text-xs font-black uppercase tracking-[0.2em] text-[#1E8A95]">
             SDG 13 — Climate Action
           </span>
           <p className="mt-5 text-2xl font-black leading-tight text-slate-950">
@@ -134,7 +134,7 @@ export default function ClimatePageSection() {
           </p>
           <Link
             href="/research/ai-climate-change"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-black text-[#3F7E44] transition hover:gap-3"
+            className="mt-8 inline-flex items-center gap-2 text-sm font-black text-[#1E8A95] transition hover:gap-3"
           >
             Read the research →
           </Link>

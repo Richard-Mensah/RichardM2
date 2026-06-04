@@ -36,7 +36,7 @@ export default async function AdminAnalyticsPage() {
         <div className="grid gap-6 sm:grid-cols-3">
           {cards.map((c) => (
             <div key={c.label} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <p className="text-4xl font-black text-[#006FA6]">{c.value.toLocaleString()}</p>
+              <p className="text-4xl font-black text-[#176E78]">{c.value.toLocaleString()}</p>
               <p className="mt-1 text-sm font-semibold text-slate-500">{c.label}</p>
             </div>
           ))}
@@ -53,7 +53,7 @@ export default async function AdminAnalyticsPage() {
                 <div key={d.day} className="flex flex-1 flex-col items-center gap-2">
                   <div className="flex w-full flex-1 items-end">
                     <div
-                      className="w-full rounded-t bg-[#009EDB]"
+                      className="w-full rounded-t bg-[#2BA8B4]"
                       style={{ height: `${Math.max(4, (d.views / maxDay) * 100)}%` }}
                       title={`${d.day}: ${d.views} views`}
                     />
@@ -94,7 +94,7 @@ function TopList({
           {rows.map((r) => (
             <li key={r.path} className="flex items-center justify-between gap-4 py-2.5">
               <span className="truncate text-sm font-semibold text-slate-700">{r.path}</span>
-              <span className="shrink-0 text-sm font-black text-[#006FA6]">{r.views.toLocaleString()}</span>
+              <span className="shrink-0 text-sm font-black text-[#176E78]">{r.views.toLocaleString()}</span>
             </li>
           ))}
         </ul>

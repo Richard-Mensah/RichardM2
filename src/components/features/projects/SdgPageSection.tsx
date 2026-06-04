@@ -8,7 +8,7 @@ const SDG_FOCUS = [
     code: "SDG 4",
     title: "Quality Education",
     description: "AI literacy tools, community teaching initiatives, and knowledge systems that make learning accessible regardless of resource levels.",
-    color: "#C5192D",
+    color: "#176E78",
     icon: "📚",
     href: "/sdgs",
   },
@@ -16,7 +16,7 @@ const SDG_FOCUS = [
     code: "SDG 9",
     title: "Industry, Innovation & Infrastructure",
     description: "Intelligent systems that help institutions modernize their decisions, products, and services with responsible AI and data science.",
-    color: "#FD6925",
+    color: "#2BA8B4",
     icon: "⚙️",
     href: "/sdgs",
   },
@@ -24,7 +24,7 @@ const SDG_FOCUS = [
     code: "SDG 13",
     title: "Climate Action",
     description: "Climate intelligence tools for resilience planning, risk communication, and adaptation conversations at community level.",
-    color: "#3F7E44",
+    color: "#1E8A95",
     icon: "🌍",
     href: "/projects/climate",
   },
@@ -47,7 +47,7 @@ export default function SdgPageSection() {
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#FCC30B]">
+              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#2BA8B4]">
                 Projects / SDGs
               </p>
               <h1 className="mt-4 text-4xl font-black leading-tight text-white md:text-5xl">
@@ -94,12 +94,12 @@ export default function SdgPageSection() {
               {
                 tab: "Problem",
                 content: "Mentorship programmes often inspire young people but fail to scale learning, measure growth, or preserve institutional knowledge across cohorts.",
-                accent: "#C5192D",
+                accent: "#176E78",
               },
               {
                 tab: "Approach",
                 content: "Programme analytics, structured knowledge bases, skill progression maps, mentoring records, and curated opportunity pathways designed for young leaders.",
-                accent: "#FCC30B",
+                accent: "#2BA8B4",
               },
               {
                 tab: "Impact",

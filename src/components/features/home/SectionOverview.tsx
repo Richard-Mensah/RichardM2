@@ -37,7 +37,7 @@ export default function SectionOverview({
       {/* ── Welcome + Impact stats ───────────────────────────────── */}
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div className="rounded-[2rem] border border-slate-200 bg-white p-5 shadow-2xl shadow-slate-200/80">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#0077FF]">Welcome</p>
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#2BA8B4]">Welcome</p>
           <div className="relative mt-4 min-h-[440px] overflow-hidden rounded-[1.5rem] bg-slate-100">
             <Image
               src="/Rich1.png"
@@ -72,7 +72,7 @@ export default function SectionOverview({
                 key={stat.label}
                 className="rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/70"
               >
-                <p className="text-4xl font-black text-[#0077FF]">{stat.value}</p>
+                <p className="text-4xl font-black text-[#2BA8B4]">{stat.value}</p>
                 <p className="mt-2 text-sm font-black uppercase tracking-[0.12em] text-slate-950">
                   {stat.label}
                 </p>
@@ -89,7 +89,7 @@ export default function SectionOverview({
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-start">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-[#0077FF]">In the field</p>
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-[#2BA8B4]">In the field</p>
             <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.04em] text-slate-950 md:text-4xl">
               This is what the numbers actually look like.
             </h2>
@@ -109,13 +109,13 @@ export default function SectionOverview({
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
                 href="/gallery"
-                className="rounded-full bg-[#0077FF] px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-white shadow-lg shadow-[#0077FF]/25 transition hover:-translate-y-0.5 hover:bg-slate-950"
+                className="rounded-full bg-[#2BA8B4] px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-white shadow-lg shadow-[#2BA8B4]/25 transition hover:-translate-y-0.5 hover:bg-slate-950"
               >
                 View full gallery
               </Link>
               <Link
                 href="/opportunities"
-                className="rounded-full border border-slate-300 px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-slate-950 transition hover:-translate-y-0.5 hover:border-[#0077FF] hover:text-[#0077FF]"
+                className="rounded-full border border-slate-300 px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-slate-950 transition hover:-translate-y-0.5 hover:border-[#2BA8B4] hover:text-[#2BA8B4]"
               >
                 Kofiever opportunities
               </Link>
@@ -159,8 +159,8 @@ export default function SectionOverview({
             {/* Where it led */}
             <div>
               <div className="mb-3 flex items-center gap-2">
-                <div className="h-2 w-2 flex-shrink-0 rounded-full bg-[#0077FF]" />
-                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-[#0077FF]">
+                <div className="h-2 w-2 flex-shrink-0 rounded-full bg-[#2BA8B4]" />
+                <p className="text-[11px] font-black uppercase tracking-[0.22em] text-[#2BA8B4]">
                   Where it led
                 </p>
               </div>

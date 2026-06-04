@@ -16,7 +16,7 @@ export default function AdminArticlesPage() {
           <div className="flex items-center gap-3">
             <Link
               href="/admin/articles/new"
-              className="rounded-full bg-[#006FA6] px-4 py-2 text-xs font-black text-white transition hover:bg-[#009EDB]"
+              className="rounded-full bg-[#176E78] px-4 py-2 text-xs font-black text-white transition hover:bg-[#2BA8B4]"
             >
               + New article
             </Link>
@@ -47,7 +47,7 @@ export default function AdminArticlesPage() {
                 </Link>
                 <Link
                   href={`/admin/articles/${article.slug}/edit`}
-                  className="text-xs font-black text-[#009EDB] hover:underline"
+                  className="text-xs font-black text-[#2BA8B4] hover:underline"
                 >
                   Edit
                 </Link>
@@ -58,7 +58,7 @@ export default function AdminArticlesPage() {
           {articles.length === 0 && (
             <p className="px-6 py-12 text-center text-slate-400">
               No articles yet.{" "}
-              <Link href="/admin/articles/new" className="font-black text-[#009EDB]">
+              <Link href="/admin/articles/new" className="font-black text-[#2BA8B4]">
                 Start writing →
               </Link>
             </p>

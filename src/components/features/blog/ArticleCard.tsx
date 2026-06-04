@@ -2,16 +2,16 @@ import Link from "next/link";
 import type { ArticleMeta } from "@/lib/articles";
 
 const CATEGORY_COLOURS: Record<string, string> = {
-  "AI, Data & Climate": "#009EDB",
-  "AI Ethics & Technologies": "#FD6925",
-  "Youth Leadership": "#FCC30B",
+  "AI, Data & Climate": "#2BA8B4",
+  "AI Ethics & Technologies": "#2BA8B4",
+  "Youth Leadership": "#2BA8B4",
   "Community & SDGs": "#19486A",
 };
 
 type Props = { article: ArticleMeta };
 
 export default function ArticleCard({ article }: Props) {
-  const accent = CATEGORY_COLOURS[article.category] ?? "#009EDB";
+  const accent = CATEGORY_COLOURS[article.category] ?? "#2BA8B4";
   const formattedDate = new Date(article.date).toLocaleDateString("en-GB", {
     year: "numeric",
     month: "long",

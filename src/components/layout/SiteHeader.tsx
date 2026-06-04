@@ -58,8 +58,8 @@ export default function SiteHeader() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-1.5 z-50 shadow-lg shadow-[#0077FF]/25">
-      <div className="bg-[#021B4D] text-white">
+    <header className="fixed inset-x-0 top-1.5 z-50 shadow-lg shadow-navy-950/25">
+      <div className="bg-navy-950 text-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-2 text-[11px] font-bold md:px-8">
           <p className="hidden uppercase tracking-[0.2em] text-white/70 sm:block">
             Connect with Richard Mensah
@@ -74,7 +74,7 @@ export default function SiteHeader() {
                   rel="noreferrer"
                   aria-label={link.label}
                   title={link.label}
-                  className="grid h-7 w-7 place-items-center rounded-full border border-white/15 bg-white/10 text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-[#005BDB]"
+                  className="grid h-7 w-7 place-items-center rounded-full border border-white/15 bg-white/10 text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-accent-strong"
                 >
                   <svg
                     viewBox={link.viewBox}
@@ -88,7 +88,7 @@ export default function SiteHeader() {
             </div>
             <a
               href="tel:+447388160797"
-              className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.14em] text-[#005BDB] transition hover:bg-[#62E8FF]"
+              className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.14em] text-navy-900 transition hover:bg-accent-soft"
             >
               <Phone size={13} />
               <span className="hidden sm:inline">Call +44 7388 160797</span>
@@ -98,7 +98,7 @@ export default function SiteHeader() {
         </div>
       </div>
 
-      <nav className="bg-gradient-to-r from-[#005BDB] via-[#0077FF] to-[#00A6FF]">
+      <nav className="bg-gradient-to-r from-navy-950 to-navy-900">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3" aria-label="Richard Mensah home">
@@ -131,7 +131,7 @@ export default function SiteHeader() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="rounded-full bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-[#005BDB] shadow-lg transition hover:-translate-y-0.5 hover:bg-[#021B4D] hover:text-white"
+              className="rounded-full bg-accent px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-navy-950 shadow-lg transition hover:-translate-y-0.5 hover:bg-accent-strong hover:text-white"
             >
               Connect
             </Link>

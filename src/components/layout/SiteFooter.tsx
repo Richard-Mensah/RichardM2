@@ -10,13 +10,13 @@ const EXPLORE_LINKS = [
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-white/10 bg-[#021B4D] text-white">
+    <footer className="border-t border-white/10 bg-[#0B1B2D] text-white">
       <div className="sdg-band h-1" />
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-8">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
-              <span className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-sm font-black text-[#005BDB] shadow-lg">
+              <span className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-sm font-black text-[#0F2438] shadow-lg">
                 RM
               </span>
               <span className="text-sm font-black uppercase tracking-[0.18em] text-white">
@@ -27,7 +27,7 @@ export default function SiteFooter() {
               AI researcher, youth leader, and SDG-aligned system builder working across Ghana, the
               UK, and global innovation networks.
             </p>
-            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#62E8FF]">
+            <p className="mt-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#7FD6D2]">
               AI - Leadership - SDGs
             </p>
           </div>
@@ -78,7 +78,7 @@ export default function SiteFooter() {
               <li>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#0077FF] px-5 py-2.5 text-xs font-black uppercase tracking-[0.18em] text-white shadow-md shadow-[#0077FF]/25 transition hover:-translate-y-0.5 hover:bg-white hover:text-[#021B4D]"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#2BA8B4] px-5 py-2.5 text-xs font-black uppercase tracking-[0.18em] text-white shadow-md shadow-[#2BA8B4]/25 transition hover:-translate-y-0.5 hover:bg-white hover:text-[#0B1B2D]"
                 >
                   Contact desk -&gt;
                 </Link>

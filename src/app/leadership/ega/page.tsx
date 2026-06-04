@@ -67,10 +67,10 @@ export default function EgaPage() {
     <div className="min-h-screen bg-white">
       {/* Back nav */}
       <div className="sticky top-0 z-50 flex items-center justify-between border-b border-slate-200 bg-white/90 px-5 py-3 backdrop-blur md:px-8">
-        <Link href="/leadership" className="text-sm font-bold text-[#0077FF] hover:underline">
+        <Link href="/leadership" className="text-sm font-bold text-[#2BA8B4] hover:underline">
           ← Back to Leadership
         </Link>
-        <Link href="/leadership/community" className="text-sm font-bold text-slate-600 hover:text-[#0077FF]">
+        <Link href="/leadership/community" className="text-sm font-bold text-slate-600 hover:text-[#2BA8B4]">
           Next: Community Development →
         </Link>
       </div>
@@ -80,7 +80,7 @@ export default function EgaPage() {
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 lg:grid-cols-[1fr_0.8fr] lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.3em] text-[#62E8FF]">
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7FD6D2]">
                 EGA Mentorship International · Founded 2021
               </p>
               <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-white md:text-6xl">
@@ -95,7 +95,7 @@ export default function EgaPage() {
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
                   href="/leadership/journey"
-                  className="rounded-full bg-[#0077FF] px-7 py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:bg-blue-600"
+                  className="rounded-full bg-[#2BA8B4] px-7 py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:bg-blue-600"
                 >
                   Download Full Story
                 </Link>
@@ -130,7 +130,7 @@ export default function EgaPage() {
 
         {/* The Inspiration */}
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#F59E0B]">
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#2BA8B4]">
             The Moment That Made It Inevitable
           </p>
           <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-slate-950 md:text-4xl">
@@ -160,7 +160,7 @@ export default function EgaPage() {
 
         {/* International Stage */}
         <div className="mt-20">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#0077FF]">
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#2BA8B4]">
             Reaching the Global Stage
           </p>
           <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-slate-950 md:text-4xl">
@@ -195,7 +195,7 @@ export default function EgaPage() {
         {/* Cambridge Recognition */}
         <div className="mt-20 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#0077FF]">
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#2BA8B4]">
               Academic Recognition
             </p>
             <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-slate-950 md:text-4xl">
@@ -221,7 +221,7 @@ export default function EgaPage() {
 
         {/* International Team */}
         <div className="mt-20 rounded-[2rem] bg-[#0B1F3A] p-8 text-white">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#62E8FF]">
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#7FD6D2]">
             EGA Mentorship International · Founding Partners
           </p>
           <h2 className="mt-4 text-2xl font-black text-white">
@@ -248,7 +248,7 @@ export default function EgaPage() {
 
         {/* Programme Tracks */}
         <div className="mt-20">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#0077FF]">
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#2BA8B4]">
             Programme Architecture
           </p>
           <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-slate-950 md:text-4xl">
@@ -260,7 +260,7 @@ export default function EgaPage() {
                 key={track.title}
                 className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6"
               >
-                <span className="inline-block h-2.5 w-10 rounded-full bg-[#0077FF]" aria-hidden="true" />
+                <span className="inline-block h-2.5 w-10 rounded-full bg-[#2BA8B4]" aria-hidden="true" />
                 <h3 className="mt-3 text-lg font-bold text-slate-950">{track.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">{track.body}</p>
               </div>
@@ -269,7 +269,7 @@ export default function EgaPage() {
         </div>
 
         {/* CTA */}
-        <div className="mt-16 rounded-[2rem] bg-[#0077FF] px-8 py-12 text-white">
+        <div className="mt-16 rounded-[2rem] bg-[#2BA8B4] px-8 py-12 text-white">
           <p className="text-xs font-black uppercase tracking-[0.3em] text-white/70">
             Share the story
           </p>
@@ -283,7 +283,7 @@ export default function EgaPage() {
           <div className="mt-7 flex flex-wrap gap-4">
             <Link
               href="/leadership/journey"
-              className="rounded-full bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.15em] text-[#0077FF] transition hover:bg-slate-100"
+              className="rounded-full bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.15em] text-[#2BA8B4] transition hover:bg-slate-100"
             >
               Download PDF Journey ↓
             </Link>
