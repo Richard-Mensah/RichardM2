@@ -4,9 +4,10 @@ import "./globals.css";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
 import PageViewTracker from "@/components/analytics/PageViewTracker";
+import { SITE_URL } from "@/lib/siteUrl";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(SITE_URL),
   title: "Richard Mensah | AI, Leadership & SDG Impact",
   description:
     "Richard Mensah's personal website: AI and Data Science, leadership, entrepreneurship, climate intelligence, youth empowerment, and SDG-aligned impact systems.",

@@ -9,6 +9,9 @@ const OUT = path.join(process.cwd(), "src", "app");
 async function square(size) {
   return sharp(SRC)
     .resize(size, size, { fit: "cover", position: "attention" })
+    // Next.js' .ico decoder requires the embedded PNGs to be RGBA; Rich1.png
+    // has no alpha channel, so force one in.
+    .ensureAlpha()
     .png()
     .toBuffer();
 }
