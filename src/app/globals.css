@@ -1,5 +1,27 @@
 @import "tailwindcss";
 
+/* Brand / accent / SDG colours.
+   Tailwind v4 configures the theme in CSS (it ignores tailwind.config.ts by
+   default), so these must live here for classes like `bg-brand-primary-darker`
+   and `text-brand-primary-accent` to generate. */
+@theme {
+  --color-brand-primary: #0077ff;
+  --color-brand-primary-light: #00a6ff;
+  --color-brand-primary-lighter: #02d1ff;
+  --color-brand-primary-dark: #006de5;
+  --color-brand-primary-darker: #006fa6;
+  --color-brand-primary-accent: #009edb;
+  --color-accent-cyan: #26bde2;
+  --color-accent-cyan-light: #62e8ff;
+  --color-accent-blue-dark: #00689d;
+  --color-sdg-footer: #021b4d;
+  --color-sdg-climate: #3f7e44;
+  --color-sdg-data-science: #0a97d9;
+  --color-sdg-community: #fcc30b;
+  --color-sdg-open-source: #fd6925;
+  --color-sdg-portfolio: #a21942;
+}
+
 :root {
   color-scheme: light dark;
   --sdg-blue: #00a6ff;
