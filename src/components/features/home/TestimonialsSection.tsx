@@ -55,7 +55,7 @@ export default function TestimonialsSection({ testimonials }: { testimonials: Te
   const count = testimonials.length;
   const maxIndex = Math.max(0, count - perView);
 
-  // Keep the index in range when the viewport (perView) changes â€” adjust during
+  // Keep the index in range when the viewport (perView) changes, adjust during
   // render (React-recommended pattern) rather than in an effect.
   const [prevPerView, setPrevPerView] = useState(perView);
   if (perView !== prevPerView) {

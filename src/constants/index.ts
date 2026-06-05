@@ -5,7 +5,7 @@ export const HOME_DOMAINS: HomeDomain[] = [
   {
     title: "AI & Machine Learning",
     blurb:
-      "Applied ML, deep learning, NLP and large language models — building human-centred AI systems that are technically rigorous and genuinely useful.",
+      "Applied ML, deep learning, NLP and large language models, building human-centred AI systems that are technically rigorous and genuinely useful.",
     href: "/research/ai-data-science",
     icon: "BrainCircuit",
     tag: "SDG 9",
@@ -29,7 +29,7 @@ export const HOME_DOMAINS: HomeDomain[] = [
   {
     title: "Community Development",
     blurb:
-      "Grassroots programmes combining skills training, mentorship and local data — from sanitation drives to STEM outreach in Sefwi Bekwai.",
+      "Grassroots programmes combining skills training, mentorship and local data, from sanitation drives to STEM outreach in Sefwi Bekwai.",
     href: "/leadership/community",
     icon: "Users",
     tag: "SDG 4 · 8",
@@ -37,7 +37,7 @@ export const HOME_DOMAINS: HomeDomain[] = [
   {
     title: "Youth Conferences & Diplomacy",
     blurb:
-      "Speaking, delegate preparation and youth diplomacy for the SDGs — connecting young leaders across Ghana, the UK and global summits.",
+      "Speaking, delegate preparation and youth diplomacy for the SDGs, connecting young leaders across Ghana, the UK and global summits.",
     href: "/about/conferences",
     icon: "Globe2",
     tag: "SDG 17",
@@ -120,7 +120,7 @@ export const AUDIENCE_PATHWAYS: AudiencePathway[] = [
 // Information architecture: a tight 6-section spine.
 // Labels are self-evident; every route below already exists. The deeper pages
 // (research sub-categories, individual project pages, Kofiever sections) remain
-// reachable from their hub landing pages and the footer — they are simply no
+// reachable from their hub landing pages and the footer, they are simply no
 // longer surfaced as top-level clutter.
 export const NAVIGATION: NavItem[] = [
   { label: "HOME", href: "/" },
@@ -157,7 +157,7 @@ export const NAVIGATION: NavItem[] = [
       { label: "Opportunities (Kofiever)", href: "/opportunities" },
     ],
   },
-  { label: "CONTACT", href: "/contact" },
+  { label: "GALLERY", href: "/gallery" },
 ];
 
 export const SDG_COLOURS: SdgColour[] = [
@@ -486,7 +486,7 @@ export const PUBLICATIONS = [
     year: "2024",
     title: "Climate Intelligence for Community Resilience: An AI-Assisted Framework for Adaptation Planning in Sub-Saharan Africa",
     authors: "Mensah, R.",
-    venue: "Working paper — open for collaboration",
+    venue: "Working paper, open for collaboration",
     abstract:
       "This paper proposes a framework for translating satellite-derived climate signals into community-readable risk narratives using machine learning and geospatial analytics. The approach is designed for low-resource settings where data science capacity is limited but climate risk is acute.",
     tags: ["Climate AI", "SDG 13", "Global South", "NLP"],
@@ -497,7 +497,7 @@ export const PUBLICATIONS = [
     year: "2024",
     title: "Large Language Models and the Promise of Multilingual AI for Development",
     authors: "Mensah, R.",
-    venue: "Independent essay — self-published",
+    venue: "Independent essay, self-published",
     abstract:
       "Explores how LLMs can be adapted for multilingual African contexts, with a focus on low-resource languages and the design considerations needed to ensure these systems serve rather than exclude communities on the margins of the global digital economy.",
     tags: ["LLMs", "NLP", "SDG 4", "Multilingual AI"],
@@ -508,7 +508,7 @@ export const PUBLICATIONS = [
     year: "2024",
     title: "Responsible AI for the Global South: Institutional Readiness, Ethics, and Governance Gaps",
     authors: "Mensah, R.",
-    venue: "Policy note — working draft",
+    venue: "Policy note, working draft",
     abstract:
       "This policy note examines the structural gaps that make AI governance frameworks developed in the Global North unsuitable for direct application in Sub-Saharan Africa and South Asia. It proposes a locally-grounded ethics and accountability model aligned with the UN SDG agenda.",
     tags: ["AI Ethics", "Policy", "SDG 16", "Governance"],
@@ -519,7 +519,7 @@ export const PUBLICATIONS = [
     year: "2023",
     title: "Predictive Analytics for Youth Programme Outcomes: A Data-Driven Approach to Measuring Social Impact",
     authors: "Mensah, R.",
-    venue: "Internal research note — EGA Mentorship International",
+    venue: "Internal research note, EGA Mentorship International",
     abstract:
       "Documents a methodology for tracking, measuring, and predicting youth programme outcomes using structured data from mentorship sessions, scholarship applications, and community engagement records. Demonstrates that data-driven programme management can double measurable impact within a single cohort cycle.",
     tags: ["Data Science", "SDG 4", "SDG 17", "Youth Development"],
@@ -530,7 +530,7 @@ export const PUBLICATIONS = [
     year: "2023",
     title: "Human-Centred AI Design Principles for Development Contexts",
     authors: "Mensah, R.",
-    venue: "Working paper — open for review",
+    venue: "Working paper, open for review",
     abstract:
       "Proposes a set of design principles for AI systems intended for deployment in development contexts, drawing on human-computer interaction research, participatory design theory, and field experience building tools for communities with diverse literacy levels and device constraints.",
     tags: ["Human-Centred AI", "Full-Stack", "Design", "SDG 9"],
@@ -541,9 +541,9 @@ export const PUBLICATIONS = [
     year: "2023",
     title: "The Future of AI in Africa Is Institutional, Not Just Technical",
     authors: "Mensah, R.",
-    venue: "Independent essay — self-published",
+    venue: "Independent essay, self-published",
     abstract:
-      "Argues that AI adoption in Africa will be determined less by access to models and more by whether institutions — universities, ministries, NGOs — are structured to adopt, govern, and maintain intelligent systems. Outlines what institutional AI readiness looks like in practice.",
+      "Argues that AI adoption in Africa will be determined less by access to models and more by whether institutions, universities, ministries, NGOs, are structured to adopt, govern, and maintain intelligent systems. Outlines what institutional AI readiness looks like in practice.",
     tags: ["AI in Africa", "Institutions", "SDG 9", "SDG 16"],
     accent: "#A21942",
   },

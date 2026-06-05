@@ -6,7 +6,7 @@ import { useReveal } from "@/hooks/useReveal";
 
 const TRACK_DETAILS = [
   "Building Alpha Society as a structured youth leadership community focused on AI, entrepreneurship and systems thinking for the next generation of African leaders.",
-  "Delivering hands-on AI and analytics training to students, professionals and institutions across Ghana, the UK and beyond — bridging the technical skills gap at scale.",
+  "Delivering hands-on AI and analytics training to students, professionals and institutions across Ghana, the UK and beyond, bridging the technical skills gap at scale.",
   "Cultivating cross-border partnerships with universities, NGOs, governments and innovation labs across Ghana, UK, India and the Global South to amplify systemic impact.",
   "Publishing essays, frameworks and talks on AI in Africa, climate intelligence, inequality, youth leadership and responsible development for global audiences.",
 ];

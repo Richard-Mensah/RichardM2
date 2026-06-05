@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ──────────────────────────────────────────────────────────────────
-   DESIGN TOKENS — single source of truth.
+   DESIGN TOKENS, single source of truth.
    "Navy + Teal" institutional system, LIGHT theme.
    Navy = structure, Teal = accent/links/data, CFI Red = one hero CTA.
    Tailwind v4 reads @theme, so every token generates utilities like
@@ -17,18 +17,22 @@
   --color-navy-700: #264b82;
   --color-navy-600: #345d99;
 
-  /* ── Accent (teal) — links, data, section highlights ── */
+  /* ── Accent (teal), links, data, section highlights ── */
   --color-accent: #1e8a95;
   --color-accent-strong: #15727c;
   --color-accent-bright: #2ba8b4;
   --color-accent-soft: #7fd6d2;
   --color-accent-tint: #e6f5f5;
 
-  /* ── Brand (CFI red) — reserved for the single highest-emphasis CTA ── */
+  /* ── Brand (CFI red), reserved for the single highest-emphasis CTA ── */
   --color-brand: #da1e3c;
   --color-brand-strong: #b81733;
   --color-brand-tint: #fbe7eb;
   --color-brand-spark: #da1e3c;
+
+  /* Warm gold, UI accent for the hero "global stages" orbit only (not an SDG hue) */
+  --color-gold: #c8912f;
+  --color-gold-soft: #e7c987;
 
   /* ── Surfaces ── */
   --color-surface: #f4f7fa;
@@ -66,7 +70,7 @@
   --color-accent-blue-dark: #15727c;
   --color-sdg-footer: #0b1b2d;
 
-  /* ── SDG hues — DATA ONLY (SDG wheel + SDG tags/badges) ── */
+  /* ── SDG hues, DATA ONLY (SDG wheel + SDG tags/badges) ── */
   --color-sdg-climate: #3f7e44;
   --color-sdg-data-science: #0a97d9;
   --color-sdg-community: #fcc30b;
@@ -83,7 +87,7 @@
 :root {
   color-scheme: light;
 
-  /* SDG palette — referenced only by SDG data viz (wheel, badges). */
+  /* SDG palette, referenced only by SDG data viz (wheel, badges). */
   --sdg-blue: #00a6ff;
   --sdg-1: #e5243b;
   --sdg-2: #dda63a;
@@ -103,7 +107,7 @@
   --sdg-16: #00689d;
   --sdg-17: #19486a;
 
-  /* Core neutrals — LIGHT theme */
+  /* Core neutrals, LIGHT theme */
   --ink: #16273b; /* default heading/text */
   --paper: #f4f7fa; /* base background */
   --text-body: #5a6b7d;
@@ -159,7 +163,7 @@ body {
   text-wrap: pretty;
 }
 
-/* ── Card system (was glassmorphism) — light, elevated surfaces ─────── */
+/* ── Card system (was glassmorphism), light, elevated surfaces ─────── */
 .glass {
   background: var(--color-surface-card);
   border: 1px solid var(--color-line);

@@ -7,7 +7,7 @@ const HUB_CARDS = [
     image: "/leadership/bym-media-engagement.jpg",
     tag: "The Origin Story",
     title: "Sefwi Bekwai Youth Movement",
-    body: "How a grassroots youth platform in Ghana's Western North Region became the training ground for everything that followed — from church civic education to UNYA-Ghana Youth Parliament.",
+    body: "How a grassroots youth platform in Ghana's Western North Region became the training ground for everything that followed, from church civic education to UNYA-Ghana Youth Parliament.",
     accent: "#4f8bff",
   },
   {
@@ -15,7 +15,7 @@ const HUB_CARDS = [
     image: "/leadership/conference-sochi.jpg",
     tag: "International Organisation",
     title: "EGA Mentorship International",
-    body: "Founded to remove friction between ambition and access — 120+ study abroad journeys, 35+ fully funded scholarships, and partners across Serbia, USA, Zambia, and Liberia.",
+    body: "Founded to remove friction between ambition and access, 120+ study abroad journeys, 35+ fully funded scholarships, and partners across Serbia, USA, Zambia, and Liberia.",
     accent: "#4f8bff",
   },
   {
@@ -23,7 +23,7 @@ const HUB_CARDS = [
     image: "/community/teaching-night.jpg",
     tag: "Grassroots Work",
     title: "Community Development",
-    body: "Free teaching during COVID-19 lockdowns, community sanitation exercises, hospital STEM excursions, and visiting communities with no clean water — development as a daily practice.",
+    body: "Free teaching during COVID-19 lockdowns, community sanitation exercises, hospital STEM excursions, and visiting communities with no clean water, development as a daily practice.",
     accent: "#10B981",
   },
 ];
@@ -40,7 +40,7 @@ export default function LeadershipPageSections() {
             Three chapters. One continuous commitment.
           </h2>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-on-dark-muted">
-            Richard&apos;s leadership is not a single thread — it is a braid. Grassroots community
+            Richard&apos;s leadership is not a single thread, it is a braid. Grassroots community
             work, institutional youth advocacy, and international mentorship, built over a decade
             and still active today.
           </p>

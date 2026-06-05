@@ -5,7 +5,7 @@ import SectionNav from "@/components/ui/SectionNav";
 
 export const metadata: Metadata = {
   title: "Leadership | Richard Mensah",
-  description: "Richard Mensah's leadership story — from founding the Sefwi Bekwai Youth Movement and Youth Parliament to building EGA Mentorship International with partners across Serbia, USA, Zambia, and Liberia.",
+  description: "Richard Mensah's leadership story, from founding the Sefwi Bekwai Youth Movement and Youth Parliament to building EGA Mentorship International with partners across Serbia, USA, Zambia, and Liberia.",
 };
 
 export default function LeadershipPage() {

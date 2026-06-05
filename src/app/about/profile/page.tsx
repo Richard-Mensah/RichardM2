@@ -55,7 +55,7 @@ const PILLARS = [
   {
     title: "Climate intelligence",
     sdg: "SDG 13",
-    body: "Translating environmental and emissions data into evidence for adaptation, resilience, and consumer and policy decision-making — the focus of the MSc thesis.",
+    body: "Translating environmental and emissions data into evidence for adaptation, resilience, and consumer decision-making, the focus of the MSc thesis.",
     accent: "#2f6bea",
   },
   {
@@ -162,9 +162,9 @@ export default function ProfilePage() {
               </p>
               <p className="mt-3 max-w-3xl text-base leading-7 text-body">
                 The thesis applies and compares machine-learning methods to predict vehicle CO&#8322;
-                emissions from vehicle features, with the goal of giving consumers and policymakers
-                clearer, evidence-based information for lower-emission choices — a direct bridge
-                between data science and climate action.
+                emissions from vehicle features, with the goal of giving consumers clearer,
+                evidence-based information for lower-emission choices, a direct bridge between data
+                science and climate action.
               </p>
             </div>
           </div>

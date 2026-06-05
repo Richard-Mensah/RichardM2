@@ -26,7 +26,7 @@ export default function PublicationsPageSection() {
         <div className="mt-6 max-w-3xl rounded-xl border border-amber-300/60 bg-amber-50 p-4">
           <p className="text-sm leading-6 text-amber-900">
             <span className="font-bold">A note on status:</span> these are independent,
-            self-published works and working drafts — not peer-reviewed journal publications.
+            self-published works and working drafts, not peer-reviewed journal publications.
             They are listed transparently as essays, working papers, and policy notes, and several
             are open for collaboration and review.
           </p>

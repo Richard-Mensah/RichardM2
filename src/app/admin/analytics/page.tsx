@@ -21,7 +21,7 @@ export default async function AdminAnalyticsPage() {
         <div className="mb-8 flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-black font-display text-ink">Analytics</h1>
-            <p className="mt-1 text-sm text-muted">Cookieless page views — no personal data collected.</p>
+            <p className="mt-1 text-sm text-muted">Cookieless page views, no personal data collected.</p>
           </div>
           <AdminLogoutButton />
         </div>
@@ -44,7 +44,7 @@ export default async function AdminAnalyticsPage() {
 
         {/* Per-day chart */}
         <div className="mt-8 glass rounded-2xl p-6 shadow-sm">
-          <p className="text-xs font-black uppercase tracking-[0.15em] text-muted">Views — last 14 days</p>
+          <p className="text-xs font-black uppercase tracking-[0.15em] text-muted">Views, last 14 days</p>
           <div className="mt-6 flex h-40 items-end gap-2">
             {a.perDay.length === 0 ? (
               <p className="text-sm text-muted">No data yet.</p>

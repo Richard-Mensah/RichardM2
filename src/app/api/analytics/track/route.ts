@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     await recordView(path, (body.referrer ?? "").toString());
     return NextResponse.json({ ok: true });
   } catch {
-    // Analytics must never break the page — always succeed.
+    // Analytics must never break the page, always succeed.
     return NextResponse.json({ ok: true });
   }
 }

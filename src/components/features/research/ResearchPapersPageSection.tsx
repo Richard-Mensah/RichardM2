@@ -27,7 +27,7 @@ export default function ResearchPapersPageSection() {
         </h1>
         <p className="mt-5 max-w-3xl text-base leading-7 text-body">
           Working drafts and applied research spanning NLP, climate AI, human-centred design, and
-          institutional governance — written to inform practice. These are working papers shared
+          institutional governance, written to inform practice. These are working papers shared
           openly for discussion and review, not peer-reviewed journal publications.
         </p>
 
@@ -45,7 +45,7 @@ export default function ResearchPapersPageSection() {
               {FEATURED.title}
             </h2>
             <p className="mt-2 text-sm font-semibold text-ink-soft">
-              {FEATURED.authors} &mdash; <span className="italic">{FEATURED.venue}</span>
+              {FEATURED.authors}, <span className="italic">{FEATURED.venue}</span>
             </p>
             <p className="mt-4 text-sm leading-7 text-body">{FEATURED.abstract}</p>
             <div className="mt-4 flex flex-wrap gap-2">

@@ -12,7 +12,7 @@ export default function SdgLogoMark({ className }: Props) {
       <div className="relative h-full w-full">
         <Image
           src="/sdg-impact-wheel.svg"
-          alt="SDG impact wheel — Sustainable Development Goals colour palette"
+          alt="SDG impact wheel, Sustainable Development Goals colour palette"
           fill
           className="logo-wheel-shadow rounded-[2rem] object-contain"
         />

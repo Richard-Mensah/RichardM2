@@ -5,7 +5,7 @@ import SectionNav from "@/components/ui/SectionNav";
 export const metadata: Metadata = {
   title: "Impact | Richard Mensah",
   description:
-    "SDG-aligned impact through AI, climate intelligence, youth leadership, and global partnerships — Richard Mensah's contribution to the Sustainable Development Goals.",
+    "SDG-aligned impact through AI, climate intelligence, youth leadership, and global partnerships, Richard Mensah's contribution to the Sustainable Development Goals.",
 };
 
 export default function ImpactPage() {

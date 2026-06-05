@@ -53,7 +53,7 @@ export default async function OpportunitiesPage() {
 
                       {entries.length === 0 ? (
                         <p className="mt-6 text-xs font-semibold text-muted">
-                          Opportunities listed soon — check back regularly.
+                          Opportunities listed soon, check back regularly.
                         </p>
                       ) : (
                         <ul className="mt-6 space-y-4">

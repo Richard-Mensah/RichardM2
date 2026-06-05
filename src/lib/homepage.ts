@@ -18,7 +18,7 @@ export const DEFAULT_HOMEPAGE: HomepageContent = {
   heroTitleHighlight: "climate and youth solutions",
   heroTitleTail: " for the Global South.",
   heroSubtitle:
-    "MSc, Artificial Intelligence & Data Science (Bangor University) · Formal Country Representative for Ghana, United Nations Youth Association 2020 - 2024. Global Director of EGA Mentorship International, 2024 - present.",
+    "MSc, Artificial Intelligence & Data Science (Bangor University) · Formal Country Representative for UNYA-Ghana, Youth MP · Global Director, EGA Mentorship International",
   welcomeTitle:
     "Richard Mensah - Climate AI Scientist, Developer & Human-Centred Systems Builder.",
   welcomeBody:

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "EGA Mentorship International | Richard Mensah",
-  description: "EGA Mentorship International — removing friction between ambition and access for young Africans. 120+ study abroad journeys, 35+ funded scholarships, 2500+ youth impacted across Ghana, Serbia, USA, Zambia, and Liberia.",
+  description: "EGA Mentorship International, removing friction between ambition and access for young Africans. 120+ study abroad journeys, 35+ funded scholarships, 2500+ youth impacted across Ghana, Serbia, USA, Zambia, and Liberia.",
 };
 
 const IMPACT_STATS = [
@@ -34,15 +34,15 @@ const SCHOOL_CAMPAIGN_PHOTOS = [
 ];
 
 const CONFERENCE_PHOTOS = [
-  { src: "/leadership/conference-sochi.jpg", alt: "International conference — Sochi, Russia" },
-  { src: "/leadership/conference-diplomatic.jpg", alt: "Diplomatic engagement — international convening" },
+  { src: "/leadership/conference-sochi.jpg", alt: "International conference, Sochi, Russia" },
+  { src: "/leadership/conference-diplomatic.jpg", alt: "Diplomatic engagement, international convening" },
   { src: "/leadership/conference-royce.jpg", alt: "International leadership engagement" },
 ];
 
 const PROGRAMME_TRACKS = [
   {
     title: "Scholarship Pipeline",
-    body: "A structured system for identifying, preparing, and supporting young Africans to apply for fully funded study opportunities — turning aspiration into completed applications.",
+    body: "A structured system for identifying, preparing, and supporting young Africans to apply for fully funded study opportunities, turning aspiration into completed applications.",
     icon: "🎓",
   },
   {
@@ -52,12 +52,12 @@ const PROGRAMME_TRACKS = [
   },
   {
     title: "Statement of Purpose Coaching",
-    body: "Intensive coaching on the most critical — and most neglected — part of international applications: telling your story in a way that institutions understand and respect.",
+    body: "Intensive coaching on the most critical, and most neglected, part of international applications: telling your story in a way that institutions understand and respect.",
     icon: "✍️",
   },
   {
     title: "Knowledge Systems",
-    body: "Building structured repositories of information so the knowledge gained by one cohort is not lost — it becomes the foundation for the next generation of applicants.",
+    body: "Building structured repositories of information so the knowledge gained by one cohort is not lost, it becomes the foundation for the next generation of applicants.",
     icon: "📚",
   },
 ];
@@ -89,7 +89,7 @@ export default function EgaPage() {
               <p className="mt-6 max-w-2xl text-lg leading-8 text-on-dark-muted">
                 EGA Mentorship International was founded on a single observation made in Sefwi
                 Bekwai: brilliant young people are everywhere, but the systems that unlock global
-                opportunities were not designed for them. EGA was built to change that — one
+                opportunities were not designed for them. EGA was built to change that, one
                 application, one scholarship, one conversation at a time.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
@@ -141,7 +141,7 @@ export default function EgaPage() {
               <br /><br />
               That moment crystallised something: if the work is structured well enough, it does
               not need you to be present. It becomes a system. It becomes something that can scale.
-              EGA Mentorship International was built to be exactly that — a programme that does not
+              EGA Mentorship International was built to be exactly that, a programme that does not
               depend on Richard being in every room, but that gives every young person in every
               room the same quality of access and support.
             </p>
@@ -173,11 +173,11 @@ export default function EgaPage() {
             </div>
             <div>
               <p className="text-base leading-8 text-body">
-                International conferences gave Richard more than recognition — they gave him evidence
+                International conferences gave Richard more than recognition, they gave him evidence
                 that the ideas developed in rural Ghana were globally relevant. Attending high-level
                 convenings in Sochi, Russia alongside diplomats, researchers, and international
-                officials confirmed that the questions Richard was asking — about youth empowerment,
-                AI governance, and sustainable development — were the same questions that mattered
+                officials confirmed that the questions Richard was asking, about youth empowerment,
+                AI governance, and sustainable development, were the same questions that mattered
                 at the highest levels of global decision-making.
                 <br /><br />
                 EGA was founded on this belief: that geography should not determine destiny. The
@@ -199,8 +199,7 @@ export default function EgaPage() {
               Invited to Cambridge on Climate Governance.
             </h2>
             <p className="mt-5 text-base leading-8 text-body">
-              Richard was invited to the University of Cambridge for a climate governance programme
-              — recognition of the intersection between his AI research, SDG advocacy, and
+              Richard was invited to the University of Cambridge for a climate governance programme, recognition of the intersection between his AI research, SDG advocacy, and
               understanding of how climate change disproportionately affects communities like those
               in the Western North Region of Ghana. This invitation validated not just Richard&apos;s
               technical credentials but his community-grounded perspective on global challenges.
@@ -208,7 +207,7 @@ export default function EgaPage() {
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div className="relative h-52 overflow-hidden rounded-2xl">
-              <Image src="/leadership/cambridge-invite-1.jpg" alt="Invited to Cambridge University — climate governance programme" fill className="object-cover" />
+              <Image src="/leadership/cambridge-invite-1.jpg" alt="Invited to Cambridge University, climate governance programme" fill className="object-cover" />
             </div>
             <div className="relative h-52 overflow-hidden rounded-2xl">
               <Image src="/leadership/cambridge-invite-2.jpg" alt="Cambridge University climate governance programme" fill className="object-cover" />
@@ -274,8 +273,7 @@ export default function EgaPage() {
             Download the full leadership and EGA journey document.
           </h2>
           <p className="mt-4 max-w-xl text-base leading-8 text-white/80">
-            A complete, printable record of everything from Sefwi Bekwai to international platforms
-            — available to anyone who finds this journey inspiring and wants to share it.
+            A complete, printable record of everything from Sefwi Bekwai to international platforms, available to anyone who finds this journey inspiring and wants to share it.
           </p>
           <div className="mt-7 flex flex-wrap gap-4">
             <Link

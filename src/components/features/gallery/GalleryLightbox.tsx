@@ -38,7 +38,7 @@ export default function GalleryLightbox({ photos }: Props) {
   if (photos.length === 0) {
     return (
       <p className="py-24 text-center text-muted">
-        Photos coming soon — check back later.
+        Photos coming soon, check back later.
       </p>
     );
   }

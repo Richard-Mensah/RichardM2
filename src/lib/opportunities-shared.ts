@@ -14,7 +14,7 @@ export const OPPORTUNITY_CATEGORIES: OpportunityCategory[] = [
     title: "Scholarships",
     accent: "#4f8bff",
     description:
-      "Funding opportunities for students and researchers in AI, data science, climate change, and sustainable development — with a focus on the Global South.",
+      "Funding opportunities for students and researchers in AI, data science, climate change, and sustainable development, with a focus on the Global South.",
   },
   {
     id: "internships",
@@ -35,7 +35,7 @@ export const OPPORTUNITY_CATEGORIES: OpportunityCategory[] = [
     title: "Conferences",
     accent: "#4f8bff",
     description:
-      "Upcoming and notable conferences on AI, climate change, youth leadership, and the SDGs — with call-for-papers and registration information.",
+      "Upcoming and notable conferences on AI, climate change, youth leadership, and the SDGs, with call-for-papers and registration information.",
   },
 ];
 

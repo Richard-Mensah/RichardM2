@@ -64,15 +64,15 @@ export default function HomepageForm({ initial }: { initial: HomepageContent }) 
           </div>
           <div className="grid gap-4 sm:grid-cols-3">
             <div>
-              <label className={LABEL}>Title — lead</label>
+              <label className={LABEL}>Title, lead</label>
               <input className={FIELD} value={form.heroTitleLead} onChange={(e) => update("heroTitleLead", e.target.value)} />
             </div>
             <div>
-              <label className={LABEL}>Title — highlight</label>
+              <label className={LABEL}>Title, highlight</label>
               <input className={FIELD} value={form.heroTitleHighlight} onChange={(e) => update("heroTitleHighlight", e.target.value)} />
             </div>
             <div>
-              <label className={LABEL}>Title — tail</label>
+              <label className={LABEL}>Title, tail</label>
               <input className={FIELD} value={form.heroTitleTail} onChange={(e) => update("heroTitleTail", e.target.value)} />
             </div>
           </div>
