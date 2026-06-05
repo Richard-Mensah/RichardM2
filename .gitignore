@@ -9,3 +9,6 @@ tsconfig.tsbuildinfo
 .env
 .env.local
 .env*.local
+
+# Dev server / build logs
+*.log
