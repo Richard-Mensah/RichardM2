@@ -11,15 +11,16 @@ export default function SdgsSection() {
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>
             <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-strong">
-              SDG logo + colour blend
+              How my work maps to the SDGs
             </p>
             <h2 className="font-display mt-3 text-balance text-4xl font-semibold tracking-[-0.02em] text-ink md:text-5xl">
-              Sustainable Development Goals as the visual and strategic language.
+              The goals I can honestly say I move.
             </h2>
             <p className="mt-6 text-lg leading-8 text-body">
-              The design blends SDG colours with the official SDG-blue feeling, then connects each
-              colour to Richard&apos;s practical contribution through AI, training, climate
-              intelligence, institutional trust, and partnerships.
+              I don&apos;t pretend to deliver all seventeen goals on my own. I concentrate where I
+              genuinely have leverage, education, decent work, innovation, climate action, strong
+              institutions and partnerships, and I tie each one to real work I have done in AI,
+              training, climate intelligence and community development.
             </p>
             <SdgLogoMark className="mt-10 h-64 w-64 float-soft" />
           </div>
@@ -54,15 +55,15 @@ export default function SdgsSection() {
         {/* Field stories */}
         <div className="mt-24">
           <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-strong">
-            Where the SDGs live — in the field
+            Where the SDGs live, in the field
           </p>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-body">
-            Before the research and the international conferences, Richard&apos;s SDG work was
-            hands-on and local — teaching children during lockdowns, cleaning communities, advocating
-            for peace. This is where it began.
+            Before the research and the international conferences, my SDG work was hands-on and
+            local, teaching children during lockdowns, cleaning communities and advocating for
+            peace. This is where it began for me.
           </p>
 
-          {/* Story 1: SDG 4 — Teaching */}
+          {/* Story 1: SDG 4, Teaching */}
           <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <div>
               <div className="flex items-center gap-3">
@@ -73,9 +74,8 @@ export default function SdgsSection() {
                 Free teaching during COVID-19 lockdowns.
               </h3>
               <p className="mt-4 text-base leading-8 text-body">
-                When schools closed across Ghana during the COVID-19 pandemic, Richard organised
-                free volunteer teaching sessions in communities across the Sefwi Bekwai area —
-                holding night classes and morning sessions to ensure children kept learning.
+                When schools closed across Ghana during the COVID-19 pandemic, I organised free
+                volunteer teaching sessions in communities across the Sefwi Bekwai area, holding night classes and morning sessions to ensure children kept learning.
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {["DonkorKrom", "Barkokrom", "Sukuuku", "Lowcost", "Bekwai Township", "Apemkrom"].map((loc) => (
@@ -104,17 +104,17 @@ export default function SdgsSection() {
             </div>
           </div>
 
-          {/* Story 2: SDG 6 & 11 — Sanitation */}
+          {/* Story 2: SDG 6 & 11, Sanitation */}
           <div className="mt-16 grid gap-8 lg:grid-cols-[0.9fr_1fr] lg:items-center">
             <div className="grid grid-cols-2 gap-3 lg:order-first">
               <div className="relative h-44 overflow-hidden rounded-2xl">
-                <Image src="/community/sanitation-sweeping.jpg" alt="Sweeping with community residents — DansoKrom" fill className="object-cover" />
+                <Image src="/community/sanitation-sweeping.jpg" alt="Sweeping with community residents, DansoKrom" fill className="object-cover" />
               </div>
               <div className="relative h-44 overflow-hidden rounded-2xl">
-                <Image src="/community/sanitation-after.jpg" alt="After the cleaning exercise — DansoKrom community" fill className="object-cover" />
+                <Image src="/community/sanitation-after.jpg" alt="After the cleaning exercise, DansoKrom community" fill className="object-cover" />
               </div>
               <div className="relative h-44 overflow-hidden rounded-2xl">
-                <Image src="/community/sanitation-dansokrom-1.jpg" alt="Community sanitation exercise — DansoKrom, Sefwi Bekwai" fill className="object-cover" />
+                <Image src="/community/sanitation-dansokrom-1.jpg" alt="Community sanitation exercise, DansoKrom, Sefwi Bekwai" fill className="object-cover" />
               </div>
               <div className="relative h-44 overflow-hidden rounded-2xl">
                 <Image src="/community/sanitation-surano-1.jpg" alt="Sefwi Bekwai Surano B sanitation exercise" fill className="object-cover" />
@@ -130,9 +130,9 @@ export default function SdgsSection() {
                 Community sanitation and cleaning exercises.
               </h3>
               <p className="mt-4 text-base leading-8 text-body">
-                Richard organised and participated in community sanitation exercises across the
-                Sefwi Bekwai area — mobilising residents to clean public spaces, streets, and
-                community areas that had been neglected. These hands-on drives demonstrated
+                I organised and took part in community sanitation exercises across the
+                Sefwi Bekwai area, mobilising residents to clean public spaces, streets, and
+                community areas that had been neglected. These hands-on drives showed me
                 that development begins with the dignity of clean, healthy environments.
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
@@ -148,7 +148,7 @@ export default function SdgsSection() {
             </div>
           </div>
 
-          {/* Story 3: SDG 16 — Peace */}
+          {/* Story 3: SDG 16, Peace */}
           <div className="mt-16 grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <div>
               <div className="flex items-center gap-3">
@@ -159,23 +159,23 @@ export default function SdgsSection() {
                 Peace campaigns and civic education.
               </h3>
               <p className="mt-4 text-base leading-8 text-body">
-                Richard contributed to peace advocacy and civic education across the Western North
-                Region — national peace campaigns with NUSSA, radio peace talks with regional
+                I contributed to peace advocacy and civic education across the Western North
+                Region, national peace campaigns with NUSSA, radio peace talks with regional
                 media, and civic education with Ghana&apos;s National Commission for Civic Education
                 (NCCE) in Bibiani Anhwiaso. In communities where electoral tension and civic
-                mistrust can derail development, building peace infrastructure is foundational.
+                mistrust can derail development, I believe building peace infrastructure is foundational.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div className="relative col-span-2 h-52 overflow-hidden rounded-2xl">
-                <Image src="/leadership/peace-campaign.jpg" alt="National peace campaign — youth advocates, Western North Region" fill className="object-cover" />
+                <Image src="/leadership/peace-campaign.jpg" alt="National peace campaign, youth advocates, Western North Region" fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 to-transparent" />
                 <p className="absolute bottom-4 left-5 text-xs font-black uppercase tracking-[0.18em] text-white">
                   National Peace Campaign · Western North Region
                 </p>
               </div>
               <div className="relative h-44 overflow-hidden rounded-2xl">
-                <Image src="/leadership/peace-radio.jpg" alt="Radio peace talk — community dialogue" fill className="object-cover" />
+                <Image src="/leadership/peace-radio.jpg" alt="Radio peace talk, community dialogue" fill className="object-cover" />
               </div>
               <div className="relative h-44 overflow-hidden rounded-2xl">
                 <Image src="/leadership/peace-regional.jpg" alt="Regional peace campaign activities" fill className="object-cover" />
@@ -186,7 +186,12 @@ export default function SdgsSection() {
 
         <div className="mt-20 rounded-[2rem] border border-line bg-surface-card p-6 md:p-8">
           <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-strong">
-            Full SDG spectrum
+            The shared framework
+          </p>
+          <p className="mt-3 max-w-3xl text-base leading-7 text-body">
+            My hands-on contribution sits in the goals above. These seventeen are the wider map I
+            keep in view, because no single goal moves entirely on its own, and the work I do is
+            stronger when I understand where it fits.
           </p>
           <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-9">
             {SDG_COLOURS.map((goal) => (

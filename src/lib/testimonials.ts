@@ -18,7 +18,7 @@ export const DEFAULT_TESTIMONIALS: Testimonial[] = [
   { name: "Grace Mensah", role: "Scholarship recipient", initials: "GM", accent: "#4f8bff", quote: "Richard reviewed my personal statement three times without being asked. He caught things no one else noticed and pushed me to be specific about my goals. I got a fully funded offer. I keep telling people: find a mentor like this." },
   { name: "David Kwame", role: "Conference delegate", initials: "DK", accent: "#00689D", quote: "I was terrified to present at an international summit. Richard ran a preparation session with me, helped me rehearse questions, and connected me with two researchers I am still collaborating with today. That summit changed my trajectory." },
   { name: "Esi Baah", role: "Community development facilitator", initials: "EB", accent: "#0EA5A4", quote: "We had the energy but not the structure. Richard helped us build a proper curriculum, track participation and show funders the real numbers. We went from 20 active participants to 80 in one cohort. Measurable impact." },
-  { name: "Nana Appiah", role: "Leadership programme graduate", initials: "NA", accent: "#19486A", quote: "The mentorship was not just career advice — it was a whole systems shift in how I thought about my potential. I left with a roadmap, a network, and the confidence to actually execute it." },
+  { name: "Nana Appiah", role: "Leadership programme graduate", initials: "NA", accent: "#19486A", quote: "The mentorship was not just career advice, it was a whole systems shift in how I thought about my potential. I left with a roadmap, a network, and the confidence to actually execute it." },
 ];
 
 let tableReady = false;

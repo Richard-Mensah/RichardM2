@@ -124,7 +124,7 @@ export default function ClimatePageSection() {
       <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-block rounded-full bg-accent-strong/10 px-4 py-1.5 text-xs font-black uppercase tracking-[0.2em] text-accent-strong">
-            SDG 13 — Climate Action
+            SDG 13, Climate Action
           </span>
           <p className="mt-5 text-2xl font-black leading-tight text-ink">
             The communities most affected by climate change are rarely the ones with access to climate science. This work closes that gap.

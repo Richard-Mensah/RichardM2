@@ -10,11 +10,12 @@ export default function SdgAlignmentStrip() {
           <div>
             <p className="eyebrow">SDG alignment</p>
             <h2 className="font-display mt-3 text-balance text-3xl font-bold tracking-[-0.035em] text-ink md:text-4xl">
-              Work mapped to the global goals
+              The global goals my work moves
             </h2>
             <p className="mt-5 text-base leading-8 text-body">
-              Every system and programme contributes to specific Sustainable Development Goals â€” a
-              shared language for measuring whether the work actually moves the needle.
+              I map my work to the Sustainable Development Goals it genuinely touches, not all
+              seventeen, but the few where AI, education and climate action can make a measurable
+              difference. It keeps me honest about whether what I build actually moves the needle.
             </p>
             <Link
               href="/sdgs"

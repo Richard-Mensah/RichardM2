@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Community Development | Richard Mensah",
-  description: "Richard Mensah's complete community development record — free teaching during COVID-19, community sanitation exercises, STEM excursions, water access advocacy, and volunteering across Sefwi Bekwai and the Western North Region.",
+  description: "Richard Mensah's complete community development record, free teaching during COVID-19, community sanitation exercises, STEM excursions, water access advocacy, and volunteering across Sefwi Bekwai and the Western North Region.",
 };
 
 const TEACHING_PHOTOS = [
@@ -30,7 +30,7 @@ const TEACHING_PHOTOS = [
 
 const PARTY_PHOTOS = [
   { src: "/community/teaching-fun-moments.jpg", alt: "Fun moments with students" },
-  { src: "/community/teaching-party-night.jpg", alt: "Night party to encourage students — uncle's support" },
+  { src: "/community/teaching-party-night.jpg", alt: "Night party to encourage students, uncle's support" },
   { src: "/community/teaching-party-donkorkrom.jpg", alt: "Party time with students in Bekwai Donkorkrom" },
   { src: "/community/teaching-empowered-dressing.jpg", alt: "Empowering students with good dressing" },
   { src: "/community/teaching-quiz.jpg", alt: "Night quiz and gift time" },
@@ -39,49 +39,49 @@ const PARTY_PHOTOS = [
 
 const STEM_PHOTOS = [
   { src: "/community/stem-excursion-main.jpg", alt: "STEM excursion with community children" },
-  { src: "/community/stem-grace-hospital.jpg", alt: "Grace Hospital Sefwi Bekwai — STEM visit" },
-  { src: "/community/stem-science-learning.jpg", alt: "Learning science in real life — hospital visit" },
+  { src: "/community/stem-grace-hospital.jpg", alt: "Grace Hospital Sefwi Bekwai, STEM visit" },
+  { src: "/community/stem-science-learning.jpg", alt: "Learning science in real life, hospital visit" },
   { src: "/community/stem-hospital-outreach.jpg", alt: "Hospital STEM outreach session" },
   { src: "/community/stem-dr-chichire.jpg", alt: "With Dr. Chichire in Bekwai hospital" },
-  { src: "/community/stem-excursion-1.jpg", alt: "STEM excursion — group photo" },
+  { src: "/community/stem-excursion-1.jpg", alt: "STEM excursion, group photo" },
   { src: "/community/stem-excursion-2.jpg", alt: "Students exploring the hospital" },
-  { src: "/community/stem-excursion-3.jpg", alt: "STEM learning — hospital environment" },
+  { src: "/community/stem-excursion-3.jpg", alt: "STEM learning, hospital environment" },
   { src: "/community/stem-community-excursion.jpg", alt: "Community STEM excursion" },
   { src: "/community/stem-excursion-7.jpg", alt: "Students discovering science" },
 ];
 
 const DANSOKROM_SANITATION = [
-  { src: "/community/sanitation-sweeping.jpg", alt: "Sweeping with community residents — DansoKrom" },
-  { src: "/community/sanitation-dansokrom-3.jpg", alt: "Community sanitation exercise — DansoKrom" },
+  { src: "/community/sanitation-sweeping.jpg", alt: "Sweeping with community residents, DansoKrom" },
+  { src: "/community/sanitation-dansokrom-3.jpg", alt: "Community sanitation exercise, DansoKrom" },
   { src: "/community/sanitation-dansokrom-4.jpg", alt: "Early morning cleanup, DansoKrom" },
   { src: "/community/sanitation-dansokrom-5.jpg", alt: "Group cleaning exercise" },
   { src: "/community/sanitation-dansokrom-6.jpg", alt: "Community sweeping together" },
   { src: "/community/sanitation-dansokrom-7.jpg", alt: "Residents engaged in sanitation drive" },
   { src: "/community/sanitation-dansokrom-8.jpg", alt: "Morning sanitation exercise" },
-  { src: "/community/sanitation-dansokrom-9.jpg", alt: "Community cleanup — DansoKrom streets" },
+  { src: "/community/sanitation-dansokrom-9.jpg", alt: "Community cleanup, DansoKrom streets" },
   { src: "/community/sanitation-dansokrom-10.jpg", alt: "Group sanitation work" },
-  { src: "/community/sanitation-after.jpg", alt: "After the cleaning exercise — DansoKrom" },
-  { src: "/community/sanitation-dansokrom-after2.jpg", alt: "Post-sanitation — clean community" },
+  { src: "/community/sanitation-after.jpg", alt: "After the cleaning exercise, DansoKrom" },
+  { src: "/community/sanitation-dansokrom-after2.jpg", alt: "Post-sanitation, clean community" },
   { src: "/community/sanitation-planning.jpg", alt: "Planning the morning sanitation exercise" },
 ];
 
 const SURANO_SANITATION = [
   { src: "/community/sanitation-surano-1.jpg", alt: "Surano B sanitation exercise" },
-  { src: "/community/sanitation-surano-3.jpg", alt: "Cleaning exercise — Surano B" },
+  { src: "/community/sanitation-surano-3.jpg", alt: "Cleaning exercise, Surano B" },
   { src: "/community/sanitation-surano-4.jpg", alt: "Community members cleaning together, Surano B" },
   { src: "/community/sanitation-surano-5.jpg", alt: "Surano B community cleanup" },
-  { src: "/community/sanitation-surano-6.jpg", alt: "Sanitation team — Surano B" },
+  { src: "/community/sanitation-surano-6.jpg", alt: "Sanitation team, Surano B" },
   { src: "/community/sanitation-surano-7.jpg", alt: "Early morning Surano B cleanup" },
   { src: "/community/sanitation-surano-8.jpg", alt: "Group sanitation work, Surano B" },
   { src: "/community/sanitation-surano-9.jpg", alt: "Community sanitation completion, Surano B" },
 ];
 
 const WATER_PHOTOS = [
-  { src: "/community/water-crisis-1.jpg", alt: "Community without clean water — Sefwi Bekwai area" },
-  { src: "/community/water-crisis-3.jpg", alt: "Water access survey — remote community" },
+  { src: "/community/water-crisis-1.jpg", alt: "Community without clean water, Sefwi Bekwai area" },
+  { src: "/community/water-crisis-3.jpg", alt: "Water access survey, remote community" },
   { src: "/community/water-crisis-4.jpg", alt: "Communities sharing streams with animals" },
   { src: "/community/water-crisis-5.jpg", alt: "Visiting communities without clean water" },
-  { src: "/community/water-crisis-6.jpg", alt: "Water source conditions — Sefwi Bekwai surrounding area" },
+  { src: "/community/water-crisis-6.jpg", alt: "Water source conditions, Sefwi Bekwai surrounding area" },
   { src: "/community/water-crisis-7.jpg", alt: "Community water access reality" },
   { src: "/community/water-crisis-8.jpg", alt: "Documenting water access challenges" },
   { src: "/community/water-crisis-9.jpg", alt: "Remote community water source" },
@@ -89,10 +89,10 @@ const WATER_PHOTOS = [
 ];
 
 const WINNEBA_PHOTOS = [
-  { src: "/community/winneba-sanitation-1.jpg", alt: "Personal sanitation volunteering — Winneba" },
+  { src: "/community/winneba-sanitation-1.jpg", alt: "Personal sanitation volunteering, Winneba" },
   { src: "/community/winneba-sanitation-2.jpg", alt: "Volunteering with Enock Asiako in Winneba" },
   { src: "/community/winneba-sanitation-3.jpg", alt: "Winneba sanitation exercise" },
-  { src: "/community/winneba-sanitation-4.jpg", alt: "Student volunteering — Winneba community" },
+  { src: "/community/winneba-sanitation-4.jpg", alt: "Student volunteering, Winneba community" },
   { src: "/community/winneba-sanitation-5.jpg", alt: "Community cleaning exercise in Winneba" },
   { src: "/community/winneba-sanitation-6.jpg", alt: "Personal volunteer sanitation, Winneba" },
   { src: "/community/winneba-sanitation-7.jpg", alt: "Volunteering together in Winneba" },
@@ -123,7 +123,7 @@ export default function CommunityDevelopmentPage() {
       <div className="relative h-[60vh] min-h-[400px] overflow-hidden">
         <Image
           src="/community/teaching-night.jpg"
-          alt="Night community teaching — Sefwi Bekwai area"
+          alt="Night community teaching, Sefwi Bekwai area"
           fill
           className="object-cover"
           priority
@@ -147,7 +147,7 @@ export default function CommunityDevelopmentPage() {
 
       <div className="mx-auto max-w-6xl px-5 pb-24 pt-16 md:px-8">
 
-        {/* Teaching — COVID-19 */}
+        {/* Teaching, COVID-19 */}
         <div>
           <div className="flex items-center gap-3">
             <span className="grid h-8 w-8 place-items-center rounded-full bg-[#3a78e0] text-xs font-black text-white">4</span>
@@ -161,7 +161,7 @@ export default function CommunityDevelopmentPage() {
           <div className="mt-5 grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-start">
             <p className="text-base leading-8 text-body">
               When schools closed across Ghana during the COVID-19 pandemic, Richard organised and
-              delivered free volunteer teaching sessions across the Sefwi Bekwai area — at
+              delivered free volunteer teaching sessions across the Sefwi Bekwai area, at
               DonkorKrom, Barkokrom, Sukuuku, Lowcost, Bekwai Township, and Apemkrom. He held
               night classes to accommodate children whose days were occupied with household
               responsibilities, and morning sessions for younger learners. He organised quizzes,
@@ -204,7 +204,7 @@ export default function CommunityDevelopmentPage() {
           <p className="mt-4 max-w-3xl text-base leading-8 text-amber-900">
             Attendance is a solved problem when children feel celebrated. Richard organised quiz
             nights with prizes, held parties with the support of community elders, and brought
-            in resources to reward consistency. These were not extras — they were essential tools
+            in resources to reward consistency. These were not extras, they were essential tools
             for building trust and sustaining engagement in communities where education had been
             interrupted.
           </p>
@@ -226,11 +226,11 @@ export default function CommunityDevelopmentPage() {
             </p>
           </div>
           <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-ink md:text-4xl">
-            STEM excursion — learning science in real life.
+            STEM excursion, learning science in real life.
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-8 text-body">
             Richard organised STEM excursions with community children to Grace Hospital in Sefwi
-            Bekwai and surrounding health facilities — giving children a chance to see science,
+            Bekwai and surrounding health facilities, giving children a chance to see science,
             medicine, and technology in practice. Working with Dr. Chichire and hospital staff,
             the excursions made abstract concepts tangible and introduced children to professional
             paths they had never been shown. Science is not a subject if you can see it working
@@ -265,7 +265,7 @@ export default function CommunityDevelopmentPage() {
               Teaching communication skills through community radio.
             </h2>
             <p className="mt-4 text-base leading-8 text-body">
-              Richard organised a community radio communication skills programme — teaching young
+              Richard organised a community radio communication skills programme, teaching young
               people how to articulate ideas, participate in public discourse, and use media as a
               tool for community development. In communities where radio is the primary information
               medium, this was not a soft skill. It was access to a platform.
@@ -283,11 +283,11 @@ export default function CommunityDevelopmentPage() {
             </p>
           </div>
           <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-ink md:text-4xl">
-            Community sanitation exercise — DansoKrom, Sefwi Bekwai.
+            Community sanitation exercise, DansoKrom, Sefwi Bekwai.
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-8 text-body">
             Richard organised and participated in a community town sanitation exercise at DansoKrom
-            in the Sefwi Bekwai area — mobilising residents to clean public spaces, streets, and
+            in the Sefwi Bekwai area, mobilising residents to clean public spaces, streets, and
             community areas. This was early January 2020, before COVID-19 made hygiene an
             emergency. Richard was already treating it as a community priority. Development begins
             with the dignity of a clean environment.
@@ -314,8 +314,7 @@ export default function CommunityDevelopmentPage() {
             Surano B sanitation and cleaning exercise.
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-8 text-body">
-            The Sefwi Bekwai Surano B sanitation exercise followed the DansoKrom drive —
-            demonstrating that this was not a one-time initiative but a deliberate pattern. Richard
+            The Sefwi Bekwai Surano B sanitation exercise followed the DansoKrom drive, demonstrating that this was not a one-time initiative but a deliberate pattern. Richard
             was systematically working through the communities surrounding Sefwi Bekwai,
             mobilising residents, setting an example, and building the expectation that
             communities can and should take collective responsibility for their environments.
@@ -342,7 +341,7 @@ export default function CommunityDevelopmentPage() {
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-8 text-on-dark-muted">
             Richard visited remote communities in the Sefwi Bekwai area and the 31 surrounding
-            communities where residents shared streams and water sources with animals — places that
+            communities where residents shared streams and water sources with animals, places that
             had never received adequate attention from district authorities. These visits were acts
             of documentation and advocacy: seeing and recording the reality of water access in
             communities that statistics miss. When Richard talks about AI for development, clean
@@ -375,7 +374,7 @@ export default function CommunityDevelopmentPage() {
           <div className="mt-5 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
             <p className="text-base leading-8 text-body">
               Even while studying at the University of Education, Winneba, Richard continued
-              volunteering in community development — joining a sanitation exercise with his friend
+              volunteering in community development, joining a sanitation exercise with his friend
               Enock Asiako in Winneba as a Level 200 student. This was not organised under any
               formal platform: it was a personal choice, made before BYM existed and before the
               work had a name. The pattern of showing up and doing the work preceded all
@@ -410,7 +409,7 @@ export default function CommunityDevelopmentPage() {
             </div>
             <p className="text-base leading-8 text-body">
               Richard volunteered at a school outreach initiative at the Roman Catholic Church in
-              Sefwi Bekwai — empowering school children through sessions on education, aspiration,
+              Sefwi Bekwai, empowering school children through sessions on education, aspiration,
               and community responsibility. Using church premises as a community learning space
               reflects Richard&apos;s early insight: you use the infrastructure that exists, not
               the infrastructure you wish you had. Every space is a classroom when the work is real.
@@ -424,8 +423,7 @@ export default function CommunityDevelopmentPage() {
             SDG Alignment
           </p>
           <p className="mt-3 max-w-2xl text-base leading-8 text-body">
-            Every initiative on this page maps directly to the UN Sustainable Development Goals —
-            not as a retroactive label, but as a description of what the work was always about.
+            Every initiative on this page maps directly to the UN Sustainable Development Goals, not as a retroactive label, but as a description of what the work was always about.
           </p>
           <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-5">
             {SDG_TAGS.map((sdg) => (

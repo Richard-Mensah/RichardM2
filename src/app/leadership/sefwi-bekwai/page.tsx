@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const CHURCH_PHOTOS = [
-  { src: "/leadership/church-congregation-1.jpg", alt: "Church community congregation — Sefwi Bekwai" },
+  { src: "/leadership/church-congregation-1.jpg", alt: "Church community congregation, Sefwi Bekwai" },
   { src: "/leadership/church-congregation-2.jpg", alt: "Church education and civic sensitisation" },
   { src: "/leadership/church-congregation-3.jpg", alt: "Church campaign engagement session" },
   { src: "/leadership/church-camp.jpg", alt: "Church camp and community education" },
@@ -17,14 +17,14 @@ const CHURCH_PHOTOS = [
 ];
 
 const CHURCH_DENOMINATIONS = [
-  { src: "/leadership/church-cac-bekwai.jpg", alt: "CAC Bekwai — Christ Apostolic Church" },
+  { src: "/leadership/church-cac-bekwai.jpg", alt: "CAC Bekwai, Christ Apostolic Church" },
   { src: "/leadership/church-cop.jpg", alt: "Church of Pentecost (COP)" },
   { src: "/leadership/church-methodist.jpg", alt: "Methodist Church community session" },
   { src: "/leadership/church-1.jpg", alt: "Community church civic education" },
 ];
 
 const BYM_PHOTOS = [
-  { src: "/leadership/bym-team-1.jpg", alt: "Sefwi Bekwai Youth Movement — founding team" },
+  { src: "/leadership/bym-team-1.jpg", alt: "Sefwi Bekwai Youth Movement, founding team" },
   { src: "/leadership/bym-community-1.jpg", alt: "BYM team and community gathering" },
   { src: "/leadership/bym-action-plan.jpg", alt: "BYM action planning session" },
   { src: "/leadership/bym-media-engagement.jpg", alt: "BYM media engagement on community project" },
@@ -33,7 +33,7 @@ const BYM_PHOTOS = [
 ];
 
 const UNYA_PHOTOS = [
-  { src: "/leadership/unya-parliament-house.jpg", alt: "UNYA-Ghana Youth Parliament — Parliament House, Accra" },
+  { src: "/leadership/unya-parliament-house.jpg", alt: "UNYA-Ghana Youth Parliament, Parliament House, Accra" },
   { src: "/leadership/unya-parliament-1.jpg", alt: "UNYA-Ghana Parliamentary engagement session" },
   { src: "/leadership/unya-parliament-7.jpg", alt: "UNYA Youth Parliament national gathering" },
   { src: "/leadership/unya-parliament-8.jpg", alt: "UNYA-Ghana Parliament activities" },
@@ -45,11 +45,11 @@ const UNYA_PHOTOS = [
 
 const PEACE_PHOTOS = [
   { src: "/leadership/nussa-peace-campaign.jpg", alt: "NUSSA national peace campaign" },
-  { src: "/leadership/peace-campaign.jpg", alt: "Peace campaign — Western North Region" },
+  { src: "/leadership/peace-campaign.jpg", alt: "Peace campaign, Western North Region" },
   { src: "/leadership/wiawso-peace.jpg", alt: "Sefwi Wiawso peace campaign" },
   { src: "/leadership/peace-radio.jpg", alt: "Radio peace talk with regional media" },
   { src: "/leadership/wiawso-radio-tour.jpg", alt: "Western North Sefwi Wiawso radio tour with colleagues" },
-  { src: "/leadership/bibiani-ncce.jpg", alt: "Working with Bibiani NCCE — civic education" },
+  { src: "/leadership/bibiani-ncce.jpg", alt: "Working with Bibiani NCCE, civic education" },
   { src: "/leadership/sensitization-1.jpg", alt: "Community sensitisation programme" },
 ];
 
@@ -70,7 +70,7 @@ export default function SefwiBekwaiPage() {
       <div className="relative h-[60vh] min-h-[420px] overflow-hidden">
         <Image
           src="/leadership/bym-media-engagement.jpg"
-          alt="Sefwi Bekwai Youth Movement — media engagement"
+          alt="Sefwi Bekwai Youth Movement, media engagement"
           fill
           className="object-cover"
           priority
@@ -86,7 +86,7 @@ export default function SefwiBekwaiPage() {
           <p className="mt-4 max-w-2xl text-lg leading-8 text-on-dark-muted">
             Before the international platforms and the AI research, Richard spent years building
             civic identity through churches, community halls, and district assemblies across
-            Ghana&apos;s Western North Region — learning that lasting change requires organised
+            Ghana&apos;s Western North Region, learning that lasting change requires organised
             structure, not good intentions alone.
           </p>
         </div>
@@ -107,7 +107,7 @@ export default function SefwiBekwaiPage() {
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-8 text-body">
             Richard&apos;s civic journey began in churches across Sefwi Bekwai and the Western North
-            Region — not as a recipient but as an organiser. He led sensitisation sessions on youth
+            Region, not as a recipient but as an organiser. He led sensitisation sessions on youth
             development, education, and community responsibility inside congregations that trusted him
             with their platforms. The Church of Pentecost, Methodist Church, CAC Bekwai, and others
             became the first institutions that gave him a room full of people and a message to deliver.
@@ -146,7 +146,7 @@ export default function SefwiBekwaiPage() {
               with regional media across the Western North Region, and collaborated with Ghana&apos;s
               National Commission for Civic Education (NCCE) in Bibiani Anhwiaso. In a region where
               electoral tension and civic mistrust can derail development, building peace infrastructure
-              is not peripheral — it is foundational. These campaigns connected Richard to district
+              is not peripheral, it is foundational. These campaigns connected Richard to district
               governance structures, regional media houses, and civic leaders who later became
               partners in his youth work.
             </p>
@@ -181,14 +181,14 @@ export default function SefwiBekwaiPage() {
                 Co-founding the Sefwi Bekwai Youth Movement.
               </h2>
               <p className="mt-5 text-base leading-8 text-body">
-                In 2019, Richard co-founded the Sefwi Bekwai Youth Movement (BYM) — a grassroots
+                In 2019, Richard co-founded the Sefwi Bekwai Youth Movement (BYM), a grassroots
                 platform designed to organise, inform, and mobilise young people across the Sefwi
                 Bekwai district of Ghana&apos;s Western North Region. BYM was built on a core
                 conviction: informal gatherings don&apos;t produce lasting change. Only structured
                 youth platforms with clear mandates, media presence, and institutional linkages do.
                 BYM held community events, engaged regional media, and created space for youth voices
                 in local development conversations. It later evolved into the Sefwi Bekwai Youth
-                Parliament — with democratic processes and a formal mandate to engage the district
+                Parliament, with democratic processes and a formal mandate to engage the district
                 assembly.
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
@@ -218,7 +218,7 @@ export default function SefwiBekwaiPage() {
             </p>
           </div>
           <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-white md:text-4xl">
-            UNYA-Ghana Youth Parliament — Parliament House, Accra.
+            UNYA-Ghana Youth Parliament, Parliament House, Accra.
           </h2>
           <p className="mt-5 max-w-3xl text-base leading-8 text-on-dark-muted">
             Richard joined the United Nations Youth Association Ghana (UNYA-Ghana) Youth Parliament,
@@ -226,7 +226,7 @@ export default function SefwiBekwaiPage() {
             with parliamentary processes at Parliament House in Accra, contributed to national youth
             policy discussions, and built cross-regional networks that connected local grassroots
             work to national governance structures. He also visited the Paramount Chief of Sefwi
-            Anhwiawso-Bibiani — recognising that community development requires traditional authority
+            Anhwiawso-Bibiani, recognising that community development requires traditional authority
             as much as institutional legitimacy.
           </p>
           <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
@@ -264,8 +264,8 @@ export default function SefwiBekwaiPage() {
               <p className="mt-5 text-base leading-8 text-body">
                 Elected to the Bibiani Anhwiaso Municipal Youth Parliament, Richard deepened his
                 engagement with local government and district-level policy processes. This institutional
-                fluency — understanding how district assemblies function, how motions are debated,
-                how decisions filter into budgets and services — directly informed his later work on
+                fluency, understanding how district assemblies function, how motions are debated,
+                how decisions filter into budgets and services, directly informed his later work on
                 AI governance frameworks and accountability systems for community-led programmes.
                 Local governance is where the abstract becomes real.
               </p>
@@ -288,7 +288,7 @@ export default function SefwiBekwaiPage() {
               </h2>
               <p className="mt-5 text-base leading-8 text-body">
                 While studying at the University of Education, Winneba, Richard founded the Ubuntu
-                UEW Chapter — a peer network grounded in the African philosophy of Ubuntu: &ldquo;I
+                UEW Chapter, a peer network grounded in the African philosophy of Ubuntu: &ldquo;I
                 am because we are.&rdquo; The chapter created space for students to support each
                 other through shared knowledge, collaborative study, and mutual accountability. This
                 experience in peer-led learning systems became one of the structural models that
@@ -324,12 +324,12 @@ export default function SefwiBekwaiPage() {
               </h2>
               <p className="mt-5 text-base leading-8 text-body">
                 In 2021, Richard travelled to Accra to visit UN organisations and international
-                institutions — not as a delegate but as a young person with ideas and the confidence
+                institutions, not as a delegate but as a young person with ideas and the confidence
                 to present them. These visits to international offices demonstrated something important:
                 the ideas Richard had been developing in Sefwi Bekwai&apos;s churches, community
                 halls, and youth parliaments were coherent enough to present on a global stage.
-                This moment of being received seriously — of having a conversation with international
-                institutions — became a turning point. The world was bigger than the Western North
+                This moment of being received seriously, of having a conversation with international
+                institutions, became a turning point. The world was bigger than the Western North
                 Region, and it was accessible.
               </p>
             </div>
@@ -348,8 +348,7 @@ export default function SefwiBekwaiPage() {
             The church sensitisations taught communication. BYM taught structure and accountability.
             UNYA-Ghana taught how institutions work from the inside. The Ubuntu chapter taught
             peer learning. The UN organisation visits proved the ideas were globally relevant.
-            Together, they gave Richard the conviction to build EGA Mentorship International —
-            a programme designed to remove the friction between ambition and access for young
+            Together, they gave Richard the conviction to build EGA Mentorship International, a programme designed to remove the friction between ambition and access for young
             Africans everywhere.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">

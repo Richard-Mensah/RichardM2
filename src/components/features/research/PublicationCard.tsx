@@ -29,7 +29,7 @@ export default function PublicationCard({ pub }: { pub: Publication }) {
           {pub.title}
         </h3>
         <p className="mt-1.5 text-sm font-semibold text-ink-soft">
-          {pub.authors} &mdash; <span className="italic">{pub.venue}</span>
+          {pub.authors}, <span className="italic">{pub.venue}</span>
         </p>
         <p className="mt-3 text-sm leading-7 text-body">{pub.abstract}</p>
         <div className="mt-4 flex flex-wrap gap-2">

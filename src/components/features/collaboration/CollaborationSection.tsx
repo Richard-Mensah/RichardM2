@@ -33,7 +33,7 @@ export default function CollaborationSection() {
                     className="h-2 w-2 rounded-full shrink-0"
                     style={{ backgroundColor: goal.color }}
                   />
-                  {goal.code} — {goal.title}
+                  {goal.code}, {goal.title}
                 </div>
               ))}
             </div>

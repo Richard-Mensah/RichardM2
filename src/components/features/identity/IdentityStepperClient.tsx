@@ -53,7 +53,7 @@ export default function IdentityStepperClient({ items }: Props) {
                   <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl border border-line shadow-md">
                     <Image
                       src="/my image.jpg"
-                      alt="Richard Mensah — global impact"
+                      alt="Richard Mensah, global impact"
                       fill
                       className="object-cover"
                       sizes="56px"

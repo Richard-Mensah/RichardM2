@@ -32,7 +32,7 @@ export default function SkillsMatrix() {
               A technical toolkit built for real-world impact
             </h2>
             <p className="mt-5 max-w-md text-base leading-8 text-on-dark-muted">
-              Equally at home in a research notebook and a production codebase â€” from model design
+              Equally at home in a research notebook and a production codebase, from model design
               to deployed application, and from data pipeline to programme delivery.
             </p>
             <a

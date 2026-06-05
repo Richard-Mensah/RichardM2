@@ -16,7 +16,7 @@ export default function AudiencePathways() {
         <div className="flex flex-col gap-3 text-center">
           <p className="eyebrow">Find your next step</p>
           <h2 className="font-display text-3xl font-bold tracking-[-0.035em] text-ink md:text-4xl">
-            However you found your way here, let me point you to what matters most to you
+            I welcome you here, let me point you to what matters most in my career and commitment to sustainable development
           </h2>
         </div>
 
