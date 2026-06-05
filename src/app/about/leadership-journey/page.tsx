@@ -42,26 +42,26 @@ export default function LeadershipJourneyPage() {
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#0B1F3A] px-5 py-16 md:px-8 md:py-24">
+      <section className="relative overflow-hidden bg-navy-950 px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-7xl">
           <Link
             href="/about"
-            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#7fb0ff] transition hover:text-white"
+            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-accent-soft transition hover:text-white"
           >
             ← About Richard
           </Link>
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7fb0ff]">Leadership Journey</p>
-          <h1 className="mt-4 max-w-3xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-white md:text-6xl">
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-soft">Leadership Journey</p>
+          <h1 className="font-display mt-4 max-w-3xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-white md:text-6xl">
             From village roads to global stages.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-on-dark-muted">
             The leadership journey did not begin in a boardroom or a lecture hall. It began on
             a family motorbike, riding into communities that had no clean water, no functioning
             schools, and no one coming to help. What Richard found there shaped everything that
             came after.
           </p>
 
-          <blockquote className="mt-10 border-l-4 border-[#7fb0ff] pl-6">
+          <blockquote className="mt-10 border-l-4 border-accent-soft pl-6">
             <p className="text-xl font-black italic leading-relaxed text-white md:text-2xl">
               &ldquo;The work that no one sees is the work that builds the character behind the
               work that everyone eventually notices.&rdquo;
@@ -71,18 +71,18 @@ export default function LeadershipJourneyPage() {
       </section>
 
       {/* ── Early roots ───────────────────────────────────────────── */}
-      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-surface px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-start">
             <div>
               <div className="flex items-center gap-4">
-                <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-[#4f8bff] text-sm font-black text-white">1</div>
-                <p className="text-xs font-black uppercase tracking-[0.25em] text-[#4f8bff]">Early Beginnings · Ghana</p>
+                <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-navy-950 text-sm font-black text-white">1</div>
+                <p className="text-xs font-black uppercase tracking-[0.25em] text-accent-strong">Early Beginnings · Ghana</p>
               </div>
-              <h2 className="mt-5 text-balance text-2xl font-black tracking-[-0.03em] text-white md:text-3xl">
+              <h2 className="font-display mt-5 text-balance text-2xl font-black tracking-[-0.03em] text-ink md:text-3xl">
                 Community roots and the leadership instinct.
               </h2>
-              <div className="mt-6 space-y-5 text-base leading-8 text-[#a9bcdc]">
+              <div className="mt-6 space-y-5 text-base leading-8 text-body">
                 <p>
                   Richard&apos;s leadership story began in the Western North Region of Ghana. Before
                   any formal title or programme, he was already making choices that leaders make:
@@ -112,16 +112,16 @@ export default function LeadershipJourneyPage() {
       </section>
 
       {/* ── Communities with no water ─────────────────────────────── */}
-      <section className="bg-[#0B1F3A] px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-navy-950 px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="flex items-center gap-4">
-            <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-[#7fb0ff] text-sm font-black text-[#0B1F3A]">2</div>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#7fb0ff]">Into the Communities</p>
+            <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-accent-soft text-sm font-black text-navy-950">2</div>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-accent-soft">Into the Communities</p>
           </div>
-          <h2 className="mt-5 max-w-2xl text-balance text-2xl font-black tracking-[-0.03em] text-white md:text-3xl">
+          <h2 className="font-display mt-5 max-w-2xl text-balance text-2xl font-black tracking-[-0.03em] text-white md:text-3xl">
             Riding into villages with no clean water, on a family motorbike.
           </h2>
-          <div className="mt-6 max-w-2xl space-y-5 text-base leading-8 text-slate-300">
+          <div className="mt-6 max-w-2xl space-y-5 text-base leading-8 text-on-dark-muted">
             <p>
               During his time in Sefwi Bekwai, Richard visited many surrounding communities
               that had no access to safe drinking water. Riding on a family motorbike, he
@@ -156,7 +156,7 @@ export default function LeadershipJourneyPage() {
       </section>
 
       {/* ── Sanitation drives ─────────────────────────────────────── */}
-      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-surface px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
             <div>
@@ -164,10 +164,10 @@ export default function LeadershipJourneyPage() {
                 <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-[#10B981] text-sm font-black text-white">3</div>
                 <p className="text-xs font-black uppercase tracking-[0.25em] text-[#10B981]">Community Action</p>
               </div>
-              <h2 className="mt-5 text-balance text-2xl font-black tracking-[-0.03em] text-white md:text-3xl">
+              <h2 className="font-display mt-5 text-balance text-2xl font-black tracking-[-0.03em] text-ink md:text-3xl">
                 Motivating communities for sanitation, one exercise at a time.
               </h2>
-              <div className="mt-6 space-y-5 text-base leading-8 text-[#a9bcdc]">
+              <div className="mt-6 space-y-5 text-base leading-8 text-body">
                 <p>
                   Richard organised and participated in sanitation exercises across DansoKrom and
                   Surano B in the Sefwi Bekwai area. These were not symbolic events. They were
@@ -204,17 +204,17 @@ export default function LeadershipJourneyPage() {
       </section>
 
       {/* ── COVID teaching ────────────────────────────────────────── */}
-      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-surface-muted px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="flex items-center gap-4">
-            <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-[#4f8bff] text-sm font-black text-white">4</div>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#4f8bff]">Volunteer Teaching</p>
+            <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-navy-950 text-sm font-black text-white">4</div>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-accent-strong">Volunteer Teaching</p>
           </div>
-          <h2 className="mt-5 max-w-2xl text-balance text-2xl font-black tracking-[-0.03em] text-white md:text-3xl">
+          <h2 className="font-display mt-5 max-w-2xl text-balance text-2xl font-black tracking-[-0.03em] text-ink md:text-3xl">
             When schools closed during COVID-19, Richard opened his own.
           </h2>
           <div className="mt-8 grid gap-10 lg:grid-cols-[0.9fr_1fr] lg:items-start">
-            <div className="space-y-5 text-base leading-8 text-[#a9bcdc]">
+            <div className="space-y-5 text-base leading-8 text-body">
               <p>
                 When COVID-19 forced schools to close across Ghana in 2020, Richard did not
                 wait. He organised free morning and night teaching sessions in multiple
@@ -256,16 +256,16 @@ export default function LeadershipJourneyPage() {
       </section>
 
       {/* ── Youth movements ───────────────────────────────────────── */}
-      <section className="bg-[#0B1F3A] px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-navy-950 px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="flex items-center gap-4">
-            <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-[#4f8bff] text-sm font-black text-white">5</div>
-            <p className="text-xs font-black uppercase tracking-[0.25em] text-[#7fb0ff]">Youth Movements</p>
+            <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-accent-soft text-sm font-black text-navy-950">5</div>
+            <p className="text-xs font-black uppercase tracking-[0.25em] text-accent-soft">Youth Movements</p>
           </div>
-          <h2 className="mt-5 max-w-2xl text-balance text-2xl font-black tracking-[-0.03em] text-white md:text-3xl">
+          <h2 className="font-display mt-5 max-w-2xl text-balance text-2xl font-black tracking-[-0.03em] text-white md:text-3xl">
             Co-founding the Sefwi Bekwai Youth Movement and reaching Parliament House.
           </h2>
-          <div className="mt-6 max-w-2xl space-y-5 text-base leading-8 text-slate-300">
+          <div className="mt-6 max-w-2xl space-y-5 text-base leading-8 text-on-dark-muted">
             <p>
               Richard co-founded the Sefwi Bekwai Youth Movement, a grassroots platform to
               organise and empower youth in his district. This evolved into the Sefwi Bekwai
@@ -300,7 +300,7 @@ export default function LeadershipJourneyPage() {
       </section>
 
       {/* ── Academic and UK ───────────────────────────────────────── */}
-      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
+      <section className="bg-surface px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
@@ -308,10 +308,10 @@ export default function LeadershipJourneyPage() {
                 <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-[#8B5CF6] text-sm font-black text-white">6</div>
                 <p className="text-xs font-black uppercase tracking-[0.25em] text-[#8B5CF6]">Academic and Professional · UK</p>
               </div>
-              <h2 className="mt-5 text-balance text-2xl font-black tracking-[-0.03em] text-white md:text-3xl">
+              <h2 className="font-display mt-5 text-balance text-2xl font-black tracking-[-0.03em] text-ink md:text-3xl">
                 Expanding the lens through global institutions.
               </h2>
-              <div className="mt-6 space-y-5 text-base leading-8 text-[#a9bcdc]">
+              <div className="mt-6 space-y-5 text-base leading-8 text-body">
                 <p>
                   Moving to the United Kingdom opened Richard to new intellectual environments,
                   policy frameworks, and research methodologies. He engaged with institutions
@@ -325,10 +325,10 @@ export default function LeadershipJourneyPage() {
                 <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-[#EF4444] text-sm font-black text-white">7</div>
                 <p className="text-xs font-black uppercase tracking-[0.25em] text-[#EF4444]">Cross-Border and Ongoing</p>
               </div>
-              <h2 className="mt-5 text-balance text-2xl font-black tracking-[-0.03em] text-white md:text-3xl">
+              <h2 className="font-display mt-5 text-balance text-2xl font-black tracking-[-0.03em] text-ink md:text-3xl">
                 Connecting Ghana, the UK, and global partners.
               </h2>
-              <div className="mt-6 space-y-5 text-base leading-8 text-[#a9bcdc]">
+              <div className="mt-6 space-y-5 text-base leading-8 text-body">
                 <p>
                   Richard has built a network of 65+ mentors, professionals, researchers, founders,
                   and civic leaders across the globe. He has travelled to 8 countries for
@@ -342,14 +342,14 @@ export default function LeadershipJourneyPage() {
       </section>
 
       {/* ── EGA lead-in ───────────────────────────────────────────── */}
-      <section className="bg-[#4f8bff] px-5 py-14 md:px-8">
+      <section className="bg-navy-950 px-5 py-14 md:px-8">
         <div className="mx-auto flex max-w-7xl flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-xl">
             <p className="text-xs font-black uppercase tracking-[0.3em] text-white/70">What it built</p>
-            <h2 className="mt-3 text-balance text-2xl font-black leading-tight text-white md:text-3xl">
+            <h2 className="font-display mt-3 text-balance text-2xl font-black leading-tight text-white md:text-3xl">
               Everything above was the foundation for EGA Mentorship International.
             </h2>
-            <p className="mt-4 text-base leading-7 text-white/85">
+            <p className="mt-4 text-base leading-7 text-on-dark-muted">
               One of Richard&apos;s most sustained contributions has been helping establish and
               grow EGA Mentorship International, a programme now supporting hundreds of young
               people seeking academic and professional advancement. He has helped more than
@@ -360,7 +360,7 @@ export default function LeadershipJourneyPage() {
           <div className="flex flex-shrink-0 flex-col gap-3 sm:flex-row">
             <Link
               href="/leadership/ega"
-              className="whitespace-nowrap rounded-full bg-white px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-[#4f8bff] shadow-lg transition hover:-translate-y-0.5 hover:bg-white/5"
+              className="whitespace-nowrap rounded-full bg-white px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-navy-950 shadow-lg transition hover:-translate-y-0.5 hover:bg-white/90"
             >
               Explore EGA
             </Link>

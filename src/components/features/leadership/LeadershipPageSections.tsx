@@ -30,16 +30,16 @@ const HUB_CARDS = [
 
 export default function LeadershipPageSections() {
   return (
-    <section className="bg-slate-950 px-5 py-20 md:px-8">
+    <section className="bg-navy-950 px-5 py-20 md:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-14">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#4f8bff]">
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-soft">
             Leadership · Community · Institution-Building
           </p>
-          <h2 className="mt-4 max-w-3xl text-balance text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
+          <h2 className="mt-4 max-w-3xl text-balance text-4xl font-black font-display tracking-[-0.04em] text-white md:text-5xl">
             Three chapters. One continuous commitment.
           </h2>
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-on-dark-muted">
             Richard&apos;s leadership is not a single thread — it is a braid. Grassroots community
             work, institutional youth advocacy, and international mentorship, built over a decade
             and still active today.
@@ -51,7 +51,7 @@ export default function LeadershipPageSections() {
             <Link
               key={card.href}
               href={card.href}
-              className="group relative flex flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-slate-900 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-2xl"
+              className="group relative flex flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-navy-900 transition duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-2xl"
             >
               <div className="relative h-56 overflow-hidden">
                 <Image
@@ -60,7 +60,7 @@ export default function LeadershipPageSections() {
                   fill
                   className="object-cover transition duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/30 to-transparent" />
                 <span
                   className="absolute left-5 top-5 rounded-full px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-white"
                   style={{ backgroundColor: card.accent }}
@@ -71,7 +71,7 @@ export default function LeadershipPageSections() {
 
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="text-xl font-black tracking-[-0.03em] text-white">{card.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-7 text-slate-300">{card.body}</p>
+                <p className="mt-3 flex-1 text-sm leading-7 text-on-dark-muted">{card.body}</p>
                 <div className="mt-6 flex items-center gap-2 text-sm font-black uppercase tracking-[0.15em]" style={{ color: card.accent }}>
                   <span>Explore</span>
                   <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
@@ -84,7 +84,7 @@ export default function LeadershipPageSections() {
         <div className="mt-10 flex flex-wrap gap-4">
           <Link
             href="/leadership/journey"
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:border-white/40 hover:bg-white/5"
+            className="btn-ghost"
           >
             <span>Download Full Leadership Journey</span>
             <span>↓</span>

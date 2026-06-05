@@ -39,8 +39,8 @@ export default function LeadershipAccordionClient({ tracks }: Props) {
               <p className="flex-1 text-base font-bold leading-7 text-white">{track}</p>
               <span
                 className={cn(
-                  "shrink-0 text-[#7e92b6] transition duration-200 text-lg leading-none",
-                  isOpen && "rotate-180 text-[#26BDE2]"
+                  "shrink-0 text-on-dark-muted transition duration-200 text-lg leading-none",
+                  isOpen && "rotate-180 text-accent-soft"
                 )}
                 aria-hidden="true"
               >
@@ -50,7 +50,7 @@ export default function LeadershipAccordionClient({ tracks }: Props) {
 
             <div className={cn("accordion-grid", isOpen && "open")}>
               <div className="accordion-inner">
-                <p className="pb-5 pl-[4.25rem] pr-5 text-sm leading-7 text-[#7e92b6]">
+                <p className="pb-5 pl-[4.25rem] pr-5 text-sm leading-7 text-on-dark-muted">
                   {TRACK_DETAILS[index]}
                 </p>
               </div>

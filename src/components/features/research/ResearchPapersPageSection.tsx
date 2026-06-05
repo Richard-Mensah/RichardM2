@@ -21,11 +21,11 @@ export default function ResearchPapersPageSection() {
       <div className="relative mx-auto max-w-5xl">
 
         {/* Hero */}
-        <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#4f8bff]">Research Papers</p>
-        <h1 className="mt-4 text-balance text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
+        <p className="text-xs font-bold uppercase tracking-[0.32em] text-accent-strong">Research Papers</p>
+        <h1 className="mt-4 text-balance text-4xl font-bold font-display tracking-[-0.02em] text-ink md:text-5xl">
           Working papers and applied research.
         </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-[#a9bcdc]">
+        <p className="mt-5 max-w-3xl text-base leading-7 text-body">
           Working drafts and applied research spanning NLP, climate AI, human-centred design, and
           institutional governance — written to inform practice. These are working papers shared
           openly for discussion and review, not peer-reviewed journal publications.
@@ -40,14 +40,14 @@ export default function ResearchPapersPageSection() {
             >
               {FEATURED.type}
             </span>
-            <span className="ml-3 text-xs font-bold text-[#7e92b6]">{FEATURED.year}</span>
-            <h2 className="mt-4 text-xl font-black leading-snug text-white">
+            <span className="ml-3 text-xs font-bold text-muted">{FEATURED.year}</span>
+            <h2 className="mt-4 text-xl font-black leading-snug text-ink">
               {FEATURED.title}
             </h2>
-            <p className="mt-2 text-sm font-semibold text-[#8aa0c4]">
+            <p className="mt-2 text-sm font-semibold text-ink-soft">
               {FEATURED.authors} &mdash; <span className="italic">{FEATURED.venue}</span>
             </p>
-            <p className="mt-4 text-sm leading-7 text-[#a9bcdc]">{FEATURED.abstract}</p>
+            <p className="mt-4 text-sm leading-7 text-body">{FEATURED.abstract}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {FEATURED.tags.map((tag) => (
                 <span
@@ -86,10 +86,10 @@ export default function ResearchPapersPageSection() {
                     >
                       {pub.type}
                     </span>
-                    <span className="text-xs font-bold text-[#7e92b6]">{pub.year}</span>
+                    <span className="text-xs font-bold text-muted">{pub.year}</span>
                   </div>
-                  <h3 className="mt-3 text-base font-black leading-snug text-white">{pub.title}</h3>
-                  <p className="mt-1 text-xs italic text-[#8aa0c4]">{pub.venue}</p>
+                  <h3 className="mt-3 text-base font-black leading-snug text-ink">{pub.title}</h3>
+                  <p className="mt-1 text-xs italic text-muted">{pub.venue}</p>
                 </div>
               </div>
             ))}
@@ -97,13 +97,13 @@ export default function ResearchPapersPageSection() {
         )}
 
         {/* Research agenda */}
-        <div className="mt-12 rounded-2xl border border-[#4f8bff]/20 bg-transparent p-8">
-          <p className="text-xs font-black uppercase tracking-[0.26em] text-[#4f8bff]">Current research agenda</p>
-          <h2 className="mt-3 text-xl font-black text-white">What Richard is working on now</h2>
+        <div className="mt-12 rounded-2xl border border-line bg-transparent p-8">
+          <p className="text-xs font-black uppercase tracking-[0.26em] text-accent-strong">Current research agenda</p>
+          <h2 className="mt-3 text-xl font-black text-ink">What Richard is working on now</h2>
           <ul className="mt-5 space-y-3">
             {AGENDA.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-sm leading-6 text-[#cdd9ee]">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#4f8bff]" />
+              <li key={item} className="flex items-start gap-3 text-sm leading-6 text-body">
+                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-strong" />
                 {item}
               </li>
             ))}
@@ -112,15 +112,15 @@ export default function ResearchPapersPageSection() {
 
         {/* CTA */}
         <div className="mt-12 rounded-2xl bg-transparent p-8">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#4f8bff]">Collaborate</p>
-          <p className="mt-3 text-base leading-7 text-[#a9bcdc]">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-accent-strong">Collaborate</p>
+          <p className="mt-3 text-base leading-7 text-body">
             Interested in proposing a joint research project or providing peer review?
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/contact" className="rounded-full bg-[#4f8bff] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#007DB8]">
+            <Link href="/contact" className="btn-primary rounded-full px-6 py-2.5 text-sm font-black">
               Get in touch
             </Link>
-            <Link href="/research" className="rounded-full border border-white/15 px-6 py-2.5 text-sm font-black text-[#cdd9ee] transition hover:border-slate-400">
+            <Link href="/research" className="btn-ghost rounded-full px-6 py-2.5 text-sm font-black">
               Back to Research Hub
             </Link>
           </div>

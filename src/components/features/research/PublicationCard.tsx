@@ -23,15 +23,15 @@ export default function PublicationCard({ pub }: { pub: Publication }) {
           >
             {pub.type}
           </span>
-          <span className="text-xs font-bold text-[#7e92b6]">{pub.year}</span>
+          <span className="text-xs font-bold text-muted">{pub.year}</span>
         </div>
-        <h3 className="mt-3 text-lg font-black leading-snug text-white md:text-xl">
+        <h3 className="mt-3 text-lg font-black leading-snug text-ink md:text-xl">
           {pub.title}
         </h3>
-        <p className="mt-1.5 text-sm font-semibold text-[#8aa0c4]">
+        <p className="mt-1.5 text-sm font-semibold text-ink-soft">
           {pub.authors} &mdash; <span className="italic">{pub.venue}</span>
         </p>
-        <p className="mt-3 text-sm leading-7 text-[#a9bcdc]">{pub.abstract}</p>
+        <p className="mt-3 text-sm leading-7 text-body">{pub.abstract}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {pub.tags.map((tag) => (
             <span

@@ -83,13 +83,13 @@ export default function LeadershipJourneyPage() {
   return (
     <div className="min-h-screen">
       {/* Print button — hidden when printing */}
-      <div className="no-print sticky top-0 z-50 flex items-center justify-between border-b border-white/10 bg-white/90 px-5 py-3 backdrop-blur md:px-8">
-        <Link href="/leadership" className="text-sm font-bold text-[#4f8bff] hover:underline">
+      <div className="no-print sticky top-0 z-50 flex items-center justify-between border-b border-line bg-white/90 px-5 py-3 backdrop-blur md:px-8">
+        <Link href="/leadership" className="text-sm font-bold text-accent-strong hover:underline">
           ← Back to Leadership
         </Link>
         <button
           onClick={() => window.print()}
-          className="rounded-full bg-[#4f8bff] px-5 py-2 text-sm font-black uppercase tracking-[0.12em] text-white transition hover:bg-slate-950"
+          className="btn-primary"
         >
           Save as PDF / Print
         </button>
@@ -99,19 +99,19 @@ export default function LeadershipJourneyPage() {
       <div className="mx-auto max-w-4xl px-5 pb-20 pt-12 md:px-8">
 
         {/* Header */}
-        <div className="border-b border-white/10 pb-10">
-          <p className="text-xs font-black uppercase tracking-[0.32em] text-[#4f8bff]">
+        <div className="border-b border-line pb-10">
+          <p className="text-xs font-black uppercase tracking-[0.32em] text-accent-strong">
             Richard Mensah · Leadership Journey
           </p>
-          <h1 className="mt-4 text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
+          <h1 className="mt-4 text-4xl font-black font-display tracking-[-0.04em] text-ink md:text-5xl">
             From Sefwi Bekwai to the World.
           </h1>
-          <p className="mt-4 text-lg leading-8 text-[#a9bcdc]">
+          <p className="mt-4 text-lg leading-8 text-body">
             A complete record of Richard Mensah&apos;s community leadership, youth empowerment,
             and institution-building work — from the grassroots in Ghana&apos;s Western North
             Region to international platforms across five continents.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3 text-sm text-[#8aa0c4]">
+          <div className="mt-6 flex flex-wrap gap-3 text-sm text-muted">
             <span>rmensahuk@gmail.com</span>
             <span>·</span>
             <span>Ghana · United Kingdom · Global</span>
@@ -133,7 +133,7 @@ export default function LeadershipJourneyPage() {
 
         {/* Timeline */}
         <div className="mt-12">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#8aa0c4]">
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-muted">
             Full Leadership Timeline
           </p>
 
@@ -145,14 +145,14 @@ export default function LeadershipJourneyPage() {
                     <span className="grid h-8 w-8 place-items-center rounded-full bg-[#4f8bff] text-xs font-black text-white">
                       {i + 1}
                     </span>
-                    <p className="text-xs font-black uppercase tracking-[0.22em] text-[#4f8bff]">
+                    <p className="text-xs font-black uppercase tracking-[0.22em] text-accent-strong">
                       {entry.year} · {entry.era}
                     </p>
                   </div>
-                  <h2 className="mt-4 text-2xl font-black tracking-[-0.03em] text-white">
+                  <h2 className="mt-4 text-2xl font-black tracking-[-0.03em] text-ink">
                     {entry.title}
                   </h2>
-                  <p className="mt-3 text-base leading-8 text-[#a9bcdc]">{entry.body}</p>
+                  <p className="mt-3 text-base leading-8 text-body">{entry.body}</p>
                 </div>
                 <div className="relative h-48 overflow-hidden rounded-2xl md:h-52">
                   <Image
@@ -168,11 +168,11 @@ export default function LeadershipJourneyPage() {
         </div>
 
         {/* EGA International Team */}
-        <div className="mt-14 rounded-2xl bg-[#0B1F3A] p-8 text-white">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#7fb0ff]">
+        <div className="mt-14 rounded-2xl bg-navy-950 p-8 text-white">
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-accent-soft">
             EGA Mentorship International · Founding Partners
           </p>
-          <p className="mt-4 text-base leading-8 text-slate-300">
+          <p className="mt-4 text-base leading-8 text-on-dark-muted">
             EGA Mentorship International was built with partners across five countries, united by
             a shared belief that access to global education and leadership networks should not be
             determined by where you were born.
@@ -197,11 +197,11 @@ export default function LeadershipJourneyPage() {
         </div>
 
         {/* SDG alignment */}
-        <div className="mt-10 rounded-2xl border border-white/10 p-8">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#8aa0c4]">
+        <div className="mt-10 rounded-2xl border border-line p-8">
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-muted">
             SDG Alignment
           </p>
-          <p className="mt-3 text-base leading-8 text-[#a9bcdc]">
+          <p className="mt-3 text-base leading-8 text-body">
             Richard&apos;s community leadership work directly advances six UN Sustainable
             Development Goals:
           </p>
@@ -229,8 +229,8 @@ export default function LeadershipJourneyPage() {
         </div>
 
         {/* Footer */}
-        <div className="mt-14 border-t border-white/10 pt-8 text-center text-sm text-[#8aa0c4]">
-          <p className="font-black text-white">Richard Mensah</p>
+        <div className="mt-14 border-t border-line pt-8 text-center text-sm text-muted">
+          <p className="font-black text-ink">Richard Mensah</p>
           <p className="mt-1">AI &amp; Data Scientist · Youth Leader · SDG Advocate</p>
           <p className="mt-2">rmensahuk@gmail.com</p>
         </div>

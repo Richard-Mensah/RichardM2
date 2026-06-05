@@ -11,13 +11,13 @@ export default function IdentityStepperClient({ items }: Props) {
   return (
     <div ref={ref} className="reveal-section grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
       <div>
-        <p className="text-xs font-black uppercase tracking-[0.3em] text-[#26BDE2]">
+        <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-strong">
           Identity system
         </p>
-        <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.04em] text-white md:text-5xl">
+        <h2 className="mt-4 text-balance text-3xl font-black font-display tracking-[-0.04em] text-ink md:text-5xl">
           A personal brand that feels like a living institution, not a normal portfolio.
         </h2>
-        <p className="mt-5 text-base leading-8 text-[#7e92b6] md:text-lg">
+        <p className="mt-5 text-base leading-8 text-muted md:text-lg">
           The website presents Richard as a thought leader in formation: technical enough for AI
           work, strategic enough for institutions, and human enough for leadership and youth
           transformation.
@@ -30,27 +30,27 @@ export default function IdentityStepperClient({ items }: Props) {
             {/* Connector line */}
             {index < items.length - 1 && (
               <div
-                className="absolute left-[1.375rem] top-11 bottom-0 w-px bg-gradient-to-b from-[#4f8bff]/40 to-transparent"
+                className="absolute left-[1.375rem] top-11 bottom-0 w-px bg-gradient-to-b from-accent-strong/40 to-transparent"
                 aria-hidden="true"
               />
             )}
 
             {/* Number badge */}
-            <div className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-[#4f8bff] bg-slate-950 text-sm font-black text-[#4f8bff]">
+            <div className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-accent-strong bg-surface text-sm font-black text-accent-strong">
               0{index + 1}
             </div>
 
             {/* Content */}
             <div className="pt-1.5">
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#26BDE2]">
+              <p className="text-xs font-black uppercase tracking-[0.28em] text-accent-strong">
                 {item.place}
               </p>
-              <h3 className="mt-2 text-xl font-black text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-[#7e92b6]">{item.body}</p>
+              <h3 className="mt-2 text-xl font-black text-ink">{item.title}</h3>
+              <p className="mt-3 text-sm leading-7 text-muted">{item.body}</p>
 
               {index === 2 && (
-                <div className="mt-5 flex items-center gap-3 border-t border-white/10 pt-4">
-                  <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl border border-white/20 shadow-md">
+                <div className="mt-5 flex items-center gap-3 border-t border-line pt-4">
+                  <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-2xl border border-line shadow-md">
                     <Image
                       src="/my image.jpg"
                       alt="Richard Mensah — global impact"
@@ -59,7 +59,7 @@ export default function IdentityStepperClient({ items }: Props) {
                       sizes="56px"
                     />
                   </div>
-                  <p className="text-xs font-bold leading-tight text-[#7e92b6]">
+                  <p className="text-xs font-bold leading-tight text-muted">
                     Cross-border<br />impact builder
                   </p>
                 </div>

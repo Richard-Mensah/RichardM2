@@ -2,18 +2,18 @@ import { WRITING_IDEAS } from "@/constants";
 
 export default function WritingSection() {
   return (
-    <section className="relative bg-[#060f1e] px-5 py-28 text-white md:px-8">
+    <section className="relative bg-navy-950 px-5 py-28 text-white md:px-8">
       <div className="sdg-band absolute inset-x-0 top-0 h-[3px]" />
 
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1fr]">
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#26BDE2]">
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-soft">
             Writing / thinking
           </p>
-          <h2 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] md:text-6xl">
+          <h2 className="mt-4 text-balance text-4xl font-black font-display tracking-[-0.04em] md:text-6xl">
             Publish ideas weekly. Build intellectual gravity.
           </h2>
-          <p className="mt-6 text-lg leading-8 text-slate-300">
+          <p className="mt-6 text-lg leading-8 text-on-dark-muted">
             This section is designed to become Richard&apos;s online knowledge system: essays,
             research notes, frameworks, and public reflections on AI, SDGs, inequality, climate,
             and leadership.
@@ -26,11 +26,11 @@ export default function WritingSection() {
               key={idea}
               className="rounded-[1.5rem] border border-white/10 bg-white/[0.06] p-5 transition duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.10]"
             >
-              <p className="text-xs font-black uppercase tracking-[0.24em] text-[#26BDE2]">
+              <p className="text-xs font-black uppercase tracking-[0.24em] text-accent-soft">
                 Essay {index + 1}
               </p>
               <h3 className="mt-3 text-xl font-black text-white">{idea}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-300">
+              <p className="mt-3 text-sm leading-7 text-on-dark-muted">
                 Draft, publish, repurpose into talks, and connect back to research or system case
                 studies.
               </p>

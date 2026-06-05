@@ -45,19 +45,19 @@ export default function BiographyPage() {
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="bg-[#0B1F3A] px-5 py-16 md:px-8 md:py-24">
+      <section className="bg-navy-950 px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-7xl">
           <Link
             href="/about"
-            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#7fb0ff] transition hover:text-white"
+            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-accent-soft transition hover:text-white"
           >
             ← About Richard
           </Link>
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7fb0ff]">Biography</p>
-          <h1 className="mt-4 max-w-3xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-white md:text-6xl">
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-soft">Biography</p>
+          <h1 className="font-display mt-4 max-w-3xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-white md:text-6xl">
             A story built on conviction, community, and code.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-on-dark-muted">
             From church campaigns and volunteer teaching in the Western North Region of Ghana,
             to AI research, international conferences, and building a mentorship programme that
             has changed hundreds of lives.
@@ -81,10 +81,10 @@ export default function BiographyPage() {
                   />
                   <div className="absolute inset-0 bg-black/20 transition group-hover:bg-black/10" />
                 </div>
-                <p className="mt-2 text-[11px] font-black uppercase tracking-[0.18em] text-[#4f8bff]">
+                <p className="mt-2 text-[11px] font-black uppercase tracking-[0.18em] text-accent-strong">
                   {photo.label}
                 </p>
-                <p className="mt-0.5 text-xs leading-5 text-[#a9bcdc]">{photo.caption}</p>
+                <p className="mt-0.5 text-xs leading-5 text-muted">{photo.caption}</p>
               </div>
             ))}
           </div>
@@ -96,12 +96,12 @@ export default function BiographyPage() {
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-14 lg:grid-cols-[1fr_0.75fr] lg:items-start">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.3em] text-[#4f8bff]">Full Biography</p>
-              <h2 className="mt-4 text-balance text-3xl font-black tracking-[-0.04em] text-white md:text-4xl">
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-strong">Full Biography</p>
+              <h2 className="font-display mt-4 text-balance text-3xl font-black tracking-[-0.04em] text-ink md:text-4xl">
                 Shaped by the communities that needed him most.
               </h2>
 
-              <div className="mt-8 space-y-6 text-base leading-8 text-[#a9bcdc]">
+              <div className="mt-8 space-y-6 text-base leading-8 text-body">
                 <p>
                   Richard Mensah&apos;s story begins in the Ashanti Region of Ghana, a place where
                   educational resources were scarce but where ambition, community spirit, and a
@@ -153,7 +153,7 @@ export default function BiographyPage() {
                 {FOCUS_TAGS.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-[#4f8bff]/30 bg-[#4f8bff]/5 px-4 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-[#4f8bff]"
+                    className="rounded-full border border-accent-strong/30 bg-accent-strong/5 px-4 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-accent-strong"
                   >
                     {tag}
                   </span>
@@ -195,18 +195,18 @@ export default function BiographyPage() {
       </section>
 
       {/* ── CTA strip ─────────────────────────────────────────────── */}
-      <section className="bg-[#4f8bff] px-5 py-12 md:px-8">
+      <section className="bg-navy-950 px-5 py-12 md:px-8">
         <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-lg font-black text-white">Want to know more?</p>
-            <p className="mt-1 text-sm text-white/80">
+            <p className="mt-1 text-sm text-on-dark-muted">
               Explore the leadership journey, international conferences, or download the full CV.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Link
               href="/about/leadership-journey"
-              className="whitespace-nowrap rounded-full bg-white px-5 py-2.5 text-xs font-black uppercase tracking-[0.15em] text-[#4f8bff] transition hover:bg-white/5"
+              className="whitespace-nowrap rounded-full bg-white px-5 py-2.5 text-xs font-black uppercase tracking-[0.15em] text-navy-950 transition hover:bg-white/90"
             >
               Leadership Journey
             </Link>

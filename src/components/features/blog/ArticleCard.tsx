@@ -31,12 +31,12 @@ export default function ArticleCard({ article }: Props) {
           >
             {article.category}
           </span>
-          <span className="text-xs text-[#7e92b6]">{formattedDate}</span>
+          <span className="text-xs text-muted">{formattedDate}</span>
         </div>
-        <p className="mt-4 flex-1 text-lg font-black leading-snug text-white">
+        <p className="mt-4 flex-1 text-lg font-black leading-snug text-ink">
           {article.title}
         </p>
-        <p className="mt-2 text-sm leading-6 text-[#8aa0c4]">{article.excerpt}</p>
+        <p className="mt-2 text-sm leading-6 text-body">{article.excerpt}</p>
         <p
           className="mt-4 text-sm font-black transition group-hover:translate-x-1"
           style={{ color: accent }}

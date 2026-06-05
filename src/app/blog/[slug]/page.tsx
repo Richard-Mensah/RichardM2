@@ -57,14 +57,14 @@ export default async function ArticlePage({ params }: Props) {
           >
             {meta.category}
           </span>
-          <span className="text-xs text-[#7e92b6]">{formattedDate}</span>
+          <span className="text-xs text-muted">{formattedDate}</span>
         </div>
 
-        <h1 className="mt-6 text-4xl font-black leading-tight tracking-[-0.04em] text-white md:text-5xl">
+        <h1 className="font-display mt-6 text-4xl font-black leading-tight tracking-[-0.04em] text-ink md:text-5xl">
           {meta.title}
         </h1>
 
-        <p className="mt-4 text-lg leading-8 text-[#8aa0c4]">{meta.excerpt}</p>
+        <p className="mt-4 text-lg leading-8 text-body">{meta.excerpt}</p>
 
         {meta.coverImage && (
           <div className="relative mt-8 aspect-video overflow-hidden rounded-2xl">

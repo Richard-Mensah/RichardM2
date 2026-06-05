@@ -12,7 +12,7 @@ const CAPABILITIES = [
 export default function AiDataScienceCapabilities() {
   return (
     <div className="mt-12">
-      <p className="text-xs font-black uppercase tracking-[0.28em] text-[#8aa0c4]">Technical capabilities</p>
+      <p className="text-xs font-black uppercase tracking-[0.28em] text-muted">Technical capabilities</p>
       <div className="mt-5 grid grid-cols-2 gap-4 md:grid-cols-4">
         {CAPABILITIES.map((cap) => (
           <div
@@ -25,7 +25,7 @@ export default function AiDataScienceCapabilities() {
             >
               {cap.icon}
             </div>
-            <p className="mt-3 text-xs font-bold leading-4 text-[#cdd9ee]">{cap.label}</p>
+            <p className="mt-3 text-xs font-bold leading-4 text-ink-soft">{cap.label}</p>
           </div>
         ))}
       </div>

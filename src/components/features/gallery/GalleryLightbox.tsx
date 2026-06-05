@@ -37,7 +37,7 @@ export default function GalleryLightbox({ photos }: Props) {
 
   if (photos.length === 0) {
     return (
-      <p className="py-24 text-center text-[#7e92b6]">
+      <p className="py-24 text-center text-muted">
         Photos coming soon — check back later.
       </p>
     );
@@ -51,7 +51,7 @@ export default function GalleryLightbox({ photos }: Props) {
           <button
             key={photo.src}
             onClick={() => setActiveIndex(i)}
-            className="group relative aspect-square overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4f8bff]"
+            className="group relative aspect-square overflow-hidden rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-strong"
             aria-label={`Open photo: ${photo.alt}`}
           >
             <Image

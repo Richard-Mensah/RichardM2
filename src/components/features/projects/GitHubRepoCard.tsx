@@ -20,31 +20,31 @@ export default function GitHubRepoCard({ repo }: { repo: GitHubRepo }) {
       href={repo.html_url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col glass rounded-xl p-5 transition hover:border-[#4f8bff]/40 hover:shadow-lg"
+      className="group flex flex-col glass rounded-xl p-5 transition hover:border-accent-strong/40 hover:shadow-lg"
     >
       <div className="flex items-start justify-between gap-3">
-        <h3 className="text-sm font-black text-white transition group-hover:text-[#4f8bff]">
+        <h3 className="text-sm font-black text-ink transition group-hover:text-accent-strong">
           {repo.name}
         </h3>
-        <span className="shrink-0 text-[#7e92b6] transition group-hover:text-[#4f8bff]" aria-hidden="true">
+        <span className="shrink-0 text-muted transition group-hover:text-accent-strong" aria-hidden="true">
           ↗
         </span>
       </div>
       {repo.description && (
-        <p className="mt-2 flex-1 text-xs leading-5 text-[#8aa0c4] line-clamp-2">
+        <p className="mt-2 flex-1 text-xs leading-5 text-body line-clamp-2">
           {repo.description}
         </p>
       )}
       <div className="mt-4 flex flex-wrap items-center gap-2">
         {repo.language && (
-          <span className="rounded-full bg-white/5 px-2.5 py-0.5 text-[0.65rem] font-semibold text-[#a9bcdc]">
+          <span className="rounded-full bg-surface-muted px-2.5 py-0.5 text-[0.65rem] font-semibold text-ink-soft">
             {repo.language}
           </span>
         )}
         {repo.stargazers_count > 0 && (
-          <span className="text-[0.65rem] text-[#7e92b6]">★ {repo.stargazers_count}</span>
+          <span className="text-[0.65rem] text-muted">★ {repo.stargazers_count}</span>
         )}
-        <span className="ml-auto text-[0.65rem] text-[#7e92b6]">Updated {updated}</span>
+        <span className="ml-auto text-[0.65rem] text-muted">Updated {updated}</span>
       </div>
     </a>
   );
