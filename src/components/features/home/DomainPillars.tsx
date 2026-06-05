@@ -25,7 +25,7 @@ export default function DomainPillars() {
     <section className="relative mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
       <div className="max-w-3xl">
         <p className="eyebrow">What I do</p>
-        <h2 className="font-display mt-3 text-balance text-3xl font-semibold tracking-[-0.02em] text-ink md:text-4xl lg:text-[2.7rem]">
+        <h2 className="font-display mt-3 text-balance text-3xl font-bold tracking-[-0.035em] text-ink md:text-4xl lg:text-[2.7rem]">
           Six domains, one mission: technology and leadership in service of people
         </h2>
         <p className="mt-5 text-base leading-8 text-body md:text-lg">

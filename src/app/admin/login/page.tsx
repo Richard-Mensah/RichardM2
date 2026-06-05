@@ -33,28 +33,28 @@ function LoginForm() {
   }
 
   return (
-    <div className="flex min-h-screen w-full items-center justify-center bg-[#3a78e0] p-8">
-      <div className="w-full max-w-md glass rounded-3xl p-10 shadow-2xl">
+    <div className="flex min-h-screen w-full items-center justify-center bg-navy-950 p-8">
+      <div className="w-full max-w-md bg-surface-card rounded-3xl border border-line p-10 shadow-2xl">
         <div className="mb-8 flex items-center gap-3">
-          <span className="grid h-12 w-12 place-items-center rounded-2xl bg-[#3a78e0] text-sm font-black text-white">
+          <span className="grid h-12 w-12 place-items-center rounded-2xl bg-navy-950 text-sm font-black text-white">
             RM
           </span>
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.22em] text-white">
+            <p className="text-sm font-black uppercase tracking-[0.22em] text-ink">
               Richard Mensah
             </p>
-            <p className="text-xs text-[#8aa0c4]">Admin panel</p>
+            <p className="text-xs text-muted">Admin panel</p>
           </div>
         </div>
 
-        <h1 className="text-2xl font-black text-white">Sign in</h1>
-        <p className="mt-1 text-sm text-[#8aa0c4]">
+        <h1 className="text-2xl font-black font-display text-ink">Sign in</h1>
+        <p className="mt-1 text-sm text-ink-soft">
           Enter your admin password to access the CMS.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           <div>
-            <label className="mb-1.5 block text-sm font-semibold text-[#cdd9ee]">
+            <label className="mb-1.5 block text-sm font-semibold text-ink-soft">
               Admin password
             </label>
             <input
@@ -63,7 +63,7 @@ function LoginForm() {
               onChange={(e) => setPassword(e.target.value)}
               required
               autoFocus
-              className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm transition focus:border-[#4f8bff] focus:outline-none focus:ring-2 focus:ring-[#4f8bff]/20"
+              className="glass-input w-full"
               placeholder="Enter admin password"
             />
           </div>
@@ -77,7 +77,7 @@ function LoginForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-xl bg-[#3a78e0] py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:bg-[#4f8bff] disabled:opacity-60"
+            className="btn-primary w-full rounded-xl py-3 text-sm font-black uppercase tracking-[0.15em] disabled:opacity-60"
           >
             {loading ? "Signing in…" : "Sign in"}
           </button>

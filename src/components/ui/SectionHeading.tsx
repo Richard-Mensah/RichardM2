@@ -22,7 +22,7 @@ export default function SectionHeading({ eyebrow, title, children, center = fals
       </p>
       <h2
         className={cn(
-          "font-display mt-3 text-balance text-3xl font-semibold tracking-[-0.02em] md:text-4xl lg:text-[2.7rem]",
+          "font-display mt-3 text-balance text-3xl font-bold tracking-[-0.035em] md:text-4xl lg:text-[2.55rem]",
           dark ? "text-white" : "text-ink"
         )}
       >

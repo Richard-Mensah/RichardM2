@@ -76,24 +76,24 @@ export default function ArticleEditForm({ slug, initialData }: Props) {
   return (
     <form onSubmit={handleSubmit} className="max-w-3xl space-y-6">
       <div>
-        <label className="mb-1.5 block text-sm font-semibold text-[#cdd9ee]">Title *</label>
+        <label className="mb-1.5 block text-sm font-semibold text-accent-strong">Title *</label>
         <input
           name="title"
           value={form.title}
           onChange={handleChange}
           required
-          className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20"
+          className="glass-input"
         />
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <label className="mb-1.5 block text-sm font-semibold text-[#cdd9ee]">Category *</label>
+          <label className="mb-1.5 block text-sm font-semibold text-accent-strong">Category *</label>
           <select
             name="category"
             value={form.category}
             onChange={handleChange}
-            className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20"
+            className="glass-input"
           >
             {CATEGORIES.map((cat) => (
               <option key={cat} value={cat}>
@@ -103,32 +103,32 @@ export default function ArticleEditForm({ slug, initialData }: Props) {
           </select>
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-semibold text-[#cdd9ee]">Date</label>
+          <label className="mb-1.5 block text-sm font-semibold text-accent-strong">Date</label>
           <input
             name="date"
             type="date"
             value={form.date}
             onChange={handleChange}
-            className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20"
+            className="glass-input"
           />
         </div>
       </div>
 
       <div>
-        <label className="mb-1.5 block text-sm font-semibold text-[#cdd9ee]">Excerpt *</label>
+        <label className="mb-1.5 block text-sm font-semibold text-accent-strong">Excerpt *</label>
         <textarea
           name="excerpt"
           value={form.excerpt}
           onChange={handleChange}
           required
           rows={3}
-          className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20"
+          className="glass-input"
         />
       </div>
 
       <div>
-        <label className="mb-1.5 block text-sm font-semibold text-[#cdd9ee]">
-          Content <span className="font-normal text-[#7e92b6]">(Markdown)</span>
+        <label className="mb-1.5 block text-sm font-semibold text-accent-strong">
+          Content <span className="font-normal text-muted">(Markdown)</span>
         </label>
         <textarea
           name="content"
@@ -136,19 +136,19 @@ export default function ArticleEditForm({ slug, initialData }: Props) {
           onChange={handleChange}
           required
           rows={24}
-          className="w-full rounded-xl border border-white/10 px-4 py-3 font-mono text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20"
+          className="glass-input font-mono"
         />
       </div>
 
       <div>
-        <label className="mb-1.5 block text-sm font-semibold text-[#cdd9ee]">
-          Cover image path <span className="font-normal text-[#7e92b6]">(optional)</span>
+        <label className="mb-1.5 block text-sm font-semibold text-accent-strong">
+          Cover image path <span className="font-normal text-muted">(optional)</span>
         </label>
         <input
           name="coverImage"
           value={form.coverImage}
           onChange={handleChange}
-          className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20"
+          className="glass-input"
           placeholder="/articles/cover.jpg"
         />
       </div>
@@ -168,14 +168,14 @@ export default function ArticleEditForm({ slug, initialData }: Props) {
         <button
           type="submit"
           disabled={loading}
-          className="rounded-xl bg-brand-primary-darker px-6 py-3 text-sm font-black uppercase tracking-[0.1em] text-white transition hover:bg-brand-primary-accent disabled:opacity-60"
+          className="btn-primary disabled:opacity-60"
         >
           {loading ? "Saving…" : "Save changes"}
         </button>
         <button
           type="button"
           onClick={() => router.push("/admin/articles")}
-          className="rounded-xl border border-white/10 px-6 py-3 text-sm font-black text-[#a9bcdc] transition hover:border-slate-400"
+          className="btn-ghost"
         >
           Back to articles
         </button>

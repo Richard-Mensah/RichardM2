@@ -12,11 +12,11 @@ export default function AdminArticlesPage() {
       <AdminSidebar />
       <main className="flex-1 overflow-auto p-8">
         <div className="mb-6 flex items-center justify-between">
-          <h1 className="text-2xl font-black text-white">Articles</h1>
+          <h1 className="text-2xl font-black font-display text-ink">Articles</h1>
           <div className="flex items-center gap-3">
             <Link
               href="/admin/articles/new"
-              className="rounded-full bg-[#3a78e0] px-4 py-2 text-xs font-black text-white transition hover:bg-[#4f8bff]"
+              className="btn-primary rounded-full px-4 py-2 text-xs font-black"
             >
               + New article
             </Link>
@@ -28,26 +28,26 @@ export default function AdminArticlesPage() {
           {articles.map((article, i) => (
             <div
               key={article.slug}
-              className={`flex items-center justify-between px-6 py-5 ${i > 0 ? "border-t border-white/10" : ""}`}
+              className={`flex items-center justify-between px-6 py-5 ${i > 0 ? "border-t border-line" : ""}`}
             >
               <div className="min-w-0 flex-1">
-                <p className="truncate font-black text-white">{article.title}</p>
-                <p className="mt-0.5 text-xs text-[#7e92b6]">
+                <p className="truncate font-black text-ink">{article.title}</p>
+                <p className="mt-0.5 text-xs text-muted">
                   {article.category} · {article.date}
                 </p>
-                <p className="mt-1 line-clamp-1 text-sm text-[#8aa0c4]">{article.excerpt}</p>
+                <p className="mt-1 line-clamp-1 text-sm text-body">{article.excerpt}</p>
               </div>
               <div className="ml-4 flex shrink-0 items-center gap-4">
                 <Link
                   href={`/blog/${article.slug}`}
-                  className="text-xs font-semibold text-[#7e92b6] transition hover:text-[#cdd9ee]"
+                  className="text-xs font-semibold text-muted transition hover:text-ink-soft"
                   target="_blank"
                 >
                   View
                 </Link>
                 <Link
                   href={`/admin/articles/${article.slug}/edit`}
-                  className="text-xs font-black text-[#4f8bff] hover:underline"
+                  className="text-xs font-black text-accent-strong hover:underline"
                 >
                   Edit
                 </Link>
@@ -56,9 +56,9 @@ export default function AdminArticlesPage() {
             </div>
           ))}
           {articles.length === 0 && (
-            <p className="px-6 py-12 text-center text-[#7e92b6]">
+            <p className="px-6 py-12 text-center text-muted">
               No articles yet.{" "}
-              <Link href="/admin/articles/new" className="font-black text-[#4f8bff]">
+              <Link href="/admin/articles/new" className="font-black text-accent-strong">
                 Start writing →
               </Link>
             </p>

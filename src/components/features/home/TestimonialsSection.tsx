@@ -10,7 +10,7 @@ function Stars({ accentClass = "text-accent" }: { accentClass?: string }) {
     <div className={cn("flex gap-0.5", accentClass)} aria-label="5 out of 5 stars">
       {Array.from({ length: 5 }).map((_, i) => (
         <span key={i} className="text-xs" aria-hidden="true">
-          ★
+          â˜…
         </span>
       ))}
     </div>
@@ -55,7 +55,7 @@ export default function TestimonialsSection({ testimonials }: { testimonials: Te
   const count = testimonials.length;
   const maxIndex = Math.max(0, count - perView);
 
-  // Keep the index in range when the viewport (perView) changes — adjust during
+  // Keep the index in range when the viewport (perView) changes â€” adjust during
   // render (React-recommended pattern) rather than in an effect.
   const [prevPerView, setPrevPerView] = useState(perView);
   if (perView !== prevPerView) {
@@ -91,7 +91,7 @@ export default function TestimonialsSection({ testimonials }: { testimonials: Te
             <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-strong">
               Testimonials
             </p>
-            <h2 className="font-display mt-3 text-balance text-3xl font-semibold tracking-[-0.02em] text-ink md:text-4xl">
+            <h2 className="font-display mt-3 text-balance text-3xl font-bold tracking-[-0.035em] text-ink md:text-4xl">
               In their own words
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-body">

@@ -28,11 +28,11 @@ export default function SkillsMatrix() {
             <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-soft">
               Capabilities
             </p>
-            <h2 className="font-display mt-3 text-balance text-3xl font-semibold tracking-[-0.02em] text-white md:text-4xl lg:text-[2.7rem]">
+            <h2 className="font-display mt-3 text-balance text-3xl font-bold tracking-[-0.035em] text-white md:text-4xl lg:text-[2.7rem]">
               A technical toolkit built for real-world impact
             </h2>
             <p className="mt-5 max-w-md text-base leading-8 text-on-dark-muted">
-              Equally at home in a research notebook and a production codebase — from model design
+              Equally at home in a research notebook and a production codebase â€” from model design
               to deployed application, and from data pipeline to programme delivery.
             </p>
             <a

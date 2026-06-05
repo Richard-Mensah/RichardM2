@@ -12,8 +12,8 @@ export default function FinalCta() {
         <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-soft">
           Let&apos;s work together
         </p>
-        <h2 className="font-display mx-auto mt-4 max-w-3xl text-balance text-3xl font-semibold leading-[1.1] tracking-[-0.02em] text-white md:text-5xl">
-          Hiring, supervising, inviting, or partnering — I&apos;d love to hear from you
+        <h2 className="font-display mx-auto mt-4 max-w-3xl text-balance text-3xl font-bold leading-[1.05] tracking-[-0.035em] text-white md:text-5xl">
+          Hiring, supervising, inviting, or partnering â€” I&apos;d love to hear from you
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-base leading-8 text-on-dark-muted">
           Whether it&apos;s an AI/ML role, a PhD opportunity, a conference invitation, or a community
