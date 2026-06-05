@@ -9,11 +9,11 @@ export default function SdgAlignmentStrip() {
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <div>
             <p className="eyebrow">SDG alignment</p>
-            <h2 className="font-display mt-3 text-balance text-3xl font-semibold tracking-[-0.02em] text-ink md:text-4xl">
+            <h2 className="font-display mt-3 text-balance text-3xl font-bold tracking-[-0.035em] text-ink md:text-4xl">
               Work mapped to the global goals
             </h2>
             <p className="mt-5 text-base leading-8 text-body">
-              Every system and programme contributes to specific Sustainable Development Goals — a
+              Every system and programme contributes to specific Sustainable Development Goals â€” a
               shared language for measuring whether the work actually moves the needle.
             </p>
             <Link

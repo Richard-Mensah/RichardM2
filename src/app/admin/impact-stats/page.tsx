@@ -13,7 +13,7 @@ export default async function AdminImpactStatsPage() {
       <AdminSidebar />
       <main className="flex-1 overflow-auto p-8">
         <div className="mb-8 flex items-center justify-between">
-          <h1 className="text-2xl font-black text-white">Impact Stats</h1>
+          <h1 className="text-2xl font-black font-display text-ink">Impact Stats</h1>
           <AdminLogoutButton />
         </div>
         <ImpactStatsForm initialStats={stats} />

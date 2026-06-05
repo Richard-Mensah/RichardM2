@@ -13,7 +13,7 @@ export default async function AdminOpportunitiesPage() {
       <AdminSidebar />
       <main className="flex-1 overflow-auto p-8">
         <div className="mb-8 flex items-center justify-between">
-          <h1 className="text-2xl font-black text-white">Opportunities (Kofiever)</h1>
+          <h1 className="text-2xl font-black font-display text-ink">Opportunities (Kofiever)</h1>
           <AdminLogoutButton />
         </div>
         <OpportunitiesManager initial={opportunities} />

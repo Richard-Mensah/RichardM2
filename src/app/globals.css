@@ -143,8 +143,12 @@ body {
   color: #0f5a63;
 }
 
+/* Space Grotesk display headings. It's a wide geometric face, so a tighter
+   default tracking reads sharper and more "engineered". Per-heading Tailwind
+   tracking-* utilities still override this when set. */
 .font-display {
   font-family: var(--font-display);
+  letter-spacing: -0.03em;
   font-optical-sizing: auto;
 }
 

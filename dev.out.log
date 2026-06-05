@@ -39,3 +39,6 @@
  GET / 200 in 2.7s (next.js: 352ms, application-code: 2.4s)
  POST /api/analytics/track 200 in 171ms (next.js: 5ms, application-code: 167ms)
  GET / 200 in 2.4s (next.js: 529ms, application-code: 1882ms)
+ GET / 200 in 15.6s (next.js: 12.0s, application-code: 3.5s)
+ GET / 200 in 2.8s (next.js: 3ms, application-code: 2.8s)
+ GET / 200 in 3.3s (next.js: 5ms, application-code: 3.3s)

@@ -20,8 +20,8 @@ export default async function AdminAnalyticsPage() {
       <main className="flex-1 overflow-auto p-8">
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-black text-white">Analytics</h1>
-            <p className="mt-1 text-sm text-[#8aa0c4]">Cookieless page views — no personal data collected.</p>
+            <h1 className="text-2xl font-black font-display text-ink">Analytics</h1>
+            <p className="mt-1 text-sm text-muted">Cookieless page views — no personal data collected.</p>
           </div>
           <AdminLogoutButton />
         </div>
@@ -36,18 +36,18 @@ export default async function AdminAnalyticsPage() {
         <div className="grid gap-6 sm:grid-cols-3">
           {cards.map((c) => (
             <div key={c.label} className="glass rounded-2xl p-6 shadow-sm">
-              <p className="text-4xl font-black text-[#3a78e0]">{c.value.toLocaleString()}</p>
-              <p className="mt-1 text-sm font-semibold text-[#8aa0c4]">{c.label}</p>
+              <p className="text-4xl font-black text-ink">{c.value.toLocaleString()}</p>
+              <p className="mt-1 text-sm font-semibold text-muted">{c.label}</p>
             </div>
           ))}
         </div>
 
         {/* Per-day chart */}
         <div className="mt-8 glass rounded-2xl p-6 shadow-sm">
-          <p className="text-xs font-black uppercase tracking-[0.15em] text-[#7e92b6]">Views — last 14 days</p>
+          <p className="text-xs font-black uppercase tracking-[0.15em] text-muted">Views — last 14 days</p>
           <div className="mt-6 flex h-40 items-end gap-2">
             {a.perDay.length === 0 ? (
-              <p className="text-sm text-[#7e92b6]">No data yet.</p>
+              <p className="text-sm text-muted">No data yet.</p>
             ) : (
               a.perDay.map((d) => (
                 <div key={d.day} className="flex flex-1 flex-col items-center gap-2">
@@ -58,7 +58,7 @@ export default async function AdminAnalyticsPage() {
                       title={`${d.day}: ${d.views} views`}
                     />
                   </div>
-                  <span className="text-[10px] text-[#7e92b6]">{d.day.slice(5)}</span>
+                  <span className="text-[10px] text-muted">{d.day.slice(5)}</span>
                 </div>
               ))
             )}
@@ -86,15 +86,15 @@ function TopList({
 }) {
   return (
     <div className="glass rounded-2xl p-6 shadow-sm">
-      <p className="text-xs font-black uppercase tracking-[0.15em] text-[#7e92b6]">{title}</p>
+      <p className="text-xs font-black uppercase tracking-[0.15em] text-muted">{title}</p>
       {rows.length === 0 ? (
-        <p className="mt-4 text-sm text-[#7e92b6]">{emptyText}</p>
+        <p className="mt-4 text-sm text-muted">{emptyText}</p>
       ) : (
-        <ul className="mt-4 divide-y divide-white/10">
+        <ul className="mt-4 divide-y divide-line">
           {rows.map((r) => (
             <li key={r.path} className="flex items-center justify-between gap-4 py-2.5">
-              <span className="truncate text-sm font-semibold text-[#cdd9ee]">{r.path}</span>
-              <span className="shrink-0 text-sm font-black text-[#3a78e0]">{r.views.toLocaleString()}</span>
+              <span className="truncate text-sm font-semibold text-body">{r.path}</span>
+              <span className="shrink-0 text-sm font-black text-ink">{r.views.toLocaleString()}</span>
             </li>
           ))}
         </ul>

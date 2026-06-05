@@ -79,7 +79,7 @@ export default function ImpactStatsForm({ initialStats }: Props) {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-3xl space-y-5">
-      <p className="text-sm leading-6 text-[#8aa0c4]">
+      <p className="text-sm leading-6 text-body">
         These numbers appear on the homepage impact dashboard and the About page. Edit the value,
         label, and supporting detail for each, add or remove rows, then save.
       </p>
@@ -87,7 +87,7 @@ export default function ImpactStatsForm({ initialStats }: Props) {
       {stats.map((stat, i) => (
         <div key={i} className="glass rounded-2xl p-5 shadow-sm">
           <div className="flex items-center justify-between">
-            <p className="text-xs font-black uppercase tracking-[0.15em] text-[#7e92b6]">
+            <p className="text-xs font-black uppercase tracking-[0.15em] text-muted">
               Stat {i + 1}
             </p>
             <button
@@ -101,35 +101,35 @@ export default function ImpactStatsForm({ initialStats }: Props) {
 
           <div className="mt-4 grid gap-4 sm:grid-cols-[140px_1fr]">
             <div>
-              <label className="mb-1.5 block text-sm font-semibold text-[#cdd9ee]">Value *</label>
+              <label className="mb-1.5 block text-sm font-semibold text-accent-strong">Value *</label>
               <input
                 value={stat.value}
                 onChange={(e) => update(i, "value", e.target.value)}
                 placeholder="2,500+"
-                className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20"
+                className="glass-input"
               />
             </div>
             <div>
-              <label className="mb-1.5 block text-sm font-semibold text-[#cdd9ee]">Label *</label>
+              <label className="mb-1.5 block text-sm font-semibold text-accent-strong">Label *</label>
               <input
                 value={stat.label}
                 onChange={(e) => update(i, "label", e.target.value)}
                 placeholder="Youth impacted"
-                className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20"
+                className="glass-input"
               />
             </div>
           </div>
 
           <div className="mt-4">
-            <label className="mb-1.5 block text-sm font-semibold text-[#cdd9ee]">
-              Detail <span className="font-normal text-[#7e92b6]">(shown on the homepage)</span>
+            <label className="mb-1.5 block text-sm font-semibold text-accent-strong">
+              Detail <span className="font-normal text-muted">(shown on the homepage)</span>
             </label>
             <textarea
               value={stat.detail}
               onChange={(e) => update(i, "detail", e.target.value)}
               rows={2}
               placeholder="Through training, mentorship, and leadership programmes…"
-              className="w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20"
+              className="glass-input"
             />
           </div>
         </div>
@@ -138,7 +138,7 @@ export default function ImpactStatsForm({ initialStats }: Props) {
       <button
         type="button"
         onClick={addRow}
-        className="rounded-xl border border-dashed border-white/15 px-5 py-3 text-sm font-bold text-[#a9bcdc] transition hover:border-brand-primary-accent hover:text-brand-primary-accent"
+        className="rounded-xl border border-dashed border-line px-5 py-3 text-sm font-bold text-ink-soft transition hover:border-accent hover:text-accent-strong"
       >
         + Add stat
       </button>
@@ -152,18 +152,18 @@ export default function ImpactStatsForm({ initialStats }: Props) {
         </p>
       )}
 
-      <div className="sticky bottom-0 z-10 -mx-1 flex items-center gap-4 border-t border-white/10 bg-white/95 px-1 py-4 backdrop-blur">
+      <div className="sticky bottom-0 z-10 -mx-1 flex items-center gap-4 border-t border-line bg-white/95 px-1 py-4 backdrop-blur">
         <button
           type="submit"
           disabled={loading}
-          className="rounded-xl bg-brand-primary-darker px-6 py-3 text-sm font-black uppercase tracking-[0.1em] text-white transition hover:bg-brand-primary-accent disabled:opacity-60"
+          className="btn-primary disabled:opacity-60"
         >
           {loading ? "Saving…" : "Save changes"}
         </button>
         <button
           type="button"
           onClick={() => router.push("/admin")}
-          className="rounded-xl border border-white/10 px-6 py-3 text-sm font-black text-[#a9bcdc] transition hover:border-slate-400"
+          className="btn-ghost"
         >
           Back to dashboard
         </button>

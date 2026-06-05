@@ -4,9 +4,8 @@ import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import type { HomepageContent } from "@/lib/homepage";
 
-const FIELD =
-  "w-full rounded-xl border border-white/10 px-4 py-3 text-sm focus:border-brand-primary-accent focus:outline-none focus:ring-2 focus:ring-brand-primary-accent/20";
-const LABEL = "mb-1.5 block text-sm font-semibold text-[#cdd9ee]";
+const FIELD = "glass-input";
+const LABEL = "mb-1.5 block text-sm font-semibold text-accent-strong";
 
 export default function HomepageForm({ initial }: { initial: HomepageContent }) {
   const router = useRouter();
@@ -57,7 +56,7 @@ export default function HomepageForm({ initial }: { initial: HomepageContent }) 
   return (
     <form onSubmit={handleSubmit} className="max-w-2xl space-y-5">
       <div className="glass rounded-2xl p-5">
-        <p className="text-xs font-black uppercase tracking-[0.15em] text-[#7e92b6]">Hero (top of homepage)</p>
+        <p className="text-xs font-black uppercase tracking-[0.15em] text-muted">Hero (top of homepage)</p>
         <div className="mt-4 space-y-4">
           <div>
             <label className={LABEL}>Eyebrow / name</label>
@@ -85,7 +84,7 @@ export default function HomepageForm({ initial }: { initial: HomepageContent }) 
       </div>
 
       <div className="glass rounded-2xl p-5">
-        <p className="text-xs font-black uppercase tracking-[0.15em] text-[#7e92b6]">Welcome / intro</p>
+        <p className="text-xs font-black uppercase tracking-[0.15em] text-muted">Welcome / intro</p>
         <div className="mt-4 space-y-4">
           <div>
             <label className={LABEL}>Welcome heading</label>
@@ -93,7 +92,7 @@ export default function HomepageForm({ initial }: { initial: HomepageContent }) 
           </div>
           <div>
             <label className={LABEL}>
-              Welcome body <span className="font-normal text-[#7e92b6]">(separate paragraphs with a blank line)</span>
+              Welcome body <span className="font-normal text-muted">(separate paragraphs with a blank line)</span>
             </label>
             <textarea className={FIELD} rows={8} value={form.welcomeBody} onChange={(e) => update("welcomeBody", e.target.value)} />
           </div>
@@ -102,18 +101,18 @@ export default function HomepageForm({ initial }: { initial: HomepageContent }) 
 
       {error && <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-600">{error}</p>}
 
-      <div className="sticky bottom-0 z-10 -mx-1 flex items-center gap-4 border-t border-white/10 bg-white/95 px-1 py-4 backdrop-blur">
+      <div className="sticky bottom-0 z-10 -mx-1 flex items-center gap-4 border-t border-line bg-white/95 px-1 py-4 backdrop-blur">
         <button
           type="submit"
           disabled={loading}
-          className="rounded-xl bg-brand-primary-darker px-6 py-3 text-sm font-black uppercase tracking-[0.1em] text-white transition hover:bg-brand-primary-accent disabled:opacity-60"
+          className="btn-primary disabled:opacity-60"
         >
           {loading ? "Saving…" : "Save changes"}
         </button>
         <button
           type="button"
           onClick={() => router.push("/admin")}
-          className="rounded-xl border border-white/10 px-6 py-3 text-sm font-black text-[#a9bcdc] transition hover:border-slate-400"
+          className="btn-ghost"
         >
           Back to dashboard
         </button>

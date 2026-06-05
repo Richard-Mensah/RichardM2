@@ -20,7 +20,7 @@ export default function AdminDeleteButton({ slug }: Props) {
   return (
     <button
       onClick={handleDelete}
-      className="text-xs font-semibold text-red-400 transition hover:text-red-600"
+      className="text-xs font-semibold text-red-600 transition hover:text-red-700"
     >
       Delete
     </button>

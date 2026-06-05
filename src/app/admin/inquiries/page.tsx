@@ -27,8 +27,8 @@ export default async function AdminInquiriesPage() {
       <main className="flex-1 overflow-auto p-8">
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-black text-white">Contact inquiries</h1>
-            <p className="mt-1 text-sm text-[#8aa0c4]">
+            <h1 className="text-2xl font-black font-display text-ink">Contact inquiries</h1>
+            <p className="mt-1 text-sm text-muted">
               {inquiries.length} {inquiries.length === 1 ? "submission" : "submissions"} from the
               collaboration form
             </p>
@@ -37,7 +37,7 @@ export default async function AdminInquiriesPage() {
         </div>
 
         {inquiries.length === 0 ? (
-          <p className="glass rounded-2xl px-6 py-12 text-center text-[#7e92b6]">
+          <p className="glass rounded-2xl px-6 py-12 text-center text-muted">
             No inquiries yet. Submissions from the contact / collaboration form will appear here.
           </p>
         ) : (
@@ -49,18 +49,18 @@ export default async function AdminInquiriesPage() {
               >
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
-                    <p className="text-base font-black text-white">{q.name}</p>
+                    <p className="text-base font-black text-ink">{q.name}</p>
                     <a
                       href={`mailto:${q.email}`}
-                      className="text-sm font-semibold text-[#4f8bff] hover:underline"
+                      className="text-sm font-semibold text-accent-strong hover:underline"
                     >
                       {q.email}
                     </a>
                     {q.organization && (
-                      <span className="ml-2 text-sm text-[#8aa0c4]">· {q.organization}</span>
+                      <span className="ml-2 text-sm text-body">· {q.organization}</span>
                     )}
                   </div>
-                  <p className="text-xs text-[#7e92b6]">
+                  <p className="text-xs text-muted">
                     {new Date(q.createdAt).toLocaleString("en-GB", {
                       dateStyle: "medium",
                       timeStyle: "short",
@@ -69,21 +69,21 @@ export default async function AdminInquiriesPage() {
                 </div>
 
                 <div className="mt-3 flex flex-wrap gap-2">
-                  <span className="rounded-full bg-[#4f8bff]/10 px-3 py-1 text-xs font-bold text-[#4f8bff]">
+                  <span className="rounded-full bg-teal-50 px-3 py-1 text-xs font-bold text-accent-strong">
                     {q.collaborationType}
                   </span>
-                  <span className="rounded-full bg-white/5 px-3 py-1 text-xs font-bold text-[#a9bcdc]">
+                  <span className="rounded-full bg-surface-muted px-3 py-1 text-xs font-bold text-body">
                     {q.focusArea}
                   </span>
                 </div>
 
-                <p className="mt-4 whitespace-pre-wrap text-sm leading-7 text-[#cdd9ee]">
+                <p className="mt-4 whitespace-pre-wrap text-sm leading-7 text-body">
                   {q.message}
                 </p>
 
                 <a
                   href={`mailto:${q.email}?subject=Re: your message to Richard Mensah`}
-                  className="mt-4 inline-block rounded-full bg-slate-950 px-5 py-2 text-xs font-black uppercase tracking-[0.12em] text-white transition hover:bg-[#4f8bff]"
+                  className="btn-primary mt-4 inline-block rounded-full px-5 py-2 text-xs font-black uppercase tracking-[0.12em]"
                 >
                   Reply →
                 </a>

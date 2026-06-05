@@ -31,7 +31,7 @@ export default function HeroSection({ content }: { content: HomepageContent }) {
 
           <p className="eyebrow mt-6">{content.heroEyebrow}</p>
 
-          <h1 className="font-display mt-3 text-balance text-4xl font-semibold leading-[1.04] tracking-[-0.02em] text-ink md:text-5xl lg:text-[3.4rem]">
+          <h1 className="font-display mt-3 text-balance text-[2.6rem] font-bold leading-[1.02] tracking-[-0.045em] text-ink md:text-5xl lg:text-[3.25rem]">
             {content.heroTitleLead}
             <span className="relative whitespace-nowrap text-accent-strong">
               {content.heroTitleHighlight}
