@@ -64,6 +64,29 @@ export type ProjectCategory = {
   image: string;
 };
 
+export type HomeDomain = {
+  title: string;
+  blurb: string;
+  href: string;
+  icon: string; // lucide-react icon name
+  tag: string; // short focus / SDG tag
+};
+
+export type SkillGroup = {
+  area: string;
+  icon: string; // lucide-react icon name
+  skills: string[];
+};
+
+export type AudiencePathway = {
+  audience: string; // e.g. "Recruiters & employers"
+  headline: string; // what they get
+  blurb: string;
+  cta: string;
+  href: string;
+  icon: string; // lucide-react icon name
+};
+
 export type DatabaseSignal = "online" | "degraded";
 
 export type { CollaborationInquiry, NewCollaborationInquiry } from "@/db/schema";

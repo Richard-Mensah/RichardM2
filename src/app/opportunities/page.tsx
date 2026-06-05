@@ -18,15 +18,16 @@ export default async function OpportunitiesPage() {
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
       <div className="flex-1">
-        <div className="bg-gradient-to-br from-[#0a1730] via-[#122a4e] to-[#4f8bff] px-5 py-20 text-white md:px-8 md:py-28">
-          <div className="mx-auto max-w-7xl text-center">
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#BFEFFF]">
+        <div className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-accent-strong px-5 py-20 text-white md:px-8 md:py-28">
+          <div className="data-grid-light pointer-events-none absolute inset-0 opacity-[0.35]" />
+          <div className="relative mx-auto max-w-7xl text-center">
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-soft">
               Opportunities
             </p>
-            <h1 className="mt-4 text-4xl font-black leading-tight text-white drop-shadow-lg md:text-6xl">
+            <h1 className="font-display mt-4 text-4xl font-semibold leading-[1.05] text-white md:text-6xl">
               Pathways for growth and impact
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg font-medium leading-8 text-white">
+            <p className="mx-auto mt-6 max-w-2xl text-lg font-medium leading-8 text-on-dark">
               Curated opportunities in AI, data science, climate, leadership, and sustainable
               development - for students, researchers, and emerging professionals.
             </p>
@@ -47,11 +48,11 @@ export default async function OpportunitiesPage() {
                         style={{ backgroundColor: cat.accent }}
                         aria-hidden="true"
                       />
-                      <h2 className="mt-4 text-2xl font-bold text-white">{cat.title}</h2>
-                      <p className="mt-3 text-sm leading-7 text-[#a9bcdc]">{cat.description}</p>
+                      <h2 className="mt-4 text-2xl font-bold text-ink">{cat.title}</h2>
+                      <p className="mt-3 text-sm leading-7 text-body">{cat.description}</p>
 
                       {entries.length === 0 ? (
-                        <p className="mt-6 text-xs font-semibold text-[#7e92b6]">
+                        <p className="mt-6 text-xs font-semibold text-muted">
                           Opportunities listed soon — check back regularly.
                         </p>
                       ) : (
@@ -59,18 +60,18 @@ export default async function OpportunitiesPage() {
                           {entries.map((o, i) => (
                             <li
                               key={`${cat.id}-${i}`}
-                              className="glass rounded-xl p-4"
+                              className="rounded-xl border border-line bg-surface p-4"
                             >
-                              <p className="text-sm font-black text-white">{o.title}</p>
+                              <p className="text-sm font-black text-ink">{o.title}</p>
                               {o.description && (
-                                <p className="mt-1 text-sm leading-6 text-[#a9bcdc]">{o.description}</p>
+                                <p className="mt-1 text-sm leading-6 text-body">{o.description}</p>
                               )}
                               {o.link && (
                                 <a
                                   href={o.link}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="mt-2 inline-block text-xs font-bold uppercase tracking-[0.12em] text-[#4f8bff] hover:underline"
+                                  className="mt-2 inline-block text-xs font-bold uppercase tracking-[0.12em] text-accent-strong hover:underline"
                                 >
                                   Learn more →
                                 </a>
