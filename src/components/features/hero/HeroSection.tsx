@@ -1,15 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Download, ArrowRight, MapPin, BadgeCheck } from "lucide-react";
+import { Download, ArrowRight, MapPin, BadgeCheck, Plane, type LucideIcon } from "lucide-react";
 import type { HomepageContent } from "@/lib/homepage";
 
-const CREDENTIALS = [
-  "MSc Artificial Intelligence & Data Science — Bangor University",
-  "Country Representative for Ghana — UN Youth Association",
-  "8 countries · 2,500+ youth impacted",
+const CREDENTIALS: { label: string; icon: LucideIcon }[] = [
+  { label: "MSc Artificial Intelligence & Data Science, Bangor University", icon: BadgeCheck },
+  { label: "Formal Country Representative for UNYA-Ghana, Youth MP", icon: BadgeCheck },
+  { label: "11 countries", icon: Plane },
+  { label: "2,500+ youth impacted", icon: BadgeCheck },
 ];
 
-const OPEN_TO = ["AI / ML roles", "PhD opportunities", "Speaking & conferences", "Partnerships"];
+const OPEN_TO = [
+  "AI / ML roles",
+  "PhD opportunities",
+  "Speaking & conferences",
+  "Partnerships",
+  "Youth & Community Development",
+];
 
 export default function HeroSection({ content }: { content: HomepageContent }) {
   return (
@@ -114,10 +121,10 @@ export default function HeroSection({ content }: { content: HomepageContent }) {
               </span>
               <div>
                 <p className="text-[11px] font-black uppercase tracking-[0.12em] text-ink">
-                  Climate AI Scientist
+                  AI/ML · Climate AI · Full-Stack Development
                 </p>
                 <p className="text-[11px] leading-tight text-body">
-                  Human-centred systems for the Global South
+                  Interested in human-centred systems for companies & the Global South
                 </p>
               </div>
             </div>
@@ -128,10 +135,10 @@ export default function HeroSection({ content }: { content: HomepageContent }) {
       {/* Credential ribbon */}
       <div className="border-y border-line bg-surface-card/60">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-5 py-4 md:px-8">
-          {CREDENTIALS.map((credential) => (
-            <p key={credential} className="flex items-center gap-2 text-xs font-medium text-body">
-              <BadgeCheck size={14} className="shrink-0 text-accent" />
-              {credential}
+          {CREDENTIALS.map(({ label, icon: Icon }) => (
+            <p key={label} className="flex items-center gap-2 text-xs font-medium text-body">
+              <Icon size={14} className="shrink-0 text-accent" />
+              {label}
             </p>
           ))}
         </div>
