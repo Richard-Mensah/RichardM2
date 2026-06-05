@@ -16,17 +16,17 @@ export default function YouthDevelopmentPageSection() {
       <div className="relative mx-auto max-w-5xl">
 
         {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#4f8bff]">Youth Development</p>
-        <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
+        <p className="text-xs font-black uppercase tracking-[0.32em] text-accent-strong">Youth Development</p>
+        <h1 className="mt-4 text-balance text-4xl font-black font-display tracking-[-0.04em] text-ink md:text-5xl">
           From potential to execution, at scale.
         </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-[#a9bcdc]">
+        <p className="mt-5 max-w-3xl text-base leading-7 text-body">
           Mentorship, training, and knowledge systems that help young people across Ghana and
           beyond move from aspiration to action, with measurable, lasting outcomes.
         </p>
 
         {/* Impact stats strip */}
-        <div className="mt-10 rounded-2xl bg-[#4f8bff] p-8">
+        <div className="mt-10 rounded-2xl bg-navy-900 p-8">
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
             {STATS.map((s) => (
               <div key={s.label} className="text-center">
@@ -44,11 +44,11 @@ export default function YouthDevelopmentPageSection() {
         {/* 2-col narrative */}
         <div className="mt-12 grid gap-10 lg:grid-cols-2">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#4f8bff]">EGA Mentorship International</p>
-            <h2 className="mt-4 text-2xl font-black tracking-[-0.03em] text-white">
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-accent-strong">EGA Mentorship International</p>
+            <h2 className="mt-4 text-2xl font-black tracking-[-0.03em] text-ink">
               Building knowledge systems, not just motivation.
             </h2>
-            <div className="mt-4 space-y-4 text-sm leading-7 text-[#a9bcdc]">
+            <div className="mt-4 space-y-4 text-sm leading-7 text-body">
               <p>
                 EGA Mentorship International is the flagship youth development initiative Richard
                 leads: a structured platform connecting ambitious young Africans with the
@@ -67,14 +67,14 @@ export default function YouthDevelopmentPageSection() {
             </div>
           </div>
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#8aa0c4]">Programme pillars</p>
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-muted">Programme pillars</p>
             <div className="mt-4 space-y-4">
               {LEADERSHIP_TRACKS.map((track, i) => (
-                <div key={i} className="flex items-start gap-4 rounded-xl border border-[#4f8bff]/20 bg-[#16294d] p-4">
-                  <div className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-lg bg-[#4f8bff] text-xs font-black text-white">
+                <div key={i} className="flex items-start gap-4 rounded-xl border border-white/10 bg-navy-900 p-4">
+                  <div className="grid h-8 w-8 flex-shrink-0 place-items-center rounded-lg bg-accent-strong text-xs font-black text-white">
                     {i + 1}
                   </div>
-                  <p className="text-sm leading-6 text-[#cdd9ee]">{track}</p>
+                  <p className="text-sm leading-6 text-on-dark-muted">{track}</p>
                 </div>
               ))}
             </div>
@@ -83,12 +83,12 @@ export default function YouthDevelopmentPageSection() {
 
         {/* Focus areas */}
         <div className="mt-12">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#8aa0c4]">Focus areas</p>
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-muted">Focus areas</p>
           <div className="mt-4 flex flex-wrap gap-3">
             {FOCUS_AREAS.map((area) => (
               <span
                 key={area}
-                className="rounded-full border border-[#4f8bff]/30 px-4 py-2 text-sm font-bold text-[#4f8bff]"
+                className="rounded-full border border-line px-4 py-2 text-sm font-bold text-accent-strong"
               >
                 {area}
               </span>
@@ -97,16 +97,16 @@ export default function YouthDevelopmentPageSection() {
         </div>
 
         {/* CTA */}
-        <div className="mt-12 rounded-2xl bg-[#16294d] p-8">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#4f8bff]">Get involved</p>
-          <p className="mt-3 text-base leading-7 text-[#a9bcdc]">
+        <div className="mt-12 rounded-2xl bg-navy-900 p-8">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-accent-soft">Get involved</p>
+          <p className="mt-3 text-base leading-7 text-on-dark-muted">
             Partner on a youth programme, support the scholarship pipeline, or connect young people in your network with EGA Mentorship International.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/contact" className="rounded-full bg-[#4f8bff] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#2f6bea]">
+            <Link href="/contact" className="btn-accent rounded-full px-6 py-2.5 text-sm font-black">
               Partner with us
             </Link>
-            <Link href="/leadership" className="rounded-full border border-white/15 px-6 py-2.5 text-sm font-black text-[#cdd9ee] transition hover:border-slate-400">
+            <Link href="/leadership" className="btn-ghost rounded-full px-6 py-2.5 text-sm font-black">
               EGA Mentorship
             </Link>
           </div>

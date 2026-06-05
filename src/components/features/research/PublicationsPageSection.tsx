@@ -10,13 +10,13 @@ export default function PublicationsPageSection() {
       <div className="relative mx-auto max-w-5xl">
 
         {/* Hero */}
-        <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#4f8bff]">
+        <p className="text-xs font-bold uppercase tracking-[0.32em] text-accent-strong">
           Writing &amp; Working Papers
         </p>
-        <h1 className="mt-4 text-balance text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
+        <h1 className="mt-4 text-balance text-4xl font-bold font-display tracking-[-0.02em] text-ink md:text-5xl">
           Independent writing on AI, climate, and development.
         </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-[#a9bcdc]">
+        <p className="mt-5 max-w-3xl text-base leading-7 text-body">
           A collection of independent essays, working papers, and policy notes at the intersection
           of AI, climate change, and sustainable development. They reflect ongoing thinking and are
           shared openly for discussion, collaboration, and review.
@@ -45,20 +45,20 @@ export default function PublicationsPageSection() {
 
         {/* CTA */}
         <div className="mt-14 rounded-2xl bg-transparent p-8">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#4f8bff]">Open for collaboration</p>
-          <p className="mt-3 text-base leading-7 text-[#a9bcdc]">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-accent-strong">Open for collaboration</p>
+          <p className="mt-3 text-base leading-7 text-body">
             Interested in collaborating on research, providing peer review, or forming an institutional partnership?
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
               href="/contact"
-              className="rounded-full bg-[#4f8bff] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#005FCC]"
+              className="btn-primary rounded-full px-6 py-2.5 text-sm font-black"
             >
               Get in touch
             </Link>
             <Link
               href="/research"
-              className="rounded-full border border-white/15 px-6 py-2.5 text-sm font-black text-[#cdd9ee] transition hover:border-slate-400"
+              className="btn-ghost rounded-full px-6 py-2.5 text-sm font-black"
             >
               Back to Research Hub
             </Link>

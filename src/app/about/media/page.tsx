@@ -23,19 +23,19 @@ export default function MediaPage() {
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="bg-transparent px-5 py-16 md:px-8 md:py-24">
+      <section className="bg-navy-950 px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-7xl">
           <Link
             href="/about"
-            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#4f8bff] transition hover:text-white"
+            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-accent-soft transition hover:text-white"
           >
             ← About Richard
           </Link>
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#4f8bff]">Media &amp; Speaking</p>
-          <h1 className="mt-4 max-w-3xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-white md:text-6xl">
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-soft">Media &amp; Speaking</p>
+          <h1 className="font-display mt-4 max-w-3xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-white md:text-6xl">
             A voice that bridges data and lived development experience.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-[#8aa0c4]">
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-on-dark-muted">
             Richard is a confident, compelling communicator who can hold his own in a highly
             technical discussion and also tell a story that moves a general audience.
           </p>
@@ -43,11 +43,11 @@ export default function MediaPage() {
       </section>
 
       {/* ── Main content ──────────────────────────────────────────── */}
-      <section className="bg-transparent px-5 py-16 md:px-8 md:py-24">
+      <section className="bg-surface px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-14 lg:grid-cols-2 lg:items-start">
             <div>
-              <div className="space-y-5 text-base leading-8 text-[#a9bcdc]">
+              <div className="space-y-5 text-base leading-8 text-body">
                 <p>
                   Richard is available for speaking engagements, podcast interviews, panel
                   discussions, and media features. He brings a rare combination: the analytical
@@ -68,24 +68,21 @@ export default function MediaPage() {
               </div>
 
               <div className="mt-8">
-                <p className="text-xs font-black uppercase tracking-[0.3em] text-[#4f8bff]">Speaking Topics</p>
+                <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-strong">Speaking Topics</p>
                 <div className="mt-5 grid gap-3 sm:grid-cols-2">
                   {SPEAKING_TOPICS.map((item) => (
                     <div
                       key={item.topic}
-                      className="rounded-xl border border-white/10 bg-transparent p-4"
+                      className="rounded-xl border border-line bg-surface-card p-4"
                     >
-                      <p className="text-sm font-black text-white">{item.topic}</p>
-                      <p className="mt-1 text-xs leading-5 text-[#8aa0c4]">{item.description}</p>
+                      <p className="text-sm font-black text-ink">{item.topic}</p>
+                      <p className="mt-1 text-xs leading-5 text-muted">{item.description}</p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <Link
-                href="/contact"
-                className="mt-8 inline-flex rounded-full bg-[#4f8bff] px-7 py-3.5 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#4f8bff]/25 transition hover:-translate-y-0.5 hover:bg-slate-950"
-              >
+              <Link href="/contact" className="btn-primary mt-8 inline-flex">
                 Book a speaking engagement
               </Link>
             </div>
@@ -126,19 +123,16 @@ export default function MediaPage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
-      <section className="bg-[#0B1F3A] px-5 py-12 md:px-8">
+      <section className="bg-navy-950 px-5 py-12 md:px-8">
         <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="max-w-xl">
             <p className="text-lg font-black text-white">Ready to start a conversation?</p>
-            <p className="mt-1 text-sm text-[#7e92b6]">
+            <p className="mt-1 text-sm text-on-dark-muted">
               Reach out directly to discuss speaking at your event, appearing on your podcast,
               or contributing to your publication.
             </p>
           </div>
-          <Link
-            href="/contact"
-            className="whitespace-nowrap rounded-full bg-[#4f8bff] px-7 py-3.5 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#4f8bff]/30 transition hover:-translate-y-0.5 hover:bg-[#7fb0ff]"
-          >
+          <Link href="/contact" className="btn-accent whitespace-nowrap">
             Get in touch
           </Link>
         </div>

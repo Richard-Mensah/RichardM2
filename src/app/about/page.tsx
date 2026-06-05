@@ -78,28 +78,25 @@ export default async function AboutPage() {
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#0B1F3A] pt-10 pb-0 md:pt-16">
+      <section className="relative overflow-hidden bg-navy-950 pt-10 pb-0 md:pt-16">
         <div className="mx-auto grid max-w-7xl items-end gap-10 px-5 md:px-8 lg:grid-cols-2">
           <div className="pb-12 md:pb-16">
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7fb0ff]">About Richard</p>
-            <h1 className="mt-4 text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-white md:text-6xl">
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-soft">About Richard</p>
+            <h1 className="font-display mt-4 text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-white md:text-6xl">
               From Ghana to the world, one impact system at a time.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+            <p className="mt-6 max-w-xl text-lg leading-8 text-on-dark-muted">
               Richard Mensah is an AI and Data Scientist, youth leader, and sustainable development
               advocate whose work bridges data intelligence, climate action, and youth empowerment
               across the Global South and beyond.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/about/biography"
-                className="rounded-full bg-[#4f8bff] px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#4f8bff]/30 transition hover:-translate-y-0.5 hover:bg-[#7fb0ff]"
-              >
+              <Link href="/about/biography" className="btn-primary">
                 Read Biography
               </Link>
               <a
                 href="mailto:rmensahuk@gmail.com?subject=CV Request - Richard Mensah"
-                className="rounded-full border border-white/30 px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:-translate-y-0.5 hover:bg-white/10"
+                className="rounded-full border border-white/25 px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:-translate-y-0.5 hover:bg-white/10"
               >
                 Request CV
               </a>
@@ -115,16 +112,16 @@ export default async function AboutPage() {
               priority
               sizes="(min-width: 1024px) 40vw, 90vw"
             />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0B1F3A] to-transparent p-5">
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-950/60 to-transparent p-5">
               <p className="font-black text-white">Richard Mensah</p>
-              <p className="text-sm text-slate-300">AI &amp; Data Scientist · Youth Leader · SDG Advocate</p>
+              <p className="text-sm text-on-dark-muted">AI &amp; Data Scientist · Youth Leader · SDG Advocate</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── Quick stats bar ───────────────────────────────────────── */}
-      <section className="bg-[#4f8bff] px-5 py-7 md:px-8">
+      <section className="bg-navy-900 px-5 py-7 md:px-8">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
           {QUICK_STATS.map((stat) => (
             <div key={stat.label} className="text-center">
@@ -138,11 +135,11 @@ export default async function AboutPage() {
       {/* ── Hub cards ─────────────────────────────────────────────── */}
       <section className="bg-transparent px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-7xl">
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-[#4f8bff]">Explore</p>
-          <h2 className="mt-3 text-balance text-3xl font-black tracking-[-0.04em] text-white md:text-4xl">
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-strong">Explore</p>
+          <h2 className="font-display mt-3 text-balance text-3xl font-black tracking-[-0.04em] text-ink md:text-4xl">
             Everything about Richard in one place.
           </h2>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-[#8aa0c4]">
+          <p className="mt-4 max-w-2xl text-base leading-7 text-body">
             Select a section to explore the full story, from personal biography and grassroots
             community work to international conferences, media, and the full CV.
           </p>

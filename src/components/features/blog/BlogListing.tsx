@@ -38,8 +38,8 @@ export default function BlogListing({ articles }: Props) {
               onClick={() => setActiveCategory(cat)}
               className={`rounded-full px-5 py-2 text-sm font-black transition ${
                 activeCategory === cat
-                  ? "bg-slate-950 text-white"
-                  : "glass text-[#a9bcdc] hover:border-slate-950 hover:text-white"
+                  ? "bg-navy-950 text-white"
+                  : "glass text-ink-soft hover:border-navy-950 hover:text-ink"
               }`}
             >
               {cat}
@@ -48,7 +48,7 @@ export default function BlogListing({ articles }: Props) {
         </div>
 
         {filtered.length === 0 ? (
-          <p className="mt-16 text-center text-[#7e92b6]">
+          <p className="mt-16 text-center text-muted">
             No articles in this category yet.
           </p>
         ) : (

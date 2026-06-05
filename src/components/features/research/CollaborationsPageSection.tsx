@@ -24,11 +24,11 @@ export default function CollaborationsPageSection() {
       <div className="relative mx-auto max-w-5xl">
 
         {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#3a78e0]">Research Collaborations</p>
-        <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
+        <p className="text-xs font-black uppercase tracking-[0.32em] text-accent-strong">Research Collaborations</p>
+        <h1 className="mt-4 text-balance text-4xl font-black font-display tracking-[-0.04em] text-ink md:text-5xl">
           Building partnerships that multiply impact.
         </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-[#a9bcdc]">
+        <p className="mt-5 max-w-3xl text-base leading-7 text-body">
           Open to research partnerships, institutional collaborations, and joint publications
           across AI, climate, and development. The best work happens across disciplines,
           borders, and sectors.
@@ -36,18 +36,18 @@ export default function CollaborationsPageSection() {
 
         {/* Collaboration types */}
         <div className="mt-12">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#3a78e0]">Collaboration types</p>
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-accent-strong">Collaboration types</p>
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[...COLLABORATION_TYPES, "Joint Publication"].map((type) => (
               <div
                 key={type}
-                className="rounded-2xl border border-[#3a78e0]/15 glass p-6 shadow-sm"
+                className="rounded-2xl border border-line glass p-6 shadow-sm"
               >
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#3a78e0] text-xs font-black text-white">
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-accent-strong text-xs font-black text-white">
                   {type.slice(0, 2).toUpperCase()}
                 </div>
-                <h3 className="mt-4 text-sm font-black text-white">{type}</h3>
-                <p className="mt-2 text-xs leading-5 text-[#8aa0c4]">
+                <h3 className="mt-4 text-sm font-black text-ink">{type}</h3>
+                <p className="mt-2 text-xs leading-5 text-muted">
                   {COLLAB_DESCRIPTIONS[type] ?? "Formal or informal joint publication of research findings, policy briefs, or working papers."}
                 </p>
               </div>
@@ -57,12 +57,12 @@ export default function CollaborationsPageSection() {
 
         {/* Focus areas */}
         <div className="mt-12">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#8aa0c4]">Focus areas</p>
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-muted">Focus areas</p>
           <div className="mt-4 flex flex-wrap gap-3">
             {FOCUS_AREAS.map((area) => (
               <span
                 key={area}
-                className="rounded-full border border-[#3a78e0]/30 px-4 py-2 text-sm font-bold text-[#3a78e0]"
+                className="rounded-full border border-line px-4 py-2 text-sm font-bold text-accent-strong"
               >
                 {area}
               </span>
@@ -80,12 +80,12 @@ export default function CollaborationsPageSection() {
         </div>
 
         {/* Open for block */}
-        <div className="mt-10 rounded-2xl bg-[#0B1F3A] p-8">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#3a78e0]">Currently open for</p>
+        <div className="mt-10 rounded-2xl bg-navy-950 p-8">
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-accent-soft">Currently open for</p>
           <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {OPEN_FOR.map((item) => (
               <div key={item} className="flex items-center gap-3">
-                <div className="h-2 w-2 flex-shrink-0 rounded-full bg-[#3a78e0]" />
+                <div className="h-2 w-2 flex-shrink-0 rounded-full bg-accent-soft" />
                 <span className="text-sm font-semibold text-white">{item}</span>
               </div>
             ))}
@@ -93,16 +93,16 @@ export default function CollaborationsPageSection() {
         </div>
 
         {/* CTA */}
-        <div className="mt-10 rounded-2xl bg-[#16294d] p-8">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#3a78e0]">Propose a collaboration</p>
-          <p className="mt-3 text-base leading-7 text-[#a9bcdc]">
+        <div className="mt-10 rounded-2xl bg-navy-900 p-8">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-accent-soft">Propose a collaboration</p>
+          <p className="mt-3 text-base leading-7 text-on-dark-muted">
             Have a research idea, institutional need, or partnership proposal? Get in touch and let&apos;s explore what we can build together.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/contact" className="rounded-full bg-[#3a78e0] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#881537]">
+            <Link href="/contact" className="btn-accent rounded-full px-6 py-2.5 text-sm font-black">
               Get in touch
             </Link>
-            <Link href="/research" className="rounded-full border border-white/15 px-6 py-2.5 text-sm font-black text-[#cdd9ee] transition hover:border-slate-400">
+            <Link href="/research" className="btn-ghost rounded-full px-6 py-2.5 text-sm font-black">
               Back to Research Hub
             </Link>
           </div>
