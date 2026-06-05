@@ -166,6 +166,12 @@ export default function ProfilePage() {
                 evidence-based information for lower-emission choices, a direct bridge between data
                 science and climate action.
               </p>
+              <Link
+                href="/research/thesis"
+                className="mt-4 inline-flex items-center gap-1.5 text-sm font-black uppercase tracking-[0.12em] text-accent-strong transition hover:gap-2.5"
+              >
+                Read the full thesis &rarr;
+              </Link>
             </div>
           </div>
         </div>

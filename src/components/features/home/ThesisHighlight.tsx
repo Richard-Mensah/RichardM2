@@ -35,7 +35,7 @@ export default function ThesisHighlight() {
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <Link
-                  href="/about/profile"
+                  href="/research/thesis"
                   className="btn-accent inline-flex items-center gap-2 rounded-full px-6 py-3 text-xs font-black uppercase tracking-[0.14em] transition hover:-translate-y-0.5"
                 >
                   Read the research
