@@ -22,10 +22,17 @@ export default function LeadershipAccordionClient({ tracks }: Props) {
       {tracks.map((track, index) => {
         const isOpen = open === index;
         return (
-          <div key={track} className="overflow-hidden rounded-[1.5rem] border border-white/10">
+          <div
+            key={track}
+            className={cn(
+              "overflow-hidden rounded-[1.5rem] border bg-surface-card transition duration-200",
+              isOpen ? "border-accent/40 shadow-lg shadow-navy-950/5" : "border-line hover:border-line-strong"
+            )}
+          >
             <button
+              type="button"
               onClick={() => setOpen(isOpen ? null : index)}
-              className="flex w-full items-center gap-5 px-5 py-4 text-left transition duration-200 hover:bg-white/[0.06]"
+              className="flex w-full items-center gap-5 px-5 py-4 text-left transition duration-200 hover:bg-surface-muted"
               aria-expanded={isOpen}
             >
               <span
@@ -36,11 +43,11 @@ export default function LeadershipAccordionClient({ tracks }: Props) {
               >
                 {index + 1}
               </span>
-              <p className="flex-1 text-base font-bold leading-7 text-white">{track}</p>
+              <p className="flex-1 text-base font-bold leading-7 text-ink">{track}</p>
               <span
                 className={cn(
-                  "shrink-0 text-on-dark-muted transition duration-200 text-lg leading-none",
-                  isOpen && "rotate-180 text-accent-soft"
+                  "shrink-0 text-muted transition duration-200 text-lg leading-none",
+                  isOpen && "rotate-180 text-accent-strong"
                 )}
                 aria-hidden="true"
               >
@@ -50,7 +57,7 @@ export default function LeadershipAccordionClient({ tracks }: Props) {
 
             <div className={cn("accordion-grid", isOpen && "open")}>
               <div className="accordion-inner">
-                <p className="pb-5 pl-[4.25rem] pr-5 text-sm leading-7 text-on-dark-muted">
+                <p className="pb-5 pl-[4.25rem] pr-5 text-sm leading-7 text-body">
                   {TRACK_DETAILS[index]}
                 </p>
               </div>
