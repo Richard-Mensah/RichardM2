@@ -26,7 +26,7 @@ export default function ResearchSection() {
         <div className="mt-12 grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-5">
           {RESEARCH_CATEGORIES.map((cat) => (
             <Link key={cat.slug} href={cat.slug} className="group outline-none">
-              <Card className="relative flex h-full flex-col overflow-hidden p-0 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl group-hover:shadow-slate-300/80 group-focus-visible:ring-2 group-focus-visible:ring-[#4f8bff]">
+              <Card className="relative flex h-full flex-col overflow-hidden p-0 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl group-focus-visible:ring-2 group-focus-visible:ring-accent">
                 {cat.image && (
                   <div className="absolute inset-0">
                     <Image

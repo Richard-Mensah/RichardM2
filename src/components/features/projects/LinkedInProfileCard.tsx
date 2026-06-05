@@ -12,8 +12,8 @@ export default function LinkedInProfileCard() {
         </svg>
       </div>
       <div className="flex-1">
-        <p className="text-sm font-black text-white">Richard Mensah</p>
-        <p className="text-xs text-[#8aa0c4]">AI Researcher · Youth Leadership · Global Development</p>
+        <p className="text-sm font-black text-ink">Richard Mensah</p>
+        <p className="text-xs text-muted">AI Researcher · Youth Leadership · Global Development</p>
       </div>
       <span className="text-xs font-black text-[#0A66C2]">View Profile →</span>
     </a>

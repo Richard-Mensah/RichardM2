@@ -32,18 +32,18 @@ export default function AiClimateChangePageSection() {
       <div className="relative mx-auto max-w-5xl">
 
         {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#2f6bea]">AI & Climate Change</p>
-        <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
+        <p className="text-xs font-black uppercase tracking-[0.32em] text-accent-strong">AI & Climate Change</p>
+        <h1 className="mt-4 text-balance text-4xl font-black font-display tracking-[-0.04em] text-ink md:text-5xl">
           Climate intelligence for communities on the frontlines.
         </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-[#a9bcdc]">
+        <p className="mt-5 max-w-3xl text-base leading-7 text-body">
           Translating complex environmental signals into practical, community-readable
           adaptation intelligence, particularly for Sub-Saharan Africa, where climate risk
           is acute and data science capacity is limited.
         </p>
 
         {/* Research narrative */}
-        <div className="mt-12 space-y-4 text-base leading-7 text-[#a9bcdc]">
+        <div className="mt-12 space-y-4 text-base leading-7 text-body">
           <p>
             Climate change is not an abstract threat for the communities Richard works with and
             researches. It is a lived, daily reality: changing rainfall patterns, increasing
@@ -65,7 +65,7 @@ export default function AiClimateChangePageSection() {
         </div>
 
         {/* SDG 13 card */}
-        <div className="mt-12 rounded-2xl bg-[#2f6bea] p-8 text-white">
+        <div className="mt-12 rounded-2xl bg-navy-900 p-8 text-white">
           <span className="text-[0.65rem] font-black uppercase tracking-[0.28em] text-white/70">SDG 13</span>
           <h2 className="mt-2 text-2xl font-black">Climate Action</h2>
           <div className="mt-4 space-y-3 text-sm leading-7 text-white/85">
@@ -87,7 +87,7 @@ export default function AiClimateChangePageSection() {
 
         {/* Approach strip */}
         <div className="mt-12">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#8aa0c4]">Research approach</p>
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-muted">Research approach</p>
           <div className="mt-5 grid gap-5 md:grid-cols-3">
             {APPROACH.map((item) => (
               <div key={item.title} className="glass rounded-2xl p-6 shadow-sm">
@@ -97,8 +97,8 @@ export default function AiClimateChangePageSection() {
                 >
                   {item.icon}
                 </div>
-                <h3 className="mt-4 text-base font-black text-white">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-[#8aa0c4]">{item.body}</p>
+                <h3 className="mt-4 text-base font-black text-ink">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-muted">{item.body}</p>
               </div>
             ))}
           </div>
@@ -106,7 +106,7 @@ export default function AiClimateChangePageSection() {
 
         {/* Featured system */}
         <div className="mt-12">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#8aa0c4]">Featured system</p>
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-muted">Featured system</p>
           <div className="mt-5 relative overflow-hidden glass rounded-2xl p-6 shadow-lg shadow-slate-200/60">
             <div className="absolute inset-x-0 top-0 h-1 rounded-t-2xl" style={{ backgroundColor: climateSystem.color }} />
             <span
@@ -115,27 +115,27 @@ export default function AiClimateChangePageSection() {
             >
               {climateSystem.label}
             </span>
-            <h3 className="mt-4 text-xl font-black text-white">{climateSystem.title}</h3>
-            <p className="mt-1 text-sm text-[#8aa0c4]"><strong>Problem:</strong> {climateSystem.problem}</p>
-            <p className="mt-2 text-sm text-[#8aa0c4]"><strong>Approach:</strong> {climateSystem.approach}</p>
-            <p className="mt-2 text-sm text-[#8aa0c4]"><strong>Impact:</strong> {climateSystem.impact}</p>
-            <Link href="/systems" className="mt-5 inline-flex items-center gap-1.5 text-sm font-black text-[#2f6bea] transition hover:underline">
+            <h3 className="mt-4 text-xl font-black text-ink">{climateSystem.title}</h3>
+            <p className="mt-1 text-sm text-muted"><strong>Problem:</strong> {climateSystem.problem}</p>
+            <p className="mt-2 text-sm text-muted"><strong>Approach:</strong> {climateSystem.approach}</p>
+            <p className="mt-2 text-sm text-muted"><strong>Impact:</strong> {climateSystem.impact}</p>
+            <Link href="/systems" className="mt-5 inline-flex items-center gap-1.5 text-sm font-black text-accent-strong transition hover:underline">
               Explore the system →
             </Link>
           </div>
         </div>
 
         {/* CTA */}
-        <div className="mt-12 rounded-2xl bg-[#16294d] p-8">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#2f6bea]">Collaborate on climate research</p>
-          <p className="mt-3 text-base leading-7 text-[#a9bcdc]">
+        <div className="mt-12 rounded-2xl bg-navy-900 p-8">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-accent-soft">Collaborate on climate research</p>
+          <p className="mt-3 text-base leading-7 text-on-dark-muted">
             Interested in partnering on climate intelligence research, co-developing community dashboards, or accessing datasets and methodologies?
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/systems" className="rounded-full bg-[#2f6bea] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#2F6433]">
+            <Link href="/systems" className="btn-accent rounded-full px-6 py-2.5 text-sm font-black">
               Explore Climate System
             </Link>
-            <Link href="/contact" className="rounded-full border border-white/15 px-6 py-2.5 text-sm font-black text-[#cdd9ee] transition hover:border-slate-400">
+            <Link href="/contact" className="btn-ghost rounded-full px-6 py-2.5 text-sm font-black">
               Start a conversation
             </Link>
           </div>

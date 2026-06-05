@@ -4,19 +4,19 @@ import { PRIORITY_GOALS, SDG_COLOURS } from "@/constants";
 
 export default function SdgsSection() {
   return (
-    <section id="sdgs" className="relative bg-slate-950 px-5 py-28 text-white md:px-8">
+    <section id="sdgs" className="relative px-5 py-24 md:px-8">
       <div className="sdg-band absolute inset-x-0 top-0 h-[3px]" />
 
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-[#26BDE2]">
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-strong">
               SDG logo + colour blend
             </p>
-            <h2 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] md:text-6xl">
+            <h2 className="font-display mt-3 text-balance text-4xl font-semibold tracking-[-0.02em] text-ink md:text-5xl">
               Sustainable Development Goals as the visual and strategic language.
             </h2>
-            <p className="mt-6 text-lg leading-8 text-slate-300">
+            <p className="mt-6 text-lg leading-8 text-body">
               The design blends SDG colours with the official SDG-blue feeling, then connects each
               colour to Richard&apos;s practical contribution through AI, training, climate
               intelligence, institutional trust, and partnerships.
@@ -28,7 +28,7 @@ export default function SdgsSection() {
             {PRIORITY_GOALS.map((goal) => (
               <div
                 key={goal.code}
-                className="rounded-[1.7rem] border border-white/10 bg-white/[0.06] p-5 backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white/[0.09] hover:shadow-xl"
+                className="card-lift rounded-[1.7rem] border border-line bg-surface-card p-5"
                 style={{ borderLeftColor: goal.color, borderLeftWidth: "4px" }}
               >
                 <div className="flex items-center gap-3">
@@ -39,24 +39,24 @@ export default function SdgsSection() {
                     {goal.code.replace("SDG ", "")}
                   </span>
                   <div>
-                    <p className="text-xs font-black uppercase tracking-[0.22em] text-slate-300">
+                    <p className="text-xs font-black uppercase tracking-[0.22em] text-muted">
                       {goal.code}
                     </p>
-                    <h3 className="text-lg font-black text-white">{goal.title}</h3>
+                    <h3 className="text-lg font-bold text-ink">{goal.title}</h3>
                   </div>
                 </div>
-                <p className="mt-4 text-sm leading-7 text-slate-300">{goal.contribution}</p>
+                <p className="mt-4 text-sm leading-7 text-body">{goal.contribution}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Field stories */}
-        <div className="mt-20">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#26BDE2]">
+        <div className="mt-24">
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-strong">
             Where the SDGs live — in the field
           </p>
-          <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-300">
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-body">
             Before the research and the international conferences, Richard&apos;s SDG work was
             hands-on and local — teaching children during lockdowns, cleaning communities, advocating
             for peace. This is where it began.
@@ -67,12 +67,12 @@ export default function SdgsSection() {
             <div>
               <div className="flex items-center gap-3">
                 <span className="grid h-10 w-10 place-items-center rounded-xl text-sm font-black text-white" style={{ backgroundColor: "#C5192D" }}>4</span>
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-[#7e92b6]">SDG 4 · Quality Education</p>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-muted">SDG 4 · Quality Education</p>
               </div>
-              <h3 className="mt-4 text-2xl font-black text-white">
+              <h3 className="font-display mt-4 text-2xl font-semibold text-ink">
                 Free teaching during COVID-19 lockdowns.
               </h3>
-              <p className="mt-4 text-base leading-8 text-slate-300">
+              <p className="mt-4 text-base leading-8 text-body">
                 When schools closed across Ghana during the COVID-19 pandemic, Richard organised
                 free volunteer teaching sessions in communities across the Sefwi Bekwai area —
                 holding night classes and morning sessions to ensure children kept learning.
@@ -81,7 +81,7 @@ export default function SdgsSection() {
                 {["DonkorKrom", "Barkokrom", "Sukuuku", "Lowcost", "Bekwai Township", "Apemkrom"].map((loc) => (
                   <span
                     key={loc}
-                    className="rounded-full border border-white/15 px-3 py-1 text-xs font-bold text-slate-300"
+                    className="rounded-full border border-line bg-surface-muted px-3 py-1 text-xs font-bold text-ink-soft"
                   >
                     {loc}
                   </span>
@@ -124,12 +124,12 @@ export default function SdgsSection() {
               <div className="flex items-center gap-3">
                 <span className="grid h-10 w-10 place-items-center rounded-xl text-sm font-black text-white" style={{ backgroundColor: "#26BDE2" }}>6</span>
                 <span className="grid h-10 w-10 place-items-center rounded-xl text-sm font-black text-white" style={{ backgroundColor: "#FD9D24" }}>11</span>
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-[#7e92b6]">SDG 6 & 11 · Sanitation & Communities</p>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-muted">SDG 6 &amp; 11 · Sanitation &amp; Communities</p>
               </div>
-              <h3 className="mt-4 text-2xl font-black text-white">
+              <h3 className="font-display mt-4 text-2xl font-semibold text-ink">
                 Community sanitation and cleaning exercises.
               </h3>
-              <p className="mt-4 text-base leading-8 text-slate-300">
+              <p className="mt-4 text-base leading-8 text-body">
                 Richard organised and participated in community sanitation exercises across the
                 Sefwi Bekwai area — mobilising residents to clean public spaces, streets, and
                 community areas that had been neglected. These hands-on drives demonstrated
@@ -139,7 +139,7 @@ export default function SdgsSection() {
                 {["Donkorkrom", "Donsokrom", "Surano B", "Chira", "Western North Region"].map((loc) => (
                   <span
                     key={loc}
-                    className="rounded-full border border-white/15 px-3 py-1 text-xs font-bold text-slate-300"
+                    className="rounded-full border border-line bg-surface-muted px-3 py-1 text-xs font-bold text-ink-soft"
                   >
                     {loc}
                   </span>
@@ -153,12 +153,12 @@ export default function SdgsSection() {
             <div>
               <div className="flex items-center gap-3">
                 <span className="grid h-10 w-10 place-items-center rounded-xl text-sm font-black text-white" style={{ backgroundColor: "#00689D" }}>16</span>
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-[#7e92b6]">SDG 16 · Peace & Strong Institutions</p>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-muted">SDG 16 · Peace &amp; Strong Institutions</p>
               </div>
-              <h3 className="mt-4 text-2xl font-black text-white">
+              <h3 className="font-display mt-4 text-2xl font-semibold text-ink">
                 Peace campaigns and civic education.
               </h3>
-              <p className="mt-4 text-base leading-8 text-slate-300">
+              <p className="mt-4 text-base leading-8 text-body">
                 Richard contributed to peace advocacy and civic education across the Western North
                 Region — national peace campaigns with NUSSA, radio peace talks with regional
                 media, and civic education with Ghana&apos;s National Commission for Civic Education
@@ -169,8 +169,8 @@ export default function SdgsSection() {
             <div className="grid grid-cols-2 gap-3">
               <div className="relative col-span-2 h-52 overflow-hidden rounded-2xl">
                 <Image src="/leadership/peace-campaign.jpg" alt="National peace campaign — youth advocates, Western North Region" fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent" />
-                <p className="absolute bottom-4 left-5 text-xs font-black uppercase tracking-[0.18em] text-[#26BDE2]">
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 to-transparent" />
+                <p className="absolute bottom-4 left-5 text-xs font-black uppercase tracking-[0.18em] text-white">
                   National Peace Campaign · Western North Region
                 </p>
               </div>
@@ -184,8 +184,8 @@ export default function SdgsSection() {
           </div>
         </div>
 
-        <div className="mt-20 rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 md:p-8">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#26BDE2]">
+        <div className="mt-20 rounded-[2rem] border border-line bg-surface-card p-6 md:p-8">
+          <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-strong">
             Full SDG spectrum
           </p>
           <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-9">

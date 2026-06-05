@@ -1,26 +1,30 @@
 @import "tailwindcss";
 
 /* ──────────────────────────────────────────────────────────────────
-   DESIGN TOKENS — single source of truth (CFI "Navy + Teal" system).
-   Tailwind v4 reads the theme from CSS (@theme), so every token below
-   generates utilities like `bg-navy-900`, `text-accent`, `border-line`.
-   Legacy names (brand-*/accent-cyan/…) are re-pointed to the new values
-   so components still using them adopt the new palette automatically.
+   DESIGN TOKENS — single source of truth.
+   "Navy + Teal" institutional system, LIGHT theme.
+   Navy = structure, Teal = accent/links/data, CFI Red = one hero CTA.
+   Tailwind v4 reads @theme, so every token generates utilities like
+   `bg-navy-900`, `text-accent`, `border-line`, `font-display`.
+   Legacy class names (.glass, .btn-azure, .azure-link…) are redefined
+   below to the light system so existing markup adopts it automatically.
    ────────────────────────────────────────────────────────────────── */
 @theme {
-  /* ── Structure (navy-indigo, CFI billboard) ── */
+  /* ── Structure (navy) ── */
   --color-navy-950: #0a1a30;
   --color-navy-900: #122a4e;
   --color-navy-800: #1b3a66;
   --color-navy-700: #264b82;
+  --color-navy-600: #345d99;
 
   /* ── Accent (teal) — links, data, section highlights ── */
-  --color-accent: #2ba8b4;
-  --color-accent-strong: #1e8a95;
+  --color-accent: #1e8a95;
+  --color-accent-strong: #15727c;
+  --color-accent-bright: #2ba8b4;
   --color-accent-soft: #7fd6d2;
   --color-accent-tint: #e6f5f5;
 
-  /* ── Brand (CFI red) — header strip, logo, primary CTAs ── */
+  /* ── Brand (CFI red) — reserved for the single highest-emphasis CTA ── */
   --color-brand: #da1e3c;
   --color-brand-strong: #b81733;
   --color-brand-tint: #fbe7eb;
@@ -30,44 +34,55 @@
   --color-surface: #f4f7fa;
   --color-surface-card: #ffffff;
   --color-surface-muted: #eef3f7;
+  --color-surface-sunken: #e9eef4;
 
   /* ── Text ── */
   --color-ink: #16273b;
+  --color-ink-soft: #2c3e54;
   --color-body: #5a6b7d;
+  --color-muted: #8595a6;
   --color-on-dark: #e8eef4;
   --color-on-dark-muted: #9fb0c2;
 
   /* ── Lines ── */
   --color-line: #e2e8f0;
+  --color-line-strong: #cdd8e4;
 
-  /* ── Data (semantic, used for gains/losses only) ── */
+  /* ── Data (semantic, gains/losses only) ── */
   --color-up: #16a34a;
   --color-up-tint: #e9f7ef;
   --color-down: #e5484d;
   --color-down-tint: #fdecec;
 
-  /* ── Legacy names → re-pointed to the new teal/navy system ── */
-  --color-brand-primary: #2ba8b4;
-  --color-brand-primary-light: #3bc4c9;
+  /* ── Legacy aliases → re-pointed to the navy/teal system ── */
+  --color-brand-primary: #1e8a95;
+  --color-brand-primary-light: #2ba8b4;
   --color-brand-primary-lighter: #7fd6d2;
-  --color-brand-primary-dark: #1e8a95;
-  --color-brand-primary-darker: #176e78;
-  --color-brand-primary-accent: #2ba8b4;
-  --color-accent-cyan: #3bc4c9;
+  --color-brand-primary-dark: #15727c;
+  --color-brand-primary-darker: #0f5a63;
+  --color-brand-primary-accent: #1e8a95;
+  --color-accent-cyan: #2ba8b4;
   --color-accent-cyan-light: #7fd6d2;
-  --color-accent-blue-dark: #155e66;
+  --color-accent-blue-dark: #15727c;
   --color-sdg-footer: #0b1b2d;
 
-  /* ── SDG hues — DATA ONLY (the SDG wheel + SDG tags/badges) ── */
+  /* ── SDG hues — DATA ONLY (SDG wheel + SDG tags/badges) ── */
   --color-sdg-climate: #3f7e44;
   --color-sdg-data-science: #0a97d9;
   --color-sdg-community: #fcc30b;
   --color-sdg-open-source: #fd6925;
   --color-sdg-portfolio: #a21942;
+
+  /* ── Typography ── */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-display: var(--font-display-src), ui-sans-serif, system-ui,
+    "Segoe UI", sans-serif;
 }
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
+
   /* SDG palette — referenced only by SDG data viz (wheel, badges). */
   --sdg-blue: #00a6ff;
   --sdg-1: #e5243b;
@@ -87,13 +102,14 @@
   --sdg-15: #56c02b;
   --sdg-16: #00689d;
   --sdg-17: #19486a;
-  /* Core neutrals — DARK "Deep Blue Gradient" theme */
-  --ink: #f2f7ff;          /* default text (light on dark) */
-  --paper: #0a1730;        /* base background */
-  --text-body: #a9bcdc;
-  --text-muted: #7e92b6;
-  --azure: #4f8bff;
-  --azure-strong: #2f6bea;
+
+  /* Core neutrals — LIGHT theme */
+  --ink: #16273b; /* default heading/text */
+  --paper: #f4f7fa; /* base background */
+  --text-body: #5a6b7d;
+  --text-muted: #8595a6;
+  --azure: #1e8a95; /* legacy var → teal accent */
+  --azure-strong: #15727c;
 }
 
 * {
@@ -102,173 +118,242 @@
 
 html {
   scroll-behavior: smooth;
-  background: #0a1730;
+  background: #f4f7fa;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  /* CFI "Deep Blue Gradient": navy -> royal blue, with a soft cobalt glow. */
+  /* Light institutional ground: soft surface with a faint teal/navy aura. */
   background:
-    radial-gradient(circle at 78% 18%, rgba(45, 108, 240, 0.22), transparent 45%),
-    linear-gradient(135deg, #0a1730 0%, #112b54 50%, #1c4c8e 100%);
+    radial-gradient(ellipse 60% 50% at 85% -5%, rgba(43, 168, 180, 0.08), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 0% 0%, rgba(18, 42, 78, 0.05), transparent 55%),
+    #f4f7fa;
   background-attachment: fixed;
-  color: var(--ink);
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: rgba(79, 139, 255, 0.35);
-  color: #ffffff;
+  background: rgba(30, 138, 149, 0.18);
+  color: #0f5a63;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
 }
 
 .text-balance {
   text-wrap: balance;
 }
+.text-pretty {
+  text-wrap: pretty;
+}
 
-/* ── Glassmorphism system (plain CSS — always renders) ─────────────── */
+/* ── Card system (was glassmorphism) — light, elevated surfaces ─────── */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(150, 180, 225, 0.18);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 20px 50px -25px rgba(0, 0, 0, 0.6);
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-line);
+  box-shadow:
+    0 1px 2px rgba(16, 39, 59, 0.04),
+    0 12px 32px -18px rgba(16, 39, 59, 0.18);
 }
 .glass-strong {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(150, 180, 225, 0.22);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-line-strong);
+  box-shadow:
+    0 2px 4px rgba(16, 39, 59, 0.05),
+    0 24px 50px -24px rgba(16, 39, 59, 0.28);
 }
 .glass-input {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(150, 180, 225, 0.22);
-  color: #f2f7ff;
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-line-strong);
+  color: var(--color-ink);
 }
-.glass-input::placeholder { color: #7e92b6; }
+.glass-input::placeholder {
+  color: var(--color-muted);
+}
 .glass-input:focus {
   outline: none;
-  border-color: #4f8bff;
-  box-shadow: 0 0 0 3px rgba(79, 139, 255, 0.25);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(30, 138, 149, 0.18);
 }
-/* Buttons */
-.btn-white { background: #ffffff; color: #0a1730; }
-.btn-white:hover { background: #e7eefc; }
-.btn-azure { background: #4f8bff; color: #ffffff; }
-.btn-azure:hover { background: #2f6bea; }
-/* Links */
-.azure-link { color: #7fb0ff; }
-.azure-link:hover { color: #a9c8ff; }
 
-/* SDG rainbow text — reserved for genuine SDG headings only. */
+/* Card hover lift helper */
+.card-lift {
+  transition:
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 240ms ease,
+    border-color 240ms ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-line-strong);
+  box-shadow:
+    0 4px 8px rgba(16, 39, 59, 0.06),
+    0 28px 56px -22px rgba(16, 39, 59, 0.3);
+}
+
+/* ── Buttons ───────────────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--color-navy-900);
+  color: #ffffff;
+  transition: background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+.btn-primary:hover {
+  background: var(--color-navy-800);
+}
+.btn-accent {
+  background: var(--color-accent);
+  color: #ffffff;
+  transition: background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+.btn-accent:hover {
+  background: var(--color-accent-strong);
+}
+.btn-brand {
+  background: var(--color-brand);
+  color: #ffffff;
+  transition: background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+.btn-brand:hover {
+  background: var(--color-brand-strong);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--color-navy-900);
+  border: 1px solid var(--color-line-strong);
+  transition: border-color 200ms ease, color 200ms ease, background 200ms ease;
+}
+.btn-ghost:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-strong);
+  background: var(--color-accent-tint);
+}
+/* Legacy aliases */
+.btn-white {
+  background: #ffffff;
+  color: var(--color-navy-900);
+  border: 1px solid var(--color-line);
+}
+.btn-white:hover {
+  background: var(--color-surface-muted);
+}
+.btn-azure {
+  background: var(--color-navy-900);
+  color: #ffffff;
+  transition: background 200ms ease, transform 200ms ease;
+}
+.btn-azure:hover {
+  background: var(--color-navy-800);
+}
+
+/* ── Links ─────────────────────────────────────────────────────────── */
+.azure-link {
+  color: var(--color-accent);
+  transition: color 160ms ease;
+}
+.azure-link:hover {
+  color: var(--color-accent-strong);
+}
+
+/* ── Eyebrow / kicker label ────────────────────────────────────────── */
+.eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-accent-strong);
+}
+
+/* ── SDG accents (data only) ───────────────────────────────────────── */
 .sdg-text-gradient {
-  background: linear-gradient(90deg, #62e8ff, #00a6ff, #56c02b, #fcc30b, #fd6925, #dd1367);
+  background: linear-gradient(90deg, #0a97d9, #00689d, #3f7e44, #fcc30b, #fd6925, #a21942);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-
-/* Slim brand accent line (was a 9-colour rainbow band). */
 .sdg-band {
   background: linear-gradient(
     90deg,
     var(--color-navy-900),
-    var(--color-accent),
+    var(--color-accent-bright),
     var(--color-navy-900)
   );
 }
-
-/* SDG wheel — genuine SDG data, keeps the full spectrum. */
 .sdg-conic {
   background: conic-gradient(
     from -90deg,
-    var(--sdg-1),
-    var(--sdg-2),
-    var(--sdg-3),
-    var(--sdg-4),
-    var(--sdg-5),
-    var(--sdg-6),
-    var(--sdg-7),
-    var(--sdg-8),
-    var(--sdg-9),
-    var(--sdg-10),
-    var(--sdg-11),
-    var(--sdg-12),
-    var(--sdg-13),
-    var(--sdg-14),
-    var(--sdg-15),
-    var(--sdg-16),
-    var(--sdg-17),
-    var(--sdg-1)
+    var(--sdg-1), var(--sdg-2), var(--sdg-3), var(--sdg-4), var(--sdg-5),
+    var(--sdg-6), var(--sdg-7), var(--sdg-8), var(--sdg-9), var(--sdg-10),
+    var(--sdg-11), var(--sdg-12), var(--sdg-13), var(--sdg-14), var(--sdg-15),
+    var(--sdg-16), var(--sdg-17), var(--sdg-1)
   );
 }
 
+/* ── Decorative backgrounds ────────────────────────────────────────── */
 .data-grid-light {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    radial-gradient(circle at 1px 1px, rgba(79, 139, 255, 0.18) 1px, transparent 0);
-  background-size: 72px 72px, 72px 72px, 24px 24px;
+    linear-gradient(rgba(18, 42, 78, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 42, 78, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px, 56px 56px;
 }
-
-
+.dot-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(18, 42, 78, 0.12) 1px, transparent 0);
+  background-size: 22px 22px;
+}
 .logo-wheel-shadow {
-  filter: drop-shadow(0 24px 45px rgba(0, 0, 0, 0.45));
+  filter: drop-shadow(0 20px 40px rgba(16, 39, 59, 0.25));
 }
-
-.float-soft {
-  animation: float-soft 8s ease-in-out infinite;
-}
-
-.orbit-slow {
-  animation: orbit-slow 28s linear infinite;
-}
-
-.reveal-up {
-  animation: reveal-up 720ms ease both;
-}
-
-@keyframes float-soft {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
-}
-
-@keyframes orbit-slow {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ── Section backgrounds — transparent so the global gradient shows ── */
 .identity-ground,
 .research-ground,
 .leadership-ground,
 .sdg-hero-mesh {
   background:
-    radial-gradient(circle at 80% 15%, rgba(79, 139, 255, 0.10), transparent 38rem),
+    radial-gradient(ellipse 60% 50% at 85% 0%, rgba(43, 168, 180, 0.08), transparent 60%),
     transparent;
 }
 
-/* ── Scroll-reveal ─────────────────────────────────────────────── */
+/* ── Animations ────────────────────────────────────────────────────── */
+.float-soft {
+  animation: float-soft 8s ease-in-out infinite;
+}
+.orbit-slow {
+  animation: orbit-slow 28s linear infinite;
+}
+.reveal-up {
+  animation: reveal-up 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes orbit-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Staggered reveal helper for hero / first-paint sequences */
+.stagger > * {
+  opacity: 0;
+  animation: reveal-up 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.stagger > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger > *:nth-child(2) { animation-delay: 0.15s; }
+.stagger > *:nth-child(3) { animation-delay: 0.25s; }
+.stagger > *:nth-child(4) { animation-delay: 0.35s; }
+.stagger > *:nth-child(5) { animation-delay: 0.45s; }
+.stagger > *:nth-child(6) { animation-delay: 0.55s; }
+
+/* ── Scroll-reveal ─────────────────────────────────────────────────── */
 .reveal-section {
   opacity: 0;
   transform: translateY(28px);
@@ -279,14 +364,19 @@ body {
   transform: translateY(0);
 }
 @media (prefers-reduced-motion: reduce) {
-  .reveal-section {
-    opacity: 1;
-    transform: none;
-    transition: none;
+  .reveal-section,
+  .stagger > *,
+  .reveal-up,
+  .float-soft,
+  .orbit-slow {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
   }
 }
 
-/* ── Accordion ─────────────────────────────────────────────────── */
+/* ── Accordion ─────────────────────────────────────────────────────── */
 .accordion-grid {
   display: grid;
   grid-template-rows: 0fr;
@@ -301,36 +391,36 @@ body {
   overflow: hidden;
 }
 
-/* ── Tab slide-in indicator ────────────────────────────────────── */
+/* ── Tab slide-in indicator ────────────────────────────────────────── */
 @keyframes tab-slide-in {
   from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
+  to { transform: scaleX(1); }
 }
 .tab-indicator {
   transform-origin: left;
   animation: tab-slide-in 220ms ease both;
 }
 
-/* Article body prose styles */
+/* ── Article body prose (light) ────────────────────────────────────── */
 .article-body > * + * { margin-top: 1.25rem; }
-.article-body h2 { font-size: 1.5rem; font-weight: 900; color: #f2f7ff; margin-top: 2.5rem; letter-spacing: -0.02em; }
-.article-body h3 { font-size: 1.125rem; font-weight: 800; color: #f2f7ff; margin-top: 2rem; }
-.article-body p { font-size: 1.0625rem; line-height: 1.875; color: #a9bcdc; }
-.article-body ul, .article-body ol { padding-left: 1.5rem; color: #a9bcdc; line-height: 1.875; }
+.article-body h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; color: var(--color-ink); margin-top: 2.5rem; letter-spacing: -0.01em; }
+.article-body h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--color-ink); margin-top: 2rem; }
+.article-body p { font-size: 1.0625rem; line-height: 1.85; color: var(--color-body); }
+.article-body ul, .article-body ol { padding-left: 1.5rem; color: var(--color-body); line-height: 1.85; }
 .article-body ul { list-style-type: disc; }
 .article-body ol { list-style-type: decimal; }
 .article-body li + li { margin-top: 0.375rem; }
-.article-body blockquote { border-left: 3px solid #4f8bff; padding-left: 1.25rem; color: #9fb3d1; font-style: italic; }
-.article-body code { background: rgba(255, 255, 255, 0.08); border-radius: 0.25rem; padding: 0.125rem 0.375rem; font-size: 0.875rem; color: #eaf1fb; }
-.article-body pre { background: rgba(8, 18, 40, 0.7); color: #e2e8f0; border-radius: 1rem; padding: 1.25rem; overflow-x: auto; }
+.article-body blockquote { border-left: 3px solid var(--color-accent); padding-left: 1.25rem; color: var(--color-ink-soft); font-style: italic; }
+.article-body code { background: var(--color-surface-muted); border-radius: 0.25rem; padding: 0.125rem 0.375rem; font-size: 0.875rem; color: var(--color-navy-900); }
+.article-body pre { background: var(--color-navy-950); color: #e2e8f0; border-radius: 1rem; padding: 1.25rem; overflow-x: auto; }
 .article-body pre code { background: transparent; padding: 0; color: inherit; }
 .article-body img { border-radius: 1rem; width: 100%; height: auto; }
-.article-body a { color: #7fb0ff; text-decoration: underline; }
-.article-body strong { font-weight: 800; color: #f2f7ff; }
+.article-body a { color: var(--color-accent); text-decoration: underline; text-underline-offset: 2px; }
+.article-body strong { font-weight: 700; color: var(--color-ink); }
 
-/* ── Header dropdown animation ─────────────────────────────────── */
+/* ── Header dropdown animation ─────────────────────────────────────── */
 @keyframes dropdown-appear {
   from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .header-dropdown { animation: dropdown-appear 160ms ease both; }

@@ -34,24 +34,24 @@ export default function CommunityPageSection() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#1c1400] px-5 py-20 md:px-8 md:py-28">
+      <section className="relative overflow-hidden bg-navy-950 px-5 py-20 md:px-8 md:py-28">
         <div className="pointer-events-none absolute inset-0 data-grid-light opacity-10" />
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#3a78e0]">
+              <p className="text-xs font-black uppercase tracking-[0.28em] text-accent-soft">
                 Projects / Community
               </p>
-              <h1 className="mt-4 text-4xl font-black leading-tight text-white md:text-5xl">
+              <h1 className="mt-4 text-4xl font-black font-display leading-tight text-white md:text-5xl">
                 Technology built by and for communities
               </h1>
-              <p className="mt-6 text-base leading-8 text-slate-300">
-                Richard's community work has always been about showing up. The technology dimension of that work, from simple data collection to mentorship platforms, is built with the same spirit: practical tools for people doing real things.
+              <p className="mt-6 text-base leading-8 text-on-dark-muted">
+                Richard&apos;s community work has always been about showing up. The technology dimension of that work, from simple data collection to mentorship platforms, is built with the same spirit: practical tools for people doing real things.
               </p>
               <div className="mt-8">
                 <Link
                   href="/leadership/community"
-                  className="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-black text-white transition hover:bg-white/20"
+                  className="btn-primary inline-flex items-center gap-2"
                 >
                   Leadership Work →
                 </Link>
@@ -65,7 +65,7 @@ export default function CommunityPageSection() {
                 className="object-cover object-center"
                 sizes="(min-width: 1024px) 50vw, 100vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1c1400]/50 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent" />
             </div>
           </div>
         </div>
@@ -81,8 +81,8 @@ export default function CommunityPageSection() {
                 <div className="flex flex-col gap-4 md:flex-row md:items-start md:gap-8">
                   <span className="mt-1.5 inline-block h-2.5 w-10 shrink-0 rounded-full" style={{ backgroundColor: init.accent }} aria-hidden="true" />
                   <div className="flex-1">
-                    <h3 className="text-base font-black text-white">{init.title}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#a9bcdc]">{init.description}</p>
+                    <h3 className="text-base font-black text-ink">{init.title}</h3>
+                    <p className="mt-2 text-sm leading-7 text-body">{init.description}</p>
                   </div>
                   <Link
                     href={init.link}
@@ -118,7 +118,7 @@ export default function CommunityPageSection() {
                     sizes="(min-width: 640px) 33vw, 100vw"
                   />
                 </div>
-                <p className="mt-2 text-xs text-[#8aa0c4]">{img.caption}</p>
+                <p className="mt-2 text-xs text-muted">{img.caption}</p>
               </div>
             ))}
           </div>
@@ -128,15 +128,15 @@ export default function CommunityPageSection() {
       {/* Closing */}
       <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-2xl font-black leading-tight text-white">
+          <p className="text-2xl font-black leading-tight text-ink">
             Community work taught Richard what technology can and cannot do.
           </p>
-          <p className="mt-4 text-sm leading-7 text-[#a9bcdc]">
+          <p className="mt-4 text-sm leading-7 text-body">
             Before data science, there were sanitation drives, late-night teaching sessions, and motorbike rides into communities without clean water. The technical tools built since then are shaped by that experience of what communities actually need, not what technology wants to offer them.
           </p>
           <Link
             href="/about/leadership-journey"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-black text-[#3a78e0] transition hover:gap-3"
+            className="mt-8 inline-flex items-center gap-2 text-sm font-black text-accent-strong transition hover:gap-3"
           >
             Read the journey →
           </Link>
