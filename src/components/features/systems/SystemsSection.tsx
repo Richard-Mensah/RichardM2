@@ -20,11 +20,11 @@ export default function SystemsSection() {
               and innovation potential.
             </p>
           </SectionHeading>
-          <Card className="data-grid-light border-[#00689D]/20 p-8">
-            <p className="text-sm font-black uppercase tracking-[0.28em] text-[#00689D]">
+          <Card className="bg-navy-950 p-8">
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-soft">
               Core thesis
             </p>
-            <p className="mt-4 text-3xl font-black leading-tight text-white">
+            <p className="font-display mt-4 text-2xl font-semibold leading-snug text-white md:text-3xl">
               AI should make decisions clearer, institutions stronger, and communities more capable.
             </p>
           </Card>

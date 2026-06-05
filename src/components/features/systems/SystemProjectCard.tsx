@@ -34,18 +34,19 @@ export default function SystemProjectCard({ system }: Props) {
         >
           {system.label}
         </div>
-        <h3 className="text-xl font-black leading-tight text-white">{system.title}</h3>
+        <h3 className="text-xl font-bold leading-tight text-ink">{system.title}</h3>
       </div>
 
       {/* Tab bar */}
-      <div className="flex border-b border-white/10 px-7">
+      <div className="flex border-b border-line px-7">
         {TABS.map((tab) => (
           <button
             key={tab.key}
+            type="button"
             onClick={() => setActiveTab(tab.key)}
             className={cn(
               "relative pb-3 pr-6 text-xs font-black uppercase tracking-[0.2em] transition",
-              activeTab === tab.key ? "text-white" : "text-[#7e92b6] hover:text-[#a9bcdc]"
+              activeTab === tab.key ? "text-ink" : "text-muted hover:text-ink-soft"
             )}
           >
             {tab.label}
@@ -62,7 +63,7 @@ export default function SystemProjectCard({ system }: Props) {
 
       {/* Content */}
       <div className="flex-1 px-7 py-5">
-        <p key={activeTab} className="reveal-up text-sm leading-7 text-[#a9bcdc]">
+        <p key={activeTab} className="reveal-up text-sm leading-7 text-body">
           {content[activeTab]}
         </p>
       </div>
@@ -70,7 +71,7 @@ export default function SystemProjectCard({ system }: Props) {
       {/* CTA */}
       <a
         href="#collaborate"
-        className="mt-auto inline-flex items-center gap-2 px-7 pb-7 pt-2 text-sm font-black text-[#00689D] transition hover:gap-3"
+        className="mt-auto inline-flex items-center gap-2 px-7 pb-7 pt-2 text-sm font-black text-accent-strong transition hover:gap-3"
       >
         Discuss the system <span aria-hidden="true">→</span>
       </a>

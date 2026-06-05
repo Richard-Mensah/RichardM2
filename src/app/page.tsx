@@ -1,7 +1,15 @@
 import HeroSection from "@/components/features/hero/HeroSection";
-import SectionOverview from "@/components/features/home/SectionOverview";
+import AudiencePathways from "@/components/features/home/AudiencePathways";
+import DomainPillars from "@/components/features/home/DomainPillars";
+import SkillsMatrix from "@/components/features/home/SkillsMatrix";
+import ImpactStats from "@/components/features/home/ImpactStats";
+import FeaturedWork from "@/components/features/home/FeaturedWork";
+import SelectedWriting from "@/components/features/home/SelectedWriting";
+import SdgAlignmentStrip from "@/components/features/home/SdgAlignmentStrip";
+import TestimonialsSection from "@/components/features/home/TestimonialsSection";
+import FinalCta from "@/components/features/home/FinalCta";
 import { getImpactStats } from "@/lib/impactStats";
-import { getHomepage, toParagraphs } from "@/lib/homepage";
+import { getHomepage } from "@/lib/homepage";
 import { getTestimonials } from "@/lib/testimonials";
 
 export const dynamic = "force-dynamic";
@@ -16,12 +24,15 @@ export default async function HomePage() {
   return (
     <>
       <HeroSection content={homepage} />
-      <SectionOverview
-        impactStats={impactStats}
-        welcomeTitle={homepage.welcomeTitle}
-        welcomeParagraphs={toParagraphs(homepage.welcomeBody)}
-        testimonials={testimonials}
-      />
+      <AudiencePathways />
+      <DomainPillars />
+      <SkillsMatrix />
+      <ImpactStats impactStats={impactStats} />
+      <FeaturedWork />
+      <SelectedWriting />
+      <SdgAlignmentStrip />
+      <TestimonialsSection testimonials={testimonials} />
+      <FinalCta />
     </>
   );
 }

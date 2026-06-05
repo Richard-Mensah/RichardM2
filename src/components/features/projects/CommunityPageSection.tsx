@@ -46,7 +46,7 @@ export default function CommunityPageSection() {
                 Technology built by and for communities
               </h1>
               <p className="mt-6 text-base leading-8 text-slate-300">
-                Richard's community work has always been about showing up. The technology dimension of that work, from simple data collection to mentorship platforms, is built with the same spirit: practical tools for people doing real things.
+                Richard&apos;s community work has always been about showing up. The technology dimension of that work, from simple data collection to mentorship platforms, is built with the same spirit: practical tools for people doing real things.
               </p>
               <div className="mt-8">
                 <Link
