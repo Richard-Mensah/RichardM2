@@ -41,17 +41,17 @@ export default function ConferencesPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/60 via-black/50 to-transparent" />
         <div className="relative z-10 flex h-full items-end px-5 pb-14 md:px-8">
           <div className="max-w-2xl">
             <Link
               href="/about"
-              className="mb-5 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#7fb0ff] transition hover:text-white"
+              className="mb-5 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-accent-soft transition hover:text-white"
             >
               ← About Richard
             </Link>
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7fb0ff]">Conferences &amp; Summits</p>
-            <h1 className="mt-3 text-balance text-4xl font-black leading-tight tracking-[-0.04em] text-white md:text-5xl">
+            <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-soft">Conferences &amp; Summits</p>
+            <h1 className="font-display mt-3 text-balance text-4xl font-black leading-tight tracking-[-0.04em] text-white md:text-5xl">
               Carrying the Global South&apos;s voice into global rooms.
             </h1>
           </div>
@@ -59,11 +59,11 @@ export default function ConferencesPage() {
       </section>
 
       {/* ── Body ──────────────────────────────────────────────────── */}
-      <section className="bg-transparent px-5 py-16 md:px-8 md:py-24">
+      <section className="bg-surface px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-[1fr_0.95fr] lg:items-start">
             <div>
-              <div className="space-y-5 text-base leading-8 text-[#a9bcdc]">
+              <div className="space-y-5 text-base leading-8 text-body">
                 <p>
                   Representation matters, and Richard has understood this from the very beginning.
                   His presence at international conferences and summits is not just personal
@@ -86,26 +86,20 @@ export default function ConferencesPage() {
                 </p>
               </div>
 
-              <div className="mt-8 grid grid-cols-2 gap-3 rounded-2xl border border-white/10 bg-transparent p-6">
+              <div className="mt-8 grid grid-cols-2 gap-3 rounded-2xl border border-line bg-surface-card p-6">
                 {CONFERENCE_AREAS.map((area) => (
                   <div key={area} className="flex items-center gap-2">
-                    <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#4f8bff]" />
-                    <p className="text-sm font-semibold text-[#cdd9ee]">{area}</p>
+                    <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-strong" />
+                    <p className="text-sm font-semibold text-ink-soft">{area}</p>
                   </div>
                 ))}
               </div>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/about"
-                  className="rounded-full bg-[#4f8bff] px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white shadow-lg shadow-[#4f8bff]/25 transition hover:-translate-y-0.5 hover:bg-slate-950"
-                >
+                <Link href="/about" className="btn-primary">
                   Back to About
                 </Link>
-                <Link
-                  href="/contact"
-                  className="rounded-full border border-white/15 px-6 py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:-translate-y-0.5 hover:border-[#4f8bff] hover:text-[#4f8bff]"
-                >
+                <Link href="/contact" className="btn-ghost">
                   Invite Richard to Speak
                 </Link>
               </div>
@@ -130,15 +124,15 @@ export default function ConferencesPage() {
       </section>
 
       {/* ── Cambridge recognition ─────────────────────────────────── */}
-      <section className="bg-[#0B1F3A] px-5 py-14 md:px-8">
+      <section className="bg-navy-950 px-5 py-14 md:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.7fr] lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7fb0ff]">Recognition</p>
-              <h2 className="mt-4 text-balance text-2xl font-black tracking-[-0.03em] text-white md:text-3xl">
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-soft">Recognition</p>
+              <h2 className="font-display mt-4 text-balance text-2xl font-black tracking-[-0.03em] text-white md:text-3xl">
                 Invited to Cambridge Climate Governance programme.
               </h2>
-              <p className="mt-5 text-base leading-8 text-slate-300">
+              <p className="mt-5 text-base leading-8 text-on-dark-muted">
                 Richard received an invitation to the Cambridge Climate Governance programme,
                 a recognition of his work at the intersection of climate intelligence, policy
                 advocacy, and youth leadership. It is one marker of a broader trajectory: from

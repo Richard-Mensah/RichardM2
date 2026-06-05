@@ -24,7 +24,9 @@ const INITIAL_FIELDS: FormFields = {
 };
 
 const INPUT_CLASS =
-  "w-full glass rounded-2xl px-4 py-3 text-sm font-semibold text-white placeholder:text-[#7e92b6] shadow-sm transition focus:border-[#4f8bff] focus:outline-none focus:ring-2 focus:ring-[#4f8bff]/20";
+  "w-full glass-input rounded-2xl px-4 py-3 text-sm font-semibold shadow-sm transition focus:outline-none";
+
+const LABEL_CLASS = "mb-2 block text-xs font-black uppercase tracking-[0.18em] text-ink-soft";
 
 export default function CollaborationForm() {
   const [fields, setFields] = useState<FormFields>(INITIAL_FIELDS);
@@ -68,14 +70,15 @@ export default function CollaborationForm() {
         <div className="sdg-conic mx-auto mb-6 grid h-16 w-16 place-items-center rounded-full text-2xl text-white shadow-lg">
           ✓
         </div>
-        <h3 className="text-2xl font-black text-white">Message received</h3>
-        <p className="mt-3 text-base leading-7 text-[#a9bcdc]">
+        <h3 className="font-display text-2xl font-semibold text-ink">Message received</h3>
+        <p className="mt-3 text-base leading-7 text-body">
           Thank you for reaching out. I&apos;ll review your collaboration request and be in touch
           shortly.
         </p>
         <button
+          type="button"
           onClick={() => setState("idle")}
-          className="mt-6 rounded-full border border-white/15 px-6 py-2.5 text-sm font-black text-[#cdd9ee] transition hover:border-[#4f8bff] hover:text-[#4f8bff]"
+          className="mt-6 rounded-full border border-line px-6 py-2.5 text-sm font-black text-body transition hover:border-accent hover:text-accent-strong"
         >
           Send another
         </button>
@@ -90,7 +93,7 @@ export default function CollaborationForm() {
     >
       <div className="grid gap-5 md:grid-cols-2">
         <div>
-          <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-[#a9bcdc]">
+          <label className={LABEL_CLASS}>
             Name *
           </label>
           <input
@@ -103,7 +106,7 @@ export default function CollaborationForm() {
           />
         </div>
         <div>
-          <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-[#a9bcdc]">
+          <label className={LABEL_CLASS}>
             Email *
           </label>
           <input
@@ -119,7 +122,7 @@ export default function CollaborationForm() {
       </div>
 
       <div className="mt-5">
-        <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-[#a9bcdc]">
+        <label className={LABEL_CLASS}>
           Organisation
         </label>
         <input
@@ -133,7 +136,7 @@ export default function CollaborationForm() {
 
       <div className="mt-5 grid gap-5 md:grid-cols-2">
         <div>
-          <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-[#a9bcdc]">
+          <label className={LABEL_CLASS}>
             Collaboration type *
           </label>
           <select
@@ -151,7 +154,7 @@ export default function CollaborationForm() {
           </select>
         </div>
         <div>
-          <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-[#a9bcdc]">
+          <label className={LABEL_CLASS}>
             Focus area *
           </label>
           <select
@@ -171,7 +174,7 @@ export default function CollaborationForm() {
       </div>
 
       <div className="mt-5">
-        <label className="mb-2 block text-xs font-black uppercase tracking-[0.18em] text-[#a9bcdc]">
+        <label className={LABEL_CLASS}>
           Message *
         </label>
         <textarea
@@ -194,7 +197,7 @@ export default function CollaborationForm() {
       <button
         type="submit"
         disabled={state === "submitting"}
-        className="mt-6 w-full rounded-full bg-slate-950 py-4 text-sm font-black uppercase tracking-[0.22em] text-white shadow-lg shadow-slate-300 transition hover:-translate-y-0.5 hover:bg-[#4f8bff] disabled:cursor-not-allowed disabled:opacity-60"
+        className="btn-primary mt-6 w-full rounded-full py-4 text-sm font-black uppercase tracking-[0.22em] shadow-lg transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {state === "submitting" ? "Sending…" : "Send collaboration request"}
       </button>

@@ -1,10 +1,23 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
 import PageViewTracker from "@/components/analytics/PageViewTracker";
 import { SITE_URL } from "@/lib/siteUrl";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display-src",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -32,11 +45,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body className="min-h-screen bg-transparent text-white antialiased">
-        <div className="sdg-band fixed inset-x-0 top-0 z-[60] h-1.5" />
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <body className="min-h-screen bg-transparent text-ink antialiased">
+        <div className="sdg-band fixed inset-x-0 top-0 z-[60] h-1" />
         <SiteHeader />
-        <main className="overflow-hidden pt-28">{children}</main>
+        <main className="overflow-hidden pt-24">{children}</main>
         <SiteFooter />
         <PageViewTracker />
       </body>

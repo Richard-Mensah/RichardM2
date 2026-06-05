@@ -34,11 +34,11 @@ export default function ThoughtLeadershipPageSection() {
       <div className="relative mx-auto max-w-5xl">
 
         {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-[#4f8bff]">Thought Leadership</p>
-        <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
+        <p className="text-xs font-black uppercase tracking-[0.32em] text-accent-strong">Thought Leadership</p>
+        <h1 className="mt-4 text-balance text-4xl font-black font-display tracking-[-0.04em] text-ink md:text-5xl">
           AI that works for people, not the other way around.
         </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-[#a9bcdc]">
+        <p className="mt-5 max-w-3xl text-base leading-7 text-body">
           Frameworks, perspectives, and provocations on the role of artificial intelligence
           in society, governance, and the Global South, based on practice, not just theory.
         </p>
@@ -48,11 +48,11 @@ export default function ThoughtLeadershipPageSection() {
           {THESES.map((t) => (
             <div
               key={t.thesis}
-              className="rounded-2xl bg-[#0B1F3A] p-8"
+              className="rounded-2xl bg-navy-950 p-8"
               style={{ borderLeft: `4px solid ${t.accent}` }}
             >
               <p className="text-lg font-black leading-snug text-white md:text-xl">&ldquo;{t.thesis}&rdquo;</p>
-              <p className="mt-4 text-sm leading-7 text-[#7e92b6]">{t.elaboration}</p>
+              <p className="mt-4 text-sm leading-7 text-on-dark-muted">{t.elaboration}</p>
             </div>
           ))}
         </div>
@@ -72,8 +72,8 @@ export default function ThoughtLeadershipPageSection() {
                 className="h-1 rounded-full"
                 style={{ backgroundColor: pillar.accent }}
               />
-              <h3 className="mt-5 text-base font-black text-white">{pillar.domain}</h3>
-              <p className="mt-3 text-sm leading-7 text-[#a9bcdc]">
+              <h3 className="mt-5 text-base font-black text-ink">{pillar.domain}</h3>
+              <p className="mt-3 text-sm leading-7 text-body">
                 {PILLAR_ELABORATIONS[pillar.domain] ?? pillar.abstract}
               </p>
             </div>
@@ -81,12 +81,12 @@ export default function ThoughtLeadershipPageSection() {
         </div>
 
         {/* Essays in progress */}
-        <div className="mt-12 rounded-2xl border border-[#4f8bff]/25 bg-[#16294d] p-8">
-          <p className="text-xs font-black uppercase tracking-[0.26em] text-[#4f8bff]">Public essays in progress</p>
+        <div className="mt-12 rounded-2xl border border-white/10 bg-navy-900 p-8">
+          <p className="text-xs font-black uppercase tracking-[0.26em] text-accent-soft">Public essays in progress</p>
           <ul className="mt-5 space-y-3">
             {WRITING_IDEAS.map((idea) => (
-              <li key={idea} className="flex items-start gap-3 text-sm leading-6 text-[#cdd9ee]">
-                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#4f8bff]" />
+              <li key={idea} className="flex items-start gap-3 text-sm leading-6 text-on-dark-muted">
+                <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-soft" />
                 {idea}
               </li>
             ))}
@@ -94,16 +94,16 @@ export default function ThoughtLeadershipPageSection() {
         </div>
 
         {/* CTA */}
-        <div className="mt-10 rounded-2xl bg-[#16294d] p-8">
-          <p className="text-sm font-black uppercase tracking-[0.22em] text-[#4f8bff]">Engage with the ideas</p>
-          <p className="mt-3 text-base leading-7 text-[#a9bcdc]">
+        <div className="mt-10 rounded-2xl bg-navy-900 p-8">
+          <p className="text-sm font-black uppercase tracking-[0.22em] text-accent-soft">Engage with the ideas</p>
+          <p className="mt-3 text-base leading-7 text-on-dark-muted">
             Read the full essays on the blog, or reach out to discuss frameworks, collaborations, or speaking engagements.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/blog" className="rounded-full bg-[#4f8bff] px-6 py-2.5 text-sm font-black text-white transition hover:bg-[#2f6bea]">
+            <Link href="/blog" className="btn-accent rounded-full px-6 py-2.5 text-sm font-black">
               Read essays
             </Link>
-            <Link href="/contact" className="rounded-full border border-white/15 px-6 py-2.5 text-sm font-black text-[#cdd9ee] transition hover:border-slate-400">
+            <Link href="/contact" className="btn-ghost rounded-full px-6 py-2.5 text-sm font-black">
               Discuss ideas
             </Link>
           </div>

@@ -25,7 +25,7 @@ export default function ProjectsPage() {
             <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {PROJECT_CATEGORIES.map((cat) => (
                 <Link key={cat.slug} href={cat.slug} className="group focus-visible:outline-none">
-                  <Card className="relative flex h-52 flex-col overflow-hidden p-0 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl group-focus-visible:ring-2 group-focus-visible:ring-[#4f8bff]">
+                  <Card className="relative flex h-52 flex-col overflow-hidden p-0 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl group-focus-visible:ring-2 group-focus-visible:ring-accent">
                     <div className="absolute inset-0">
                       <Image
                         src={cat.image}

@@ -29,18 +29,18 @@ export default function AiProjectsPageSection() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-slate-950 px-5 py-20 md:px-8 md:py-28">
+      <section className="relative overflow-hidden bg-navy-950 px-5 py-20 md:px-8 md:py-28">
         <div className="pointer-events-none absolute inset-0 data-grid-light opacity-10" />
         <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-[#4f8bff]">
+              <p className="text-xs font-black uppercase tracking-[0.28em] text-accent-soft">
                 Projects / AI
               </p>
-              <h1 className="mt-4 text-4xl font-black leading-tight text-white md:text-5xl">
+              <h1 className="mt-4 text-4xl font-black font-display leading-tight text-white md:text-5xl">
                 Applied intelligence for real-world decisions
               </h1>
-              <p className="mt-6 text-base leading-8 text-slate-300">
+              <p className="mt-6 text-base leading-8 text-on-dark-muted">
                 Every AI project Richard builds starts with a real institutional problem and ends with a working system. Machine learning, NLP, and decision intelligence designed for the contexts where they matter most.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -48,13 +48,13 @@ export default function AiProjectsPageSection() {
                   href="https://github.com/Richard-Mensah"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-black text-white transition hover:bg-white/20"
+                  className="btn-primary inline-flex items-center gap-2"
                 >
                   View on GitHub →
                 </a>
                 <Link
                   href="/research/ai-data-science"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 text-sm font-black text-white/80 transition hover:border-white/40 hover:text-white"
+                  className="btn-ghost inline-flex items-center gap-2"
                 >
                   Related Research
                 </Link>
@@ -68,7 +68,7 @@ export default function AiProjectsPageSection() {
                 className="object-cover object-top"
                 sizes="(min-width: 1024px) 50vw, 100vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent" />
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@ export default function AiProjectsPageSection() {
                 <p className="text-xs font-black uppercase tracking-[0.2em]" style={{ color: item.accent }}>
                   {item.tab}
                 </p>
-                <p className="mt-3 text-sm leading-7 text-[#a9bcdc]">{item.content}</p>
+                <p className="mt-3 text-sm leading-7 text-body">{item.content}</p>
               </Card>
             ))}
           </div>
@@ -115,8 +115,8 @@ export default function AiProjectsPageSection() {
             {FOCUS_AREAS.map((area) => (
               <Card key={area.title} className="p-6" style={{ borderTop: `3px solid ${area.accent}` }}>
                 <span className="inline-block h-2.5 w-10 rounded-full" style={{ backgroundColor: area.accent }} aria-hidden="true" />
-                <h3 className="mt-3 text-sm font-bold text-white">{area.title}</h3>
-                <p className="mt-2 text-xs leading-6 text-[#a9bcdc]">{area.description}</p>
+                <h3 className="mt-3 text-sm font-bold text-ink">{area.title}</h3>
+                <p className="mt-2 text-xs leading-6 text-body">{area.description}</p>
               </Card>
             ))}
           </div>
@@ -132,18 +132,18 @@ export default function AiProjectsPageSection() {
               href="https://github.com/Richard-Mensah"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-4 rounded-xl border border-white/10 bg-transparent p-5 transition hover:border-[#4f8bff]/40 hover:shadow-lg"
+              className="group flex items-center gap-4 rounded-xl border border-line bg-transparent p-5 transition hover:border-accent-strong/40 hover:shadow-lg"
             >
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-900 text-white">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-navy-900 text-white">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
                 </svg>
               </div>
               <div className="flex-1">
-                <p className="text-sm font-black text-white">github.com/Richard-Mensah</p>
-                <p className="text-xs text-[#8aa0c4]">Browse public repositories and active projects</p>
+                <p className="text-sm font-black text-ink">github.com/Richard-Mensah</p>
+                <p className="text-xs text-muted">Browse public repositories and active projects</p>
               </div>
-              <span className="text-xs font-black text-[#4f8bff]">View →</span>
+              <span className="text-xs font-black text-accent-strong">View →</span>
             </a>
             <LinkedInProfileCard />
           </div>

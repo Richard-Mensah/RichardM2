@@ -1,4 +1,121 @@
-import type { NavItem, SdgColour, PriorityGoal, IdentityCard, ResearchPillar, ResearchCategory, SystemProject, ProjectCategory } from "@/types";
+import type { NavItem, SdgColour, PriorityGoal, IdentityCard, ResearchPillar, ResearchCategory, SystemProject, ProjectCategory, HomeDomain, SkillGroup, AudiencePathway } from "@/types";
+
+// ── Homepage: the six core strengths, surfaced front-and-centre ──────────
+export const HOME_DOMAINS: HomeDomain[] = [
+  {
+    title: "AI & Machine Learning",
+    blurb:
+      "Applied ML, deep learning, NLP and large language models — building human-centred AI systems that are technically rigorous and genuinely useful.",
+    href: "/research/ai-data-science",
+    icon: "BrainCircuit",
+    tag: "SDG 9",
+  },
+  {
+    title: "Data Science",
+    blurb:
+      "Analytics pipelines, predictive modelling, dashboards and decision intelligence that turn raw data into evidence institutions can act on.",
+    href: "/projects/data-science",
+    icon: "BarChart3",
+    tag: "Analytics",
+  },
+  {
+    title: "Climate Change",
+    blurb:
+      "Climate intelligence that translates satellite and environmental signals into community-readable risk, resilience and adaptation decisions.",
+    href: "/research/ai-climate-change",
+    icon: "CloudSun",
+    tag: "SDG 13",
+  },
+  {
+    title: "Community Development",
+    blurb:
+      "Grassroots programmes combining skills training, mentorship and local data — from sanitation drives to STEM outreach in Sefwi Bekwai.",
+    href: "/leadership/community",
+    icon: "Users",
+    tag: "SDG 4 · 8",
+  },
+  {
+    title: "Youth Conferences & Diplomacy",
+    blurb:
+      "Speaking, delegate preparation and youth diplomacy for the SDGs — connecting young leaders across Ghana, the UK and global summits.",
+    href: "/about/conferences",
+    icon: "Globe2",
+    tag: "SDG 17",
+  },
+  {
+    title: "SDG Impact",
+    blurb:
+      "Every system and programme mapped to specific Sustainable Development Goals, with measurable outcomes and a clear theory of change.",
+    href: "/sdgs",
+    icon: "Target",
+    tag: "SDG 1–17",
+  },
+];
+
+// ── Homepage: scannable capability matrix (recruiters + PhD supervisors) ──
+export const SKILL_GROUPS: SkillGroup[] = [
+  {
+    area: "Machine Learning & AI",
+    icon: "BrainCircuit",
+    skills: ["Supervised & unsupervised ML", "Deep learning", "NLP & LLMs", "Model evaluation", "Responsible / explainable AI"],
+  },
+  {
+    area: "Data Science & Analytics",
+    icon: "BarChart3",
+    skills: ["Python (pandas, scikit-learn)", "Data engineering & pipelines", "Statistical modelling", "Dashboards & visualisation", "SQL"],
+  },
+  {
+    area: "Climate & Geospatial",
+    icon: "CloudSun",
+    skills: ["Climate data analysis", "Geospatial indicators", "Risk communication", "Adaptation modelling"],
+  },
+  {
+    area: "Engineering & Delivery",
+    icon: "Code2",
+    skills: ["Full-stack development", "Next.js / React", "APIs & deployment", "Git & collaboration"],
+  },
+  {
+    area: "Leadership & Programmes",
+    icon: "Users",
+    skills: ["Programme design", "Mentorship at scale", "Monitoring & evaluation", "Public speaking", "Partnership building"],
+  },
+];
+
+// ── Homepage: tailored next-step for each visitor type ───────────────────
+export const AUDIENCE_PATHWAYS: AudiencePathway[] = [
+  {
+    audience: "Recruiters & employers",
+    headline: "Hiring for AI/ML or data roles",
+    blurb: "Review my CV, technical skills and a portfolio of built systems.",
+    cta: "View CV & portfolio",
+    href: "/about/cv",
+    icon: "Briefcase",
+  },
+  {
+    audience: "PhD & academia",
+    headline: "Supervising research",
+    blurb: "Read my working papers, research pillars and methods. Open to PhD opportunities.",
+    cta: "Explore research",
+    href: "/research",
+    icon: "GraduationCap",
+  },
+  {
+    audience: "Conferences & internships",
+    headline: "Inviting a speaker or delegate",
+    blurb: "See my speaking history, youth diplomacy work and SDG alignment.",
+    cta: "Speaking & engagement",
+    href: "/about/conferences",
+    icon: "Mic",
+  },
+  {
+    audience: "Funders & partners",
+    headline: "Partnering on impact",
+    blurb: "See programme impact, community work and ways to collaborate.",
+    cta: "Partner with me",
+    href: "/collaborate",
+    icon: "Handshake",
+  },
+];
 
 // Information architecture: a tight 6-section spine.
 // Labels are self-evident; every route below already exists. The deeper pages

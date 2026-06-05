@@ -8,24 +8,31 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['var(--font-fraunces)', 'ui-serif', 'Georgia', 'serif'],
+      },
       colors: {
-        // CFI "Navy + Teal" system — mirror of the @theme tokens in globals.css
-        // (Tailwind v4 reads @theme; this keeps the legacy config in sync).
+        // "Navy + Teal" LIGHT system — mirror of the @theme tokens in globals.css.
+        // NOTE: Tailwind v4 reads @theme (no @config directive present), so this
+        // JS config is currently inert; kept in sync only for reference.
         navy: {
           950: '#0A1A30',
           900: '#122A4E',
           800: '#1B3A66',
           700: '#264B82',
+          600: '#345D99',
         },
         accent: {
-          DEFAULT: '#2BA8B4',
-          strong: '#1E8A95',
+          DEFAULT: '#1E8A95',
+          strong: '#15727C',
+          bright: '#2BA8B4',
           soft: '#7FD6D2',
           tint: '#E6F5F5',
           // legacy aliases re-pointed to teal
-          cyan: '#3BC4C9',
+          cyan: '#2BA8B4',
           'cyan-light': '#7FD6D2',
-          'blue-dark': '#155E66',
+          'blue-dark': '#15727C',
         },
         // CFI red brand + legacy brand-* aliases (re-pointed to teal) in one object
         brand: {

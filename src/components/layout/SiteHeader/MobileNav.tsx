@@ -21,7 +21,7 @@ export default function MobileNav({
   if (!menuOpen) return null;
 
   return (
-    <div className="border-t border-white/10 bg-[#122a4e] px-5 pb-6 pt-4 lg:hidden">
+    <div className="border-t border-line bg-surface-card px-5 pb-6 pt-4 lg:hidden">
       <nav className="flex flex-col gap-1">
         {NAVIGATION.map((item) => {
           const hasChildren = item.children && item.children.length > 0;
@@ -33,7 +33,7 @@ export default function MobileNav({
                 key={item.href}
                 href={item.href}
                 onClick={onMenuClose}
-                className="rounded-xl px-4 py-3 text-sm font-semibold text-white/85 transition hover:bg-white/10 hover:text-white"
+                className="rounded-xl px-4 py-3 text-sm font-semibold text-ink-soft transition hover:bg-accent-tint hover:text-accent-strong"
               >
                 {item.label}
               </Link>
@@ -43,7 +43,8 @@ export default function MobileNav({
           return (
             <div key={item.href}>
               <button
-                className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold text-white/85 transition hover:bg-white/10 hover:text-white"
+                type="button"
+                className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold text-ink-soft transition hover:bg-accent-tint hover:text-accent-strong"
                 onClick={() => onMobileItemToggle(isExpanded ? null : item.label)}
               >
                 {item.label}
@@ -56,13 +57,13 @@ export default function MobileNav({
                 />
               </button>
               {isExpanded && (
-                <div className="ml-4 flex flex-col gap-0.5 border-l border-white/20 pl-4">
+                <div className="ml-4 flex flex-col gap-0.5 border-l border-line pl-4">
                   {item.children!.map((child) => (
                     <Link
                       key={child.href}
                       href={child.href}
                       onClick={onMenuClose}
-                      className="rounded-lg px-3 py-2 text-sm text-white/70 transition hover:text-white"
+                      className="rounded-lg px-3 py-2 text-sm text-body transition hover:text-accent-strong"
                     >
                       {child.label}
                     </Link>
@@ -72,6 +73,25 @@ export default function MobileNav({
             </div>
           );
         })}
+
+        {/* Mobile CV + contact actions */}
+        <div className="mt-3 flex gap-2 border-t border-line pt-4">
+          <a
+            href="/richard-mensah-cv.pdf"
+            download="Richard-Mensah-CV.pdf"
+            onClick={onMenuClose}
+            className="btn-ghost flex-1 rounded-full px-4 py-2.5 text-center text-[11px] font-black uppercase tracking-[0.14em]"
+          >
+            Download CV
+          </a>
+          <Link
+            href="/contact"
+            onClick={onMenuClose}
+            className="btn-primary flex-1 rounded-full px-4 py-2.5 text-center text-[11px] font-black uppercase tracking-[0.14em]"
+          >
+            Connect
+          </Link>
+        </div>
       </nav>
     </div>
   );

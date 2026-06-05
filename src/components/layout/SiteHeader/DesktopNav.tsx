@@ -35,8 +35,8 @@ export default function DesktopNav({
               className={cn(
                 "rounded-lg px-3 py-2 text-[11px] font-black uppercase tracking-[0.12em] transition",
                 isActive
-                  ? "text-white underline underline-offset-4"
-                  : "text-white/80 hover:bg-white/10 hover:text-white"
+                  ? "text-accent-strong"
+                  : "text-ink-soft hover:bg-surface-muted hover:text-accent-strong"
               )}
             >
               {item.label}
@@ -52,11 +52,12 @@ export default function DesktopNav({
             onMouseLeave={onMouseLeave}
           >
             <button
+              type="button"
               className={cn(
                 "flex items-center gap-1 rounded-lg px-3 py-2 text-[11px] font-black uppercase tracking-[0.12em] transition",
                 isActive || openDropdown === item.label
-                  ? "text-white"
-                  : "text-white/80 hover:bg-white/10 hover:text-white"
+                  ? "text-accent-strong"
+                  : "text-ink-soft hover:bg-surface-muted hover:text-accent-strong"
               )}
             >
               {item.label}
@@ -70,13 +71,13 @@ export default function DesktopNav({
             </button>
 
             {openDropdown === item.label && (
-              <div className="header-dropdown absolute left-0 top-full z-50 mt-1 min-w-[220px] rounded-2xl border border-white/10 bg-[#122a4e] p-2 shadow-2xl shadow-black/30">
+              <div className="header-dropdown absolute left-0 top-full z-50 mt-1 min-w-[230px] rounded-2xl border border-line bg-surface-card p-2 shadow-xl shadow-navy-950/10">
                 {item.children!.map((child) => (
                   <Link
                     key={child.href}
                     href={child.href}
                     onClick={() => onDropdownHover(null)}
-                    className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-white/85 transition hover:bg-white/10 hover:text-white"
+                    className="block rounded-xl px-4 py-2.5 text-xs font-semibold text-ink-soft transition hover:bg-accent-tint hover:text-accent-strong"
                   >
                     {child.label}
                   </Link>

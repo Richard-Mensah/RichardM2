@@ -66,37 +66,34 @@ export default function EgaPage() {
   return (
     <div className="min-h-screen">
       {/* Back nav */}
-      <div className="sticky top-0 z-50 flex items-center justify-between border-b border-white/10 bg-white/90 px-5 py-3 backdrop-blur md:px-8">
-        <Link href="/leadership" className="text-sm font-bold text-[#4f8bff] hover:underline">
+      <div className="sticky top-0 z-50 flex items-center justify-between border-b border-line bg-white/90 px-5 py-3 backdrop-blur md:px-8">
+        <Link href="/leadership" className="text-sm font-bold text-accent-strong hover:underline">
           ← Back to Leadership
         </Link>
-        <Link href="/leadership/community" className="text-sm font-bold text-[#a9bcdc] hover:text-[#4f8bff]">
+        <Link href="/leadership/community" className="text-sm font-bold text-muted hover:text-accent-strong">
           Next: Community Development →
         </Link>
       </div>
 
       {/* Hero */}
-      <div className="bg-[#0B1F3A] px-5 py-20 md:px-16">
+      <div className="bg-navy-950 px-5 py-20 md:px-16">
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-12 lg:grid-cols-[1fr_0.8fr] lg:items-center">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.3em] text-[#7fb0ff]">
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-soft">
                 EGA Mentorship International · Founded 2021
               </p>
-              <h1 className="mt-4 text-balance text-4xl font-black tracking-[-0.04em] text-white md:text-6xl">
+              <h1 className="mt-4 text-balance text-4xl font-black font-display tracking-[-0.04em] text-white md:text-6xl">
                 Talent is everywhere. The work is removing the friction.
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-on-dark-muted">
                 EGA Mentorship International was founded on a single observation made in Sefwi
                 Bekwai: brilliant young people are everywhere, but the systems that unlock global
                 opportunities were not designed for them. EGA was built to change that — one
                 application, one scholarship, one conversation at a time.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href="/leadership/journey"
-                  className="rounded-full bg-[#4f8bff] px-7 py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:bg-blue-600"
-                >
+                <Link href="/leadership/journey" className="btn-primary">
                   Download Full Story
                 </Link>
                 <Link
@@ -110,14 +107,14 @@ export default function EgaPage() {
 
             {/* Impact stats */}
             <div className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-7">
-              <p className="text-xs font-black uppercase tracking-[0.25em] text-[#7e92b6]">
+              <p className="text-xs font-black uppercase tracking-[0.25em] text-on-dark-muted">
                 Programme Impact
               </p>
               <div className="mt-5 grid grid-cols-2 gap-5">
                 {IMPACT_STATS.map((stat) => (
                   <div key={stat.label}>
                     <p className="text-3xl font-black text-white">{stat.value}</p>
-                    <p className="mt-1 text-xs leading-5 text-[#7e92b6]">{stat.label}</p>
+                    <p className="mt-1 text-xs leading-5 text-on-dark-muted">{stat.label}</p>
                   </div>
                 ))}
               </div>
@@ -130,14 +127,14 @@ export default function EgaPage() {
 
         {/* The Inspiration */}
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#4f8bff]">
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-accent-strong">
             The Moment That Made It Inevitable
           </p>
-          <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-white md:text-4xl">
+          <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-ink md:text-4xl">
             A school campaign that ran without him.
           </h2>
           <div className="mt-6 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
-            <p className="text-base leading-8 text-[#a9bcdc]">
+            <p className="text-base leading-8 text-body">
               When Richard returned to the University of Education, Winneba, he left behind an
               unfinished school campaign project in Sefwi Bekwai. A friend led it in his absence.
               The project ran. The children were reached. The work continued without him.
@@ -160,10 +157,10 @@ export default function EgaPage() {
 
         {/* International Stage */}
         <div className="mt-20">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#4f8bff]">
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-accent-strong">
             Reaching the Global Stage
           </p>
-          <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-white md:text-4xl">
+          <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-ink md:text-4xl">
             From Sefwi Bekwai to Sochi and beyond.
           </h2>
           <div className="mt-6 grid gap-10 lg:grid-cols-[0.9fr_1fr] lg:items-start">
@@ -175,7 +172,7 @@ export default function EgaPage() {
               ))}
             </div>
             <div>
-              <p className="text-base leading-8 text-[#a9bcdc]">
+              <p className="text-base leading-8 text-body">
                 International conferences gave Richard more than recognition — they gave him evidence
                 that the ideas developed in rural Ghana were globally relevant. Attending high-level
                 convenings in Sochi, Russia alongside diplomats, researchers, and international
@@ -195,13 +192,13 @@ export default function EgaPage() {
         {/* Cambridge Recognition */}
         <div className="mt-20 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#4f8bff]">
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-accent-strong">
               Academic Recognition
             </p>
-            <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-white md:text-4xl">
+            <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-ink md:text-4xl">
               Invited to Cambridge on Climate Governance.
             </h2>
-            <p className="mt-5 text-base leading-8 text-[#a9bcdc]">
+            <p className="mt-5 text-base leading-8 text-body">
               Richard was invited to the University of Cambridge for a climate governance programme
               — recognition of the intersection between his AI research, SDG advocacy, and
               understanding of how climate change disproportionately affects communities like those
@@ -220,14 +217,14 @@ export default function EgaPage() {
         </div>
 
         {/* International Team */}
-        <div className="mt-20 rounded-[2rem] bg-[#0B1F3A] p-8 text-white">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#7fb0ff]">
+        <div className="mt-20 rounded-[2rem] bg-navy-950 p-8 text-white">
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-accent-soft">
             EGA Mentorship International · Founding Partners
           </p>
           <h2 className="mt-4 text-2xl font-black text-white">
             Built with partners across five countries.
           </h2>
-          <p className="mt-4 max-w-3xl text-base leading-8 text-slate-300">
+          <p className="mt-4 max-w-3xl text-base leading-8 text-on-dark-muted">
             EGA Mentorship International was not built alone. It was assembled across five
             countries by people who shared a belief that access to global education and leadership
             networks should not be determined by where you were born.
@@ -240,7 +237,7 @@ export default function EgaPage() {
               >
                 <span className="text-3xl">{p.flag}</span>
                 <p className="mt-3 text-sm font-black text-white">{p.country}</p>
-                <p className="mt-1 text-center text-xs leading-5 text-[#7e92b6]">{p.role}</p>
+                <p className="mt-1 text-center text-xs leading-5 text-on-dark-muted">{p.role}</p>
               </div>
             ))}
           </div>
@@ -248,21 +245,21 @@ export default function EgaPage() {
 
         {/* Programme Tracks */}
         <div className="mt-20">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-[#4f8bff]">
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-accent-strong">
             Programme Architecture
           </p>
-          <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-white md:text-4xl">
+          <h2 className="mt-4 text-3xl font-black tracking-[-0.03em] text-ink md:text-4xl">
             What EGA actually does.
           </h2>
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
             {PROGRAMME_TRACKS.map((track) => (
               <div
                 key={track.title}
-                className="rounded-[1.5rem] border border-white/10 bg-transparent p-6"
+                className="rounded-[1.5rem] border border-line bg-surface-card p-6"
               >
-                <span className="inline-block h-2.5 w-10 rounded-full bg-[#4f8bff]" aria-hidden="true" />
-                <h3 className="mt-3 text-lg font-bold text-white">{track.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-[#a9bcdc]">{track.body}</p>
+                <span className="inline-block h-2.5 w-10 rounded-full bg-accent-strong" aria-hidden="true" />
+                <h3 className="mt-3 text-lg font-bold text-ink">{track.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-body">{track.body}</p>
               </div>
             ))}
           </div>
@@ -283,7 +280,7 @@ export default function EgaPage() {
           <div className="mt-7 flex flex-wrap gap-4">
             <Link
               href="/leadership/journey"
-              className="rounded-full bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.15em] text-[#4f8bff] transition hover:bg-white/5"
+              className="rounded-full bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.15em] text-accent-strong transition hover:bg-white/5"
             >
               Download PDF Journey ↓
             </Link>
