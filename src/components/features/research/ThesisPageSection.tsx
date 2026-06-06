@@ -103,26 +103,30 @@ function StatChip({ value, label }: { value: string; label: string }) {
   );
 }
 
-/** Horizontal bar. Colour follows the dataset mean: warm above, teal below. */
+/** Horizontal bar. Colour follows the dataset mean: warm above, teal below.
+    Stacks (label above, full-width bar below) on mobile, inline on sm+. */
 function EmissionBar({ label, value, max }: { label: string; value: number; max: number }) {
   const pct = Math.max(4, Math.min(100, (value / max) * 100));
   const above = value > DATASET_MEAN;
   return (
-    <div className="flex items-center gap-3">
-      <span className="w-28 shrink-0 text-right text-xs font-semibold text-body sm:w-32">{label}</span>
-      <div className="relative h-7 flex-1 overflow-hidden rounded-md bg-surface-muted">
-        <div
-          className="h-full rounded-md transition-all"
-          style={{ width: `${pct}%`, backgroundColor: above ? "var(--color-gold)" : "var(--color-accent)" }}
-        />
-        {/* dataset mean marker */}
-        <div
-          className="absolute inset-y-0 w-px bg-ink/40"
-          style={{ left: `${(DATASET_MEAN / max) * 100}%` }}
-          aria-hidden="true"
-        />
+    <div className="sm:flex sm:items-center sm:gap-3">
+      <span className="mb-1 block text-xs font-semibold text-body sm:mb-0 sm:w-32 sm:shrink-0 sm:text-right">
+        {label}
+      </span>
+      <div className="flex items-center gap-3 sm:flex-1">
+        <div className="relative h-6 flex-1 overflow-hidden rounded-md bg-surface-muted">
+          <div
+            className="h-full rounded-md"
+            style={{ width: `${pct}%`, backgroundColor: above ? "var(--color-gold)" : "var(--color-accent)" }}
+          />
+          <div
+            className="absolute inset-y-0 w-px bg-ink/40"
+            style={{ left: `${(DATASET_MEAN / max) * 100}%` }}
+            aria-hidden="true"
+          />
+        </div>
+        <span className="w-12 shrink-0 text-right text-xs font-bold tabular-nums text-ink">{value}</span>
       </div>
-      <span className="w-14 shrink-0 text-xs font-bold tabular-nums text-ink">{value}</span>
     </div>
   );
 }
@@ -130,15 +134,19 @@ function EmissionBar({ label, value, max }: { label: string; value: number; max:
 function GroupBar({ label, value, max }: { label: string; value: number; max: number }) {
   const pct = Math.max(3, Math.min(100, (value / max) * 100));
   return (
-    <div className="flex items-center gap-3">
-      <span className="w-28 shrink-0 text-right text-xs font-semibold text-body sm:w-32">{label}</span>
-      <div className="relative h-7 flex-1 overflow-hidden rounded-md bg-navy-900/40">
-        <div
-          className="h-full rounded-md bg-gradient-to-r from-accent to-accent-bright"
-          style={{ width: `${pct}%` }}
-        />
+    <div className="sm:flex sm:items-center sm:gap-3">
+      <span className="mb-1 block text-xs font-semibold text-on-dark-muted sm:mb-0 sm:w-28 sm:shrink-0 sm:text-right">
+        {label}
+      </span>
+      <div className="flex items-center gap-3 sm:flex-1">
+        <div className="relative h-6 flex-1 overflow-hidden rounded-md bg-navy-900/40">
+          <div
+            className="h-full rounded-md bg-gradient-to-r from-accent to-accent-bright"
+            style={{ width: `${pct}%` }}
+          />
+        </div>
+        <span className="w-10 shrink-0 text-right text-xs font-bold tabular-nums text-on-dark">{value}</span>
       </div>
-      <span className="w-12 shrink-0 text-xs font-bold tabular-nums text-on-dark">{value}</span>
     </div>
   );
 }
@@ -146,20 +154,26 @@ function GroupBar({ label, value, max }: { label: string; value: number; max: nu
 function MaeBar({ name, mae, r2, best, max }: { name: string; mae: number; r2: number; best: boolean; max: number }) {
   const pct = Math.max(5, Math.min(100, (mae / max) * 100));
   return (
-    <div className="flex items-center gap-3">
-      <span className="flex w-32 shrink-0 items-center justify-end gap-1.5 text-right text-xs font-semibold text-body sm:w-36">
+    <div className="sm:flex sm:items-center sm:gap-3">
+      <span className="mb-1 flex items-center gap-1.5 text-xs font-semibold text-body sm:mb-0 sm:w-36 sm:shrink-0 sm:justify-end sm:text-right">
         {name}
-        {best && <span className="rounded-full bg-accent-tint px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wide text-accent-strong">best</span>}
+        {best && (
+          <span className="rounded-full bg-accent-tint px-1.5 py-0.5 text-[9px] font-black uppercase tracking-wide text-accent-strong">
+            best
+          </span>
+        )}
       </span>
-      <div className="relative h-7 flex-1 overflow-hidden rounded-md bg-surface-muted">
-        <div
-          className="h-full rounded-md"
-          style={{ width: `${pct}%`, backgroundColor: best ? "var(--color-accent)" : "var(--color-navy-700)" }}
-        />
+      <div className="flex items-center gap-3 sm:flex-1">
+        <div className="relative h-6 flex-1 overflow-hidden rounded-md bg-surface-muted">
+          <div
+            className="h-full rounded-md"
+            style={{ width: `${pct}%`, backgroundColor: best ? "var(--color-accent)" : "var(--color-navy-700)" }}
+          />
+        </div>
+        <span className="w-[88px] shrink-0 text-right text-[11px] font-semibold tabular-nums text-muted">
+          <span className="font-bold text-ink">{mae}</span> g/km · R² {r2}
+        </span>
       </div>
-      <span className="w-24 shrink-0 text-[11px] font-semibold tabular-nums text-muted">
-        <span className="font-bold text-ink">{mae}</span> g/km · R² {r2}
-      </span>
     </div>
   );
 }
