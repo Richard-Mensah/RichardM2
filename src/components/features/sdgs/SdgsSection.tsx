@@ -193,12 +193,14 @@ export default function SdgsSection() {
             keep in view, because no single goal moves entirely on its own, and the work I do is
             stronger when I understand where it fits.
           </p>
-          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-9">
+          <div className="mt-6 grid grid-cols-2 gap-3 min-[420px]:grid-cols-3 md:grid-cols-6 lg:grid-cols-9">
             {SDG_COLOURS.map((goal) => (
               <div
                 key={goal.number}
-                className="rounded-2xl p-3 text-white shadow-lg"
+                title={`SDG ${goal.number}: ${goal.name}`}
+                className="cursor-default rounded-2xl p-3 text-white shadow-lg outline-none transition duration-200 hover:-translate-y-1 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-white/70"
                 style={{ backgroundColor: goal.color }}
+                tabIndex={0}
               >
                 <p className="text-xl font-black">{goal.number}</p>
                 <p className="mt-1 text-[0.68rem] font-bold leading-tight">{goal.name}</p>

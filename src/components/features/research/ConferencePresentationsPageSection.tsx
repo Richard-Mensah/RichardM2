@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import CountUp from "@/components/ui/CountUp";
 
 const STATS = [
   { value: "8+", label: "Countries" },
@@ -65,7 +66,7 @@ export default function ConferencePresentationsPageSection() {
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
           {STATS.map((s) => (
             <div key={s.label} className="rounded-2xl border border-line glass p-5 text-center shadow-sm">
-              <p className="text-3xl font-black tracking-[-0.04em] text-accent-strong">{s.value}</p>
+              <p className="text-3xl font-black tracking-[-0.04em] text-accent-strong"><CountUp value={s.value} /></p>
               <p className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-muted">{s.label}</p>
             </div>
           ))}

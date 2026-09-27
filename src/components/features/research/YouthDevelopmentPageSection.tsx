@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LEADERSHIP_TRACKS, FOCUS_AREAS } from "@/constants";
+import CountUp from "@/components/ui/CountUp";
 
 const STATS = [
   { value: "120+", label: "Study Abroad Journeys" },
@@ -30,7 +31,7 @@ export default function YouthDevelopmentPageSection() {
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
             {STATS.map((s) => (
               <div key={s.label} className="text-center">
-                <p className="text-3xl font-black tracking-[-0.04em] text-white">{s.value}</p>
+                <p className="text-3xl font-black tracking-[-0.04em] text-white"><CountUp value={s.value} /></p>
                 <p className="mt-1 text-xs font-bold uppercase tracking-[0.16em] text-white/70">{s.label}</p>
               </div>
             ))}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import CountUp from "@/components/ui/CountUp";
 
 export const metadata: Metadata = {
   title: "EGA Mentorship International | Richard Mensah",
@@ -113,7 +114,7 @@ export default function EgaPage() {
               <div className="mt-5 grid grid-cols-2 gap-5">
                 {IMPACT_STATS.map((stat) => (
                   <div key={stat.label}>
-                    <p className="text-3xl font-black text-white">{stat.value}</p>
+                    <p className="text-3xl font-black text-white"><CountUp value={stat.value} /></p>
                     <p className="mt-1 text-xs leading-5 text-on-dark-muted">{stat.label}</p>
                   </div>
                 ))}
@@ -265,7 +266,8 @@ export default function EgaPage() {
         </div>
 
         {/* CTA */}
-        <div className="mt-16 rounded-[2rem] bg-[#4f8bff] px-8 py-12 text-white">
+        <div className="relative mt-16 overflow-hidden rounded-[2rem] bg-navy-900 px-8 py-12 text-white">
+          <div className="sdg-band absolute inset-x-0 top-0 h-1" />
           <p className="text-xs font-black uppercase tracking-[0.3em] text-white/70">
             Share the story
           </p>
@@ -278,9 +280,9 @@ export default function EgaPage() {
           <div className="mt-7 flex flex-wrap gap-4">
             <Link
               href="/leadership/journey"
-              className="rounded-full bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.15em] text-accent-strong transition hover:bg-white/5"
+              className="rounded-full bg-white px-7 py-3 text-sm font-black uppercase tracking-[0.15em] text-accent-strong transition hover:-translate-y-0.5 hover:bg-surface-muted"
             >
-              Download PDF Journey ↓
+              Download PDF Journey <span aria-hidden="true">↓</span>
             </Link>
             <Link
               href="/leadership/sefwi-bekwai"

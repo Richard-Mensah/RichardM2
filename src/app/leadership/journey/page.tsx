@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import CountUp from "@/components/ui/CountUp";
 
 const TIMELINE = [
   {
@@ -124,7 +125,7 @@ export default function LeadershipJourneyPage() {
           <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-3">
             {IMPACT_STATS.map((stat) => (
               <div key={stat.label}>
-                <p className="text-3xl font-black text-white">{stat.value}</p>
+                <p className="text-3xl font-black text-white"><CountUp value={stat.value} /></p>
                 <p className="mt-1 text-xs font-semibold text-white/75">{stat.label}</p>
               </div>
             ))}
