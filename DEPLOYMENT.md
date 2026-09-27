@@ -50,10 +50,19 @@ For Neon it looks like:
 DATABASE_URL=postgresql://richard:xxx@ep-cool-wildflower-xxx.us-east-2.aws.neon.tech/neondb?sslmode=require
 ```
 
+Admin panel and gallery:
+```
+ADMIN_PASSWORD=choose-a-strong-password
+ADMIN_SESSION_SECRET=output-of-openssl-rand-hex-32
+BLOB_READ_WRITE_TOKEN=set-automatically-when-a-blob-store-is-connected
+```
+
 Optional:
 ```
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
 ```
+
+See `.env.example` and the README's "Environment variables" section for details.
 
 ---
 

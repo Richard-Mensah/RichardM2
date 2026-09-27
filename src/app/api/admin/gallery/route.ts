@@ -7,7 +7,7 @@ import { addGalleryPhoto, deleteGalleryPhoto } from "@/lib/gallery";
 export const dynamic = "force-dynamic";
 
 export async function POST(request: NextRequest) {
-  if (!isAuthed(request)) {
+  if (!(await isAuthed(request))) {
     return NextResponse.json({ ok: false, message: "Unauthorized." }, { status: 401 });
   }
 
@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
-  if (!isAuthed(request)) {
+  if (!(await isAuthed(request))) {
     return NextResponse.json({ ok: false, message: "Unauthorized." }, { status: 401 });
   }
   try {

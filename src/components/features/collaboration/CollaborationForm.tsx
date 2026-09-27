@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { COLLABORATION_TYPES, FOCUS_AREAS } from "@/constants";
+import BookingLink from "@/components/ui/BookingLink";
 
 type SubmissionState = "idle" | "submitting" | "success" | "error";
 
@@ -12,6 +13,8 @@ type FormFields = {
   collaborationType: string;
   focusArea: string;
   message: string;
+  /** Honeypot: hidden from people, filled in by bots. */
+  website: string;
 };
 
 const INITIAL_FIELDS: FormFields = {
@@ -21,6 +24,7 @@ const INITIAL_FIELDS: FormFields = {
   collaborationType: COLLABORATION_TYPES[0],
   focusArea: FOCUS_AREAS[0],
   message: "",
+  website: "",
 };
 
 const INPUT_CLASS =
@@ -53,7 +57,9 @@ export default function CollaborationForm() {
 
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        throw new Error((data as { error?: string }).error ?? "Submission failed");
+        throw new Error(
+          (data as { message?: string }).message ?? "Something went wrong. Please try again."
+        );
       }
 
       setState("success");
@@ -66,15 +72,19 @@ export default function CollaborationForm() {
 
   if (state === "success") {
     return (
-      <div className="py-10 text-center">
+      <div role="status" aria-live="polite" className="py-10 text-center">
         <div className="sdg-conic mx-auto mb-6 grid h-16 w-16 place-items-center rounded-full text-2xl text-white shadow-lg">
-          ✓
+          <span aria-hidden="true">✓</span>
         </div>
         <h3 className="font-display text-2xl font-semibold text-ink">Message received</h3>
         <p className="mt-3 text-base leading-7 text-body">
           Thank you for reaching out. I&apos;ll review your collaboration request and be in touch
           shortly.
         </p>
+        <div className="mt-6 rounded-2xl bg-surface-muted p-5">
+          <p className="text-sm font-bold text-ink-soft">Want to talk sooner?</p>
+          <BookingLink className="mt-3 px-5 py-2.5 text-[11px] tracking-[0.14em]" iconSize={14} />
+        </div>
         <button
           type="button"
           onClick={() => setState("idle")}
@@ -89,14 +99,28 @@ export default function CollaborationForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full"
+      className="relative w-full"
     >
+      <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+        <label htmlFor="collab-website">Website</label>
+        <input
+          id="collab-website"
+          name="website"
+          value={fields.website}
+          onChange={handleChange}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div className="grid gap-5 md:grid-cols-2">
         <div>
-          <label className={LABEL_CLASS}>
+          <label htmlFor="collab-name" className={LABEL_CLASS}>
             Name *
           </label>
           <input
+            id="collab-name"
+            autoComplete="name"
             name="name"
             value={fields.name}
             onChange={handleChange}
@@ -106,11 +130,13 @@ export default function CollaborationForm() {
           />
         </div>
         <div>
-          <label className={LABEL_CLASS}>
+          <label htmlFor="collab-email" className={LABEL_CLASS}>
             Email *
           </label>
           <input
             type="email"
+            id="collab-email"
+            autoComplete="email"
             name="email"
             value={fields.email}
             onChange={handleChange}
@@ -122,10 +148,12 @@ export default function CollaborationForm() {
       </div>
 
       <div className="mt-5">
-        <label className={LABEL_CLASS}>
+        <label htmlFor="collab-organization" className={LABEL_CLASS}>
           Organisation
         </label>
         <input
+          id="collab-organization"
+          autoComplete="organization"
           name="organization"
           value={fields.organization}
           onChange={handleChange}
@@ -136,10 +164,11 @@ export default function CollaborationForm() {
 
       <div className="mt-5 grid gap-5 md:grid-cols-2">
         <div>
-          <label className={LABEL_CLASS}>
+          <label htmlFor="collab-collaborationType" className={LABEL_CLASS}>
             Collaboration type *
           </label>
           <select
+            id="collab-collaborationType"
             name="collaborationType"
             value={fields.collaborationType}
             onChange={handleChange}
@@ -154,10 +183,11 @@ export default function CollaborationForm() {
           </select>
         </div>
         <div>
-          <label className={LABEL_CLASS}>
+          <label htmlFor="collab-focusArea" className={LABEL_CLASS}>
             Focus area *
           </label>
           <select
+            id="collab-focusArea"
             name="focusArea"
             value={fields.focusArea}
             onChange={handleChange}
@@ -174,10 +204,11 @@ export default function CollaborationForm() {
       </div>
 
       <div className="mt-5">
-        <label className={LABEL_CLASS}>
+        <label htmlFor="collab-message" className={LABEL_CLASS}>
           Message *
         </label>
         <textarea
+          id="collab-message"
           name="message"
           value={fields.message}
           onChange={handleChange}
@@ -189,7 +220,7 @@ export default function CollaborationForm() {
       </div>
 
       {state === "error" && (
-        <p className="mt-4 rounded-2xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+        <p role="alert" className="mt-4 rounded-2xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
           {errorMessage}
         </p>
       )}

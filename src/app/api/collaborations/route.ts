@@ -1,24 +1,11 @@
 import { db } from "@/db";
 import { collaborationInquiries } from "@/db/schema";
+import { COLLABORATION_TYPES, FOCUS_AREAS } from "@/constants";
 
 export const dynamic = "force-dynamic";
 
-const validCollaborationTypes = new Set([
-  "Research collaboration",
-  "Speaking or media",
-  "Startup or product build",
-  "Policy or institutional advisory",
-  "Mentorship or youth program",
-]);
-
-const validFocusAreas = new Set([
-  "AI for sustainable development",
-  "Climate intelligence",
-  "Youth leadership",
-  "Data science systems",
-  "Ethics and policy",
-  "Institutional training",
-]);
+const validCollaborationTypes = new Set(COLLABORATION_TYPES);
+const validFocusAreas = new Set(FOCUS_AREAS);
 
 function cleanString(value: unknown, maxLength: number) {
   if (typeof value !== "string") {
@@ -33,9 +20,20 @@ function isValidEmail(value: string) {
 }
 
 export async function POST(request: Request) {
+  let payload: Record<string, unknown>;
   try {
-    const payload = (await request.json()) as Record<string, unknown>;
+    payload = (await request.json()) as Record<string, unknown>;
+  } catch {
+    return Response.json({ ok: false, message: "Invalid request body." }, { status: 400 });
+  }
 
+  // Honeypot: the hidden "website" field is only ever filled in by bots.
+  // Respond as if it succeeded so they don't retry, but store nothing.
+  if (cleanString(payload.website, 200)) {
+    return Response.json({ ok: true, message: "Collaboration request received." }, { status: 201 });
+  }
+
+  try {
     const name = cleanString(payload.name, 160);
     const email = cleanString(payload.email, 255).toLowerCase();
     const organization = cleanString(payload.organization, 180) || null;
@@ -59,10 +57,10 @@ export async function POST(request: Request) {
 
     const collaborationType = validCollaborationTypes.has(requestedType)
       ? requestedType
-      : "Research collaboration";
+      : COLLABORATION_TYPES[0];
     const focusArea = validFocusAreas.has(requestedFocus)
       ? requestedFocus
-      : "AI for sustainable development";
+      : FOCUS_AREAS[0];
 
     const [createdInquiry] = await db
       .insert(collaborationInquiries)
