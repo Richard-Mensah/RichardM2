@@ -122,6 +122,10 @@ export const AUDIENCE_PATHWAYS: AudiencePathway[] = [
 // (research sub-categories, individual project pages, Kofiever sections) remain
 // reachable from their hub landing pages and the footer, they are simply no
 // longer surfaced as top-level clutter.
+// ── 1:1 sessions are booked on the EGA Mentorship platform ───────────────
+// EGA sends X-Frame-Options: DENY, so this is always an external link, never an iframe.
+export const BOOKING_URL = "https://www.egamentorship.org/book/richard";
+
 export const NAVIGATION: NavItem[] = [
   { label: "HOME", href: "/" },
   {

@@ -1,5 +1,6 @@
 import CollaborationForm from "./CollaborationForm";
 import { PRIORITY_GOALS } from "@/constants";
+import BookingLink from "@/components/ui/BookingLink";
 
 export default function CollaborationSection() {
   return (
@@ -36,6 +37,15 @@ export default function CollaborationSection() {
                   {goal.code}, {goal.title}
                 </div>
               ))}
+            </div>
+
+            <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur">
+              <p className="text-sm font-black text-white">Prefer a 1:1 conversation?</p>
+              <p className="mt-1.5 text-sm leading-6 text-on-dark-muted">
+                For mentorship, scholarship guidance, or career advice, book a session with me
+                directly on EGA Mentorship.
+              </p>
+              <BookingLink className="mt-4 px-5 py-2.5 text-[11px] tracking-[0.14em]" iconSize={14} />
             </div>
           </div>
         </div>

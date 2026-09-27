@@ -7,6 +7,7 @@ import { Menu, X, Phone, Download } from "lucide-react";
 import Image from "next/image";
 import DesktopNav from "./SiteHeader/DesktopNav";
 import MobileNav from "./SiteHeader/MobileNav";
+import BookingLink from "@/components/ui/BookingLink";
 
 const SOCIAL_LINKS = [
   {
@@ -139,9 +140,16 @@ export default function SiteHeader() {
               <Download size={13} />
               CV
             </a>
+            <BookingLink
+              iconSize={13}
+              className="px-4 py-2 text-[11px] tracking-[0.14em] shadow-sm"
+            >
+              <span className="hidden sm:inline">Book a session</span>
+              <span className="sm:hidden">Book</span>
+            </BookingLink>
             <Link
               href="/contact"
-              className="btn-primary rounded-full px-4 py-2 text-[11px] font-black uppercase tracking-[0.16em] shadow-sm transition hover:-translate-y-0.5"
+              className="btn-primary hidden rounded-full px-4 py-2 text-[11px] font-black uppercase tracking-[0.16em] shadow-sm transition hover:-translate-y-0.5 sm:inline-block"
             >
               Connect
             </Link>
