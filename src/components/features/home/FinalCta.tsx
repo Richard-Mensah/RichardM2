@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Download, ArrowRight } from "lucide-react";
+import { FileText, ArrowRight } from "lucide-react";
 import BookingLink from "@/components/ui/BookingLink";
 
 export default function FinalCta() {
@@ -22,14 +22,10 @@ export default function FinalCta() {
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-          <a
-            href="/richard-mensah-cv.pdf"
-            download="Richard-Mensah-CV.pdf"
-            className="btn-brand inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-xs font-black uppercase tracking-[0.14em] shadow-lg shadow-brand/25 transition hover:-translate-y-0.5"
-          >
-            <Download size={16} />
-            Download CV
-          </a>
+          <BookingLink
+            variant="white"
+            className="px-7 py-3.5 text-xs tracking-[0.14em] shadow-lg shadow-black/20"
+          />
           <Link
             href="/contact"
             className="btn-accent inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-xs font-black uppercase tracking-[0.14em] transition hover:-translate-y-0.5"
@@ -37,10 +33,13 @@ export default function FinalCta() {
             Get in touch
             <ArrowRight size={16} />
           </Link>
-          <BookingLink
-            variant="white"
-            className="px-7 py-3.5 text-xs tracking-[0.14em]"
-          />
+          <Link
+            href="/about/cv"
+            className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-xs font-black uppercase tracking-[0.14em] text-white transition hover:-translate-y-0.5 hover:bg-white/10"
+          >
+            <FileText size={16} />
+            Request CV
+          </Link>
         </div>
         <p className="mt-5 text-xs text-on-dark-muted">
           1:1 mentorship sessions are booked through EGA Mentorship.

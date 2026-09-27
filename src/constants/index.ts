@@ -58,26 +58,31 @@ export const SKILL_GROUPS: SkillGroup[] = [
     area: "Machine Learning & AI",
     icon: "BrainCircuit",
     skills: ["Supervised & unsupervised ML", "Deep learning", "NLP & LLMs", "Model evaluation", "Responsible / explainable AI"],
+    level: 90,
   },
   {
     area: "Data Science & Analytics",
     icon: "BarChart3",
     skills: ["Python (pandas, scikit-learn)", "Data engineering & pipelines", "Statistical modelling", "Dashboards & visualisation", "SQL"],
+    level: 88,
   },
   {
     area: "Climate & Geospatial",
     icon: "CloudSun",
     skills: ["Climate data analysis", "Geospatial indicators", "Risk communication", "Adaptation modelling"],
+    level: 78,
   },
   {
     area: "Engineering & Delivery",
     icon: "Code2",
     skills: ["Full-stack development", "Next.js / React", "APIs & deployment", "Git & collaboration"],
+    level: 82,
   },
   {
     area: "Leadership & Programmes",
     icon: "Users",
     skills: ["Programme design", "Mentorship at scale", "Monitoring & evaluation", "Public speaking", "Partnership building"],
+    level: 92,
   },
 ];
 

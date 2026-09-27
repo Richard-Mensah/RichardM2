@@ -76,6 +76,7 @@ export type SkillGroup = {
   area: string;
   icon: string; // lucide-react icon name
   skills: string[];
+  level: number; // proficiency 0–100, drives the animated meter
 };
 
 export type AudiencePathway = {

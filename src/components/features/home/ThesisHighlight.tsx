@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GraduationCap, ArrowUpRight, Download } from "lucide-react";
+import { GraduationCap, ArrowUpRight, FileText } from "lucide-react";
 
 export default function ThesisHighlight() {
   return (
@@ -41,14 +41,13 @@ export default function ThesisHighlight() {
                   Read the research
                   <ArrowUpRight size={15} />
                 </Link>
-                <a
-                  href="/richard-mensah-cv.pdf"
-                  download="Richard-Mensah-CV.pdf"
+                <Link
+                  href="/about/cv"
                   className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-xs font-black uppercase tracking-[0.14em] text-white transition hover:-translate-y-0.5 hover:bg-white/10"
                 >
-                  <Download size={15} />
-                  Download CV
-                </a>
+                  <FileText size={15} />
+                  Request CV
+                </Link>
               </div>
             </div>
           </div>

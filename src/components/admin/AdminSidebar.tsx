@@ -11,6 +11,7 @@ const NAV_ITEMS = [
   { label: "Opportunities", href: "/admin/opportunities" },
   { label: "Gallery", href: "/admin/gallery" },
   { label: "Inquiries", href: "/admin/inquiries" },
+  { label: "CV Requests", href: "/admin/cv-requests" },
   { label: "Analytics", href: "/admin/analytics" },
   { label: "← View Site", href: "/" },
 ];

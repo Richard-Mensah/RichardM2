@@ -6,7 +6,9 @@ import {
   Users,
   type LucideIcon,
 } from "lucide-react";
+import Link from "next/link";
 import { SKILL_GROUPS } from "@/constants";
+import SkillMeter from "@/components/ui/SkillMeter";
 
 const ICONS: Record<string, LucideIcon> = {
   BrainCircuit,
@@ -35,13 +37,12 @@ export default function SkillsMatrix() {
               Equally at home in a research notebook and a production codebase, from model design
               to deployed application, and from data pipeline to programme delivery.
             </p>
-            <a
-              href="/richard-mensah-cv.pdf"
-              download="Richard-Mensah-CV.pdf"
+            <Link
+              href="/about/cv"
               className="btn-accent mt-8 inline-flex items-center gap-2 rounded-full px-6 py-3 text-xs font-black uppercase tracking-[0.14em] transition hover:-translate-y-0.5"
             >
-              Full skills in CV
-            </a>
+              Full skills in my CV
+            </Link>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
@@ -56,9 +57,15 @@ export default function SkillsMatrix() {
                     <span className="grid h-10 w-10 place-items-center rounded-lg bg-accent/20 text-accent-soft">
                       <Icon size={20} />
                     </span>
-                    <h3 className="text-sm font-bold uppercase tracking-[0.08em] text-white">
+                    <h3 className="flex-1 text-sm font-bold uppercase tracking-[0.08em] text-white">
                       {group.area}
                     </h3>
+                    <span className="font-display text-lg font-bold text-accent-soft">
+                      {group.level}%
+                    </span>
+                  </div>
+                  <div className="mt-4">
+                    <SkillMeter value={group.level} label={group.area} />
                   </div>
                   <ul className="mt-4 flex flex-wrap gap-2">
                     {group.skills.map((skill) => (

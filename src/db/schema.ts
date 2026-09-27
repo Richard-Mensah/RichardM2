@@ -14,6 +14,18 @@ export const collaborationInquiries = pgTable("collaboration_inquiries", {
 export type CollaborationInquiry = typeof collaborationInquiries.$inferSelect;
 export type NewCollaborationInquiry = typeof collaborationInquiries.$inferInsert;
 
+export const cvRequests = pgTable("cv_requests", {
+  id: serial("id").primaryKey(),
+  name: varchar("name", { length: 160 }).notNull(),
+  email: varchar("email", { length: 255 }).notNull(),
+  organization: varchar("organization", { length: 180 }),
+  reason: text("reason").notNull().default(""),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
+export type CvRequest = typeof cvRequests.$inferSelect;
+export type NewCvRequest = typeof cvRequests.$inferInsert;
+
 export const impactStats = pgTable("impact_stats", {
   id: serial("id").primaryKey(),
   position: integer("position").notNull().default(0),
