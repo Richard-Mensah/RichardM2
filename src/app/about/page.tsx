@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SectionNav from "@/components/ui/SectionNav";
 import { getImpactStats } from "@/lib/impactStats";
+import CountUp from "@/components/ui/CountUp";
 
 export const dynamic = "force-dynamic";
 
@@ -125,7 +126,7 @@ export default async function AboutPage() {
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
           {QUICK_STATS.map((stat) => (
             <div key={stat.label} className="text-center">
-              <p className="text-2xl font-black text-white md:text-3xl">{stat.value}</p>
+              <p className="text-2xl font-black text-white md:text-3xl"><CountUp value={stat.value} /></p>
               <p className="mt-1 text-xs font-semibold text-white/80">{stat.label}</p>
             </div>
           ))}

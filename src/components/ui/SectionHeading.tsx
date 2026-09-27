@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import Reveal from "@/components/ui/Reveal";
 
 type Props = {
   eyebrow: string;
@@ -11,7 +12,7 @@ type Props = {
 
 export default function SectionHeading({ eyebrow, title, children, center = false, dark = false }: Props) {
   return (
-    <div className={cn(center ? "mx-auto max-w-3xl text-center" : "max-w-3xl")}>
+    <Reveal className={cn(center ? "mx-auto max-w-3xl text-center" : "max-w-3xl")}>
       <p
         className={cn(
           "text-[11px] font-extrabold uppercase tracking-[0.24em]",
@@ -38,6 +39,6 @@ export default function SectionHeading({ eyebrow, title, children, center = fals
           {children}
         </div>
       ) : null}
-    </div>
+    </Reveal>
   );
 }
