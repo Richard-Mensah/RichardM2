@@ -14,7 +14,7 @@ type Props = {
 
 /** External link to the EGA Mentorship booking page; opens in a new tab. */
 export default function BookingLink({
-  children = "Book a session",
+  children = "Book appointment",
   variant = "accent",
   className,
   iconSize = 16,

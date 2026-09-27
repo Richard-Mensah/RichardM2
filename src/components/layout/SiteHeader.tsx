@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, Download } from "lucide-react";
+import { Menu, X, Phone, FileText } from "lucide-react";
 import Image from "next/image";
 import DesktopNav from "./SiteHeader/DesktopNav";
 import MobileNav from "./SiteHeader/MobileNav";
@@ -132,19 +132,18 @@ export default function SiteHeader() {
 
           {/* CTA + mobile toggle */}
           <div className="flex items-center gap-2">
-            <a
-              href="/richard-mensah-cv.pdf"
-              download="Richard-Mensah-CV.pdf"
+            <Link
+              href="/about/cv"
               className="hidden btn-ghost items-center gap-1.5 rounded-full px-4 py-2 text-[11px] font-black uppercase tracking-[0.14em] transition hover:-translate-y-0.5 sm:inline-flex"
             >
-              <Download size={13} />
+              <FileText size={13} />
               CV
-            </a>
+            </Link>
             <BookingLink
               iconSize={13}
               className="px-4 py-2 text-[11px] tracking-[0.14em] shadow-sm"
             >
-              <span className="hidden sm:inline">Book a session</span>
+              <span className="hidden sm:inline">Book appointment</span>
               <span className="sm:hidden">Book</span>
             </BookingLink>
             <Link

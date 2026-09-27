@@ -7,7 +7,7 @@ import ImpactStats from "@/components/features/home/ImpactStats";
 import FeaturedWork from "@/components/features/home/FeaturedWork";
 import ThesisHighlight from "@/components/features/home/ThesisHighlight";
 import SelectedWriting from "@/components/features/home/SelectedWriting";
-import SdgAlignmentStrip from "@/components/features/home/SdgAlignmentStrip";
+import SdgExplorer from "@/components/features/home/SdgExplorer";
 import TestimonialsSection from "@/components/features/home/TestimonialsSection";
 import FinalCta from "@/components/features/home/FinalCta";
 import { getImpactStats } from "@/lib/impactStats";
@@ -34,7 +34,7 @@ export default async function HomePage() {
       <FeaturedWork />
       <ThesisHighlight />
       <SelectedWriting />
-      <SdgAlignmentStrip />
+      <SdgExplorer />
       <TestimonialsSection testimonials={testimonials} />
       <FinalCta />
     </>

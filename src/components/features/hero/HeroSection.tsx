@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Download, ArrowRight, MapPin, BadgeCheck, Plane, type LucideIcon } from "lucide-react";
+import { FileText, ArrowRight, MapPin, BadgeCheck, Plane, type LucideIcon } from "lucide-react";
 import type { HomepageContent } from "@/lib/homepage";
 import BookingLink from "@/components/ui/BookingLink";
+import TiltCard from "@/components/ui/TiltCard";
 
 const CREDENTIALS: { label: string; icon: LucideIcon }[] = [
   { label: "MSc Artificial Intelligence & Data Science, Bangor University", icon: BadgeCheck },
@@ -61,14 +62,10 @@ export default function HeroSection({ content }: { content: HomepageContent }) {
 
           {/* CTAs */}
           <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href="/richard-mensah-cv.pdf"
-              download="Richard-Mensah-CV.pdf"
-              className="btn-brand inline-flex items-center gap-2 rounded-full px-6 py-3 text-xs font-black uppercase tracking-[0.14em] shadow-lg shadow-brand/20 transition hover:-translate-y-0.5"
-            >
-              <Download size={16} />
-              Download CV
-            </a>
+            <BookingLink
+              variant="brand"
+              className="px-6 py-3 text-xs tracking-[0.14em] shadow-lg shadow-brand/20"
+            />
             <Link
               href="/contact"
               className="btn-primary inline-flex items-center gap-2 rounded-full px-6 py-3 text-xs font-black uppercase tracking-[0.14em] transition hover:-translate-y-0.5"
@@ -76,7 +73,13 @@ export default function HeroSection({ content }: { content: HomepageContent }) {
               Get in touch
               <ArrowRight size={16} />
             </Link>
-            <BookingLink className="px-6 py-3 text-xs tracking-[0.14em] shadow-lg shadow-accent/20" />
+            <Link
+              href="/about/cv"
+              className="btn-ghost inline-flex items-center gap-2 rounded-full px-6 py-3 text-xs font-black uppercase tracking-[0.14em] transition hover:-translate-y-0.5"
+            >
+              <FileText size={16} />
+              Request CV
+            </Link>
           </div>
 
           {/* Open-to chips + location */}
@@ -98,7 +101,7 @@ export default function HeroSection({ content }: { content: HomepageContent }) {
         </div>
 
         {/* ── Portrait ─────────────────────────────────────────── */}
-        <div className="relative mx-auto w-full max-w-sm reveal-up lg:max-w-md">
+        <TiltCard className="relative mx-auto w-full max-w-sm reveal-up lg:max-w-md">
           {/* Offset accent frame */}
           <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-[2rem] border border-accent/30 bg-accent-tint/40" />
           <div className="glass-strong relative overflow-hidden rounded-[2rem] p-2.5">
@@ -130,7 +133,7 @@ export default function HeroSection({ content }: { content: HomepageContent }) {
               </div>
             </div>
           </div>
-        </div>
+        </TiltCard>
       </div>
 
       {/* Credential ribbon */}
