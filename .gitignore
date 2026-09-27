@@ -3,7 +3,8 @@ node_modules
 tsconfig.tsbuildinfo
 
 # Claude Code local runtime artifacts
-.claude/scheduled_tasks.lock
+# Local AI-assistant tool config (per-developer, not part of the project)
+.claude/
 
 # Environment variables — never commit these
 .env
