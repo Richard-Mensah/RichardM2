@@ -1,22 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
+import { isAuthed } from "@/lib/adminAuth";
 import { revalidatePath } from "next/cache";
 import { getImpactStats, saveImpactStats, type ImpactStat } from "@/lib/impactStats";
 
 export const dynamic = "force-dynamic";
-
-const ADMIN_COOKIE = "admin_session";
-const SESSION_VALUE = "authenticated";
-
-function isAuthed(request: NextRequest): boolean {
-  return request.cookies.get(ADMIN_COOKIE)?.value === SESSION_VALUE;
-}
 
 export async function GET() {
   return NextResponse.json({ ok: true, stats: await getImpactStats() });
 }
 
 export async function PUT(request: NextRequest) {
-  if (!isAuthed(request)) {
+  if (!(await isAuthed(request))) {
     return NextResponse.json({ ok: false, message: "Unauthorized." }, { status: 401 });
   }
 

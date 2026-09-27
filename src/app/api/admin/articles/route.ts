@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { getAllArticles } from "@/lib/articles";
+import { isAuthed } from "@/lib/adminAuth";
 
 export const dynamic = "force-dynamic";
 
@@ -23,6 +24,10 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
+  if (!(await isAuthed(request))) {
+    return NextResponse.json({ ok: false, message: "Unauthorized." }, { status: 401 });
+  }
+
   try {
     const body = (await request.json()) as {
       title?: string;
@@ -40,6 +45,12 @@ export async function POST(request: NextRequest) {
     }
 
     const slug = slugify(body.title);
+    if (!slug) {
+      return NextResponse.json(
+        { ok: false, message: "Title must contain letters or numbers." },
+        { status: 400 }
+      );
+    }
     const date = new Date().toISOString().split("T")[0];
     const filepath = path.join(ARTICLES_DIR, `${slug}.md`);
 

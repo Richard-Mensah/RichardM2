@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
+import { ADMIN_COOKIE } from "@/lib/adminAuth";
 
 export const dynamic = "force-dynamic";
 
 export async function POST() {
   const response = NextResponse.json({ ok: true });
-  response.cookies.set("admin_session", "", { maxAge: 0, path: "/" });
+  response.cookies.set(ADMIN_COOKIE, "", { maxAge: 0, path: "/" });
   return response;
 }

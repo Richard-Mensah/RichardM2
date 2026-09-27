@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { NAVIGATION } from "@/constants";
+import BookingLink from "@/components/ui/BookingLink";
 
 const EXPLORE_LINKS = [
   { label: "Profile", href: "/about/profile" },
@@ -82,6 +83,13 @@ export default function SiteFooter() {
                 >
                   Contact desk →
                 </Link>
+              </li>
+              <li>
+                <BookingLink
+                  variant="white"
+                  iconSize={13}
+                  className="px-5 py-2.5 text-xs tracking-[0.18em]"
+                />
               </li>
             </ul>
           </div>

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Download, ArrowRight, MapPin, BadgeCheck, Plane, type LucideIcon } from "lucide-react";
 import type { HomepageContent } from "@/lib/homepage";
+import BookingLink from "@/components/ui/BookingLink";
 
 const CREDENTIALS: { label: string; icon: LucideIcon }[] = [
   { label: "MSc Artificial Intelligence & Data Science, Bangor University", icon: BadgeCheck },
@@ -40,7 +41,7 @@ export default function HeroSection({ content }: { content: HomepageContent }) {
 
           <h1 className="font-display mt-3 text-balance text-[2.6rem] font-bold leading-[1.02] tracking-[-0.045em] text-ink md:text-5xl lg:text-[3.25rem]">
             {content.heroTitleLead}
-            <span className="relative whitespace-nowrap text-accent-strong">
+            <span className="relative text-accent-strong sm:whitespace-nowrap">
               {content.heroTitleHighlight}
               <svg
                 className="absolute -bottom-1 left-0 h-2.5 w-full text-accent-soft"
@@ -75,6 +76,7 @@ export default function HeroSection({ content }: { content: HomepageContent }) {
               Get in touch
               <ArrowRight size={16} />
             </Link>
+            <BookingLink className="px-6 py-3 text-xs tracking-[0.14em] shadow-lg shadow-accent/20" />
           </div>
 
           {/* Open-to chips + location */}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { NAVIGATION } from "@/constants";
 import { cn } from "@/lib/utils";
+import BookingLink from "@/components/ui/BookingLink";
 
 type Props = {
   menuOpen: boolean;
@@ -74,8 +75,15 @@ export default function MobileNav({
           );
         })}
 
-        {/* Mobile CV + contact actions */}
-        <div className="mt-3 flex gap-2 border-t border-line pt-4">
+        {/* Mobile booking, CV + contact actions */}
+        <BookingLink
+          onClick={onMenuClose}
+          iconSize={14}
+          className="mt-3 w-full px-4 py-3 text-[11px] tracking-[0.14em]"
+        >
+          Book a session
+        </BookingLink>
+        <div className="mt-2 flex gap-2 border-t border-line pt-4">
           <a
             href="/richard-mensah-cv.pdf"
             download="Richard-Mensah-CV.pdf"

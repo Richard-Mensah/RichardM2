@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Download, ArrowRight } from "lucide-react";
+import BookingLink from "@/components/ui/BookingLink";
 
 export default function FinalCta() {
   return (
@@ -36,7 +37,14 @@ export default function FinalCta() {
             Get in touch
             <ArrowRight size={16} />
           </Link>
+          <BookingLink
+            variant="white"
+            className="px-7 py-3.5 text-xs tracking-[0.14em]"
+          />
         </div>
+        <p className="mt-5 text-xs text-on-dark-muted">
+          1:1 mentorship sessions are booked through EGA Mentorship.
+        </p>
       </div>
     </section>
   );
