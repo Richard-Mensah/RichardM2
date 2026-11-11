@@ -6,7 +6,7 @@ import { getClassifiedRepos } from "@/lib/github";
 export const dynamic = "force-dynamic";
 
 export default async function AdminGitHubPage() {
-  const { repos, overrides } = await getClassifiedRepos();
+  const { repos, overrides, featured } = await getClassifiedRepos();
 
   return (
     <div className="flex min-h-screen w-full">
@@ -26,6 +26,7 @@ export default async function AdminGitHubPage() {
             reason: r.reason,
           }))}
           initial={overrides}
+          initialFeatured={featured}
           tokenConfigured={Boolean(process.env.GITHUB_TOKEN?.trim())}
         />
       </main>

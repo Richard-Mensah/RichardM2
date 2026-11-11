@@ -17,16 +17,29 @@ const LABEL: Record<Track | "hidden", string> = {
 export default function GitHubTracksManager({
   repos,
   initial,
+  initialFeatured,
   tokenConfigured,
 }: {
   repos: Row[];
   initial: TrackOverrides;
+  initialFeatured: string[];
   tokenConfigured: boolean;
 }) {
   const router = useRouter();
   const [overrides, setOverrides] = useState<TrackOverrides>(initial);
+  const [featured, setFeatured] = useState<Set<string>>(() => new Set(initialFeatured));
   const [query, setQuery] = useState("");
-  const [only, setOnly] = useState<"all" | Track | "hidden">("all");
+  const [only, setOnly] = useState<"all" | Track | "hidden" | "featured">("all");
+
+  function toggleFeatured(name: string) {
+    setFeatured((prev) => {
+      const next = new Set(prev);
+      if (next.has(name)) next.delete(name);
+      else next.add(name);
+      return next;
+    });
+    setSaved(false);
+  }
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
@@ -40,7 +53,9 @@ export default function GitHubTracksManager({
   }, [repos, overrides]);
 
   const rows = repos.filter(
-    (r) => (only === "all" || effective(r) === only) && r.name.toLowerCase().includes(query.trim().toLowerCase()),
+    (r) =>
+      (only === "all" || (only === "featured" ? featured.has(r.name) : effective(r) === only)) &&
+      r.name.toLowerCase().includes(query.trim().toLowerCase()),
   );
 
   function set(name: string, choice: Choice) {
@@ -61,7 +76,11 @@ export default function GitHubTracksManager({
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         credentials: "same-origin",
-        body: JSON.stringify({ overrides }),
+        // Only public, non-hidden repos can be featured (private ones are never shown).
+        body: JSON.stringify({
+          overrides,
+          featured: repos.filter((r) => featured.has(r.name) && !r.isPrivate && effective(r) !== "hidden").map((r) => r.name),
+        }),
       });
       const data = (await res.json().catch(() => ({}))) as { ok?: boolean; message?: string };
       if (!res.ok || !data.ok) {
@@ -85,6 +104,11 @@ export default function GitHubTracksManager({
         homepage. Tip: adding a topic such as <code>machine-learning</code> or <code>nextjs</code> on GitHub also sorts it
         automatically. GitHub data refreshes about once an hour.
       </p>
+      <p className="rounded-xl bg-accent-tint px-4 py-3 text-sm text-ink-soft">
+        <strong>★ Featured</strong> repos are the only ones shown in the moving project strip on the homepage (aim for 8–12 of
+        your best). Counts and stats always include every repo. If nothing is featured, the site picks recent projects
+        that have a description automatically.
+      </p>
       {!tokenConfigured && (
         <p className="rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-800">
           No <code>GITHUB_TOKEN</code>{" "}is set, so only public repositories are listed and private projects aren&rsquo;t counted.
@@ -92,7 +116,15 @@ export default function GitHubTracksManager({
         </p>
       )}
 
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
+        <button
+          type="button"
+          onClick={() => setOnly(only === "featured" ? "all" : "featured")}
+          className={`glass rounded-2xl p-4 text-left shadow-sm transition ${only === "featured" ? "ring-2 ring-accent" : ""}`}
+        >
+          <p className="text-3xl font-black text-ink">★ {featured.size}</p>
+          <p className="mt-1 text-xs font-semibold text-muted">Featured</p>
+        </button>
         {(["ai", "web", "other", "hidden"] as const).map((k) => (
           <button
             key={k}
@@ -115,6 +147,7 @@ export default function GitHubTracksManager({
           <table className="w-full text-sm">
             <thead className="bg-surface-muted text-left text-xs font-black uppercase tracking-[0.12em] text-muted">
               <tr>
+                <th className="w-16 px-4 py-3">Feature</th>
                 <th className="px-4 py-3">Repository</th>
                 <th className="hidden px-4 py-3 md:table-cell">Auto-detected</th>
                 <th className="px-4 py-3">Show as</th>
@@ -125,6 +158,27 @@ export default function GitHubTracksManager({
                 const choice: Choice = overrides[r.name] ?? "auto";
                 return (
                   <tr key={r.name}>
+                    <td className="px-4 py-3">
+                      {(() => {
+                        const disabled = r.isPrivate || effective(r) === "hidden";
+                        const on = featured.has(r.name) && !disabled;
+                        return (
+                          <button
+                            type="button"
+                            onClick={() => toggleFeatured(r.name)}
+                            disabled={disabled}
+                            aria-pressed={on}
+                            aria-label={`${on ? "Unfeature" : "Feature"} ${r.name}`}
+                            title={disabled ? "Private or hidden repos can't be featured" : on ? "Featured on the homepage" : "Feature on the homepage"}
+                            className={`grid h-10 w-10 place-items-center rounded-full text-lg transition disabled:cursor-not-allowed disabled:opacity-30 ${
+                              on ? "bg-gold/20 text-gold" : "text-line-strong hover:bg-surface-muted hover:text-gold"
+                            }`}
+                          >
+                            ★
+                          </button>
+                        );
+                      })()}
+                    </td>
                     <td className="px-4 py-3">
                       <a href={r.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-ink hover:text-accent-strong">
                         {r.name}

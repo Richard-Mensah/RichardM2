@@ -326,11 +326,14 @@ function RepoChip({ r, mounted }: { r: ClassifiedRepo; mounted: boolean }) {
 
 function MarqueeRow({ repos, reverse, mounted }: { repos: ClassifiedRepo[]; reverse?: boolean; mounted: boolean }) {
   if (!repos.length) return null;
-  const dur = Math.max(30, repos.length * 7);
+  // Repeat short lists so one loop is always wider than the screen (no visible gap).
+  const base: ClassifiedRepo[] = [];
+  while (base.length < 8) base.push(...repos);
+  const dur = Math.max(30, base.length * 7);
   return (
     <div className="marquee group relative overflow-hidden">
       <div className={cn("marquee-track flex w-max gap-3", reverse && "marquee-reverse")} style={{ animationDuration: `${dur}s` }}>
-        {[...repos, ...repos].map((r, i) => (
+        {[...base, ...base].map((r, i) => (
           <div key={`${r.name}-${i}`} aria-hidden={i >= repos.length ? true : undefined} className="shrink-0">
             <RepoChip r={r} mounted={mounted} />
           </div>
@@ -349,14 +352,15 @@ export default function GitHubActivity({ data }: { data: Activity }) {
   const classified = ai.count + web.count;
   const aiPct = classified ? Math.round((ai.count / classified) * 100) : 50;
 
-  const filtered = useMemo(() => (filter === "all" ? data.repos : data.repos.filter((r) => r.track === filter)), [filter, data.repos]);
-  const rowA = filtered.filter((_, i) => i % 2 === 0);
-  const rowB = filtered.filter((_, i) => i % 2 === 1);
+  const filtered = useMemo(() => (filter === "all" ? data.featured : data.featured.filter((r) => r.track === filter)), [filter, data.featured]);
+  const twoRows = filtered.length >= 10;
+  const rowA = twoRows ? filtered.filter((_, i) => i % 2 === 0) : filtered;
+  const rowB = twoRows ? filtered.filter((_, i) => i % 2 === 1) : [];
   const langs = filter === "all" ? data.languages : data.tracks[filter].languages;
   const langTotal = langs.reduce((n, l) => n + l.count, 0) || 1;
   const [langRef, langSeen] = useInView<HTMLDivElement>(0.3);
   const unlocked = data.badges.filter((b) => b.unlocked).length;
-  const latest = data.repos.slice(0, 3);
+  const latest = data.latestPushes;
 
   const select = (f: Filter) => setFilter((cur) => (cur === f ? "all" : f));
 
@@ -489,9 +493,9 @@ export default function GitHubActivity({ data }: { data: Activity }) {
         <div ref={langRef} className="mt-10 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
           <div role="tablist" aria-label="Filter projects by track" className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 lg:mx-0 lg:px-0">
             {([
-              { k: "all", label: `All · ${data.repos.length}` },
-              { k: "ai", label: `${TRACK_META.ai.short} · ${data.repos.filter((r) => r.track === "ai").length}` },
-              { k: "web", label: `${TRACK_META.web.short} · ${data.repos.filter((r) => r.track === "web").length}` },
+              { k: "all", label: `All · ${data.totalRepos}` },
+              { k: "ai", label: `${TRACK_META.ai.short} · ${ai.count}` },
+              { k: "web", label: `${TRACK_META.web.short} · ${web.count}` },
             ] as { k: Filter; label: string }[]).map((t) => (
               <button
                 key={t.k}
@@ -537,6 +541,14 @@ export default function GitHubActivity({ data }: { data: Activity }) {
         <div key={filter} className="reveal-up space-y-3">
           <MarqueeRow repos={rowA} mounted={mounted} />
           <MarqueeRow repos={rowB} reverse mounted={mounted} />
+          {filtered.length === 0 ? (
+            <p className="px-5 text-center text-sm text-on-dark-muted">
+              No featured {filter === "ai" ? TRACK_META.ai.short : TRACK_META.web.short} projects yet.{" "}
+              <a href={`${PROFILE}?tab=repositories`} target="_blank" rel="noopener noreferrer" className="font-semibold text-white underline underline-offset-2">
+                Browse them on GitHub
+              </a>
+            </p>
+          ) : null}
         </div>
       </div>
 

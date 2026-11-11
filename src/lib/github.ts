@@ -17,6 +17,7 @@ import {
 
 export const GITHUB_LOGIN = "Richard-Mensah";
 export const TRACK_OVERRIDES_KEY = "github_track_overrides";
+export const FEATURED_KEY = "github_featured_repos";
 const REVALIDATE = 3600;
 const UA = { "User-Agent": "richmensah-site" };
 
@@ -39,7 +40,11 @@ export type GitHubActivity = {
   levelProgress: number;
   nextLevelAt: number;
   tracks: { ai: TrackStats; web: TrackStats };
-  repos: ClassifiedRepo[]; // public, non-hidden, newest push first
+  /** Public repos shown in the moving strip (curated in admin, or an automatic pick). */
+  featured: ClassifiedRepo[];
+  featuredIsCurated: boolean;
+  /** 3 most recent public pushes, for the "Latest pushes" ticker. */
+  latestPushes: ClassifiedRepo[];
   languages: { name: string; color: string; count: number }[];
   badges: Badge[];
   fetchedAt: string;
@@ -227,7 +232,18 @@ function profileLevel(total: number) {
   return { level, progress: Math.min(1, (total - cur) / (next - cur)), nextAt: next };
 }
 
-function buildActivity(raw: RawData, overrides: TrackOverrides): GitHubActivity {
+const AUTO_PICK = 12;
+/** Names that look like scratch, test or abandoned repos; skipped by the automatic pick. */
+const JUNK = /(test|not[-_ ]?used|sample|demo|copy|backup|old|tmp|temp|images?)\b/i;
+
+/** Up to 3 recent showcase repos for a track, topped up from other public repos in that track. */
+function pickLatest(showcase: ClassifiedRepo[], track: "ai" | "web", pool: ClassifiedRepo[]): ClassifiedRepo[] {
+  const fromShowcase = showcase.filter((r) => r.track === track);
+  const extra = pool.filter((r) => r.track === track && !fromShowcase.includes(r) && r.description && !JUNK.test(r.name));
+  return [...fromShowcase, ...extra].slice(0, 3);
+}
+
+function buildActivity(raw: RawData, overrides: TrackOverrides, featured: string[]): GitHubActivity {
   const classified: (ClassifiedRepo & { hidden: boolean })[] = raw.repos.map((r) => {
     const c = classifyRepo(r, overrides);
     return { ...r, track: c.track === "hidden" ? "other" : c.track, reason: c.reason, hidden: c.track === "hidden" };
@@ -258,6 +274,15 @@ function buildActivity(raw: RawData, overrides: TrackOverrides): GitHubActivity 
   const lvl = profileLevel(raw.total);
   const jupyter = visible.filter((r) => r.language === "Jupyter Notebook").length;
 
+  // Showcase: repos marked Featured in admin; until any are chosen, an automatic
+  // pick of recent, described, non-test projects.
+  const publicVisible = visible.filter((r) => !r.isPrivate).sort((a, b) => Date.parse(b.pushedAt) - Date.parse(a.pushedAt));
+  const featuredSet = new Set(featured);
+  const curated = publicVisible.filter((r) => featuredSet.has(r.name));
+  const showcase = curated.length
+    ? curated
+    : publicVisible.filter((r) => r.track !== "other" && r.description && !JUNK.test(r.name)).slice(0, AUTO_PICK);
+
   const badges: Badge[] = [
     { id: "streak7", label: "On fire", detail: "7-day streak", unlocked: longest >= 7 },
     { id: "streak30", label: "Unstoppable", detail: "30-day streak", unlocked: longest >= 30 },
@@ -283,9 +308,14 @@ function buildActivity(raw: RawData, overrides: TrackOverrides): GitHubActivity 
     level: lvl.level,
     levelProgress: lvl.progress,
     nextLevelAt: lvl.nextAt,
-    tracks: { ai, web },
-    // Only public repos ever reach the browser; private ones are counted above.
-    repos: visible.filter((r) => !r.isPrivate).sort((a, b) => Date.parse(b.pushedAt) - Date.parse(a.pushedAt)),
+    tracks: {
+      ai: { ...ai, latest: pickLatest(showcase, "ai", publicVisible) },
+      web: { ...web, latest: pickLatest(showcase, "web", publicVisible) },
+    },
+    // Only curated public repos reach the browser; everything else is just counted.
+    featured: showcase,
+    featuredIsCurated: curated.length > 0,
+    latestPushes: publicVisible.slice(0, 3),
     languages,
     badges,
     fetchedAt: new Date().toISOString(),
@@ -293,12 +323,20 @@ function buildActivity(raw: RawData, overrides: TrackOverrides): GitHubActivity 
 }
 
 /** Raw repo list with classifications, for the admin GitHub Tracks page. */
-export async function getClassifiedRepos(): Promise<{ repos: (ClassifiedRepo & { hidden: boolean; override?: string })[]; overrides: TrackOverrides }> {
-  const overrides = await getSetting<TrackOverrides>(TRACK_OVERRIDES_KEY, {});
-  const raw = await loadRaw();
-  if (!raw) return { repos: [], overrides };
+export async function getClassifiedRepos(): Promise<{
+  repos: (ClassifiedRepo & { hidden: boolean; override?: string })[];
+  overrides: TrackOverrides;
+  featured: string[];
+}> {
+  const [overrides, featured, raw] = await Promise.all([
+    getSetting<TrackOverrides>(TRACK_OVERRIDES_KEY, {}),
+    getSetting<string[]>(FEATURED_KEY, []),
+    loadRaw(),
+  ]);
+  if (!raw) return { repos: [], overrides, featured };
   return {
     overrides,
+    featured,
     repos: raw.repos.map((r) => {
       const auto = classifyRepo(r, {});
       const c = classifyRepo(r, overrides);
@@ -326,9 +364,13 @@ async function loadRaw(): Promise<RawData | null> {
 
 export async function getGitHubActivity(): Promise<GitHubActivity | null> {
   try {
-    const [raw, overrides] = await Promise.all([loadRaw(), getSetting<TrackOverrides>(TRACK_OVERRIDES_KEY, {})]);
+    const [raw, overrides, featured] = await Promise.all([
+      loadRaw(),
+      getSetting<TrackOverrides>(TRACK_OVERRIDES_KEY, {}),
+      getSetting<string[]>(FEATURED_KEY, []),
+    ]);
     if (!raw || raw.repos.length === 0) return null;
-    return buildActivity(raw, overrides);
+    return buildActivity(raw, overrides, Array.isArray(featured) ? featured : []);
   } catch (error) {
     console.error("Failed to build GitHub activity", error);
     return null;
