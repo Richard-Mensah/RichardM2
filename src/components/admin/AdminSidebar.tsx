@@ -4,6 +4,7 @@ const NAV_ITEMS = [
   { label: "Dashboard", href: "/admin" },
   { label: "Articles", href: "/admin/articles" },
   { label: "New Article", href: "/admin/articles/new" },
+  { label: "Hero Reel", href: "/admin/hero-reel" },
   { label: "Client Work", href: "/admin/client-work" },
   { label: "GitHub Tracks", href: "/admin/github" },
   { label: "Homepage", href: "/admin/homepage" },

@@ -18,31 +18,33 @@ import Reveal from "@/components/ui/Reveal";
 const ICONS: Record<string, LucideIcon> = { BrainCircuit, BarChart3, CloudSun, Users, Globe2, Target };
 
 /** Visual identity per domain: SDG-derived accent colour, a real photo, and its bento span. */
-const LOOK: Record<string, { color: string; image: string; alt: string; span: string; tall?: boolean }> = {
+/** dim: extra navy tint for bright, white-background images so overlaid text stays readable. */
+const LOOK: Record<string, { color: string; image: string; alt: string; span: string; tall?: boolean; dim?: boolean }> = {
   "AI & Machine Learning": {
     color: "#FD6925", // SDG 9
-    image: "/gallery/FB_IMG_1746893901373.jpg",
-    alt: "Richard Mensah at an international technology expo beside a robotics demo",
+    image: "/domains/ai-network.jpg", // Alina Grubnyak, Unsplash License (see public/domains/CREDITS.md)
+    alt: "Abstract network graph of connected nodes, representing a neural network",
+    dim: true,
     span: "lg:col-span-4",
     tall: true,
   },
   "Data Science": {
     color: "#2ba8b4",
-    image: "/research/ai-data-science-dashboard.jpg",
-    alt: "Analytics dashboard on screen",
+    image: "/domains/data-dashboard.jpg", // Luke Chesser, Unsplash License
+    alt: "Analytics dashboard with charts and metrics on a laptop screen",
     span: "lg:col-span-2",
     tall: true,
   },
   "Climate Change": {
     color: "#3F7E44", // SDG 13
-    image: "/research/ai-climate-change-satellite.jpg",
-    alt: "Satellite view of Earth used for climate analysis",
+    image: "/domains/climate-farmer.jpg", // Sadiq Hashim, Pexels License
+    alt: "African farmer standing in a lush green field under a blue sky",
     span: "lg:col-span-2",
   },
   "Community Development": {
     color: "#C5192D", // SDG 4
-    image: "/community/teaching-class-1.jpg",
-    alt: "Richard Mensah teaching a community class in Sefwi Bekwai",
+    image: "/community/school-outreach-1.jpg",
+    alt: "Richard Mensah speaking to a full hall of students during a school outreach session",
     span: "lg:col-span-2",
   },
   "Youth Conferences & Diplomacy": {
@@ -113,7 +115,7 @@ export default function DomainPillars() {
                   href={domain.href}
                   className={cn(
                     "domain-tile group relative flex h-full flex-col justify-end overflow-hidden rounded-[1.75rem] bg-navy-950 p-6 text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/50 sm:p-7",
-                    look.tall ? "min-h-[24rem] lg:min-h-[26rem]" : wide ? "min-h-[20rem] lg:min-h-[17rem]" : "min-h-[22rem]",
+                    look.tall ? "min-h-[19rem] sm:min-h-[24rem] lg:min-h-[26rem]" : wide ? "min-h-[19rem] sm:min-h-[20rem] lg:min-h-[17rem]" : "min-h-[18rem] sm:min-h-[22rem]",
                   )}
                   style={{ "--domain": look.color } as CSSProperties}
                 >
@@ -125,6 +127,7 @@ export default function DomainPillars() {
                     className="domain-tile__img object-cover"
                   />
                   {/* Colour wash + legibility gradient */}
+                  {"dim" in look && look.dim ? <div className="absolute inset-0 bg-navy-950/60" aria-hidden="true" /> : null}
                   <div className="domain-tile__wash absolute inset-0" aria-hidden="true" />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/80 to-navy-950/10" aria-hidden="true" />
                   {/* Accent edge */}

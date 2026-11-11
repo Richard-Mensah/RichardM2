@@ -1,9 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FileText, ArrowRight, MapPin, BadgeCheck, Plane, type LucideIcon } from "lucide-react";
+import { BadgeCheck, Plane, type LucideIcon } from "lucide-react";
 import type { HomepageContent } from "@/lib/homepage";
+import type { ReelChapter } from "@/data/heroReel";
 import BookingLink from "@/components/ui/BookingLink";
-import TiltCard from "@/components/ui/TiltCard";
+import HeroReel, { type PlayerStats } from "./HeroReel";
 
 const CREDENTIALS: { label: string; icon: LucideIcon }[] = [
   { label: "MSc Artificial Intelligence & Data Science, Bangor University", icon: BadgeCheck },
@@ -12,132 +11,31 @@ const CREDENTIALS: { label: string; icon: LucideIcon }[] = [
   { label: "2,500+ youth impacted", icon: BadgeCheck },
 ];
 
-const OPEN_TO = [
-  "AI / ML roles",
-  "PhD opportunities",
-  "Speaking & conferences",
-  "Partnerships",
-  "Youth & Community Development",
-];
-
-export default function HeroSection({ content }: { content: HomepageContent }) {
+/** Full-screen cinematic reel (admin-editable chapters + headline) and the credential ribbon. */
+export default function HeroSection({
+  content,
+  chapters,
+  player,
+}: {
+  content: HomepageContent;
+  chapters: ReelChapter[];
+  player: PlayerStats;
+}) {
   return (
-    <section className="relative overflow-hidden">
-      {/* Decorative ground */}
-      <div className="dot-grid pointer-events-none absolute inset-0 opacity-[0.5] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)]" />
-      <div className="pointer-events-none absolute -right-32 -top-24 h-96 w-96 rounded-full bg-accent-soft/20 blur-3xl" />
-
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[1.15fr_0.85fr]">
-        {/* ── Copy ─────────────────────────────────────────────── */}
-        <div className="stagger">
-          <div className="inline-flex items-center gap-2 rounded-full border border-line bg-surface-card px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-accent-strong shadow-sm">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-            </span>
-            Open to opportunities
-          </div>
-
-          <p className="eyebrow mt-6">{content.heroEyebrow}</p>
-
-          <h1 className="font-display mt-3 text-balance text-[2.6rem] font-bold leading-[1.02] tracking-[-0.045em] text-ink md:text-5xl lg:text-[3.25rem]">
-            {content.heroTitleLead}
-            <span className="relative text-accent-strong sm:whitespace-nowrap">
-              {content.heroTitleHighlight}
-              <svg
-                className="absolute -bottom-1 left-0 h-2.5 w-full text-accent-soft"
-                viewBox="0 0 100 8"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <path d="M0 5 Q 25 1 50 4 T 100 3" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-              </svg>
-            </span>
-            {content.heroTitleTail}
-          </h1>
-
-          <p className="mt-6 max-w-xl text-pretty text-base leading-7 text-body md:text-lg">
-            {content.heroSubtitle}
-          </p>
-
-          {/* CTAs */}
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <BookingLink
-              variant="brand"
-              className="px-6 py-3 text-xs tracking-[0.14em] shadow-lg shadow-brand/20"
-            />
-            <Link
-              href="/contact"
-              className="btn-primary inline-flex items-center gap-2 rounded-full px-6 py-3 text-xs font-black uppercase tracking-[0.14em] transition hover:-translate-y-0.5"
-            >
-              Get in touch
-              <ArrowRight size={16} />
-            </Link>
-            <Link
-              href="/about/cv"
-              className="btn-ghost inline-flex items-center gap-2 rounded-full px-6 py-3 text-xs font-black uppercase tracking-[0.14em] transition hover:-translate-y-0.5"
-            >
-              <FileText size={16} />
-              Request CV
-            </Link>
-          </div>
-
-          {/* Open-to chips + location */}
-          <div className="mt-7 flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted">
-              <MapPin size={14} className="text-accent" />
-              Ghana · United Kingdom
-            </span>
-            <span className="text-line-strong">·</span>
-            {OPEN_TO.map((item) => (
-              <span
-                key={item}
-                className="rounded-full bg-surface-muted px-3 py-1 text-xs font-semibold text-ink-soft"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Portrait ─────────────────────────────────────────── */}
-        <TiltCard className="relative mx-auto w-full max-w-sm reveal-up lg:max-w-md">
-          {/* Offset accent frame */}
-          <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-[2rem] border border-accent/30 bg-accent-tint/40" />
-          <div className="glass-strong relative overflow-hidden rounded-[2rem] p-2.5">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.6rem] bg-surface-muted">
-              <Image
-                src="/Rich1.png"
-                alt="Richard Mensah"
-                fill
-                priority
-                quality={95}
-                sizes="(min-width: 1024px) 36vw, 90vw"
-                className="object-cover object-top"
-              />
-
-              {/* Credential bar, flush to the image bottom, covering the green tagline.
-                  Sized to stay below the name and the RM monogram so both remain visible. */}
-              <div className="absolute inset-x-0 bottom-0 flex items-center gap-2.5 border-t border-line bg-surface-card px-4 py-2.5">
-                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-accent-tint text-accent-strong">
-                  <BadgeCheck size={16} />
-                </span>
-                <div>
-                  <p className="text-[11px] font-black uppercase leading-tight tracking-[0.08em] text-ink">
-                    AI/ML · Climate AI · Full-Stack Developer
-                  </p>
-                  <p className="text-[10px] leading-tight text-body">
-                    Human-centred systems for companies & the Global South
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </TiltCard>
-      </div>
+    <section className="relative">
+      <HeroReel
+        chapters={chapters}
+        eyebrow={content.heroEyebrow}
+        titleLead={content.heroTitleLead}
+        titleHighlight={content.heroTitleHighlight}
+        titleTail={content.heroTitleTail}
+        subtitle={content.heroSubtitle}
+        player={player}
+        primaryCta={<BookingLink variant="accent" className="min-h-11 px-6 text-xs tracking-[0.14em] shadow-lg shadow-black/30" />}
+      />
 
       {/* Credential ribbon */}
-      <div className="border-y border-line bg-surface-card/60">
+      <div className="border-b border-line bg-surface-card/60">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-8 gap-y-2 px-5 py-4 md:px-8">
           {CREDENTIALS.map(({ label, icon: Icon }) => (
             <p key={label} className="flex items-center gap-2 text-xs font-medium text-body">

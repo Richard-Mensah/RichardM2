@@ -77,6 +77,7 @@ export default async function AdminDashboardPage() {
           <h2 className="mb-4 text-lg font-black text-ink">Manage content</h2>
           <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-4">
             {[
+              { label: "Homepage hero reel", href: "/admin/hero-reel" },
               { label: "Client work & software", href: "/admin/client-work" },
               { label: "GitHub tracks", href: "/admin/github" },
               { label: "Homepage content", href: "/admin/homepage" },

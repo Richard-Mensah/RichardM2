@@ -13,6 +13,26 @@ const globalForDb = globalThis as typeof globalThis & {
   __db?: NodePgDatabase<AnyRecord>;
 };
 
+/**
+ * pg-connection-string currently maps these legacy libpq modes to full
+ * certificate/hostname verification and warns about that compatibility
+ * behavior. Make the equivalent mode explicit so production logs stay clean.
+ */
+function normalizeSslMode(connectionString: string): string {
+  try {
+    const parsed = new URL(connectionString);
+    const mode = parsed.searchParams.get("sslmode")?.toLowerCase();
+    const useLibpqCompatibility = parsed.searchParams.get("uselibpqcompat")?.toLowerCase() === "true";
+    if (!useLibpqCompatibility && (mode === "prefer" || mode === "require" || mode === "verify-ca")) {
+      parsed.searchParams.set("sslmode", "verify-full");
+    }
+    return parsed.toString();
+  } catch {
+    // Preserve non-URL PostgreSQL connection strings supported by `pg`.
+    return connectionString;
+  }
+}
+
 function getPool(): Pool {
   if (globalForDb.__pool) return globalForDb.__pool;
 
@@ -20,7 +40,7 @@ function getPool(): Pool {
   if (!url) throw new Error("DATABASE_URL is required");
 
   globalForDb.__pool = new Pool({
-    connectionString: url,
+    connectionString: normalizeSslMode(url),
     max: 5,
     connectionTimeoutMillis: 5_000,
     idleTimeoutMillis: 10_000,
