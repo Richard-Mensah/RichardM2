@@ -17,7 +17,7 @@ Drizzle ORM + pg driver stack is already production-ready.
 - Create a project → copy the connection string
 
 ```
-DATABASE_URL=postgresql://user:pass@ep-xxx.us-east-2.aws.neon.tech/neondb?sslmode=require
+DATABASE_URL=postgresql://user:pass@ep-xxx.us-east-2.aws.neon.tech/neondb?sslmode=verify-full
 ```
 
 ---
@@ -47,7 +47,7 @@ DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
 
 For Neon it looks like:
 ```
-DATABASE_URL=postgresql://richard:xxx@ep-cool-wildflower-xxx.us-east-2.aws.neon.tech/neondb?sslmode=require
+DATABASE_URL=postgresql://richard:xxx@ep-cool-wildflower-xxx.us-east-2.aws.neon.tech/neondb?sslmode=verify-full
 ```
 
 Admin panel and gallery:
