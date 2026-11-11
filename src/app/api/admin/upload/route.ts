@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 
 const MAX_BYTES = 8 * 1024 * 1024;
 
-const FOLDERS = new Set(["client-work", "testimonials"]);
+const FOLDERS = new Set(["client-work", "testimonials", "hero-reel"]);
 
 /** Uploads one admin image (project screenshot, testimonial avatar) to Vercel Blob and returns its URL. */
 export async function POST(request: NextRequest) {

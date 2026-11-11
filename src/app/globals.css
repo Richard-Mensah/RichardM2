@@ -701,3 +701,44 @@ body {
 .heat-size { width: var(--cell); height: var(--cell); }
 @media (min-width: 1024px) { .heat-grid { --cell: 16px; } }
 @media (min-width: 1280px) { .heat-grid { --cell: 18px; } }
+
+/* ── Hero reel: cinematic motion ───────────────────────────────────── */
+.reel-kb-a { animation: reel-kb-a 9s ease-out both; }
+.reel-kb-b { animation: reel-kb-b 9s ease-out both; }
+.reel-kb-c { animation: reel-kb-c 9s ease-out both; }
+.reel-kb-d { animation: reel-kb-d 9s ease-out both; }
+@keyframes reel-kb-a { from { transform: scale(1.18) translate(-2%, 1%); } to { transform: scale(1.04) translate(1%, -1%); } }
+@keyframes reel-kb-b { from { transform: scale(1.04) translate(2%, 0); } to { transform: scale(1.2) translate(-2%, -2%); } }
+@keyframes reel-kb-c { from { transform: scale(1.2) translate(0, -2%); } to { transform: scale(1.05) translate(0, 2%); } }
+@keyframes reel-kb-d { from { transform: scale(1.06) translate(-1%, 2%); } to { transform: scale(1.18) translate(2%, 0); } }
+
+.reel-in-fade { animation: reel-in-fade 1.2s ease both; }
+@keyframes reel-in-fade { from { opacity: 0; } to { opacity: 1; } }
+.reel-in-iris { animation: reel-in-iris 1.2s cubic-bezier(0.65, 0, 0.35, 1) both; }
+@keyframes reel-in-iris { from { clip-path: circle(0% at 70% 45%); } to { clip-path: circle(150% at 70% 45%); } }
+.reel-in-wipe { animation: reel-in-wipe 1.2s cubic-bezier(0.65, 0, 0.35, 1) both; }
+@keyframes reel-in-wipe { from { clip-path: polygon(0 0, 0 0, -20% 100%, 0 100%); } to { clip-path: polygon(0 0, 120% 0, 100% 100%, 0 100%); } }
+
+.reel-progress { width: 0; animation: reel-progress linear forwards; }
+@keyframes reel-progress { to { width: 100%; } }
+
+.reel-caption > * { animation: reel-caption 700ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.reel-caption > *:nth-child(2) { animation-delay: 120ms; }
+.reel-caption > *:nth-child(3) { animation-delay: 240ms; }
+@keyframes reel-caption { from { opacity: 0; transform: translateY(12px); filter: blur(4px); } to { opacity: 1; transform: none; filter: none; } }
+.reel-pin { animation: reel-pin 900ms cubic-bezier(0.34, 1.56, 0.64, 1) 300ms both; }
+@keyframes reel-pin { from { transform: translateY(-10px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+.reel-vignette { background: radial-gradient(ellipse at center, transparent 45%, rgba(5, 12, 24, 0.55) 100%); }
+.reel-grain {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: reel-grain 1s steps(4) infinite;
+}
+@keyframes reel-grain { 0% { transform: translate(0, 0); } 25% { transform: translate(-3%, 2%); } 50% { transform: translate(2%, -3%); } 75% { transform: translate(-2%, -1%); } 100% { transform: translate(0, 0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .reel-kb-a, .reel-kb-b, .reel-kb-c, .reel-kb-d,
+  .reel-in-fade, .reel-in-iris, .reel-in-wipe,
+  .reel-progress, .reel-caption > *, .reel-pin, .reel-grain { animation: none !important; }
+  .reel-progress { width: 100%; }
+}

@@ -1,0 +1,22 @@
+import AdminSidebar from "@/components/admin/AdminSidebar";
+import AdminLogoutButton from "@/components/admin/AdminLogoutButton";
+import HeroReelManager from "@/components/admin/HeroReelManager";
+import { getHeroReel } from "@/lib/heroReel";
+
+export const dynamic = "force-dynamic";
+
+export default async function AdminHeroReelPage() {
+  const chapters = await getHeroReel();
+  return (
+    <div className="flex min-h-screen w-full">
+      <AdminSidebar />
+      <main className="flex-1 overflow-auto p-8">
+        <div className="mb-8 flex items-center justify-between">
+          <h1 className="text-2xl font-black font-display text-ink">Hero Reel</h1>
+          <AdminLogoutButton />
+        </div>
+        <HeroReelManager initial={chapters} />
+      </main>
+    </div>
+  );
+}

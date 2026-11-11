@@ -11,38 +11,40 @@ import {
   Users,
   type LucideIcon,
 } from "lucide-react";
-import { HOME_DOMAINS, PRIORITY_GOALS, SDG_COLOURS } from "@/constants";
+import { HOME_DOMAINS, SDG_COLOURS } from "@/constants";
 import { cn } from "@/lib/utils";
 import Reveal from "@/components/ui/Reveal";
 
 const ICONS: Record<string, LucideIcon> = { BrainCircuit, BarChart3, CloudSun, Users, Globe2, Target };
 
 /** Visual identity per domain: SDG-derived accent colour, a real photo, and its bento span. */
-const LOOK: Record<string, { color: string; image: string; alt: string; span: string; tall?: boolean }> = {
+/** dim: extra navy tint for bright, white-background images so overlaid text stays readable. */
+const LOOK: Record<string, { color: string; image: string; alt: string; span: string; tall?: boolean; dim?: boolean }> = {
   "AI & Machine Learning": {
     color: "#FD6925", // SDG 9
-    image: "/gallery/FB_IMG_1746893901373.jpg",
-    alt: "Richard Mensah at an international technology expo beside a robotics demo",
+    image: "/domains/ai-network.jpg", // Alina Grubnyak, Unsplash License (see public/domains/CREDITS.md)
+    alt: "Abstract network graph of connected nodes, representing a neural network",
+    dim: true,
     span: "lg:col-span-4",
     tall: true,
   },
   "Data Science": {
     color: "#2ba8b4",
-    image: "/research/ai-data-science-dashboard.jpg",
-    alt: "Analytics dashboard on screen",
+    image: "/domains/data-dashboard.jpg", // Luke Chesser, Unsplash License
+    alt: "Analytics dashboard with charts and metrics on a laptop screen",
     span: "lg:col-span-2",
     tall: true,
   },
   "Climate Change": {
     color: "#3F7E44", // SDG 13
-    image: "/research/ai-climate-change-satellite.jpg",
-    alt: "Satellite view of Earth used for climate analysis",
+    image: "/domains/climate-farmer.jpg", // Sadiq Hashim, Pexels License
+    alt: "African farmer standing in a lush green field under a blue sky",
     span: "lg:col-span-2",
   },
   "Community Development": {
     color: "#C5192D", // SDG 4
-    image: "/community/teaching-class-1.jpg",
-    alt: "Richard Mensah teaching a community class in Sefwi Bekwai",
+    image: "/community/school-outreach-1.jpg",
+    alt: "Richard Mensah speaking to a full hall of students during a school outreach session",
     span: "lg:col-span-2",
   },
   "Youth Conferences & Diplomacy": {
@@ -89,25 +91,6 @@ export default function DomainPillars() {
             <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-muted">
               6 domains · 17 goals · 1 mission
             </p>
-            {/* Priority goals: the full interactive wheel lives on /sdgs */}
-            <div className="mt-4 flex flex-wrap items-center gap-2">
-              {PRIORITY_GOALS.map((g) => (
-                <Link
-                  key={g.code}
-                  href="/sdgs"
-                  title={`${g.code}: ${g.title}`}
-                  aria-label={`${g.code}: ${g.title}, see SDG impact`}
-                  className="grid h-9 min-w-9 place-items-center rounded-lg px-2 text-xs font-black text-white transition hover:-translate-y-0.5 hover:shadow-md"
-                  style={{ backgroundColor: g.color }}
-                >
-                  {g.code.replace("SDG ", "")}
-                </Link>
-              ))}
-              <Link href="/sdgs" className="ml-1 inline-flex min-h-9 items-center gap-1 text-xs font-black uppercase tracking-[0.12em] text-accent-strong hover:underline">
-                How my work moves these goals
-                <ArrowUpRight size={13} aria-hidden="true" />
-              </Link>
-            </div>
           </div>
         </Reveal>
 
@@ -144,6 +127,7 @@ export default function DomainPillars() {
                     className="domain-tile__img object-cover"
                   />
                   {/* Colour wash + legibility gradient */}
+                  {"dim" in look && look.dim ? <div className="absolute inset-0 bg-navy-950/60" aria-hidden="true" /> : null}
                   <div className="domain-tile__wash absolute inset-0" aria-hidden="true" />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/80 to-navy-950/10" aria-hidden="true" />
                   {/* Accent edge */}
