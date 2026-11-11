@@ -106,8 +106,7 @@ export default function GitHubTracksManager({
       </p>
       <p className="rounded-xl bg-accent-tint px-4 py-3 text-sm text-ink-soft">
         <strong>★ Featured</strong> repos are the only ones shown in the moving project strip on the homepage (aim for 8–12 of
-        your best). Counts and stats always include every repo. If nothing is featured, the site picks recent projects
-        that have a description automatically.
+        your best). Counts and stats always include every repo. If nothing is featured, the strip is hidden.
       </p>
       {!tokenConfigured && (
         <p className="rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-800">

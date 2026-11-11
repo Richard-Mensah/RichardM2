@@ -40,7 +40,7 @@ export type GitHubActivity = {
   levelProgress: number;
   nextLevelAt: number;
   tracks: { ai: TrackStats; web: TrackStats };
-  /** Public repos shown in the moving strip (curated in admin, or an automatic pick). */
+  /** Public repos starred in admin; the moving strip is hidden when empty. */
   featured: ClassifiedRepo[];
   featuredIsCurated: boolean;
   /** 3 most recent public pushes, for the "Latest pushes" ticker. */
@@ -232,8 +232,7 @@ function profileLevel(total: number) {
   return { level, progress: Math.min(1, (total - cur) / (next - cur)), nextAt: next };
 }
 
-const AUTO_PICK = 12;
-/** Names that look like scratch, test or abandoned repos; skipped by the automatic pick. */
+/** Names that look like scratch, test or abandoned repos; skipped in the skill-tree "latest" lists. */
 const JUNK = /(test|not[-_ ]?used|sample|demo|copy|backup|old|tmp|temp|images?)\b/i;
 
 /** Up to 3 recent showcase repos for a track, topped up from other public repos in that track. */
@@ -274,14 +273,12 @@ function buildActivity(raw: RawData, overrides: TrackOverrides, featured: string
   const lvl = profileLevel(raw.total);
   const jupyter = visible.filter((r) => r.language === "Jupyter Notebook").length;
 
-  // Showcase: repos marked Featured in admin; until any are chosen, an automatic
-  // pick of recent, described, non-test projects.
+  // Showcase: repos marked Featured (★) in Admin → GitHub Tracks.
   const publicVisible = visible.filter((r) => !r.isPrivate).sort((a, b) => Date.parse(b.pushedAt) - Date.parse(a.pushedAt));
   const featuredSet = new Set(featured);
   const curated = publicVisible.filter((r) => featuredSet.has(r.name));
-  const showcase = curated.length
-    ? curated
-    : publicVisible.filter((r) => r.track !== "other" && r.description && !JUNK.test(r.name)).slice(0, AUTO_PICK);
+  // Only repos starred in admin appear in the strip; nothing is shown until some are chosen.
+  const showcase = curated;
 
   const badges: Badge[] = [
     { id: "streak7", label: "On fire", detail: "7-day streak", unlocked: longest >= 7 },

@@ -534,7 +534,8 @@ export default function GitHubActivity({ data }: { data: Activity }) {
         </div>
       </div>
 
-      {/* Repo marquee (full bleed) */}
+      {/* Repo marquee (full bleed): only when repos have been featured in admin */}
+      {data.featured.length ? (
       <div className="relative -mx-5 mt-6 bg-navy-950 py-6 md:-mx-8">
         <div className="marquee-fade pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-navy-950 to-transparent sm:w-32" aria-hidden="true" />
         <div className="marquee-fade pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-navy-950 to-transparent sm:w-32" aria-hidden="true" />
@@ -551,6 +552,7 @@ export default function GitHubActivity({ data }: { data: Activity }) {
           ) : null}
         </div>
       </div>
+      ) : null}
 
       {/* Achievements */}
       <div className="relative mx-auto mt-10 max-w-7xl">
