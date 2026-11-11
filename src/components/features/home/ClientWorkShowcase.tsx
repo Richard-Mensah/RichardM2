@@ -3,7 +3,6 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 import ClientWorkCard from "@/components/features/work/ClientWorkCard";
 import QuestProgressChip from "@/components/features/work/QuestProgressChip";
-import ClientWorkStatsStrip from "@/components/features/work/ClientWorkStatsStrip";
 import { clientWorkStats } from "@/data/clientWork";
 import type { ClientProject } from "@/types";
 
@@ -39,7 +38,6 @@ export default function ClientWorkShowcase({ projects }: { projects: ClientProje
           </div>
         </Reveal>
 
-        <ClientWorkStatsStrip stats={stats} />
 
         {/* Mobile: swipeable carousel. Desktop: grid. */}
         <div className="no-scrollbar -mx-5 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 lg:grid-cols-3">

@@ -1,14 +1,10 @@
 import HeroSection from "@/components/features/hero/HeroSection";
-import JourneyShowcase from "@/components/features/home/JourneyShowcase";
-import AudiencePathways from "@/components/features/home/AudiencePathways";
-import DomainPillars from "@/components/features/home/DomainPillars";
-import SkillsMatrix from "@/components/features/home/SkillsMatrix";
-import ImpactStats from "@/components/features/home/ImpactStats";
-import FeaturedWork from "@/components/features/home/FeaturedWork";
+import AudienceSwitcher from "@/components/features/home/AudienceSwitcher";
+import ProofBar from "@/components/features/home/ProofBar";
 import ClientWorkShowcase from "@/components/features/home/ClientWorkShowcase";
-import ThesisHighlight from "@/components/features/home/ThesisHighlight";
-import SelectedWriting from "@/components/features/home/SelectedWriting";
-import SdgExplorer from "@/components/features/home/SdgExplorer";
+import DomainPillars from "@/components/features/home/DomainPillars";
+import GitHubActivity from "@/components/features/home/GitHubActivity";
+import ResearchHighlight from "@/components/features/home/ResearchHighlight";
 import TestimonialsSection from "@/components/features/home/TestimonialsSection";
 import FinalCta from "@/components/features/home/FinalCta";
 import { getImpactStats } from "@/lib/impactStats";
@@ -16,10 +12,15 @@ import { getHomepage } from "@/lib/homepage";
 import { getTestimonials } from "@/lib/testimonials";
 import { getClientWork } from "@/lib/clientWork";
 import { getGitHubActivity } from "@/lib/github";
-import GitHubActivity from "@/components/features/home/GitHubActivity";
 
 export const dynamic = "force-dynamic";
 
+/*
+ * The homepage is a front door: who Richard is, proof in one row, then a short
+ * slice for each audience with links to the deeper pages. The SDG wheel, skills
+ * radar, journey timeline, full impact stats and full GitHub stats live on
+ * /sdgs, /about/cv, /about/leadership-journey, /impact and /projects/open-source.
+ */
 export default async function HomePage() {
   const [impactStats, homepage, testimonials, clientWork, github] = await Promise.all([
     getImpactStats(),
@@ -32,17 +33,17 @@ export default async function HomePage() {
   return (
     <>
       <HeroSection content={homepage} />
+      <AudienceSwitcher />
+      <ProofBar
+        impactStats={impactStats}
+        clientBuilds={clientWork.length}
+        githubProjects={github?.totalRepos ?? null}
+        contributions={github?.totalContributions ?? null}
+      />
       <ClientWorkShowcase projects={clientWork} />
-      <JourneyShowcase />
-      <AudiencePathways />
       <DomainPillars />
-      <SdgExplorer clientCount={clientWork.length} />
-      <SkillsMatrix clientCount={clientWork.length} />
-      {github ? <GitHubActivity data={github} /> : null}
-      <ImpactStats impactStats={impactStats} />
-      <FeaturedWork />
-      <ThesisHighlight />
-      <SelectedWriting />
+      {github ? <GitHubActivity data={github} variant="compact" /> : null}
+      <ResearchHighlight />
       <TestimonialsSection testimonials={testimonials} />
       <FinalCta />
     </>

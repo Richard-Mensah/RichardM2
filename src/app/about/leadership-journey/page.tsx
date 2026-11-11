@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import SectionNav from "@/components/ui/SectionNav";
+import JourneyShowcase from "@/components/features/home/JourneyShowcase";
 
 export const metadata: Metadata = {
   title: "Leadership Journey | Richard Mensah",
@@ -69,6 +70,9 @@ export default function LeadershipJourneyPage() {
           </blockquote>
         </div>
       </section>
+
+      {/* ── Journey timeline (moved from the homepage) ─────────────── */}
+      <JourneyShowcase />
 
       {/* ── Early roots ───────────────────────────────────────────── */}
       <section className="bg-surface px-5 py-16 md:px-8 md:py-20">

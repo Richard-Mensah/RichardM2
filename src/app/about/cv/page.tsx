@@ -3,6 +3,8 @@ import Link from "next/link";
 import { BadgeCheck, GraduationCap, Briefcase, Globe2 } from "lucide-react";
 import SectionNav from "@/components/ui/SectionNav";
 import CvRequestForm from "@/components/features/cv/CvRequestForm";
+import SkillsMatrix from "@/components/features/home/SkillsMatrix";
+import { getClientWork } from "@/lib/clientWork";
 
 export const metadata: Metadata = {
   title: "CV / Resume | Richard Mensah",
@@ -33,7 +35,10 @@ const HIGHLIGHTS = [
   },
 ];
 
-export default function CvPage() {
+export const revalidate = 3600;
+
+export default async function CvPage() {
+  const clientWork = await getClientWork();
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
       {/* ── Hero ──────────────────────────────────────────────────── */}
@@ -98,6 +103,9 @@ export default function CvPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Capabilities radar (moved from the homepage) ───────────── */}
+      <SkillsMatrix clientCount={clientWork.length} />
 
       <SectionNav
         prev={{ label: "Media & Speaking", href: "/about/media" }}

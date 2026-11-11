@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import Link from "next/link";
 import {
   ArrowUpRight,
   Award,
@@ -345,7 +346,12 @@ function MarqueeRow({ repos, reverse, mounted }: { repos: ClassifiedRepo[]; reve
 
 /* ── Section ─────────────────────────────────────────────────────────── */
 
-export default function GitHubActivity({ data }: { data: Activity }) {
+/**
+ * "full": everything (used on /projects/open-source).
+ * "compact": homepage version: header, heatmap, track pills and the starred-repo strip.
+ */
+export default function GitHubActivity({ data, variant = "full" }: { data: Activity; variant?: "full" | "compact" }) {
+  const full = variant === "full";
   const mounted = useMounted();
   const [filter, setFilter] = useState<Filter>("all");
   const { ai, web } = data.tracks;
@@ -373,7 +379,7 @@ export default function GitHubActivity({ data }: { data: Activity }) {
   ];
 
   return (
-    <section className="relative overflow-hidden px-5 py-20 md:px-8 md:py-24">
+    <section className={cn("relative overflow-hidden px-5 md:px-8", full ? "py-20 md:py-24" : "py-16 md:py-20")}>
       <div className="pointer-events-none absolute -right-32 top-24 h-[28rem] w-[28rem] rounded-full bg-[#7c5cff]/10 blur-3xl" aria-hidden="true" />
       <div className="pointer-events-none absolute -left-32 bottom-10 h-[26rem] w-[26rem] rounded-full bg-accent/10 blur-3xl" aria-hidden="true" />
 
@@ -398,9 +404,15 @@ export default function GitHubActivity({ data }: { data: Activity }) {
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <a href={PROFILE} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex min-h-11 items-center gap-2 rounded-full px-5 text-xs font-black uppercase tracking-[0.14em]">
-              Follow on GitHub <ArrowUpRight size={15} aria-hidden="true" />
-            </a>
+            {full ? (
+              <a href={PROFILE} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex min-h-11 items-center gap-2 rounded-full px-5 text-xs font-black uppercase tracking-[0.14em]">
+                Follow on GitHub <ArrowUpRight size={15} aria-hidden="true" />
+              </a>
+            ) : (
+              <Link href="/projects/open-source" className="btn-primary inline-flex min-h-11 items-center gap-2 rounded-full px-5 text-xs font-black uppercase tracking-[0.14em]">
+                Full GitHub stats <ArrowUpRight size={15} aria-hidden="true" />
+              </Link>
+            )}
             <a href={`${PROFILE}?tab=repositories`} target="_blank" rel="noopener noreferrer" className="btn-ghost inline-flex min-h-11 items-center gap-2 rounded-full px-5 text-xs font-black uppercase tracking-[0.14em]">
               All {data.totalRepos} projects
             </a>
@@ -408,6 +420,7 @@ export default function GitHubActivity({ data }: { data: Activity }) {
         </div>
 
         {/* HUD */}
+        {full ? (
         <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {hud.map(({ icon: Icon, value, label }, i) => (
             <div key={label} className={cn("rounded-2xl border border-line bg-surface-card p-4 shadow-sm", i === 0 && "col-span-2 sm:col-span-1")}>
@@ -419,9 +432,37 @@ export default function GitHubActivity({ data }: { data: Activity }) {
             </div>
           ))}
         </div>
+        ) : null}
 
         {/* Console: level + heatmap */}
-        <div className="mt-6 overflow-hidden rounded-[2rem] bg-navy-950 p-5 text-white shadow-[0_30px_70px_-35px_rgba(10,26,48,0.7)] sm:p-7">
+        <div className={cn("overflow-hidden rounded-[2rem] bg-navy-950 p-5 text-white shadow-[0_30px_70px_-35px_rgba(10,26,48,0.7)] sm:p-7", full ? "mt-6" : "mt-8")}>
+          {!full ? (
+            <div className="flex flex-wrap items-center gap-2.5">
+              {(["ai", "web"] as const).map((k) => {
+                const s = data.tracks[k];
+                const Icon = k === "ai" ? BrainCircuit : Code2;
+                return (
+                  <span key={k} className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 py-1.5 pl-1.5 pr-3.5 text-xs font-bold">
+                    <span className="grid h-7 w-7 place-items-center rounded-full text-white" style={{ backgroundColor: TRACK_META[k].color }}>
+                      <Icon size={14} aria-hidden="true" />
+                    </span>
+                    {TRACK_META[k].short}
+                    <span className="text-white">{s.count}</span>
+                    <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-[10px] text-on-dark-muted">Lv {s.level}</span>
+                  </span>
+                );
+              })}
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-bold">
+                <Flame size={14} className="text-[#f97316]" aria-hidden="true" />
+                {data.currentStreak}-day streak
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-bold">
+                <CalendarDays size={14} className="text-accent-soft" aria-hidden="true" />
+                {data.activeDays} active days
+              </span>
+            </div>
+          ) : null}
+          {full ? (
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <span className="legendary-shimmer grid h-11 w-11 place-items-center rounded-xl text-navy-950">
@@ -444,6 +485,7 @@ export default function GitHubActivity({ data }: { data: Activity }) {
               </div>
             </div>
           </div>
+          ) : null}
 
           <div className="mt-6">
             <Heatmap weeks={data.weeks} busiest={data.busiest} total={data.totalContributions} />
@@ -464,6 +506,8 @@ export default function GitHubActivity({ data }: { data: Activity }) {
         </div>
 
         {/* Skill trees */}
+        {full ? (
+        <>
         <div className="mt-10">
           <div className="grid gap-5 lg:grid-cols-2">
             <TrackCard s={ai} mounted={mounted} active={filter === "ai"} onSelect={() => select("ai")} />
@@ -532,6 +576,8 @@ export default function GitHubActivity({ data }: { data: Activity }) {
             </ul>
           </div>
         </div>
+        </>
+        ) : null}
       </div>
 
       {/* Repo marquee (full bleed): only when repos have been featured in admin */}
@@ -555,6 +601,7 @@ export default function GitHubActivity({ data }: { data: Activity }) {
       ) : null}
 
       {/* Achievements */}
+      {full ? (
       <div className="relative mx-auto mt-10 max-w-7xl">
         <div className="flex items-center justify-between gap-3">
           <p className="text-[11px] font-black uppercase tracking-[0.2em] text-ink">Achievements</p>
@@ -586,6 +633,7 @@ export default function GitHubActivity({ data }: { data: Activity }) {
           <p className="mt-4 text-[11px] text-muted">Showing public repositories. Private projects are counted once a GitHub token is configured.</p>
         ) : null}
       </div>
+      ) : null}
     </section>
   );
 }

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import SectionNav from "@/components/ui/SectionNav";
 import OpenSourcePageSection from "@/components/features/projects/OpenSourcePageSection";
 import type { GitHubRepo } from "@/components/features/projects/GitHubRepoCard";
+import GitHubActivity from "@/components/features/home/GitHubActivity";
+import { getGitHubActivity } from "@/lib/github";
 
 export const metadata: Metadata = {
   title: "Open Source Work | Richard Mensah",
@@ -26,11 +28,12 @@ async function getRepos(): Promise<GitHubRepo[]> {
 }
 
 export default async function OpenSourcePage() {
-  const repos = await getRepos();
+  const [repos, github] = await Promise.all([getRepos(), getGitHubActivity()]);
 
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
       <div className="flex-1">
+        {github ? <GitHubActivity data={github} variant="full" /> : null}
         <OpenSourcePageSection repos={repos} />
       </div>
       <SectionNav

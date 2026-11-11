@@ -11,7 +11,7 @@ import {
   Users,
   type LucideIcon,
 } from "lucide-react";
-import { HOME_DOMAINS, SDG_COLOURS } from "@/constants";
+import { HOME_DOMAINS, PRIORITY_GOALS, SDG_COLOURS } from "@/constants";
 import { cn } from "@/lib/utils";
 import Reveal from "@/components/ui/Reveal";
 
@@ -89,6 +89,25 @@ export default function DomainPillars() {
             <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.18em] text-muted">
               6 domains · 17 goals · 1 mission
             </p>
+            {/* Priority goals: the full interactive wheel lives on /sdgs */}
+            <div className="mt-4 flex flex-wrap items-center gap-2">
+              {PRIORITY_GOALS.map((g) => (
+                <Link
+                  key={g.code}
+                  href="/sdgs"
+                  title={`${g.code}: ${g.title}`}
+                  aria-label={`${g.code}: ${g.title}, see SDG impact`}
+                  className="grid h-9 min-w-9 place-items-center rounded-lg px-2 text-xs font-black text-white transition hover:-translate-y-0.5 hover:shadow-md"
+                  style={{ backgroundColor: g.color }}
+                >
+                  {g.code.replace("SDG ", "")}
+                </Link>
+              ))}
+              <Link href="/sdgs" className="ml-1 inline-flex min-h-9 items-center gap-1 text-xs font-black uppercase tracking-[0.12em] text-accent-strong hover:underline">
+                How my work moves these goals
+                <ArrowUpRight size={13} aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </Reveal>
 
@@ -113,7 +132,7 @@ export default function DomainPillars() {
                   href={domain.href}
                   className={cn(
                     "domain-tile group relative flex h-full flex-col justify-end overflow-hidden rounded-[1.75rem] bg-navy-950 p-6 text-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/50 sm:p-7",
-                    look.tall ? "min-h-[24rem] lg:min-h-[26rem]" : wide ? "min-h-[20rem] lg:min-h-[17rem]" : "min-h-[22rem]",
+                    look.tall ? "min-h-[19rem] sm:min-h-[24rem] lg:min-h-[26rem]" : wide ? "min-h-[19rem] sm:min-h-[20rem] lg:min-h-[17rem]" : "min-h-[18rem] sm:min-h-[22rem]",
                   )}
                   style={{ "--domain": look.color } as CSSProperties}
                 >
