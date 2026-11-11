@@ -4,8 +4,10 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
 import GitHubRepoCard, { type GitHubRepo } from "./GitHubRepoCard";
 import LinkedInProfileCard from "./LinkedInProfileCard";
+import ClientWorkCard from "@/components/features/work/ClientWorkCard";
+import type { ClientProject } from "@/types";
 
-type Props = { repos: GitHubRepo[] };
+type Props = { repos: GitHubRepo[]; projects: ClientProject[] };
 
 const SYSTEMS_SUMMARY = [
   {
@@ -31,7 +33,8 @@ const SYSTEMS_SUMMARY = [
   },
 ];
 
-export default function PortfolioPageSection({ repos }: Props) {
+export default function PortfolioPageSection({ repos, projects }: Props) {
+  const CLIENT_WORK = projects;
   return (
     <div>
       {/* Hero */}
@@ -50,7 +53,9 @@ export default function PortfolioPageSection({ repos }: Props) {
                 From community teaching in Sefwi Bekwai to AI systems for institutional decision-making. This is the full record of a career that has always been about both the technical and the human.
               </p>
               <div className="mt-6 flex flex-wrap gap-3 text-xs font-black text-on-dark-muted">
-                <span>3 flagship systems</span>
+                <span>{CLIENT_WORK.length} client builds shipped</span>
+                <span>·</span>
+                <span>3 research systems</span>
                 <span>·</span>
                 <span>7 project categories</span>
                 <span>·</span>
@@ -98,10 +103,30 @@ export default function PortfolioPageSection({ repos }: Props) {
         </div>
       </section>
 
+      {/* Client builds */}
+      <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading eyebrow="Client builds" title="Live products shipped for clients" />
+            <Link
+              href="/work"
+              className="btn-ghost inline-flex min-h-11 items-center gap-2 rounded-full px-5 text-xs font-black uppercase tracking-[0.14em]"
+            >
+              All {CLIENT_WORK.length} builds →
+            </Link>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {CLIENT_WORK.slice(0, 3).map((p, i) => (
+              <ClientWorkCard key={p.slug} project={p} index={i} showPhone={false} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Flagship Systems */}
       <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-7xl">
-          <SectionHeading eyebrow="Flagship Systems" title="Three systems that define the work" />
+          <SectionHeading eyebrow="Flagship Systems" title="Three research systems that define the work" />
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {SYSTEMS_SUMMARY.map((sys) => (
               <Link key={sys.title} href={sys.href} className="group">

@@ -8,9 +8,9 @@ export default function FeaturedWork() {
       <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-24">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <p className="eyebrow">Featured work</p>
+            <p className="eyebrow">Research systems</p>
             <h2 className="font-display mt-3 text-balance text-3xl font-bold tracking-[-0.035em] text-ink md:text-4xl">
-              Systems built to make better decisions
+              Systems designed to make better decisions
             </h2>
           </div>
           <Link

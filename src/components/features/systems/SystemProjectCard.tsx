@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Card from "@/components/ui/Card";
 import { cn } from "@/lib/utils";
 import type { SystemProject } from "@/types";
@@ -69,12 +70,12 @@ export default function SystemProjectCard({ system }: Props) {
       </div>
 
       {/* CTA */}
-      <a
-        href="#collaborate"
+      <Link
+        href="/collaborate"
         className="mt-auto inline-flex items-center gap-2 px-7 pb-7 pt-2 text-sm font-black text-accent-strong transition hover:gap-3"
       >
         Discuss the system <span aria-hidden="true">→</span>
-      </a>
+      </Link>
     </Card>
   );
 }

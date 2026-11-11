@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { getAllArticles } from "@/lib/articles";
 import { getImpactStats } from "@/lib/impactStats";
+import { getClientWork } from "@/lib/clientWork";
+import { clientWorkStats } from "@/data/clientWork";
 import { GALLERY } from "@/data/gallery";
 import AdminSidebar from "@/components/admin/AdminSidebar";
 import AdminLogoutButton from "@/components/admin/AdminLogoutButton";
@@ -8,7 +10,8 @@ import AdminDeleteButton from "@/components/admin/AdminDeleteButton";
 
 export default async function AdminDashboardPage() {
   const articles = getAllArticles();
-  const impactStats = await getImpactStats();
+  const [impactStats, clientWork] = await Promise.all([getImpactStats(), getClientWork()]);
+  const cw = clientWorkStats(clientWork);
 
   return (
     <div className="flex min-h-screen w-full">
@@ -21,6 +24,22 @@ export default async function AdminDashboardPage() {
 
         {/* Stats */}
         <div className="grid gap-6 sm:grid-cols-3">
+          <div className="glass rounded-2xl p-6 shadow-sm sm:col-span-3">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="text-4xl font-black text-ink">{cw.total}</p>
+                <p className="mt-1 text-sm font-semibold text-muted">Client builds shipped</p>
+              </div>
+              <div className="flex flex-wrap gap-6 text-sm">
+                <p><span className="text-2xl font-black text-ink">{cw.organisations}</span> <span className="font-semibold text-muted">company / organisation</span></p>
+                <p><span className="text-2xl font-black text-ink">{cw.personal}</span> <span className="font-semibold text-muted">personal brand</span></p>
+                <p><span className="text-2xl font-black text-ink">{cw.software}</span> <span className="font-semibold text-muted">software</span></p>
+              </div>
+            </div>
+            <Link href="/admin/client-work" className="mt-4 block text-sm font-black text-accent-strong hover:underline">
+              Add or edit projects →
+            </Link>
+          </div>
           <div className="glass rounded-2xl p-6 shadow-sm">
             <p className="text-4xl font-black text-ink">{articles.length}</p>
             <p className="mt-1 text-sm font-semibold text-muted">Articles published</p>
@@ -58,6 +77,7 @@ export default async function AdminDashboardPage() {
           <h2 className="mb-4 text-lg font-black text-ink">Manage content</h2>
           <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-4">
             {[
+              { label: "Client work & software", href: "/admin/client-work" },
               { label: "Homepage content", href: "/admin/homepage" },
               { label: "About the Author", href: "/admin/author" },
               { label: "Impact stats", href: "/admin/impact-stats" },

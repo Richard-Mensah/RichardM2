@@ -1,9 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { isAuthed } from "@/lib/adminAuth";
-import { getTestimonials, saveTestimonials, type Testimonial } from "@/lib/testimonials";
+import { clampRating, getTestimonials, saveTestimonials, type Testimonial } from "@/lib/testimonials";
 
 export const dynamic = "force-dynamic";
+
+/** Only site-relative paths or https URLs are accepted for avatars. */
+function safeImageUrl(v: unknown): string {
+  const s = (v ?? "").toString().trim().slice(0, 1000);
+  return (s.startsWith("/") && !s.startsWith("//")) || s.startsWith("https://") ? s : "";
+}
 
 export async function GET() {
   return NextResponse.json({ ok: true, testimonials: await getTestimonials() });
@@ -34,6 +40,9 @@ export async function PUT(request: NextRequest) {
         quote,
         initials: (t.initials ?? "").toString().trim(),
         accent: (t.accent ?? "#4f8bff").toString().trim() || "#4f8bff",
+        avatar: safeImageUrl(t.avatar),
+        outcome: (t.outcome ?? "").toString().trim().slice(0, 120),
+        rating: clampRating(t.rating),
       });
     }
 

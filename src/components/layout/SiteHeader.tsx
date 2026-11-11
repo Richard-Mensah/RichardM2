@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone, FileText } from "lucide-react";
@@ -49,6 +49,21 @@ export default function SiteHeader() {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pathname = usePathname();
 
+  // Mobile menu: lock page scroll while open and close on Escape.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const { overflow } = document.body.style;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = overflow;
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [menuOpen]);
+
   const handleMouseEnter = useCallback((label: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setOpenDropdown(label);
@@ -67,7 +82,7 @@ export default function SiteHeader() {
             AI · Climate · Youth Diplomacy for the SDGs
           </p>
           <div className="flex w-full items-center justify-between gap-3 sm:w-auto sm:justify-end">
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-2">
               {SOCIAL_LINKS.map((link) => (
                 <a
                   key={link.label}
@@ -76,7 +91,7 @@ export default function SiteHeader() {
                   rel="noreferrer"
                   aria-label={link.label}
                   title={link.label}
-                  className="grid h-6 w-6 place-items-center rounded-full border border-white/15 text-on-dark-muted transition hover:border-accent-soft hover:text-white"
+                  className="relative grid h-6 w-6 place-items-center rounded-full border border-white/15 before:absolute before:-inset-x-1 before:-inset-y-2 before:content-[''] text-on-dark-muted transition hover:border-accent-soft hover:text-white"
                 >
                   <svg
                     viewBox={link.viewBox}
@@ -90,7 +105,7 @@ export default function SiteHeader() {
             </div>
             <a
               href="tel:+447388160797"
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-on-dark transition hover:border-accent-soft hover:text-white"
+              className="relative inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1 text-[10px] before:absolute before:-inset-y-2 before:inset-x-0 before:content-[''] font-bold uppercase tracking-[0.14em] text-on-dark transition hover:border-accent-soft hover:text-white"
             >
               <Phone size={12} />
               <span className="hidden sm:inline">Call +44 7388 160797</span>
@@ -110,6 +125,7 @@ export default function SiteHeader() {
               alt="Richard Mensah"
               width={52}
               height={52}
+              loading="eager"
               className="h-11 w-11 rounded-xl object-cover shadow-sm ring-1 ring-line"
             />
             <span className="hidden leading-tight sm:block">
@@ -154,7 +170,7 @@ export default function SiteHeader() {
             </Link>
             <button
               type="button"
-              className="grid h-10 w-10 place-items-center rounded-xl border border-line text-ink transition hover:bg-surface-muted lg:hidden"
+              className="grid h-11 w-11 place-items-center rounded-xl border border-line text-ink transition hover:bg-surface-muted lg:hidden"
               onClick={() => setMenuOpen((v) => !v)}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}

@@ -90,4 +90,32 @@ export type AudiencePathway = {
 
 export type DatabaseSignal = "online" | "degraded";
 
+export type ClientCategory = "software" | "organisation" | "personal";
+export type ClientRarity = "legendary" | "epic" | "rare";
+
+export type ClientShot = { src: string; width: number; height: number };
+
+export type ClientProject = {
+  slug: string;
+  name: string;
+  client: string;
+  category: ClientCategory;
+  rarity: ClientRarity;
+  url: string;
+  location: string;
+  /** One-line hook shown on cards. */
+  tagline: string;
+  /** Short paragraph: who the client is and what the build does. */
+  summary: string;
+  /** Concrete things the build delivers, taken from the live site. */
+  highlights: string[];
+  /** Achievement badges shown on the card. */
+  badges: string[];
+  tags: string[];
+  desktop: ClientShot;
+  /** Optional phone-size capture; the phone frame is hidden when missing. */
+  mobile?: ClientShot;
+  featured?: boolean;
+};
+
 export type { CollaborationInquiry, NewCollaborationInquiry } from "@/db/schema";

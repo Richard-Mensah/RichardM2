@@ -52,6 +52,9 @@ export const testimonials = pgTable("testimonials", {
   quote: text("quote").notNull(),
   initials: varchar("initials", { length: 8 }).notNull().default(""),
   accent: varchar("accent", { length: 16 }).notNull().default("#4f8bff"),
+  avatar: text("avatar").notNull().default(""),
+  outcome: varchar("outcome", { length: 120 }).notNull().default(""),
+  rating: integer("rating").notNull().default(5),
 });
 
 export type TestimonialRow = typeof testimonials.$inferSelect;

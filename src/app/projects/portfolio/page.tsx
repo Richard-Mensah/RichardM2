@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectionNav from "@/components/ui/SectionNav";
 import PortfolioPageSection from "@/components/features/projects/PortfolioPageSection";
 import type { GitHubRepo } from "@/components/features/projects/GitHubRepoCard";
+import { getClientWork } from "@/lib/clientWork";
 
 export const metadata: Metadata = {
   title: "Portfolio | Richard Mensah",
@@ -26,15 +27,15 @@ async function getRepos(): Promise<GitHubRepo[]> {
 }
 
 export default async function PortfolioPage() {
-  const repos = await getRepos();
+  const [repos, projects] = await Promise.all([getRepos(), getClientWork()]);
 
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
       <div className="flex-1">
-        <PortfolioPageSection repos={repos} />
+        <PortfolioPageSection repos={repos} projects={projects} />
       </div>
       <SectionNav
-        prev={{ label: "Open Source", href: "/projects/open-source" }}
+        prev={{ label: "Client Work", href: "/work" }}
         next={{ label: "Leadership", href: "/leadership" }}
       />
     </div>
