@@ -1,244 +1,271 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Check, ChevronLeft, ChevronRight, Pause, Play, Quote, Star, Trophy } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Testimonial } from "@/lib/testimonials";
 
-function Stars({ accentClass = "text-accent" }: { accentClass?: string }) {
+const AUTOPLAY_MS = 8000;
+
+function Stars({ rating, size = 14 }: { rating: number; size?: number }) {
   return (
-    <div className={cn("flex gap-0.5", accentClass)} aria-label="5 out of 5 stars">
+    <span className="inline-flex gap-0.5" role="img" aria-label={`${rating} out of 5 stars`}>
       {Array.from({ length: 5 }).map((_, i) => (
-        <span key={i} className="text-xs" aria-hidden="true">
-          â˜…
-        </span>
+        <Star
+          key={i}
+          size={size}
+          aria-hidden="true"
+          className={i < rating ? "fill-gold text-gold" : "fill-transparent text-line-strong"}
+        />
       ))}
-    </div>
+    </span>
   );
 }
 
-function Avatar({ initials, accent }: { initials: string; accent: string }) {
+/** Photo when one is uploaded in the dashboard, otherwise coloured initials. */
+function Avatar({ t, size = 48, ring = false }: { t: Testimonial; size?: number; ring?: boolean }) {
   return (
-    <div
-      className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full text-xs font-black text-white"
-      style={{ background: `linear-gradient(135deg, ${accent}, ${accent}cc)` }}
+    <span
+      className={cn("relative grid shrink-0 place-items-center overflow-hidden rounded-full font-black text-white", ring && "ring-[3px] ring-offset-2 ring-offset-surface-card")}
+      style={{
+        width: size,
+        height: size,
+        fontSize: Math.round(size * 0.32),
+        background: `linear-gradient(135deg, ${t.accent}, ${t.accent}aa)`,
+        ...(ring ? ({ "--tw-ring-color": t.accent } as React.CSSProperties) : {}),
+      }}
     >
-      {initials}
-    </div>
+      {t.avatar ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={t.avatar} alt={`Photo of ${t.name}`} loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+      ) : (
+        <span aria-hidden="true">{t.initials}</span>
+      )}
+    </span>
   );
-}
-
-function useCardsPerView() {
-  const [perView, setPerView] = useState(1);
-
-  useEffect(() => {
-    const lg = window.matchMedia("(min-width: 1024px)");
-    const md = window.matchMedia("(min-width: 768px)");
-    const update = () => setPerView(lg.matches ? 3 : md.matches ? 2 : 1);
-    update();
-    lg.addEventListener("change", update);
-    md.addEventListener("change", update);
-    return () => {
-      lg.removeEventListener("change", update);
-      md.removeEventListener("change", update);
-    };
-  }, []);
-
-  return perView;
 }
 
 export default function TestimonialsSection({ testimonials }: { testimonials: Testimonial[] }) {
-  const perView = useCardsPerView();
-  const [index, setIndex] = useState(0);
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
   const count = testimonials.length;
-  const maxIndex = Math.max(0, count - perView);
+  const [active, setActive] = useState(0);
+  const [playing, setPlaying] = useState(true);
+  const [hovering, setHovering] = useState(false);
+  const [inView, setInView] = useState(false);
+  const [heard, setHeard] = useState<Set<number>>(() => new Set([0]));
+  const sectionRef = useRef<HTMLElement>(null);
+  const rosterRef = useRef<HTMLDivElement>(null);
 
-  // Keep the index in range when the viewport (perView) changes, adjust during
-  // render (React-recommended pattern) rather than in an effect.
-  const [prevPerView, setPrevPerView] = useState(perView);
-  if (perView !== prevPerView) {
-    setPrevPerView(perView);
-    if (index > maxIndex) setIndex(maxIndex);
-  }
+  const avg = count ? testimonials.reduce((n, t) => n + t.rating, 0) / count : 0;
+  const outcomes = testimonials.filter((t) => t.outcome).length;
 
-  const prev = useCallback(() => setIndex((i) => Math.max(0, i - 1)), []);
-  const next = useCallback(() => setIndex((i) => Math.min(maxIndex, i + 1)), [maxIndex]);
-
-  const close = useCallback(() => setActiveIndex(null), []);
-
-  // Esc closes the read-more modal.
   useEffect(() => {
-    if (activeIndex === null) return;
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [activeIndex, close]);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const id = requestAnimationFrame(() => setPlaying(false));
+      return () => cancelAnimationFrame(id);
+    }
+  }, []);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { threshold: 0.3 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const go = useCallback(
+    (i: number) => {
+      const next = (i + count) % count;
+      setActive(next);
+      setHeard((h) => (h.has(next) ? h : new Set(h).add(next)));
+      // Keep the chosen avatar visible in the mobile strip.
+      const el = rosterRef.current?.querySelector<HTMLElement>(`[data-idx="${next}"]`);
+      el?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    },
+    [count],
+  );
+
+  const running = playing && inView && !hovering && count > 1;
+  useEffect(() => {
+    if (!running) return;
+    const t = setTimeout(() => go(active + 1), AUTOPLAY_MS);
+    return () => clearTimeout(t);
+  }, [running, active, go]);
 
   if (count === 0) return null;
-
-  const active = activeIndex !== null ? testimonials[activeIndex] : null;
+  const t = testimonials[active];
+  const allHeard = heard.size >= count;
 
   return (
-    <div className="px-5 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-7xl">
-        {/* Heading */}
+    <section ref={sectionRef} className="relative overflow-hidden px-5 py-20 md:px-8 md:py-24">
+      <div
+        className="pointer-events-none absolute -left-40 top-20 h-[30rem] w-[30rem] rounded-full opacity-[0.12] blur-3xl transition-colors duration-700"
+        style={{ backgroundColor: t.accent }}
+        aria-hidden="true"
+      />
+      <div className="relative mx-auto max-w-7xl">
+        {/* Header */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-strong">
-              Testimonials
-            </p>
-            <h2 className="font-display mt-3 text-balance text-3xl font-bold tracking-[-0.035em] text-ink md:text-4xl">
+          <div className="max-w-2xl">
+            <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-strong">Testimonials</p>
+            <h2 className="font-display mt-3 text-balance text-3xl font-bold tracking-[-0.035em] text-ink md:text-4xl lg:text-[2.7rem]">
               In their own words
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-body">
-              Real accounts from people who went through the programmes, applied for scholarships,
-              built projects, and came out the other side with something tangible to show for it.
+            <p className="mt-4 text-base leading-7 text-body">
+              Real accounts from people who went through the programmes, applied for scholarships, built projects, and
+              came out the other side with something tangible to show for it.
             </p>
           </div>
-
-          {/* Arrow controls */}
-          <div className="flex shrink-0 gap-2">
-            <button
-              type="button"
-              onClick={prev}
-              disabled={index === 0}
-              aria-label="Previous testimonials"
-              className="grid h-11 w-11 place-items-center rounded-full border border-line text-ink transition hover:border-accent hover:text-accent-strong disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:border-line disabled:hover:text-ink"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button
-              type="button"
-              onClick={next}
-              disabled={index >= maxIndex}
-              aria-label="Next testimonials"
-              className="grid h-11 w-11 place-items-center rounded-full border border-line text-ink transition hover:border-accent hover:text-accent-strong disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:border-line disabled:hover:text-ink"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
-        </div>
-
-        {/* Carousel track */}
-        <div className="mt-10 overflow-hidden">
-          <div
-            className="flex transition-transform duration-500 ease-out"
-            style={{ transform: `translateX(-${index * (100 / perView)}%)` }}
-          >
-            {testimonials.map((t, i) => (
-              <div
-                key={`${t.name}-${i}`}
-                className="flex-shrink-0 px-2.5"
-                style={{ width: `${100 / perView}%` }}
-              >
-                <article className="glass card-lift flex h-full min-h-[300px] flex-col rounded-2xl p-6">
-                  <span
-                    className="block h-1 w-12 rounded-full"
-                    style={{ backgroundColor: t.accent }}
-                  />
-                  <div
-                    className="mt-4 select-none text-5xl font-black leading-none"
-                    style={{ color: t.accent }}
-                    aria-hidden="true"
-                  >
-                    &ldquo;
-                  </div>
-                  <p className="mt-2 flex-1 text-sm leading-[1.8] text-body [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:4] overflow-hidden">
-                    {t.quote}
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => setActiveIndex(i)}
-                    className="mt-3 self-start text-xs font-bold uppercase tracking-[0.12em] transition hover:underline"
-                    style={{ color: t.accent }}
-                  >
-                    Read more
-                  </button>
-                  <div className="mt-5 flex items-center gap-3 border-t border-line pt-4">
-                    <Avatar initials={t.initials} accent={t.accent} />
-                    <div className="min-w-0">
-                      <p className="text-sm font-black text-ink">{t.name}</p>
-                      <p className="mt-0.5 truncate text-xs text-muted">{t.role}</p>
-                    </div>
-                    <div className="ml-auto">
-                      <Stars />
-                    </div>
-                  </div>
-                </article>
+          <div className="flex shrink-0 items-center gap-4 rounded-2xl border border-line bg-surface-card px-5 py-4 shadow-sm">
+            <div>
+              <p className="font-display text-3xl font-black leading-none text-ink">{avg.toFixed(1)}</p>
+              <div className="mt-1.5">
+                <Stars rating={Math.round(avg)} size={13} />
               </div>
-            ))}
+            </div>
+            <span className="h-10 w-px bg-line" aria-hidden="true" />
+            <div className="text-sm">
+              <p className="font-black text-ink">{count} voices</p>
+              <p className="text-muted">{outcomes} outcomes unlocked</p>
+            </div>
           </div>
         </div>
 
-        {/* Dots */}
-        <div className="mt-8 flex justify-center gap-2">
-          {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setIndex(i)}
-              aria-label={`Go to testimonial group ${i + 1}`}
-              className={cn(
-                "h-2 rounded-full transition-all duration-300",
-                i === index ? "w-8 bg-accent" : "w-2 bg-line-strong hover:bg-muted"
-              )}
+        <div className="mt-10 grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:gap-8">
+          {/* Spotlight */}
+          <article
+            onMouseEnter={() => setHovering(true)}
+            onMouseLeave={() => setHovering(false)}
+            onFocus={() => setHovering(true)}
+            onBlur={() => setHovering(false)}
+            aria-roledescription="testimonial"
+            aria-label={`Testimonial ${active + 1} of ${count}, from ${t.name}`}
+            className="relative flex min-h-[24rem] min-w-0 flex-col overflow-hidden rounded-[2rem] border border-line bg-surface-card p-6 shadow-[0_30px_70px_-40px_rgba(10,26,48,0.45)] sm:p-9"
+          >
+            <span className="absolute inset-x-0 top-0 h-1.5 transition-colors duration-500" style={{ backgroundColor: t.accent }} aria-hidden="true" />
+            <Quote
+              size={120}
+              className="pointer-events-none absolute -right-4 -top-4 opacity-[0.07] transition-colors duration-500"
+              style={{ color: t.accent }}
+              aria-hidden="true"
             />
-          ))}
+
+            <div key={active} className="reveal-up relative flex flex-1 flex-col">
+              {t.outcome ? (
+                <span className="inline-flex w-fit items-center gap-2 rounded-full border border-gold/40 bg-gold/10 py-1 pl-1 pr-3 text-xs font-bold text-ink">
+                  <span className="legendary-shimmer grid h-6 w-6 place-items-center rounded-full text-navy-950">
+                    <Trophy size={12} aria-hidden="true" />
+                  </span>
+                  <span className="text-[9px] font-black uppercase tracking-[0.18em] text-gold">Achievement</span>
+                  {t.outcome}
+                </span>
+              ) : null}
+
+              <blockquote className="font-display mt-6 flex-1 text-balance text-xl font-semibold leading-[1.5] tracking-[-0.01em] text-ink sm:text-2xl">
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
+
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <Avatar t={t} size={64} ring />
+                <div className="min-w-0 flex-1">
+                  <p className="text-base font-black text-ink">{t.name}</p>
+                  <p className="text-sm text-muted">{t.role}</p>
+                </div>
+                <Stars rating={t.rating} size={16} />
+              </div>
+            </div>
+
+            {/* Controls + timer */}
+            <div className="relative mt-8 flex items-center gap-2 border-t border-line pt-5">
+              <button type="button" onClick={() => go(active - 1)} aria-label="Previous testimonial" className="grid h-11 w-11 place-items-center rounded-full border border-line text-ink transition hover:border-accent hover:text-accent-strong">
+                <ChevronLeft size={18} />
+              </button>
+              <button type="button" onClick={() => go(active + 1)} aria-label="Next testimonial" className="grid h-11 w-11 place-items-center rounded-full border border-line text-ink transition hover:border-accent hover:text-accent-strong">
+                <ChevronRight size={18} />
+              </button>
+              <button type="button" onClick={() => setPlaying((p) => !p)} aria-label={playing ? "Pause testimonials" : "Play testimonials"} className="grid h-11 w-11 place-items-center rounded-full text-muted transition hover:bg-surface-muted hover:text-ink">
+                {playing ? <Pause size={16} /> : <Play size={16} />}
+              </button>
+              <div className="ml-2 h-1 flex-1 overflow-hidden rounded-full bg-surface-sunken" aria-hidden="true">
+                {running ? (
+                  <span key={`timer-${active}`} className="testimonial-timer block h-full rounded-full" style={{ backgroundColor: t.accent, animationDuration: `${AUTOPLAY_MS}ms` }} />
+                ) : (
+                  <span className="block h-full rounded-full opacity-40" style={{ backgroundColor: t.accent, width: `${((active + 1) / count) * 100}%` }} />
+                )}
+              </div>
+              <span className="ml-2 text-xs font-black tabular-nums text-muted">
+                {String(active + 1).padStart(2, "0")}/{String(count).padStart(2, "0")}
+              </span>
+            </div>
+          </article>
+
+          {/* Roster */}
+          <div className="flex min-w-0 flex-col rounded-[2rem] border border-line bg-surface-card/70 p-5 backdrop-blur sm:p-6">
+            <div className="flex items-center justify-between gap-3">
+              <p className="text-[11px] font-black uppercase tracking-[0.2em] text-ink">Choose a story</p>
+              <p className="text-xs font-bold tabular-nums text-muted">
+                {heard.size}/{count} heard
+              </p>
+            </div>
+            <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-surface-sunken" role="progressbar" aria-label="Stories heard" aria-valuemin={0} aria-valuemax={count} aria-valuenow={heard.size}>
+              <div className="xp-fill h-full rounded-full" style={{ width: `${(heard.size / count) * 100}%` }} />
+            </div>
+            {allHeard ? (
+              <p className="mt-3 inline-flex items-center gap-2 text-xs font-bold text-gold">
+                <Trophy size={13} aria-hidden="true" /> Achievement unlocked: you heard every story
+              </p>
+            ) : null}
+
+            <div
+              ref={rosterRef}
+              role="tablist"
+              aria-label="Testimonials"
+              className="no-scrollbar -mx-5 mt-4 flex snap-x gap-3 overflow-x-auto px-5 pb-1 sm:-mx-6 sm:px-6 lg:mx-0 lg:flex-col lg:gap-1.5 lg:overflow-visible lg:px-0"
+            >
+              {testimonials.map((p, i) => {
+                const selected = i === active;
+                return (
+                  <button
+                    key={`${p.name}-${i}`}
+                    data-idx={i}
+                    type="button"
+                    role="tab"
+                    aria-selected={selected}
+                    onClick={() => {
+                      go(i);
+                      setPlaying(false);
+                    }}
+                    className={cn(
+                      "group flex shrink-0 snap-center items-center gap-3 rounded-2xl border p-2.5 text-left transition duration-300 lg:w-full",
+                      selected ? "border-transparent bg-navy-950 text-white shadow-lg" : "border-line bg-surface-card hover:border-line-strong",
+                    )}
+                  >
+                    <span className="relative">
+                      <Avatar t={p} size={44} />
+                      {heard.has(i) && !selected ? (
+                        <span className="absolute -bottom-0.5 -right-0.5 grid h-4 w-4 place-items-center rounded-full bg-up text-white ring-2 ring-surface-card">
+                          <Check size={10} strokeWidth={3} aria-hidden="true" />
+                        </span>
+                      ) : null}
+                    </span>
+                    <span className="min-w-0 pr-2 lg:flex-1">
+                      <span className={cn("block whitespace-nowrap text-sm font-bold lg:truncate", selected ? "text-white" : "text-ink")}>{p.name}</span>
+                      <span className={cn("hidden truncate text-xs lg:block", selected ? "text-on-dark-muted" : "text-muted")}>
+                        {p.outcome || p.role}
+                      </span>
+                    </span>
+                    <span
+                      className="hidden h-2 w-2 shrink-0 rounded-full lg:block"
+                      style={{ backgroundColor: selected ? "var(--color-gold-soft)" : p.accent }}
+                      aria-hidden="true"
+                    />
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Read-more modal */}
-      {active && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-navy-950/60 p-4 backdrop-blur-sm"
-          onClick={close}
-          role="dialog"
-          aria-modal="true"
-          aria-label={`Testimonial from ${active.name}`}
-        >
-          <div
-            className="glass-strong relative w-full max-w-lg rounded-3xl p-8"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={close}
-              aria-label="Close"
-              className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full text-muted transition hover:bg-surface-muted hover:text-ink"
-            >
-              <X size={18} />
-            </button>
-
-            <span
-              className="block h-1 w-12 rounded-full"
-              style={{ backgroundColor: active.accent }}
-            />
-            <div
-              className="mt-3 select-none text-6xl font-black leading-none"
-              style={{ color: active.accent }}
-              aria-hidden="true"
-            >
-              &ldquo;
-            </div>
-            <p className="mt-2 text-base leading-[1.9] text-body">{active.quote}</p>
-
-            <div className="mt-6 flex items-center gap-3 border-t border-line pt-5">
-              <Avatar initials={active.initials} accent={active.accent} />
-              <div className="min-w-0">
-                <p className="text-sm font-black text-ink">{active.name}</p>
-                <p className="mt-0.5 text-xs text-muted">{active.role}</p>
-              </div>
-              <div className="ml-auto">
-                <Stars />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+    </section>
   );
 }

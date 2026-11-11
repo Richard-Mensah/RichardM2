@@ -148,6 +148,7 @@ export const NAVIGATION: NavItem[] = [
     label: "WORK",
     href: "/research",
     children: [
+      { label: "Client Work & Software",  href: "/work" },
       { label: "AI & Data Science",        href: "/research/ai-data-science" },
       { label: "Climate Intelligence",     href: "/research/ai-climate-change" },
       { label: "Youth & Community",        href: "/leadership" },
@@ -311,6 +312,15 @@ export const SYSTEMS: SystemProject[] = [
 ];
 
 export const PROJECT_CATEGORIES: ProjectCategory[] = [
+  {
+    slug: "/work",
+    label: "Client Work & Software",
+    tagline: "Live products shipped for people and organisations",
+    description: "Websites and software products built for clients in the UK and Ghana, from the MonCare OS care-agency platform to youth institutions and international portfolios.",
+    accent: "#0a1a30",
+    icon: "CW",
+    image: "/work/moncare-uk-desktop.jpg",
+  },
   {
     slug: "/projects/ai",
     label: "AI Projects",

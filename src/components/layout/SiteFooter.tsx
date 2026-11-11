@@ -35,12 +35,12 @@ export default function SiteFooter() {
 
           <div>
             <p className="text-xs font-black uppercase tracking-[0.28em] text-on-dark-muted/60">Navigate</p>
-            <ul className="mt-5 grid grid-cols-2 gap-x-5 gap-y-3">
+            <ul className="mt-5 grid grid-cols-2 gap-x-5 gap-y-0.5">
               {NAVIGATION.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm font-semibold text-on-dark-muted transition hover:text-white"
+                    className="inline-block py-1.5 text-sm font-semibold text-on-dark-muted transition hover:text-white"
                   >
                     {item.label}
                   </Link>
@@ -51,12 +51,12 @@ export default function SiteFooter() {
 
           <div>
             <p className="text-xs font-black uppercase tracking-[0.28em] text-on-dark-muted/60">Explore</p>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-4 space-y-0.5">
               {EXPLORE_LINKS.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm font-semibold text-on-dark-muted transition hover:text-white"
+                    className="inline-block py-1.5 text-sm font-semibold text-on-dark-muted transition hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -67,11 +67,11 @@ export default function SiteFooter() {
 
           <div>
             <p className="text-xs font-black uppercase tracking-[0.28em] text-on-dark-muted/60">Connect</p>
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-4 space-y-0.5">
               <li>
                 <a
                   href="mailto:rmensahuk@gmail.com"
-                  className="text-sm font-semibold text-on-dark-muted transition hover:text-white"
+                  className="inline-block py-1.5 text-sm font-semibold text-on-dark-muted transition hover:text-white"
                 >
                   rmensahuk@gmail.com
                 </a>

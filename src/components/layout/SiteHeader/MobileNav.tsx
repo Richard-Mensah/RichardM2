@@ -22,7 +22,7 @@ export default function MobileNav({
   if (!menuOpen) return null;
 
   return (
-    <div className="border-t border-line bg-surface-card px-5 pb-6 pt-4 lg:hidden">
+    <div className="max-h-[calc(100dvh-7.5rem)] overflow-y-auto overscroll-contain border-t border-line bg-surface-card px-5 pb-6 pt-4 lg:hidden">
       <nav className="flex flex-col gap-1">
         {NAVIGATION.map((item) => {
           const hasChildren = item.children && item.children.length > 0;
@@ -64,7 +64,7 @@ export default function MobileNav({
                       key={child.href}
                       href={child.href}
                       onClick={onMenuClose}
-                      className="rounded-lg px-3 py-2 text-sm text-body transition hover:text-accent-strong"
+                      className="rounded-lg px-3 py-2.5 text-sm text-body transition hover:text-accent-strong"
                     >
                       {child.label}
                     </Link>
