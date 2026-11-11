@@ -60,7 +60,23 @@ BLOB_READ_WRITE_TOKEN=set-automatically-when-a-blob-store-is-connected
 Optional:
 ```
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
+GITHUB_TOKEN=github_pat_xxx   # homepage GitHub activity section
 ```
+
+### GitHub activity token (`GITHUB_TOKEN`)
+Without it the homepage GitHub section still works using public repos and the
+public contribution calendar. With it, private repositories are **counted**
+(their names are never shown publicly) and data comes from GitHub's GraphQL API.
+
+1. GitHub → Settings → Developer settings → Personal access tokens → **Fine-grained tokens** → Generate new token.
+2. Resource owner: your account. Repository access: **All repositories**.
+3. Permissions → Repository → **Metadata: Read-only** (nothing else, no write access).
+4. Copy the token and add it in Vercel → Project → Settings → Environment Variables as `GITHUB_TOKEN` (Production), then redeploy.
+5. To include private work in the contribution calendar, enable GitHub profile → Contributions → **Include private contributions**.
+
+Repos are sorted into "Data Science, AI & ML" and "Web & Software Engineering"
+automatically. Fix any repo in **Admin → GitHub Tracks**, or add a GitHub topic
+(`machine-learning`, `data-science`, `nextjs`, `web`…) to the repo.
 
 See `.env.example` and the README's "Environment variables" section for details.
 

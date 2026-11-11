@@ -78,6 +78,7 @@ export default async function AdminDashboardPage() {
           <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-4">
             {[
               { label: "Client work & software", href: "/admin/client-work" },
+              { label: "GitHub tracks", href: "/admin/github" },
               { label: "Homepage content", href: "/admin/homepage" },
               { label: "About the Author", href: "/admin/author" },
               { label: "Impact stats", href: "/admin/impact-stats" },
