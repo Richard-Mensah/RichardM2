@@ -22,7 +22,8 @@ function normalizeSslMode(connectionString: string): string {
   try {
     const parsed = new URL(connectionString);
     const mode = parsed.searchParams.get("sslmode")?.toLowerCase();
-    if (mode === "prefer" || mode === "require" || mode === "verify-ca") {
+    const useLibpqCompatibility = parsed.searchParams.get("uselibpqcompat")?.toLowerCase() === "true";
+    if (!useLibpqCompatibility && (mode === "prefer" || mode === "require" || mode === "verify-ca")) {
       parsed.searchParams.set("sslmode", "verify-full");
     }
     return parsed.toString();
