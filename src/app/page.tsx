@@ -15,15 +15,18 @@ import { getImpactStats } from "@/lib/impactStats";
 import { getHomepage } from "@/lib/homepage";
 import { getTestimonials } from "@/lib/testimonials";
 import { getClientWork } from "@/lib/clientWork";
+import { getGitHubActivity } from "@/lib/github";
+import GitHubActivity from "@/components/features/home/GitHubActivity";
 
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const [impactStats, homepage, testimonials, clientWork] = await Promise.all([
+  const [impactStats, homepage, testimonials, clientWork, github] = await Promise.all([
     getImpactStats(),
     getHomepage(),
     getTestimonials(),
     getClientWork(),
+    getGitHubActivity(),
   ]);
 
   return (
@@ -35,6 +38,7 @@ export default async function HomePage() {
       <DomainPillars />
       <SdgExplorer clientCount={clientWork.length} />
       <SkillsMatrix clientCount={clientWork.length} />
+      {github ? <GitHubActivity data={github} /> : null}
       <ImpactStats impactStats={impactStats} />
       <FeaturedWork />
       <ThesisHighlight />

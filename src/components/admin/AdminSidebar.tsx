@@ -5,6 +5,7 @@ const NAV_ITEMS = [
   { label: "Articles", href: "/admin/articles" },
   { label: "New Article", href: "/admin/articles/new" },
   { label: "Client Work", href: "/admin/client-work" },
+  { label: "GitHub Tracks", href: "/admin/github" },
   { label: "Homepage", href: "/admin/homepage" },
   { label: "About the Author", href: "/admin/author" },
   { label: "Impact Stats", href: "/admin/impact-stats" },
