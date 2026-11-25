@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import SectionNav from "@/components/ui/SectionNav";
+import PersonJsonLd from "@/components/seo/PersonJsonLd";
+import JourneyQuest from "@/components/features/identity/JourneyQuest";
 
 export const metadata: Metadata = {
-  title: "Biography | Richard Mensah",
+  title: "Biography | Richard Mensah (Kofi Richard), Sefwi Bekwai, Ghana",
   description:
-    "The full biography of Richard Mensah, tracing his journey from community campaigns in Sefwi Bekwai to AI research, youth leadership, and global advocacy.",
+    "The biography of Richard Mensah, also known as Kofi Richard or Kofiever: from Paboase and Sefwi Bekwai, Ghana, to UEW, ALX, Azubi Africa, IGNOU, RUDN University and an MSc in AI & Data Science at Bangor University. Founder of the Center for Analytics Services, now based in the United Kingdom.",
 };
 
 const STORY_PHOTOS = [
@@ -26,8 +28,8 @@ const STORY_PHOTOS = [
     label: "Giving back",
   },
   {
-    src: "/gallery/20240302_090453.jpg",
-    caption: "Richard Mensah at a leadership programme, 2024",
+    src: "/gallery/pulse-of-the-earth-1.jpg",
+    caption: "At the Frame Rate: Pulse of the Earth exhibition, Wales, UK",
     label: "Today",
   },
 ] as const;
@@ -43,6 +45,7 @@ const FOCUS_TAGS = [
 export default function BiographyPage() {
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
+      <PersonJsonLd detail />
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="bg-navy-950 px-5 py-16 md:px-8 md:py-24">
@@ -58,9 +61,9 @@ export default function BiographyPage() {
             A story built on conviction, community, and code.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-on-dark-muted">
-            From church campaigns and volunteer teaching in the Western North Region of Ghana,
-            to AI research, international conferences, and building a mentorship programme that
-            has changed hundreds of lives.
+            From Paboase, Surano &lsquo;A&rsquo; and Sefwi Bekwai in the Western North Region of
+            Ghana, to AI research at Bangor University, international conferences, and a
+            mentorship programme that has changed hundreds of lives.
           </p>
         </div>
       </section>
@@ -103,11 +106,26 @@ export default function BiographyPage() {
 
               <div className="mt-8 space-y-6 text-base leading-8 text-body">
                 <p>
-                  Richard Mensah&apos;s story begins in the Ashanti Region of Ghana, a place where
-                  educational resources were scarce but where ambition, community spirit, and a
-                  stubborn belief that things could be better were anything but. Growing up in
-                  Sefwi Bekwai, Richard developed an early conviction that has guided everything
-                  since: technology, when designed with care and purpose, can transform lives at scale.
+                  Richard Mensah, known to family and friends as <strong className="text-ink">Kofi
+                  Richard</strong> or <strong className="text-ink">Kofiever</strong>, was born and
+                  spent his early childhood in Paboase, in the Western North Region of Ghana. His
+                  formative years continued in Surano &lsquo;A&rsquo; in the Bibiani-Anhwiaso-Bekwai
+                  Municipality, where he completed Surano &lsquo;A&rsquo; Anglican Junior High School
+                  (also known as St. Stephen&apos;s Anglican Basic School, Surano &lsquo;A&rsquo;),
+                  before he settled permanently in Sefwi Bekwai Lowcost.
+                </p>
+                <p>
+                  He continued to Bibiani Senior High Technical School. Those years in
+                  communities where opportunity was unevenly distributed, but resilience and
+                  community spirit were abundant, shaped the questions that would come to define
+                  his work.
+                </p>
+                <p>
+                  It was in Sefwi Bekwai that Richard began to challenge the status quo: why
+                  opportunity reached some young people and bypassed others, and how it could be
+                  deliberately created rather than left to chance. That question became the
+                  conviction that has guided everything since: that data, technology, and
+                  principled leadership, designed with care and purpose, can open doors at scale.
                 </p>
                 <p>
                   That conviction did not stay theoretical for long. As a teenager, Richard was
@@ -127,9 +145,41 @@ export default function BiographyPage() {
                   water, and documented the realities that rarely made it into any report.
                 </p>
                 <p>
-                  His academic and professional journey took him from Ghana to the United Kingdom,
-                  where he expanded his lens on research, policy, and how advanced analytics can
-                  serve both institutions and people. Rather than leaving his roots behind, he
+                  His path through higher education was shaped by clarity of purpose. When his first
+                  undergraduate programme proved misaligned with his aspirations, he made the
+                  decisive choice to start afresh and enrolled at the University of Education,
+                  Winneba (UEW), where he earned his bachelor&apos;s degree. He arrived poised and
+                  committed to raising the standard of education in rural communities, with bold
+                  ambitions to bring innovation into every educational setting he entered.
+                  Alongside his studies he led community development and volunteer initiatives, and
+                  supported his academic supervisor in teaching and administration through Levels
+                  300 and 400.
+                </p>
+                <p>
+                  That experience sharpened a conviction: lasting change in education and
+                  communities would demand better use of technology and evidence. Richard turned his
+                  passion for technology into a career in data science and analytics, and into a
+                  deliberate investment in knowledge. He completed the{" "}
+                  <strong className="text-ink">ALX Data Science Programme</strong> and{" "}
+                  <strong className="text-ink">Azubi Africa&apos;s Data Analytics programme</strong>{" "}
+                  with a Machine Learning focus, and earned an{" "}
+                  <strong className="text-ink">MA in Industrial &amp; Organisational Psychology</strong>{" "}
+                  from Indira Gandhi National Open University (IGNOU), India, grounding his technical
+                  work in an understanding of people, behaviour, and organisations. He also holds a
+                  Certificate in International &amp; Intercultural Communication from the Peoples&apos;
+                  Friendship University of Russia (RUDN University).
+                </p>
+                <p>
+                  He put those skills straight to work, founding and leading the{" "}
+                  <strong className="text-ink">Center for Analytics Services</strong>, a data and
+                  analytics practice delivering insight and reporting for clients.
+                </p>
+                <p>
+                  To deepen his expertise in machine learning and artificial intelligence, Richard
+                  moved to the United Kingdom, where he now lives. There he completed an MSc in
+                  Artificial Intelligence &amp; Data Science at Bangor University and expanded his
+                  lens on research, policy, and how advanced analytics can serve both institutions
+                  and people. Rather than leaving his roots behind, he
                   brought them with him and built a career that is deliberately rooted in the
                   places and communities that shaped him.
                 </p>
@@ -193,6 +243,8 @@ export default function BiographyPage() {
           </div>
         </div>
       </section>
+
+      <JourneyQuest />
 
       {/* ── CTA strip ─────────────────────────────────────────────── */}
       <section className="bg-navy-950 px-5 py-12 md:px-8">

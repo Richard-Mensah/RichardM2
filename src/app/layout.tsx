@@ -7,6 +7,7 @@ import SiteFooter from "@/components/layout/SiteFooter";
 import PageViewTracker from "@/components/analytics/PageViewTracker";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import { SITE_URL } from "@/lib/siteUrl";
+import PersonJsonLd from "@/components/seo/PersonJsonLd";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,9 +25,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Richard Mensah | AI, Leadership & SDG Impact",
   description:
-    "Richard Mensah's personal website: AI and Data Science, leadership, entrepreneurship, climate intelligence, youth empowerment, and SDG-aligned impact systems.",
+    "Official website of Richard Mensah (Rich Mensah), a Ghanaian AI & Data Scientist, MSc graduate of Bangor University, UNYA Ghana Country Representative and former Youth MP.",
+  authors: [{ name: "Richard Mensah", url: SITE_URL }],
+  creator: "Richard Mensah",
   keywords: [
     "Richard Mensah",
+    "Rich Mensah",
+    "Richard Mensah Ghana",
+    "Richard Mensah Bangor University",
+    "Richard Mensah AI Data Scientist",
     "AI and Data Science",
     "Sustainable Development Goals",
     "SDG impact",
@@ -48,6 +55,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="min-h-screen bg-transparent text-ink antialiased">
+        <PersonJsonLd />
         <div className="sdg-band fixed inset-x-0 top-0 z-[60] h-1" />
         <ScrollProgress />
         <SiteHeader />

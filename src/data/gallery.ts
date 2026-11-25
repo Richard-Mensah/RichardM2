@@ -4,7 +4,18 @@ export type GalleryPhoto = {
   caption?: string;
 };
 
+/**
+ * Photos added after the gallery was first seeded into the database.
+ * They are inserted once (newest first) by lib/gallery.ts; deleting one in
+ * Admin → Gallery keeps it deleted. Add new entries to the top of this list.
+ */
+export const GALLERY_ADDITIONS: GalleryPhoto[] = [
+  { src: "/gallery/pulse-of-the-earth-1.jpg", alt: "Richard Mensah beside the Frame Rate: Pulse of the Earth exhibition sign", caption: "Frame Rate: Pulse of the Earth · Wales, UK" },
+  { src: "/gallery/pulse-of-the-earth-2.jpg", alt: "Richard Mensah at the Pulse of the Earth climate exhibition", caption: "Pulse of the Earth exhibition · Climate & the natural world" },
+];
+
 export const GALLERY: GalleryPhoto[] = [
+  ...GALLERY_ADDITIONS,
   { src: "/Rich1.png", alt: "Richard Mensah, AI Researcher, Youth Leader, and SDG advocate", caption: "Richard Mensah · Developing Solutions · Empowering Communities · Sustaining the Future" },
   { src: "/gallery/20240229_120952.jpg", alt: "Richard Mensah at a community event, February 2024", caption: "Community engagement · February 2024" },
   { src: "/gallery/20240302_090453.jpg", alt: "Richard Mensah at a morning session, March 2024", caption: "Leadership programme · March 2024" },
