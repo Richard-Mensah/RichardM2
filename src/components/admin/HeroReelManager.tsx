@@ -3,16 +3,16 @@
 import { useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowDown, ArrowUp, Plus, Trash2, Upload } from "lucide-react";
-import type { ReelChapter } from "@/data/heroReel";
+import { chapterLabel, type ReelChapter } from "@/data/heroReel";
 
 const MAX_CHAPTERS = 10;
 const FIELD = "glass-input";
 const LABEL = "mb-1.5 block text-sm font-semibold text-accent-strong";
 
-function blankChapter(index: number): ReelChapter {
+function blankChapter(): ReelChapter {
   return {
     image: "",
-    kicker: `Chapter ${index + 1}`,
+    kicker: "",
     title: "",
     location: "",
     alt: "",
@@ -114,7 +114,7 @@ export default function HeroReelManager({ initial }: { initial: ReelChapter[] })
         <button
           type="button"
           onClick={() => {
-            setChapters((current) => [...current, blankChapter(current.length)]);
+            setChapters((current) => [...current, blankChapter()]);
             setSaved(false);
           }}
           disabled={chapters.length >= MAX_CHAPTERS}
@@ -153,8 +153,8 @@ export default function HeroReelManager({ initial }: { initial: ReelChapter[] })
           <div className="grid gap-5 p-5 md:grid-cols-[minmax(0,1fr)_16rem]">
             <div className="grid content-start gap-4 sm:grid-cols-2">
               <div>
-                <label className={LABEL} htmlFor={`reel-kicker-${index}`}>Chapter label</label>
-                <input id={`reel-kicker-${index}`} className={FIELD} maxLength={60} value={chapter.kicker} onChange={(event) => updateChapter(index, "kicker", event.target.value)} placeholder="Chapter 1 · Youth voice" />
+                <label className={LABEL} htmlFor={`reel-kicker-${index}`}>Chapter label (shown as &ldquo;Chapter {index + 1} · …&rdquo;)</label>
+                <input id={`reel-kicker-${index}`} className={FIELD} maxLength={60} value={chapterLabel(chapter.kicker)} onChange={(event) => updateChapter(index, "kicker", event.target.value)} placeholder="Youth voice" />
               </div>
               <div>
                 <label className={LABEL} htmlFor={`reel-location-${index}`}>Location</label>

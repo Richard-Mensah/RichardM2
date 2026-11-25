@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight, Images, MapPin, Pause, Play, Plane, Trophy } from "lucide-react";
 import { cn } from "@/lib/utils";
-import type { ReelChapter } from "@/data/heroReel";
+import { chapterLabel, type ReelChapter } from "@/data/heroReel";
 
 const CHAPTER_MS = 6500;
 const STORAGE_KEY = "rm-reel-watched";
@@ -262,7 +262,10 @@ export default function HeroReel({ chapters, eyebrow, titleLead, titleHighlight,
         <div className="min-w-0">
           {/* Caption */}
           <div key={`cap-${index}-${cycle}`} className="reel-caption" aria-live="polite">
-            <p className="text-[11px] font-black uppercase tracking-[0.22em] text-gold-soft">{ch.kicker}</p>
+            <p className="text-[11px] font-black uppercase tracking-[0.22em] text-gold-soft">
+              Chapter {index + 1}
+              {chapterLabel(ch.kicker) ? ` · ${chapterLabel(ch.kicker)}` : ""}
+            </p>
             <p className="font-display mt-1 text-lg font-bold leading-snug sm:text-xl">{ch.title}</p>
             <p className="mt-1 inline-flex items-center gap-1.5 text-xs font-semibold text-white/70">
               <MapPin size={13} className="reel-pin text-accent-soft" aria-hidden="true" />
