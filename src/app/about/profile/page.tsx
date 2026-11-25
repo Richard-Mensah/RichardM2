@@ -2,20 +2,26 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import SectionNav from "@/components/ui/SectionNav";
+import { CERTIFICATIONS, EDUCATION, PERSON, VENTURE } from "@/lib/person";
+import PersonJsonLd from "@/components/seo/PersonJsonLd";
 
 export const metadata: Metadata = {
-  title: "Profile | Richard Mensah",
+  title: "Profile | Richard Mensah (Rich Mensah), AI & Data Scientist, Ghana",
   description:
-    "Professional profile of Richard Mensah: MSc in Artificial Intelligence & Data Science (Bangor University), Country Representative for Ghana at the United Nations Youth Association, and former Youth Member of Parliament for the Western North Region.",
+    "Professional profile of Richard Mensah (Rich Mensah, Kofi Richard) from Sefwi Bekwai, Ghana: MSc in Artificial Intelligence & Data Science (Bangor University), Country Representative for Ghana at the United Nations Youth Association, and former Youth Member of Parliament for the Western North Region.",
 };
 
 const AT_A_GLANCE = [
+  { label: "Also known as", value: "Rich Mensah · Kofi Richard · Kofiever" },
   { label: "Qualification", value: "MSc, Artificial Intelligence & Data Science" },
-  { label: "Institution", value: "Bangor University, United Kingdom (2026)" },
+  { label: "Institution", value: "Bangor University, United Kingdom" },
+  { label: "Also studied", value: "IGNOU (MA) · UEW · ALX · Azubi Africa · RUDN" },
   { label: "UN affiliation", value: "Country Representative for Ghana, UNYA" },
   { label: "Public office", value: "Youth MP, Western North (2020–2024)" },
+  { label: "Roots", value: "Paboase · Surano 'A' · Sefwi Bekwai, Ghana" },
   { label: "Languages", value: "English" },
-  { label: "Bases", value: "Ghana · United Kingdom" },
+  { label: "Lives in", value: "United Kingdom (from Ghana)" },
+  { label: "ORCID iD", value: PERSON.orcidId },
 ] as const;
 
 const ROLES = [
@@ -69,6 +75,7 @@ const PILLARS = [
 export default function ProfilePage() {
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
+      <PersonJsonLd detail />
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-navy-950 px-5 py-16 md:px-8 md:py-20">
         <div className="data-grid-light pointer-events-none absolute inset-0 opacity-[0.4]" />
@@ -84,6 +91,9 @@ export default function ProfilePage() {
             <h1 className="font-display mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.02em] text-white md:text-5xl">
               Richard Mensah
             </h1>
+            <p className="mt-3 text-sm font-semibold text-accent-soft">
+              Also known as Rich Mensah · Kofi Richard · Kofiever · Sefwi Bekwai, Ghana
+            </p>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-on-dark-muted">
               MSc in Artificial Intelligence &amp; Data Science (Bangor University); Country
               Representative for Ghana at the <span className="text-white">United Nations Youth
@@ -104,6 +114,15 @@ export default function ProfilePage() {
               >
                 Contact
               </Link>
+              <a
+                href={PERSON.orcid}
+                target="_blank"
+                rel="noopener noreferrer me"
+                className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-sm font-bold tracking-[0.02em] text-white transition hover:-translate-y-0.5 hover:border-accent-soft hover:bg-white/10"
+              >
+                <span className="grid h-5 w-5 place-items-center rounded-full bg-[#A6CE39] text-[10px] font-black text-white" aria-hidden="true">iD</span>
+                ORCID
+              </a>
             </div>
           </div>
 
@@ -147,7 +166,6 @@ export default function ProfilePage() {
               <h3 className="text-xl font-bold text-ink">
                 MSc, Artificial Intelligence &amp; Data Science
               </h3>
-              <span className="text-sm font-bold text-accent-strong">2026</span>
             </div>
             <p className="mt-1 text-base font-semibold text-ink-soft">
               Bangor University, United Kingdom
@@ -173,6 +191,47 @@ export default function ProfilePage() {
                 Read the full thesis &rarr;
               </Link>
             </div>
+          </div>
+
+          <ol className="mt-5 grid gap-4 md:grid-cols-2">
+            {EDUCATION.filter((e) => !e.school.startsWith("Bangor")).map((e) => (
+              <li key={e.school} className="rounded-2xl border border-line bg-surface-card p-5">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent-strong">{e.level} education</p>
+                <p className="mt-2 text-base font-bold text-ink">{e.award}</p>
+                <p className="mt-1 text-sm font-semibold text-ink-soft">{e.school}</p>
+                {e.note && <p className="mt-2 text-xs leading-5 text-muted">{e.note}</p>}
+              </li>
+            ))}
+          </ol>
+
+          <h3 className="mt-12 text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-strong">
+            Professional programmes &amp; certificates
+          </h3>
+          <ul className="mt-4 grid gap-4 md:grid-cols-3">
+            {CERTIFICATIONS.map((c) => (
+              <li key={c.award} className="card-lift rounded-2xl border border-line bg-surface-card p-5">
+                <span className="inline-block h-1.5 w-10 rounded-full bg-accent" aria-hidden="true" />
+                <p className="mt-3 text-base font-bold text-ink">{c.award}</p>
+                <p className="mt-1 text-sm font-semibold text-ink-soft">{c.provider}</p>
+                <p className="mt-2 text-xs leading-5 text-muted">{c.note}</p>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-12 flex flex-col gap-4 rounded-2xl bg-navy-950 p-6 text-white md:flex-row md:items-center md:justify-between md:p-8">
+            <div>
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-soft">Venture</p>
+              <p className="font-display mt-2 text-2xl font-bold">{VENTURE.name}</p>
+              <p className="mt-1 text-sm text-on-dark-muted">
+                {VENTURE.role} · {VENTURE.summary}
+              </p>
+            </div>
+            <Link
+              href="/work"
+              className="inline-flex min-h-11 shrink-0 items-center rounded-full border border-white/25 px-5 text-xs font-black uppercase tracking-[0.14em] text-white transition hover:bg-white/10"
+            >
+              See client work &rarr;
+            </Link>
           </div>
         </div>
       </section>

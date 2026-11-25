@@ -1,7 +1,8 @@
 import { getSetting, setSetting } from "@/lib/siteSettings";
-import { DEFAULT_REEL, type ReelChapter } from "@/data/heroReel";
+import { DEFAULT_REEL, REEL_ADDITIONS, chapterLabel, type ReelChapter } from "@/data/heroReel";
 
 const KEY = "hero_reel";
+const ADDITIONS_KEY = "hero_reel_additions_applied";
 const MAX = 10;
 
 const str = (v: unknown, max: number) => (typeof v === "string" ? v.trim().slice(0, max) : "");
@@ -26,7 +27,7 @@ export function normaliseChapter(input: unknown, index: number): ChapterValidati
     chapter: {
       image: image || "",
       ...(video ? { video } : {}),
-      kicker: str(c.kicker, 60) || `Chapter ${index + 1}`,
+      kicker: chapterLabel(str(c.kicker, 60)),
       title,
       location: str(c.location, 80),
       focus: str(c.focus, 30) || undefined,
@@ -35,9 +36,32 @@ export function normaliseChapter(input: unknown, index: number): ChapterValidati
   };
 }
 
+/**
+ * Prepends each REEL_ADDITIONS chapter once to a reel saved in admin (the
+ * defaults already include them). Tracked by image, so removing one in admin
+ * keeps it removed. Returns the reel to use.
+ */
+async function applyReelAdditions(saved: ReelChapter[]): Promise<ReelChapter[]> {
+  const applied = await getSetting<string[]>(ADDITIONS_KEY, []);
+  const pending = REEL_ADDITIONS.filter((c) => !applied.includes(c.image));
+  if (!pending.length) return saved;
+  const present = new Set(saved.map((c) => c.image));
+  const fresh = pending.filter((c) => !present.has(c.image));
+  const next = fresh.length ? [...fresh, ...saved].slice(0, MAX) : saved;
+  if (fresh.length) await saveHeroReel(next);
+  await setSetting(ADDITIONS_KEY, [...applied, ...pending.map((c) => c.image)]);
+  return next;
+}
+
 export async function getHeroReel(): Promise<ReelChapter[]> {
-  const saved = await getSetting<ReelChapter[] | null>(KEY, null);
-  if (!Array.isArray(saved) || saved.length === 0) return DEFAULT_REEL;
+  const stored = await getSetting<ReelChapter[] | null>(KEY, null);
+  if (!Array.isArray(stored) || stored.length === 0) return DEFAULT_REEL;
+  let saved = stored;
+  try {
+    saved = await applyReelAdditions(stored);
+  } catch (error) {
+    console.error("Failed to apply hero reel additions", error);
+  }
   const clean = saved
     .map((c, i) => normaliseChapter(c, i))
     .filter((v): v is { ok: true; chapter: ReelChapter } => v.ok)

@@ -2,7 +2,10 @@ import { asc, eq } from "drizzle-orm";
 import { del } from "@vercel/blob";
 import { db, pool } from "@/db";
 import { galleryPhotos } from "@/db/schema";
-import { GALLERY as STATIC_GALLERY } from "@/data/gallery";
+import { GALLERY as STATIC_GALLERY, GALLERY_ADDITIONS } from "@/data/gallery";
+import { getSetting, setSetting } from "@/lib/siteSettings";
+
+const ADDITIONS_KEY = "gallery_additions_applied";
 
 export type GalleryItem = {
   id: number;
@@ -40,10 +43,33 @@ async function seedIfEmpty(): Promise<void> {
   );
 }
 
+/** Inserts each GALLERY_ADDITIONS photo once, at the top. Tracked so admin deletions stick. */
+async function applyAdditions(): Promise<void> {
+  const applied = await getSetting<string[]>(ADDITIONS_KEY, []);
+  const pending = GALLERY_ADDITIONS.filter((p) => !applied.includes(p.src));
+  if (!pending.length) return;
+  const rows = await db.select({ url: galleryPhotos.url, position: galleryPhotos.position }).from(galleryPhotos);
+  const present = new Set(rows.map((r) => r.url));
+  const minPos = rows.length ? Math.min(...rows.map((r) => r.position)) : 0;
+  const toInsert = pending.filter((p) => !present.has(p.src));
+  if (toInsert.length) {
+    await db.insert(galleryPhotos).values(
+      toInsert.map((p, i) => ({
+        position: minPos - toInsert.length + i,
+        url: p.src,
+        alt: p.alt ?? "",
+        caption: p.caption ?? "",
+      }))
+    );
+  }
+  await setSetting(ADDITIONS_KEY, [...applied, ...pending.map((p) => p.src)]);
+}
+
 export async function getGalleryPhotos(): Promise<GalleryItem[]> {
   try {
     await ensureTable();
     await seedIfEmpty();
+    await applyAdditions();
     const rows = await db
       .select()
       .from(galleryPhotos)

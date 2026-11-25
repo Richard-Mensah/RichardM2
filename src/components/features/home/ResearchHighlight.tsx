@@ -1,6 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, FileText, GraduationCap } from "lucide-react";
 import { PUBLICATIONS } from "@/constants";
+
+/** A heartbeat trace across the photo: two beats on a flat baseline. */
+const PULSE_PATH = "M0 34 H62 L72 34 L80 14 L90 52 L98 24 L106 34 H170 L178 34 L186 6 L196 58 L204 30 L212 34 H300";
 
 /** Thesis + selected writing + research systems link, merged into one section. */
 export default function ResearchHighlight() {
@@ -29,9 +33,63 @@ export default function ResearchHighlight() {
 
         <div className="mt-10 grid gap-5 lg:grid-cols-[1.2fr_1fr]">
           {/* Thesis feature */}
-          <article className="relative overflow-hidden rounded-[2rem] bg-navy-950 p-7 text-white md:p-9">
+          <article className="relative grid overflow-hidden rounded-[2rem] bg-navy-950 text-white md:grid-cols-[0.85fr_1.15fr]">
             <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent/15 blur-3xl" aria-hidden="true" />
-            <div className="relative">
+
+            {/* "Pulse of the Earth" photo with a live heartbeat line */}
+            <figure className="pulse-photo relative aspect-[4/3] overflow-hidden md:aspect-auto md:min-h-full">
+              <Image
+                src="/gallery/pulse-of-the-earth-2.jpg"
+                alt="Richard Mensah at the Pulse of the Earth climate exhibition"
+                fill
+                sizes="(min-width: 1024px) 26vw, (min-width: 768px) 40vw, 92vw"
+                className="object-cover object-[50%_45%]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent md:bg-gradient-to-r md:from-transparent md:via-navy-950/10 md:to-navy-950" aria-hidden="true" />
+
+              <ul className="absolute left-4 top-4 flex flex-col items-start gap-2" aria-label="Research themes">
+                {["Climate × AI", "CO₂ prediction", "Machine learning"].map((chip) => (
+                  <li
+                    key={chip}
+                    className="chip-float rounded-full border border-white/20 bg-navy-950/60 px-3 py-1 text-[10px] font-black uppercase tracking-[0.14em] text-accent-soft backdrop-blur"
+                  >
+                    {chip}
+                  </li>
+                ))}
+              </ul>
+
+              <svg
+                className="pointer-events-none absolute inset-x-0 bottom-12 h-14 w-full"
+                viewBox="0 0 300 60"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <path d={PULSE_PATH} fill="none" stroke="rgba(255,255,255,0.14)" strokeWidth="1.5" vectorEffect="non-scaling-stroke" />
+                <path
+                  className="pulse-line"
+                  d={PULSE_PATH}
+                  pathLength={1}
+                  fill="none"
+                  stroke="#7fd6d2"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  vectorEffect="non-scaling-stroke"
+                />
+              </svg>
+              <svg className="pulse-dot pointer-events-none absolute inset-x-0 bottom-12 h-14 w-full" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true">
+                <circle r="3.5" fill="#ffffff" opacity="0">
+                  <animateMotion dur="3.6s" repeatCount="indefinite" path={PULSE_PATH} keyPoints="0;1;1" keyTimes="0;0.6;1" calcMode="linear" />
+                  <animate attributeName="opacity" dur="3.6s" repeatCount="indefinite" values="0;1;1;0;0" keyTimes="0;0.08;0.6;0.85;1" />
+                </circle>
+              </svg>
+
+              <figcaption className="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-[0.18em] text-white/70">
+                Pulse of the Earth · Wales
+              </figcaption>
+            </figure>
+
+            <div className="relative p-7 md:p-9">
               <div className="flex items-center gap-3">
                 <span className="grid h-11 w-11 place-items-center rounded-2xl bg-accent/15 text-accent-soft ring-1 ring-accent/25">
                   <GraduationCap size={20} aria-hidden="true" />

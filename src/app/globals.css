@@ -742,3 +742,34 @@ body {
   .reel-progress, .reel-caption > *, .reel-pin, .reel-grain { animation: none !important; }
   .reel-progress { width: 100%; }
 }
+
+/* ── Research: "Pulse of the Earth" heartbeat ───────────────────────── */
+.pulse-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: pulse-draw 3.6s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(127, 214, 210, 0.9));
+}
+@keyframes pulse-draw {
+  0% { stroke-dashoffset: 1; opacity: 0; }
+  8% { opacity: 1; }
+  60% { stroke-dashoffset: 0; opacity: 1; }
+  85%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+.chip-float { animation: chip-float 5s ease-in-out infinite; }
+.chip-float:nth-child(2) { animation-delay: -1.6s; }
+.chip-float:nth-child(3) { animation-delay: -3.2s; }
+@keyframes chip-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.pulse-photo img { transition: transform 1200ms cubic-bezier(0.22, 1, 0.36, 1); }
+.pulse-photo:hover img { transform: scale(1.05); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-line { animation: none !important; stroke-dashoffset: 0; opacity: 1; }
+  .pulse-dot { display: none; }
+  .chip-float { animation: none !important; }
+  .pulse-photo img { transition: none !important; }
+  .pulse-photo:hover img { transform: none; }
+}

@@ -16,12 +16,12 @@ const HIGHLIGHTS = [
   {
     icon: GraduationCap,
     title: "Education",
-    body: "MSc, Artificial Intelligence & Data Science, Bangor University (2026). BSc foundation in computing and analytics.",
+    body: "MSc, Artificial Intelligence & Data Science (Bangor University). MA, Industrial & Organisational Psychology (IGNOU, India). Bachelor's degree (University of Education, Winneba). ALX Data Science; Azubi Africa Data Analytics (ML); RUDN Certificate in International & Intercultural Communication.",
   },
   {
     icon: Briefcase,
     title: "Experience",
-    body: "AI/ML and data science work, full-stack delivery, and a decade of programme design, mentorship, and monitoring & evaluation.",
+    body: "Founder of the Center for Analytics Services. AI/ML and data science work, full-stack delivery, and a decade of programme design, mentorship, and monitoring & evaluation.",
   },
   {
     icon: Globe2,
