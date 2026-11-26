@@ -359,6 +359,22 @@ async function loadRaw(): Promise<RawData | null> {
   }
 }
 
+/**
+ * Public, non-hidden repositories with their (admin-overridable) track,
+ * most recently pushed first. Private repos are never included.
+ */
+export async function getPublicRepos(): Promise<ClassifiedRepo[]> {
+  const [overrides, raw] = await Promise.all([getSetting<TrackOverrides>(TRACK_OVERRIDES_KEY, {}), loadRaw()]);
+  if (!raw) return [];
+  return raw.repos
+    .filter((r) => !r.isPrivate)
+    .flatMap((r) => {
+      const c = classifyRepo(r, overrides);
+      return c.track === "hidden" ? [] : [{ ...r, track: c.track, reason: c.reason }];
+    })
+    .sort((a, b) => Date.parse(b.pushedAt) - Date.parse(a.pushedAt));
+}
+
 export async function getGitHubActivity(): Promise<GitHubActivity | null> {
   try {
     const [raw, overrides, featured] = await Promise.all([
