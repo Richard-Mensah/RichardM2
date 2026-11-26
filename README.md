@@ -294,7 +294,7 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for host-specific notes.
 |---|---|
 | Change the booking link | Edit `BOOKING_URL` in `src/constants/index.ts` |
 | Edit homepage copy, stats or testimonials | `/admin` → the relevant section (no deploy needed) |
-| Add a blog post | Add `content/articles/<slug>.md` with frontmatter and commit it (see limitations below) |
+| Add a blog post | `/admin/articles` → New article (saved in Postgres, live immediately). A committed `content/articles/<slug>.md` is also imported once. |
 | Add a page | Create `src/app/<route>/page.tsx`, export `metadata`, and add it to `NAVIGATION` if it belongs in the menu and sitemap |
 | Update the CV | Replace `public/richard-mensah-cv.pdf` |
 | Add a table | Define it in `src/db/schema.ts`, run `npm run db:push`, and add a `src/lib/<name>.ts` access module with typed fallbacks |
@@ -305,7 +305,7 @@ See [DEPLOYMENT.md](DEPLOYMENT.md) for host-specific notes.
 
 These are known trade-offs, listed so nobody rediscovers them the hard way.
 
-- **Blog editing in production.** Articles are Markdown files written to the local filesystem. Vercel's filesystem is read-only and ephemeral, so the admin article editor only persists changes when you run locally and commit the file. The next step is to move articles to Postgres or Blob.
+- **Blog articles live in Postgres** (`articles` table). Markdown files in `content/articles` are imported once each (tracked in `site_settings.articles_imported_files`), so deleting a post in the admin keeps it deleted. Without a database the public blog falls back to those files, read-only.
 - **Single shared admin password.** There are no user accounts and no rate limiting beyond a fixed delay. That is fine for one owner. Add rate limiting (e.g. Vercel KV) or an auth provider before adding more editors.
 - **No rate limiting on public POST endpoints.** `/api/collaborations` has a honeypot; `/api/analytics/track` has nothing. Consider Vercel Firewall rate-limit rules.
 - **No inquiry notifications.** Contact submissions are stored but no email is sent. Adding a transactional email provider such as Resend is a small, isolated change in `api/collaborations`.

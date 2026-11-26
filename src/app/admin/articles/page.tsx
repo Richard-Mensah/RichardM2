@@ -4,8 +4,10 @@ import AdminSidebar from "@/components/admin/AdminSidebar";
 import AdminLogoutButton from "@/components/admin/AdminLogoutButton";
 import AdminDeleteButton from "@/components/admin/AdminDeleteButton";
 
-export default function AdminArticlesPage() {
-  const articles = getAllArticles();
+export const dynamic = "force-dynamic";
+
+export default async function AdminArticlesPage() {
+  const articles = await getAllArticles();
 
   return (
     <div className="flex min-h-screen w-full">

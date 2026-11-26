@@ -3,7 +3,7 @@ import { del } from "@vercel/blob";
 import { db, pool } from "@/db";
 import { galleryPhotos } from "@/db/schema";
 import { GALLERY as STATIC_GALLERY, GALLERY_ADDITIONS } from "@/data/gallery";
-import { getSetting, setSetting } from "@/lib/siteSettings";
+import { getSettingStrict, setSetting } from "@/lib/siteSettings";
 
 const ADDITIONS_KEY = "gallery_additions_applied";
 
@@ -45,7 +45,7 @@ async function seedIfEmpty(): Promise<void> {
 
 /** Inserts each GALLERY_ADDITIONS photo once, at the top. Tracked so admin deletions stick. */
 async function applyAdditions(): Promise<void> {
-  const applied = await getSetting<string[]>(ADDITIONS_KEY, []);
+  const applied = await getSettingStrict<string[]>(ADDITIONS_KEY, []);
   const pending = GALLERY_ADDITIONS.filter((p) => !applied.includes(p.src));
   if (!pending.length) return;
   const rows = await db.select({ url: galleryPhotos.url, position: galleryPhotos.position }).from(galleryPhotos);

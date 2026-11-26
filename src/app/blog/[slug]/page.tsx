@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { getAllArticles, getArticle } from "@/lib/articles";
+import { getArticle } from "@/lib/articles";
 import { getAuthor } from "@/lib/author";
 import AuthorBio from "@/components/features/blog/AuthorBio";
 import SectionNav from "@/components/ui/SectionNav";
@@ -19,23 +19,30 @@ const CATEGORY_COLOURS: Record<string, string> = {
   "Community & SDGs": "#19486A",
 };
 
-export async function generateStaticParams() {
-  return getAllArticles().map((a) => ({ slug: a.slug }));
-}
+/** next/image only optimises site paths and the Blob store; anything else is shown as-is. */
+const isOptimisable = (src: string) => src.startsWith("/") || /^https:\/\/[^/]+\.public\.blob\.vercel-storage\.com\//.test(src);
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const article = getArticle(slug);
+  const article = await getArticle(slug);
   if (!article) return {};
   return {
     title: `${article.meta.title} | Richard Mensah`,
     description: article.meta.excerpt,
+    openGraph: {
+      title: article.meta.title,
+      description: article.meta.excerpt,
+      type: "article",
+      publishedTime: article.meta.date,
+      authors: ["Richard Mensah"],
+      ...(article.meta.coverImage ? { images: [article.meta.coverImage] } : {}),
+    },
   };
 }
 
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
-  const article = getArticle(slug);
+  const article = await getArticle(slug);
   if (!article) notFound();
 
   const author = await getAuthor();
@@ -68,7 +75,15 @@ export default async function ArticlePage({ params }: Props) {
 
         {meta.coverImage && (
           <div className="relative mt-8 aspect-video overflow-hidden rounded-2xl">
-            <Image src={meta.coverImage} alt={meta.title} fill className="object-cover" />
+            <Image
+              src={meta.coverImage}
+              alt={meta.title}
+              fill
+              priority
+              sizes="(min-width: 768px) 768px, 100vw"
+              unoptimized={!isOptimisable(meta.coverImage)}
+              className="object-cover"
+            />
           </div>
         )}
 

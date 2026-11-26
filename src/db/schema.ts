@@ -89,3 +89,18 @@ export const pageViews = pgTable("page_views", {
   referrer: varchar("referrer", { length: 512 }).notNull().default(""),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
 });
+
+/** Blog articles written in Admin → Articles (Markdown body). */
+export const articles = pgTable("articles", {
+  slug: varchar("slug", { length: 200 }).primaryKey(),
+  title: varchar("title", { length: 300 }).notNull(),
+  category: varchar("category", { length: 120 }).notNull(),
+  date: varchar("date", { length: 10 }).notNull(),
+  excerpt: text("excerpt").notNull().default(""),
+  coverImage: text("cover_image"),
+  content: text("content").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
+export type ArticleRow = typeof articles.$inferSelect;

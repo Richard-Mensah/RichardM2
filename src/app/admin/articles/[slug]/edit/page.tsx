@@ -6,9 +6,11 @@ import ArticleEditForm from "@/components/admin/ArticleEditForm";
 
 type Props = { params: Promise<{ slug: string }> };
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminEditArticlePage({ params }: Props) {
   const { slug } = await params;
-  const article = getArticle(slug);
+  const article = await getArticle(slug);
 
   if (!article) notFound();
 

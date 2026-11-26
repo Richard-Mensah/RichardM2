@@ -1,25 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { getAllArticles } from "@/lib/articles";
+import { revalidatePath } from "next/cache";
+import { createArticle, getAllArticles } from "@/lib/articles";
 import { isAuthed } from "@/lib/adminAuth";
 
 export const dynamic = "force-dynamic";
 
-const ARTICLES_DIR = path.join(process.cwd(), "content", "articles");
-
-function slugify(title: string): string {
-  return title
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9\s-]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-");
-}
-
 export async function GET() {
-  const articles = getAllArticles();
+  const articles = await getAllArticles();
   return NextResponse.json({ ok: true, articles });
 }
 
@@ -29,54 +16,33 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const body = (await request.json()) as {
-      title?: string;
-      category?: string;
-      excerpt?: string;
-      content?: string;
-      coverImage?: string;
-    };
+    const body = (await request.json()) as Record<string, unknown>;
+    const str = (key: string) => (typeof body[key] === "string" ? (body[key] as string) : "");
 
-    if (!body.title || !body.category || !body.excerpt || !body.content) {
+    if (!str("title").trim() || !str("category").trim() || !str("excerpt").trim() || !str("content").trim()) {
       return NextResponse.json(
         { ok: false, message: "title, category, excerpt, and content are required." },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
-    const slug = slugify(body.title);
-    if (!slug) {
-      return NextResponse.json(
-        { ok: false, message: "Title must contain letters or numbers." },
-        { status: 400 }
-      );
-    }
-    const date = new Date().toISOString().split("T")[0];
-    const filepath = path.join(ARTICLES_DIR, `${slug}.md`);
-
-    if (fs.existsSync(filepath)) {
-      return NextResponse.json(
-        { ok: false, message: `An article with slug "${slug}" already exists.` },
-        { status: 409 }
-      );
+    const result = await createArticle({
+      title: str("title"),
+      category: str("category"),
+      excerpt: str("excerpt"),
+      content: str("content"),
+      coverImage: str("coverImage"),
+    });
+    if (!result.ok) {
+      return NextResponse.json({ ok: false, message: result.message }, { status: result.status });
     }
 
-    const frontmatter: Record<string, string> = {
-      title: body.title,
-      category: body.category,
-      date,
-      excerpt: body.excerpt,
-    };
-    if (body.coverImage) frontmatter.coverImage = body.coverImage;
-
-    const fileContent = matter.stringify(body.content, frontmatter);
-
-    if (!fs.existsSync(ARTICLES_DIR)) fs.mkdirSync(ARTICLES_DIR, { recursive: true });
-    fs.writeFileSync(filepath, fileContent, "utf-8");
-
-    return NextResponse.json({ ok: true, slug }, { status: 201 });
+    revalidatePath("/blog");
+    revalidatePath(`/blog/${result.slug}`);
+    revalidatePath("/sitemap.xml");
+    return NextResponse.json({ ok: true, slug: result.slug }, { status: 201 });
   } catch (error) {
     console.error("Failed to create article", error);
-    return NextResponse.json({ ok: false, message: "Server error" }, { status: 500 });
+    return NextResponse.json({ ok: false, message: "Could not save the article. Please try again." }, { status: 500 });
   }
 }

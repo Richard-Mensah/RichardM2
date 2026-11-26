@@ -1,4 +1,4 @@
-import { getSetting, setSetting } from "@/lib/siteSettings";
+import { getSetting, getSettingStrict, setSetting } from "@/lib/siteSettings";
 import { DEFAULT_REEL, REEL_ADDITIONS, chapterLabel, type ReelChapter } from "@/data/heroReel";
 
 const KEY = "hero_reel";
@@ -42,7 +42,7 @@ export function normaliseChapter(input: unknown, index: number): ChapterValidati
  * keeps it removed. Returns the reel to use.
  */
 async function applyReelAdditions(saved: ReelChapter[]): Promise<ReelChapter[]> {
-  const applied = await getSetting<string[]>(ADDITIONS_KEY, []);
+  const applied = await getSettingStrict<string[]>(ADDITIONS_KEY, []);
   const pending = REEL_ADDITIONS.filter((c) => !applied.includes(c.image));
   if (!pending.length) return saved;
   const present = new Set(saved.map((c) => c.image));

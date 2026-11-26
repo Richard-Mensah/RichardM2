@@ -35,6 +35,21 @@ export async function getSetting<T>(key: string, fallback: T): Promise<T> {
   }
 }
 
+/**
+ * Like getSetting, but throws on a database error instead of returning the
+ * fallback. Use it for bookkeeping (e.g. "already imported" lists), where
+ * mistaking a failed read for an empty value would redo one-time work.
+ */
+export async function getSettingStrict<T>(key: string, fallback: T): Promise<T> {
+  await ensureTable();
+  const rows = await db
+    .select({ value: siteSettings.value })
+    .from(siteSettings)
+    .where(eq(siteSettings.key, key))
+    .limit(1);
+  return rows.length === 0 ? fallback : (rows[0].value as T);
+}
+
 export async function setSetting<T>(key: string, value: T): Promise<void> {
   await ensureTable();
   await db

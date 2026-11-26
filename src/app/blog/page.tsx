@@ -9,8 +9,11 @@ export const metadata: Metadata = {
     "Articles on AI, Data & Climate · AI Ethics & Technologies · Youth Leadership · Community & SDGs.",
 };
 
-export default function BlogPage() {
-  const articles = getAllArticles();
+// Articles are published from the admin at any time, so read them per request.
+export const dynamic = "force-dynamic";
+
+export default async function BlogPage() {
+  const articles = await getAllArticles();
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
       <div className="flex-1">

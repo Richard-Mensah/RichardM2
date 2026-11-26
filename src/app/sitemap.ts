@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { NAVIGATION } from "@/constants";
 import { SITE_URL } from "@/lib/siteUrl";
+import { getAllArticles } from "@/lib/articles";
 
 // Derive the public route list from the site navigation so the sitemap
 // stays in sync with the real pages (top-level links + their children).
@@ -18,12 +19,22 @@ function navPaths(): string[] {
   return [...paths];
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+// Read per request so articles published from the admin appear straight away.
+export const dynamic = "force-dynamic";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
-  return navPaths().map((path) => ({
+  const pages: MetadataRoute.Sitemap = navPaths().map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified,
     changeFrequency: "weekly",
     priority: path === "/" ? 1 : 0.7,
   }));
+  const posts: MetadataRoute.Sitemap = (await getAllArticles()).map((a) => ({
+    url: `${SITE_URL}/blog/${a.slug}`,
+    lastModified: a.date ? new Date(a.date) : lastModified,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+  return [...pages, ...posts];
 }
