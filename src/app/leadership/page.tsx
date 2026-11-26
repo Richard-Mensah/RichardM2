@@ -16,7 +16,7 @@ export default function LeadershipPage() {
         <LeadershipSection />
       </div>
       <SectionNav
-        prev={{ label: "Systems", href: "/systems" }}
+        prev={{ label: "Portfolio", href: "/projects/portfolio" }}
         next={{ label: "Collaborate", href: "/collaborate" }}
       />
     </div>

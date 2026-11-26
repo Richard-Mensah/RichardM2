@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
@@ -41,49 +40,6 @@ const SDG_FOCUS = [
 export default function SdgPageSection() {
   return (
     <div>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-navy-950 px-5 py-20 md:px-8 md:py-28">
-        <div className="pointer-events-none absolute inset-0 data-grid-light opacity-10" />
-        <div className="relative mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-accent-soft">
-                Projects / SDGs
-              </p>
-              <h1 className="mt-4 text-4xl font-black font-display leading-tight text-white md:text-5xl">
-                Aligning innovation with the global goals
-              </h1>
-              <p className="mt-6 text-base leading-8 text-on-dark-muted">
-                Every project Richard builds traces back to at least one Sustainable Development Goal. The SDGs are not marketing tags here. They are the criteria by which work is designed, measured, and evaluated.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/sdgs"
-                  className="btn-primary inline-flex items-center gap-2"
-                >
-                  SDG Commitment →
-                </Link>
-                <Link
-                  href="/research/global-development"
-                  className="btn-ghost inline-flex items-center gap-2"
-                >
-                  Global Development
-                </Link>
-              </div>
-            </div>
-            <div className="relative h-72 overflow-hidden rounded-2xl lg:h-96">
-              <Image
-                src="/gallery/FB_IMG_1746893901373.jpg"
-                alt="Richard Mensah at an SDG advocacy session"
-                fill
-                className="object-cover object-center"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent" />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Featured System */}
       <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">

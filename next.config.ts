@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
     return [
       { source: "/research/research-papers", destination: "/research/publications", permanent: true },
       { source: "/research/articles", destination: "/blog", permanent: true },
+      { source: "/systems", destination: "/projects#systems", permanent: true },
     ];
   },
 };

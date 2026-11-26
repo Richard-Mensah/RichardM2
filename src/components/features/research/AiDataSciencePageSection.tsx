@@ -86,7 +86,7 @@ export default function AiDataSciencePageSection() {
             Explore the full systems portfolio or discuss a project, collaboration, or advisory engagement.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/systems" className="btn-primary rounded-full px-6 py-2.5 text-sm font-black">
+            <Link href="/projects#systems" className="btn-primary rounded-full px-6 py-2.5 text-sm font-black">
               Explore AI systems
             </Link>
             <Link href="/contact" className="btn-ghost rounded-full px-6 py-2.5 text-sm font-black">

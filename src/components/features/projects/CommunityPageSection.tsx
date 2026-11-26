@@ -33,43 +33,6 @@ const INITIATIVES = [
 export default function CommunityPageSection() {
   return (
     <div>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-navy-950 px-5 py-20 md:px-8 md:py-28">
-        <div className="pointer-events-none absolute inset-0 data-grid-light opacity-10" />
-        <div className="relative mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-accent-soft">
-                Projects / Community
-              </p>
-              <h1 className="mt-4 text-4xl font-black font-display leading-tight text-white md:text-5xl">
-                Technology built by and for communities
-              </h1>
-              <p className="mt-6 text-base leading-8 text-on-dark-muted">
-                Richard&apos;s community work has always been about showing up. The technology dimension of that work, from simple data collection to mentorship platforms, is built with the same spirit: practical tools for people doing real things.
-              </p>
-              <div className="mt-8">
-                <Link
-                  href="/leadership/community"
-                  className="btn-primary inline-flex items-center gap-2"
-                >
-                  Leadership Work →
-                </Link>
-              </div>
-            </div>
-            <div className="relative h-72 overflow-hidden rounded-2xl lg:h-96">
-              <Image
-                src="/community/teaching-class-1.jpg"
-                alt="Richard Mensah teaching a free community class during the COVID-19 lockdown"
-                fill
-                className="object-cover object-center"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent" />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Initiatives */}
       <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">

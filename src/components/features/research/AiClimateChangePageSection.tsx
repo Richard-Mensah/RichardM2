@@ -103,7 +103,7 @@ export default function AiClimateChangePageSection() {
             <p className="mt-1 text-sm text-muted"><strong>Problem:</strong> {climateSystem.problem}</p>
             <p className="mt-2 text-sm text-muted"><strong>Approach:</strong> {climateSystem.approach}</p>
             <p className="mt-2 text-sm text-muted"><strong>Impact:</strong> {climateSystem.impact}</p>
-            <Link href="/systems" className="mt-5 inline-flex items-center gap-1.5 text-sm font-black text-accent-strong transition hover:underline">
+            <Link href="/projects#systems" className="mt-5 inline-flex items-center gap-1.5 text-sm font-black text-accent-strong transition hover:underline">
               Explore the system →
             </Link>
           </div>
@@ -116,7 +116,7 @@ export default function AiClimateChangePageSection() {
             Interested in partnering on climate intelligence research, co-developing community dashboards, or accessing datasets and methodologies?
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/systems" className="btn-accent rounded-full px-6 py-2.5 text-sm font-black">
+            <Link href="/projects#systems" className="btn-accent rounded-full px-6 py-2.5 text-sm font-black">
               Explore Climate System
             </Link>
             <Link href="/contact" className="rounded-full border border-white/30 px-6 py-2.5 text-sm font-black text-white transition hover:bg-white/10">

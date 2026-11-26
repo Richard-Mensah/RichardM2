@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
@@ -27,49 +26,6 @@ const FOCUS_AREAS = [
 export default function ClimatePageSection() {
   return (
     <div>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-navy-950 px-5 py-20 md:px-8 md:py-28">
-        <div className="pointer-events-none absolute inset-0 data-grid-light opacity-10" />
-        <div className="relative mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-accent-soft">
-                Projects / Climate
-              </p>
-              <h1 className="mt-4 text-4xl font-black font-display leading-tight text-white md:text-5xl">
-                Climate signals as community tools
-              </h1>
-              <p className="mt-6 text-base leading-8 text-on-dark-muted">
-                Communities facing climate risk need more than data. They need understanding. Richard builds systems that transform complex environmental signals into tools communities can act on.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/research/ai-climate-change"
-                  className="btn-primary inline-flex items-center gap-2"
-                >
-                  Related Research →
-                </Link>
-                <Link
-                  href="/projects/sdg"
-                  className="btn-ghost inline-flex items-center gap-2"
-                >
-                  SDG 13 Work
-                </Link>
-              </div>
-            </div>
-            <div className="relative h-72 overflow-hidden rounded-2xl lg:h-96">
-              <Image
-                src="/research/ai-climate-change-satellite.jpg"
-                alt="Satellite climate data visualisation for Sub-Saharan Africa"
-                fill
-                className="object-cover object-center"
-                sizes="(min-width: 1024px) 50vw, 100vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent" />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Featured System */}
       <section className="bg-transparent px-5 py-16 md:px-8 md:py-20">

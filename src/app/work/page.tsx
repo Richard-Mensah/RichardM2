@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Building2, CodeXml, Rocket, UserRound } from "lucide-react";
 import SectionNav from "@/components/ui/SectionNav";
+import ProjectsNav from "@/components/features/projects/ProjectsNav";
 import CountUp from "@/components/ui/CountUp";
 import BookingLink from "@/components/ui/BookingLink";
 import AnimatedScreenshot from "@/components/features/work/AnimatedScreenshot";
 import WorkQuestBoard from "@/components/features/work/WorkQuestBoard";
 import { clientWorkStats } from "@/data/clientWork";
 import { getClientWork } from "@/lib/clientWork";
+import { projectNeighbours } from "@/data/projectPages";
 
 export const metadata: Metadata = {
   title: "Client Work & Software | Richard Mensah",
@@ -101,9 +103,10 @@ export default async function WorkPage() {
             ))}
           </div>
         </section>
+        <ProjectsNav />
 
         {/* Quest board */}
-        <section id="builds" className="scroll-mt-24 px-5 py-14 md:px-8 md:py-20">
+        <section id="builds" className="scroll-mt-[calc(var(--header-h)+3.5rem)] px-5 py-14 md:px-8 md:py-20">
           <div className="mx-auto max-w-7xl">
             <div className="mb-8 max-w-3xl">
               <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-strong">Builds unlocked</p>
@@ -143,10 +146,7 @@ export default async function WorkPage() {
           </div>
         </section>
       </div>
-      <SectionNav
-        prev={{ label: "Projects", href: "/projects" }}
-        next={{ label: "Portfolio", href: "/projects/portfolio" }}
-      />
+      <SectionNav {...projectNeighbours("/work")} />
     </div>
   );
 }
