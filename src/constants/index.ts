@@ -1,4 +1,4 @@
-import type { NavItem, SdgColour, PriorityGoal, IdentityCard, ResearchPillar, SystemProject, ProjectCategory, HomeDomain, SkillGroup, AudiencePathway } from "@/types";
+import type { NavItem, SdgColour, PriorityGoal, IdentityCard, ResearchPillar, SystemProject, HomeDomain, SkillGroup, AudiencePathway } from "@/types";
 
 // ── Homepage: the six core strengths, surfaced front-and-centre ──────────
 export const HOME_DOMAINS: HomeDomain[] = [
@@ -308,81 +308,6 @@ export const SYSTEMS: SystemProject[] = [
     problem: "Mentorship programs often inspire people but fail to scale learning, measure growth, or preserve knowledge.",
     approach: "Program analytics, knowledge bases, skill maps, mentoring records, and opportunity pathways.",
     impact: "Makes youth leadership measurable, repeatable, and globally collaborative.",
-  },
-];
-
-export const PROJECT_CATEGORIES: ProjectCategory[] = [
-  {
-    slug: "/work",
-    label: "Client Work & Software",
-    tagline: "Live products shipped for people and organisations",
-    description: "Websites and software products built for clients in the UK and Ghana, from the MonCare OS care-agency platform to youth institutions and international portfolios.",
-    accent: "#0a1a30",
-    icon: "CW",
-    image: "/work/moncare-uk-desktop.jpg",
-  },
-  {
-    slug: "/projects/ai",
-    label: "AI Projects",
-    tagline: "Applied intelligence for real-world decisions",
-    description: "Machine learning systems, NLP tools, predictive models, and intelligent decision-support platforms built for real-world institutional use.",
-    accent: "#4f8bff",
-    icon: "AI",
-    image: "/gallery/FB_IMG_1744840775657.jpg",
-  },
-  {
-    slug: "/projects/data-science",
-    label: "Data Science Projects",
-    tagline: "Turning raw data into institutional intelligence",
-    description: "Analytics pipelines, dashboards, data engineering, and visualisation systems that turn raw data into actionable institutional intelligence.",
-    accent: "#2f6bea",
-    icon: "DS",
-    image: "/gallery/20240302_090453.jpg",
-  },
-  {
-    slug: "/projects/climate",
-    label: "Climate Innovation",
-    tagline: "Climate signals as community tools",
-    description: "Climate signal observatories, resilience dashboards, and community-facing tools that translate complex climate data into understandable, actionable insights.",
-    accent: "#3a78e0",
-    icon: "CL",
-    image: "/research/ai-climate-change-satellite.jpg",
-  },
-  {
-    slug: "/projects/sdg",
-    label: "SDG Projects",
-    tagline: "Aligning innovation with the global goals",
-    description: "Systems and programmes directly aligned with specific Sustainable Development Goals, from SDG 4 (education) to SDG 13 (climate action).",
-    accent: "#3a78e0",
-    icon: "SDG",
-    image: "/gallery/FB_IMG_1746893901373.jpg",
-  },
-  {
-    slug: "/projects/community",
-    label: "Community Initiatives",
-    tagline: "Technology built by and for communities",
-    description: "Youth-led and community-centred programmes combining skills training, mentorship, and local data to drive grassroots development.",
-    accent: "#3a78e0",
-    icon: "CM",
-    image: "/community/teaching-class-1.jpg",
-  },
-  {
-    slug: "/projects/open-source",
-    label: "Open Source Work",
-    tagline: "Sharing tools with the world",
-    description: "Publicly available tools, code, and frameworks contributed to the open-source community for AI, data science, and development applications.",
-    accent: "#4f8bff",
-    icon: "OS",
-    image: "/gallery/20240604_134602.jpg",
-  },
-  {
-    slug: "/projects/portfolio",
-    label: "Portfolio",
-    tagline: "A career built with purpose, in code and community",
-    description: "A complete showcase of Richard's built systems, published work, and deployed tools across AI, climate intelligence, and youth development.",
-    accent: "#2f6bea",
-    icon: "PF",
-    image: "/gallery/FB_IMG_1742347850249.jpg",
   },
 ];
 

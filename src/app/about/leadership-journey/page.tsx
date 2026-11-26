@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import SectionNav from "@/components/ui/SectionNav";
+import PageHero from "@/components/ui/page/PageHero";
+import AboutNav from "@/components/features/about/AboutNav";
+import { aboutNeighbours, aboutPage } from "@/data/aboutPages";
 import JourneyShowcase from "@/components/features/home/JourneyShowcase";
 
 export const metadata: Metadata = {
@@ -38,38 +41,22 @@ const MOVEMENT_IMAGES = [
   { src: "/leadership/ubuntu-uew-chapter.jpg",     caption: "Ubuntu UEW Chapter founding" },
 ] as const;
 
+const PAGE = aboutPage("/about/leadership-journey");
+
 export default function LeadershipJourneyPage() {
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
 
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-navy-950 px-5 py-16 md:px-8 md:py-24">
-        <div className="mx-auto max-w-7xl">
-          <Link
-            href="/about"
-            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-accent-soft transition hover:text-white"
-          >
-            ← About Richard
-          </Link>
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-soft">Leadership Journey</p>
-          <h1 className="font-display mt-4 max-w-3xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-white md:text-6xl">
-            From village roads to global stages.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-on-dark-muted">
-            The leadership journey did not begin in a boardroom or a lecture hall. It began on
-            a family motorbike, riding into communities that had no clean water, no functioning
-            schools, and no one coming to help. What Richard found there shaped everything that
-            came after.
-          </p>
-
-          <blockquote className="mt-10 border-l-4 border-accent-soft pl-6">
-            <p className="text-xl font-black italic leading-relaxed text-white md:text-2xl">
-              &ldquo;The work that no one sees is the work that builds the character behind the
-              work that everyone eventually notices.&rdquo;
-            </p>
-          </blockquote>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={PAGE.eyebrow}
+        title={PAGE.title}
+        lede={PAGE.lede}
+        image={PAGE.image}
+        imageAlt={PAGE.imageAlt}
+        focus={PAGE.focus}
+        crumbs={[{ label: "About", href: "/about" }, { label: PAGE.nav }]}
+      />
+      <AboutNav />
 
       {/* ── Journey timeline (moved from the homepage) ─────────────── */}
       <JourneyShowcase />
@@ -378,7 +365,7 @@ export default function LeadershipJourneyPage() {
         </div>
       </section>
 
-      <SectionNav prev={{ label: "Vision & Mission", href: "/about/vision" }} next={{ label: "Conferences", href: "/about/conferences" }} />
+      <SectionNav {...aboutNeighbours(PAGE.href)} />
     </div>
   );
 }
