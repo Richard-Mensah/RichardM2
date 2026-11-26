@@ -9,6 +9,13 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "*.public.blob.vercel-storage.com" },
     ],
   },
+  // Pages merged into the writing library and the blog; keep old links working.
+  async redirects() {
+    return [
+      { source: "/research/research-papers", destination: "/research/publications", permanent: true },
+      { source: "/research/articles", destination: "/blog", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

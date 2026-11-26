@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { IDENTITY_TIMELINE, PRIORITY_GOALS } from "@/constants";
 
@@ -6,20 +5,9 @@ const GEO_PILLS = ["Ghana", "United Kingdom", "India", "& Global South"];
 
 export default function GlobalDevelopmentPageSection() {
   return (
-    <div className="research-ground relative px-5 py-20 md:px-8">
+    <div className="research-ground relative px-5 pb-20 pt-4 md:px-8">
       <div className="pointer-events-none absolute inset-0 data-grid-light opacity-30" />
       <div className="relative mx-auto max-w-5xl">
-
-        {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-accent-strong">Global Development</p>
-        <h1 className="mt-4 text-balance text-4xl font-black font-display tracking-[-0.04em] text-ink md:text-5xl">
-          Intelligence that serves the many, not the few.
-        </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-body">
-          Cross-border research and partnerships connecting Ghana, the UK, and global networks
-          around AI, climate intelligence, youth empowerment, and sustainable development, with
-          the UN Sustainable Development Goals as the organising framework.
-        </p>
 
         {/* Identity timeline cards */}
         <div className="mt-12">
@@ -59,10 +47,6 @@ export default function GlobalDevelopmentPageSection() {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="relative mt-12 h-56 overflow-hidden rounded-2xl">
-          <Image src="/research/global-development-map.jpg" alt="International team celebrating global collaboration" fill className="object-cover" />
         </div>
 
         {/* Cross-border network */}

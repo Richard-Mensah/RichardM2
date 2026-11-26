@@ -1,64 +1,48 @@
 "use client";
 
-import { useState } from "react";
-import type { ArticleMeta } from "@/lib/articles";
-import ArticleCard from "./ArticleCard";
-import SectionHeading from "@/components/ui/SectionHeading";
+import { useMemo, useState } from "react";
+import MediaCard from "@/components/ui/MediaCard";
+import type { WritingItem } from "@/lib/writingItems";
+import { cn } from "@/lib/utils";
 
-const CATEGORIES = [
-  "All",
-  "AI, Data & Climate",
-  "AI Ethics & Technologies",
-  "Youth Leadership",
-  "Community & SDGs",
-] as const;
-
-type Props = { articles: ArticleMeta[] };
-
-export default function BlogListing({ articles }: Props) {
-  const [activeCategory, setActiveCategory] = useState<string>("All");
-
-  const filtered =
-    activeCategory === "All"
-      ? articles
-      : articles.filter((a) => a.category === activeCategory);
+/** Article grid with category filters (categories come from the articles themselves). */
+export default function BlogListing({ items }: { items: WritingItem[] }) {
+  const categories = useMemo(() => [...new Set(items.map((i) => i.topic).filter(Boolean))].sort(), [items]);
+  const [active, setActive] = useState("All");
+  const shown = active === "All" ? items : items.filter((i) => i.topic === active);
 
   return (
-    <section className="px-5 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="Writing"
-          title="Ideas, research, and perspectives"
-        />
-
-        <div className="mt-10 flex flex-wrap gap-3">
-          {CATEGORIES.map((cat) => (
+    <div>
+      {categories.length > 1 ? (
+        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter articles by category">
+          {["All", ...categories].map((c) => (
             <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`rounded-full px-5 py-2 text-sm font-black transition ${
-                activeCategory === cat
-                  ? "bg-navy-950 text-white"
-                  : "glass text-ink-soft hover:border-navy-950 hover:text-ink"
-              }`}
+              key={c}
+              type="button"
+              onClick={() => setActive(c)}
+              aria-pressed={active === c}
+              className={cn(
+                "inline-flex min-h-10 items-center rounded-full border px-4 text-sm font-bold transition",
+                active === c ? "border-navy-950 bg-navy-950 text-white" : "border-line bg-surface-card text-ink-soft hover:border-navy-950/40 hover:text-ink",
+              )}
             >
-              {cat}
+              {c}
             </button>
           ))}
         </div>
+      ) : null}
 
-        {filtered.length === 0 ? (
-          <p className="mt-16 text-center text-muted">
-            No articles in this category yet.
-          </p>
-        ) : (
-          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((article) => (
-              <ArticleCard key={article.slug} article={article} />
-            ))}
-          </div>
-        )}
-      </div>
-    </section>
+      {shown.length ? (
+        <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" aria-live="polite">
+          {shown.map((item) => (
+            <li key={item.key}>
+              <MediaCard item={item} withExcerpt />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="mt-12 text-center text-muted">No articles in this category yet.</p>
+      )}
+    </div>
   );
 }

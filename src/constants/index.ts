@@ -1,4 +1,4 @@
-import type { NavItem, SdgColour, PriorityGoal, IdentityCard, ResearchPillar, ResearchCategory, SystemProject, ProjectCategory, HomeDomain, SkillGroup, AudiencePathway } from "@/types";
+import type { NavItem, SdgColour, PriorityGoal, IdentityCard, ResearchPillar, SystemProject, ProjectCategory, HomeDomain, SkillGroup, AudiencePathway } from "@/types";
 
 // ── Homepage: the six core strengths, surfaced front-and-centre ──────────
 export const HOME_DOMAINS: HomeDomain[] = [
@@ -415,88 +415,6 @@ export const FOCUS_AREAS: string[] = [
   "Data science systems",
   "Ethics and policy",
   "Institutional training",
-];
-
-export const RESEARCH_CATEGORIES: ResearchCategory[] = [
-  {
-    slug: "/research/publications",
-    label: "Writing & Working Papers",
-    description: "Independent essays, working papers, and policy notes on AI, climate, and global development.",
-    accent: "#4f8bff",
-    icon: "PB",
-    image: "/research/publications-hero.jpg",
-  },
-  {
-    slug: "/research/conference-presentations",
-    label: "Conference Presentations",
-    description: "Presentations and talks on AI ethics, climate intelligence, and youth policy at academic and youth forums.",
-    accent: "#2f6bea",
-    icon: "CP",
-    sdgTag: "SDG 17",
-    image: "/research/conference-presentations-hero.jpg",
-  },
-  {
-    slug: "/research/collaborations",
-    label: "Research Collaborations",
-    description: "Open research partnerships, co-authorship, and institutional advisory engagements.",
-    accent: "#3a78e0",
-    icon: "RC",
-    sdgTag: "SDG 17",
-    image: "/research/collaborations-hero.jpg",
-  },
-  {
-    slug: "/research/articles",
-    label: "Articles",
-    description: "Public writing that translates research into ideas anyone can engage with.",
-    accent: "#3a78e0",
-    icon: "AR",
-    image: "/research/articles-writing.jpg",
-  },
-  {
-    slug: "/research/thought-leadership",
-    label: "Thought Leadership",
-    description: "Frameworks and perspectives on AI in society, governance, and the Global South.",
-    accent: "#3a78e0",
-    icon: "TL",
-    sdgTag: "SDG 16",
-    image: "/research/thought-leadership-speaking.jpg",
-  },
-  {
-    slug: "/research/ai-data-science",
-    label: "AI & Data Science",
-    description: "Applied ML, predictive modeling, NLP, and decision intelligence for real-world problems.",
-    accent: "#4f8bff",
-    icon: "DS",
-    sdgTag: "SDG 9",
-    image: "/gallery/FB_IMG_1744840775657.jpg",
-  },
-  {
-    slug: "/research/youth-development",
-    label: "Youth Development",
-    description: "Mentorship, training, and knowledge systems helping young people move from potential to execution.",
-    accent: "#2f6bea",
-    icon: "YD",
-    sdgTag: "SDG 4",
-    image: "/research/youth-development-group.jpg",
-  },
-  {
-    slug: "/research/ai-climate-change",
-    label: "AI & Climate Change",
-    description: "Climate intelligence systems translating environmental signals into community-readable decisions.",
-    accent: "#3a78e0",
-    icon: "CC",
-    sdgTag: "SDG 13",
-    image: "/research/ai-climate-change-satellite.jpg",
-  },
-  {
-    slug: "/research/global-development",
-    label: "Global Development",
-    description: "Cross-border research and partnerships connecting Ghana, the UK, and global networks.",
-    accent: "#3a78e0",
-    icon: "GD",
-    sdgTag: "SDG 17",
-    image: "/research/global-development-map.jpg",
-  },
 ];
 
 export const PUBLICATIONS = [

@@ -6,29 +6,31 @@ import { ArrowUpRight, FileText, GraduationCap } from "lucide-react";
 const PULSE_PATH = "M0 34 H62 L72 34 L80 14 L90 52 L98 24 L106 34 H170 L178 34 L186 6 L196 58 L204 30 L212 34 H300";
 
 /** The MSc thesis feature; articles and papers follow in the WritingShelf. */
-export default function ResearchHighlight() {
+export default function ResearchHighlight({ heading = true }: { heading?: boolean } = {}) {
   return (
     <section className="px-5 pb-10 pt-16 md:px-8 md:pb-12 md:pt-20">
       <div className="mx-auto max-w-7xl">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <div className="max-w-2xl">
-            <p className="eyebrow">Research & writing</p>
-            <h2 className="font-display mt-3 text-balance text-3xl font-bold tracking-[-0.035em] text-ink md:text-4xl">
-              Research and ideas, open for collaboration
-            </h2>
+        {heading ? (
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <p className="eyebrow">Research & writing</p>
+              <h2 className="font-display mt-3 text-balance text-3xl font-bold tracking-[-0.035em] text-ink md:text-4xl">
+                Research and ideas, open for collaboration
+              </h2>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/research" className="btn-ghost inline-flex min-h-11 items-center gap-2 rounded-full px-5 text-xs font-black uppercase tracking-[0.14em]">
+                All research
+                <ArrowUpRight size={15} aria-hidden="true" />
+              </Link>
+              <Link href="/projects" className="inline-flex min-h-11 items-center gap-2 rounded-full px-3 text-xs font-black uppercase tracking-[0.14em] text-accent-strong hover:underline">
+                Research systems
+              </Link>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/research" className="btn-ghost inline-flex min-h-11 items-center gap-2 rounded-full px-5 text-xs font-black uppercase tracking-[0.14em]">
-              All research
-              <ArrowUpRight size={15} aria-hidden="true" />
-            </Link>
-            <Link href="/projects" className="inline-flex min-h-11 items-center gap-2 rounded-full px-3 text-xs font-black uppercase tracking-[0.14em] text-accent-strong hover:underline">
-              Research systems
-            </Link>
-          </div>
-        </div>
+        ) : null}
 
-        <div className="mt-10">
+        <div className={heading ? "mt-10" : undefined}>
           {/* Thesis feature (selected writing sits in the shelf below) */}
           <article className="relative grid overflow-hidden rounded-[2rem] bg-navy-950 text-white md:grid-cols-[0.85fr_1.15fr] lg:grid-cols-[0.7fr_1.3fr]">
             <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent/15 blur-3xl" aria-hidden="true" />

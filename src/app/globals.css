@@ -86,6 +86,8 @@
 
 :root {
   color-scheme: light;
+  /* Fixed header height; SiteHeader updates it to the measured value. */
+  --header-h: 102px;
 
   /* SDG palette, referenced only by SDG data viz (wheel, badges). */
   --sdg-blue: #00a6ff;
@@ -796,3 +798,8 @@ body {
   inset: 0;
   background: linear-gradient(180deg, rgba(20, 12, 8, 0.45) 0%, rgba(20, 12, 8, 0.12) 45%, rgba(20, 12, 8, 0.35) 100%);
 }
+
+/* ── Inner-page photo hero: slow drift ──────────────────────────────── */
+.page-hero__media { animation: page-hero-drift 18s ease-out both; }
+@keyframes page-hero-drift { from { transform: scale(1.08); } to { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .page-hero__media { animation: none; } }

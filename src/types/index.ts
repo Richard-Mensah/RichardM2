@@ -35,16 +35,6 @@ export type ResearchPillar = {
   icon: string;
 };
 
-export type ResearchCategory = {
-  slug: string;
-  label: string;
-  description: string;
-  accent: string;
-  icon: string;
-  sdgTag?: string;
-  image?: string;
-};
-
 export type SystemProject = {
   title: string;
   label: string;
