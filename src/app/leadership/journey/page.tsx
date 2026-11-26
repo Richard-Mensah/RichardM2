@@ -1,8 +1,16 @@
-"use client";
-
+import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import CountUp from "@/components/ui/CountUp";
+import PrintButton from "@/components/ui/PrintButton";
+import SectionNav from "@/components/ui/SectionNav";
+import LeadershipNav from "@/components/features/leadership/LeadershipNav";
+import { leadershipNeighbours } from "@/data/leadershipPages";
+
+export const metadata: Metadata = {
+  title: "Leadership Record | Richard Mensah",
+  description:
+    "A printable record of Richard Mensah's community leadership, youth empowerment and institution-building work, from Sefwi Bekwai in Ghana to international platforms.",
+};
 
 const TIMELINE = [
   {
@@ -83,18 +91,7 @@ const IMPACT_STATS = [
 export default function LeadershipJourneyPage() {
   return (
     <div className="min-h-screen">
-      {/* Print button, hidden when printing */}
-      <div className="no-print sticky top-[var(--header-h)] z-30 flex items-center justify-between border-b border-line bg-white/90 px-5 py-3 backdrop-blur md:px-8">
-        <Link href="/leadership" className="text-sm font-bold text-accent-strong hover:underline">
-          ← Back to Leadership
-        </Link>
-        <button
-          onClick={() => window.print()}
-          className="btn-primary"
-        >
-          Save as PDF / Print
-        </button>
-      </div>
+      <LeadershipNav />
 
       {/* Document content */}
       <div className="mx-auto max-w-4xl px-5 pb-20 pt-12 md:px-8">
@@ -116,6 +113,9 @@ export default function LeadershipJourneyPage() {
             <span>rmensahuk@gmail.com</span>
             <span>·</span>
             <span>Ghana · United Kingdom · Global</span>
+          </div>
+          <div className="mt-6">
+            <PrintButton />
           </div>
         </div>
 
@@ -245,6 +245,7 @@ export default function LeadershipJourneyPage() {
           * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
         }
       `}</style>
+      <SectionNav {...leadershipNeighbours("/leadership/journey")} />
     </div>
   );
 }

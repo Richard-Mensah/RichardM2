@@ -41,7 +41,7 @@ const PATHS: Path[] = [
     line: "Need a website, portfolio or operations platform? See what I've built for organisations and professionals.",
     links: [
       { label: "Client work", href: "/work" },
-      { label: "Start a project", href: "/collaborate" },
+      { label: "Start a project", href: "/contact" },
     ],
   },
   {

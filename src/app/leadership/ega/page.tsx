@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import LeadershipNav from "@/components/features/leadership/LeadershipNav";
+import SectionNav from "@/components/ui/SectionNav";
+import { leadershipNeighbours } from "@/data/leadershipPages";
 import CountUp from "@/components/ui/CountUp";
 
 export const metadata: Metadata = {
@@ -66,16 +69,6 @@ const PROGRAMME_TRACKS = [
 export default function EgaPage() {
   return (
     <div className="min-h-screen">
-      {/* Back nav */}
-      <div className="sticky top-[var(--header-h)] z-30 flex items-center justify-between border-b border-line bg-white/90 px-5 py-3 backdrop-blur md:px-8">
-        <Link href="/leadership" className="text-sm font-bold text-accent-strong hover:underline">
-          ← Back to Leadership
-        </Link>
-        <Link href="/leadership/community" className="text-sm font-bold text-muted hover:text-accent-strong">
-          Next: Community Development →
-        </Link>
-      </div>
-
       {/* Hero */}
       <div className="bg-navy-950 px-5 py-20 md:px-16">
         <div className="mx-auto max-w-6xl">
@@ -98,7 +91,7 @@ export default function EgaPage() {
                   Download Full Story
                 </Link>
                 <Link
-                  href="/collaborate"
+                  href="/contact"
                   className="rounded-full border border-white/30 px-7 py-3 text-sm font-black uppercase tracking-[0.15em] text-white transition hover:border-white/60"
                 >
                   Partner with EGA
@@ -123,6 +116,7 @@ export default function EgaPage() {
           </div>
         </div>
       </div>
+      <LeadershipNav />
 
       <div className="mx-auto max-w-6xl px-5 pb-24 pt-16 md:px-8">
 
@@ -293,6 +287,7 @@ export default function EgaPage() {
           </div>
         </div>
       </div>
+      <SectionNav {...leadershipNeighbours("/leadership/ega")} />
     </div>
   );
 }

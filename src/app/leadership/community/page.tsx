@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import LeadershipNav from "@/components/features/leadership/LeadershipNav";
+import SectionNav from "@/components/ui/SectionNav";
+import { leadershipNeighbours } from "@/data/leadershipPages";
+import GalleryLightbox from "@/components/features/gallery/GalleryLightbox";
 
 export const metadata: Metadata = {
   title: "Community Development | Richard Mensah",
@@ -109,16 +113,6 @@ const SDG_TAGS = [
 export default function CommunityDevelopmentPage() {
   return (
     <div className="min-h-screen">
-      {/* Back nav */}
-      <div className="sticky top-[var(--header-h)] z-30 flex items-center justify-between border-b border-line bg-white/90 px-5 py-3 backdrop-blur md:px-8">
-        <Link href="/leadership" className="text-sm font-bold text-accent-strong hover:underline">
-          ← Back to Leadership
-        </Link>
-        <Link href="/sdgs" className="text-sm font-bold text-muted hover:text-accent-strong">
-          SDGs Alignment →
-        </Link>
-      </div>
-
       {/* Hero */}
       <div className="relative h-[60vh] min-h-[400px] overflow-hidden">
         <Image
@@ -144,6 +138,7 @@ export default function CommunityDevelopmentPage() {
           </p>
         </div>
       </div>
+      <LeadershipNav />
 
       <div className="mx-auto max-w-6xl px-5 pb-24 pt-16 md:px-8">
 
@@ -177,19 +172,8 @@ export default function CommunityDevelopmentPage() {
               ))}
             </div>
           </div>
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-            {TEACHING_PHOTOS.slice(0, 12).map((photo, i) => (
-              <div key={i} className={`relative overflow-hidden rounded-2xl ${i === 0 ? "col-span-2 h-52" : "h-44"}`}>
-                <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
-              </div>
-            ))}
-          </div>
-          <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
-            {TEACHING_PHOTOS.slice(12).map((photo, i) => (
-              <div key={i} className="relative h-36 overflow-hidden rounded-2xl">
-                <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
-              </div>
-            ))}
+          <div className="mt-8">
+            <GalleryLightbox photos={TEACHING_PHOTOS} initial={8} />
           </div>
         </div>
 
@@ -208,12 +192,8 @@ export default function CommunityDevelopmentPage() {
             for building trust and sustaining engagement in communities where education had been
             interrupted.
           </p>
-          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-            {PARTY_PHOTOS.map((photo, i) => (
-              <div key={i} className="relative h-36 overflow-hidden rounded-2xl">
-                <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
-              </div>
-            ))}
+          <div className="mt-8">
+            <GalleryLightbox photos={PARTY_PHOTOS} initial={6} gridClassName="grid-cols-2 sm:grid-cols-3 lg:grid-cols-6" />
           </div>
         </div>
 
@@ -236,19 +216,8 @@ export default function CommunityDevelopmentPage() {
             paths they had never been shown. Science is not a subject if you can see it working
             in your own community.
           </p>
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-            {STEM_PHOTOS.slice(0, 5).map((photo, i) => (
-              <div key={i} className={`relative overflow-hidden rounded-2xl ${i === 0 ? "col-span-2 h-52" : "h-44"}`}>
-                <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
-              </div>
-            ))}
-          </div>
-          <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-5">
-            {STEM_PHOTOS.slice(5).map((photo, i) => (
-              <div key={i} className="relative h-36 overflow-hidden rounded-2xl">
-                <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
-              </div>
-            ))}
+          <div className="mt-8">
+            <GalleryLightbox photos={STEM_PHOTOS} initial={5} gridClassName="grid-cols-2 sm:grid-cols-3 lg:grid-cols-5" />
           </div>
         </div>
 
@@ -292,19 +261,8 @@ export default function CommunityDevelopmentPage() {
             emergency. Richard was already treating it as a community priority. Development begins
             with the dignity of a clean environment.
           </p>
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-            {DANSOKROM_SANITATION.slice(0, 8).map((photo, i) => (
-              <div key={i} className={`relative overflow-hidden rounded-2xl ${i === 0 ? "col-span-2 h-52" : "h-44"}`}>
-                <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
-              </div>
-            ))}
-          </div>
-          <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-6">
-            {DANSOKROM_SANITATION.slice(8).map((photo, i) => (
-              <div key={i} className="relative h-36 overflow-hidden rounded-2xl">
-                <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
-              </div>
-            ))}
+          <div className="mt-8">
+            <GalleryLightbox photos={DANSOKROM_SANITATION} initial={8} />
           </div>
         </div>
 
@@ -319,12 +277,8 @@ export default function CommunityDevelopmentPage() {
             mobilising residents, setting an example, and building the expectation that
             communities can and should take collective responsibility for their environments.
           </p>
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-4">
-            {SURANO_SANITATION.map((photo, i) => (
-              <div key={i} className="relative h-44 overflow-hidden rounded-2xl">
-                <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
-              </div>
-            ))}
+          <div className="mt-8">
+            <GalleryLightbox photos={SURANO_SANITATION} initial={4} />
           </div>
         </div>
 
@@ -347,19 +301,8 @@ export default function CommunityDevelopmentPage() {
             communities that statistics miss. When Richard talks about AI for development, clean
             water access in the Western North Region is part of what he means.
           </p>
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-            {WATER_PHOTOS.slice(0, 8).map((photo, i) => (
-              <div key={i} className={`relative overflow-hidden rounded-2xl ${i === 0 ? "col-span-2 h-52" : "h-44"}`}>
-                <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
-              </div>
-            ))}
-          </div>
-          <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {WATER_PHOTOS.slice(8).map((photo, i) => (
-              <div key={i} className="relative h-36 overflow-hidden rounded-2xl">
-                <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
-              </div>
-            ))}
+          <div className="mt-8">
+            <GalleryLightbox photos={WATER_PHOTOS} initial={8} />
           </div>
         </div>
 
@@ -452,6 +395,7 @@ export default function CommunityDevelopmentPage() {
           </Link>
         </div>
       </div>
+      <SectionNav {...leadershipNeighbours("/leadership/community")} />
     </div>
   );
 }

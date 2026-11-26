@@ -117,7 +117,7 @@ export const AUDIENCE_PATHWAYS: AudiencePathway[] = [
     headline: "Partnering on impact",
     blurb: "See programme impact, community work and ways to collaborate.",
     cta: "Partner with me",
-    href: "/collaborate",
+    href: "/contact",
     icon: "Handshake",
   },
 ];
