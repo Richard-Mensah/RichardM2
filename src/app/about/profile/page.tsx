@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import SectionNav from "@/components/ui/SectionNav";
+import AboutNav from "@/components/features/about/AboutNav";
+import { aboutNeighbours } from "@/data/aboutPages";
 import { CERTIFICATIONS, EDUCATION, PERSON, VENTURE } from "@/lib/person";
 import PersonJsonLd from "@/components/seo/PersonJsonLd";
 
@@ -138,6 +140,7 @@ export default function ProfilePage() {
           </div>
         </div>
       </section>
+      <AboutNav />
 
       {/* ── At a glance ───────────────────────────────────────────── */}
       <section className="bg-accent px-5 py-8 md:px-8">
@@ -297,10 +300,7 @@ export default function ProfilePage() {
         </div>
       </section>
 
-      <SectionNav
-        prev={{ label: "About", href: "/about" }}
-        next={{ label: "Biography", href: "/about/biography" }}
-      />
+      <SectionNav {...aboutNeighbours("/about/profile")} />
     </div>
   );
 }

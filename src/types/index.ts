@@ -44,16 +44,6 @@ export type SystemProject = {
   impact: string;
 };
 
-export type ProjectCategory = {
-  slug: string;
-  label: string;
-  tagline: string;
-  description: string;
-  accent: string;
-  icon: string;
-  image: string;
-};
-
 export type HomeDomain = {
   title: string;
   blurb: string;

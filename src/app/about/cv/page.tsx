@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { BadgeCheck, GraduationCap, Briefcase, Globe2 } from "lucide-react";
 import SectionNav from "@/components/ui/SectionNav";
+import PageHero from "@/components/ui/page/PageHero";
+import AboutNav from "@/components/features/about/AboutNav";
+import { aboutNeighbours, aboutPage } from "@/data/aboutPages";
 import CvRequestForm from "@/components/features/cv/CvRequestForm";
 import SkillsMatrix from "@/components/features/home/SkillsMatrix";
 import { getClientWork } from "@/lib/clientWork";
@@ -37,35 +39,22 @@ const HIGHLIGHTS = [
 
 export const revalidate = 3600;
 
+const PAGE = aboutPage("/about/cv");
+
 export default async function CvPage() {
   const clientWork = await getClientWork();
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-navy-950 px-5 py-16 md:px-8 md:py-24">
-        <div className="data-grid-light pointer-events-none absolute inset-0 opacity-[0.4]" />
-        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent/15 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl">
-          <Link
-            href="/about"
-            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-accent-soft transition hover:text-white"
-          >
-            ← About Richard
-          </Link>
-          <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-soft">
-            CV / Resume
-          </p>
-          <h1 className="font-display mt-4 max-w-3xl text-balance text-4xl font-semibold leading-[1.04] tracking-[-0.02em] text-white md:text-5xl">
-            The full record of a career built with purpose.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-on-dark-muted">
-            Richard&apos;s CV covers his academic qualifications, professional experience, research
-            contributions, publications, leadership roles, and programme outcomes. He shares it on
-            request, so it stays current and he knows who&apos;s reading it. Request a copy below
-            and he&apos;ll email it to you.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={PAGE.eyebrow}
+        title={PAGE.title}
+        lede={PAGE.lede}
+        image={PAGE.image}
+        imageAlt={PAGE.imageAlt}
+        focus={PAGE.focus}
+        crumbs={[{ label: "About", href: "/about" }, { label: PAGE.nav }]}
+      />
+      <AboutNav />
 
       {/* ── Highlights + request form ─────────────────────────────── */}
       <section className="flex-1 bg-surface px-5 py-16 md:px-8 md:py-20">
@@ -107,10 +96,7 @@ export default async function CvPage() {
       {/* ── Capabilities radar (moved from the homepage) ───────────── */}
       <SkillsMatrix clientCount={clientWork.length} />
 
-      <SectionNav
-        prev={{ label: "Media & Speaking", href: "/about/media" }}
-        next={{ label: "Research", href: "/research" }}
-      />
+      <SectionNav {...aboutNeighbours(PAGE.href)} />
     </div>
   );
 }

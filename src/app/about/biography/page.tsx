@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import SectionNav from "@/components/ui/SectionNav";
+import PageHero from "@/components/ui/page/PageHero";
+import AboutNav from "@/components/features/about/AboutNav";
+import { aboutNeighbours, aboutPage } from "@/data/aboutPages";
 import PersonJsonLd from "@/components/seo/PersonJsonLd";
 import JourneyQuest from "@/components/features/identity/JourneyQuest";
 
@@ -42,31 +45,23 @@ const FOCUS_TAGS = [
   "Ghana · UK · Global",
 ] as const;
 
+const PAGE = aboutPage("/about/biography");
+
 export default function BiographyPage() {
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
       <PersonJsonLd detail />
 
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="bg-navy-950 px-5 py-16 md:px-8 md:py-24">
-        <div className="mx-auto max-w-7xl">
-          <Link
-            href="/about"
-            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-accent-soft transition hover:text-white"
-          >
-            ← About Richard
-          </Link>
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-soft">Biography</p>
-          <h1 className="font-display mt-4 max-w-3xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-white md:text-6xl">
-            A story built on conviction, community, and code.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-on-dark-muted">
-            From Paboase, Surano &lsquo;A&rsquo; and Sefwi Bekwai in the Western North Region of
-            Ghana, to AI research at Bangor University, international conferences, and a
-            mentorship programme that has changed hundreds of lives.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={PAGE.eyebrow}
+        title={PAGE.title}
+        lede={PAGE.lede}
+        image={PAGE.image}
+        imageAlt={PAGE.imageAlt}
+        focus={PAGE.focus}
+        crumbs={[{ label: "About", href: "/about" }, { label: PAGE.nav }]}
+      />
+      <AboutNav />
 
       {/* ── Photo story strip ─────────────────────────────────────── */}
       <section className="bg-transparent px-5 py-12 md:px-8">
@@ -272,7 +267,7 @@ export default function BiographyPage() {
         </div>
       </section>
 
-      <SectionNav prev={{ label: "About", href: "/about" }} next={{ label: "Vision & Mission", href: "/about/vision" }} />
+      <SectionNav {...aboutNeighbours(PAGE.href)} />
     </div>
   );
 }

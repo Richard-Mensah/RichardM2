@@ -20,7 +20,7 @@ export default async function SdgsPage() {
         <SdgsSection />
       </div>
       <SectionNav
-        prev={{ label: "Identity", href: "/identity" }}
+        prev={{ label: "Biography", href: "/about/biography" }}
         next={{ label: "Research", href: "/research" }}
       />
     </div>

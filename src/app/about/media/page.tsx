@@ -2,12 +2,28 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import SectionNav from "@/components/ui/SectionNav";
+import PageHero from "@/components/ui/page/PageHero";
+import AboutNav from "@/components/features/about/AboutNav";
+import { aboutNeighbours, aboutPage } from "@/data/aboutPages";
+import CopyButton from "@/components/ui/CopyButton";
+import { Download, Mic, Radio, Users, Presentation } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Media & Speaking | Richard Mensah",
   description:
     "Richard Mensah is available for speaking engagements, podcast interviews, panel discussions, and media features on AI in Africa, climate intelligence, youth empowerment, and sustainable development.",
 };
+
+/** Ready-to-paste bio for event programmes and articles. */
+const SHORT_BIO =
+  "Richard Mensah is a Ghanaian AI and Data Scientist based in the United Kingdom. He holds an MSc in Artificial Intelligence & Data Science from Bangor University and serves as Country Representative for Ghana at the United Nations Youth Association. A former Youth Member of Parliament, he works at the intersection of AI, climate intelligence and youth opportunity across the Global South.";
+
+const FORMATS = [
+  { icon: Presentation, label: "Keynotes" },
+  { icon: Users, label: "Panels & roundtables" },
+  { icon: Mic, label: "Podcasts & interviews" },
+  { icon: Radio, label: "Radio & media features" },
+] as const;
 
 const SPEAKING_TOPICS = [
   { topic: "AI in Africa", description: "How AI adoption will be shaped by institutional readiness, not just technical access." },
@@ -18,29 +34,32 @@ const SPEAKING_TOPICS = [
   { topic: "Data Science & Ethics", description: "Responsible AI design for development contexts where the stakes are highest." },
 ] as const;
 
+const PAGE = aboutPage("/about/media");
+
 export default function MediaPage() {
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
 
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="bg-navy-950 px-5 py-16 md:px-8 md:py-24">
-        <div className="mx-auto max-w-7xl">
-          <Link
-            href="/about"
-            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-accent-soft transition hover:text-white"
-          >
-            ← About Richard
-          </Link>
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-soft">Media &amp; Speaking</p>
-          <h1 className="font-display mt-4 max-w-3xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-white md:text-6xl">
-            A voice that bridges data and lived development experience.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-on-dark-muted">
-            Richard is a confident, compelling communicator who can hold his own in a highly
-            technical discussion and also tell a story that moves a general audience.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={PAGE.eyebrow}
+        title={PAGE.title}
+        lede={PAGE.lede}
+        image={PAGE.image}
+        imageAlt={PAGE.imageAlt}
+        focus={PAGE.focus}
+        crumbs={[{ label: "About", href: "/about" }, { label: PAGE.nav }]}
+      >
+        <Link href="/contact" className="btn-accent inline-flex min-h-11 items-center gap-2 rounded-full px-5 text-xs font-black uppercase tracking-[0.14em]">
+          Book Richard to speak
+        </Link>
+        <a
+          href="#speaker-kit"
+          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/30 px-5 text-xs font-black uppercase tracking-[0.14em] text-white transition hover:bg-white/10"
+        >
+          Speaker kit
+        </a>
+      </PageHero>
+      <AboutNav />
 
       {/* ── Main content ──────────────────────────────────────────── */}
       <section className="bg-surface px-5 py-16 md:px-8 md:py-24">
@@ -122,6 +141,50 @@ export default function MediaPage() {
         </div>
       </section>
 
+      {/* ── Speaker kit ───────────────────────────────────────────── */}
+      <section id="speaker-kit" className="scroll-mt-[calc(var(--header-h)+3.5rem)] bg-surface px-5 pb-16 md:px-8 md:pb-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-6 overflow-hidden rounded-[2rem] border border-line bg-surface-card p-6 shadow-xl shadow-navy-950/5 md:p-10 lg:grid-cols-[0.42fr_1fr]">
+            <div className="flex flex-col items-start gap-4">
+              <div className="relative aspect-square w-full max-w-[16rem] overflow-hidden rounded-2xl bg-navy-950">
+                <Image src="/Rich1.png" alt="Richard Mensah profile image" fill sizes="16rem" className="object-cover object-top" />
+              </div>
+              <a
+                href="/Rich1.png"
+                download="Richard-Mensah-profile.png"
+                className="inline-flex min-h-10 items-center gap-2 rounded-full bg-navy-950 px-4 text-xs font-black uppercase tracking-[0.14em] text-white transition hover:bg-navy-900"
+              >
+                <Download size={14} aria-hidden="true" /> Profile image
+              </a>
+            </div>
+            <div>
+              <p className="eyebrow">Speaker kit</p>
+              <h2 className="font-display mt-2 text-2xl font-bold tracking-[-0.03em] text-ink md:text-3xl">Everything an organiser needs</h2>
+              <div className="mt-5 rounded-2xl bg-navy-950/[0.03] p-5">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <p className="text-[11px] font-black uppercase tracking-[0.2em] text-accent-strong">Short bio</p>
+                  <CopyButton text={SHORT_BIO} label="Copy bio" />
+                </div>
+                <p className="mt-3 text-sm leading-7 text-body">{SHORT_BIO}</p>
+              </div>
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2" aria-label="Formats">
+                {FORMATS.map(({ icon: Icon, label }) => (
+                  <li key={label} className="flex items-center gap-3 rounded-xl border border-line p-3">
+                    <span className="grid h-9 w-9 place-items-center rounded-lg bg-accent-tint text-accent-strong">
+                      <Icon size={17} aria-hidden="true" />
+                    </span>
+                    <span className="text-sm font-bold text-ink">{label}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-sm text-body">
+                Based in the United Kingdom and available in person across the UK and internationally, or online anywhere.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ───────────────────────────────────────────────────── */}
       <section className="bg-navy-950 px-5 py-12 md:px-8">
         <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
@@ -138,7 +201,7 @@ export default function MediaPage() {
         </div>
       </section>
 
-      <SectionNav prev={{ label: "Conferences", href: "/about/conferences" }} next={{ label: "CV / Resume", href: "/about/cv" }} />
+      <SectionNav {...aboutNeighbours(PAGE.href)} />
     </div>
   );
 }

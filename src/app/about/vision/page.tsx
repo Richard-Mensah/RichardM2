@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SectionNav from "@/components/ui/SectionNav";
+import PageHero from "@/components/ui/page/PageHero";
+import AboutNav from "@/components/features/about/AboutNav";
+import { aboutNeighbours, aboutPage } from "@/data/aboutPages";
 
 export const metadata: Metadata = {
   title: "Vision & Mission | Richard Mensah",
@@ -8,11 +11,14 @@ export const metadata: Metadata = {
     "Richard Mensah's vision for equitable intelligence and his mission to build the systems, partnerships, and leaders that make sustainable development real.",
 };
 
+/** The six focus goals, in the official UN SDG colours. */
 const SDG_CARDS = [
-  { code: "SDG 4", label: "Quality Education", color: "#3a78e0" },
-  { code: "SDG 9", label: "Industry & Innovation", color: "#4f8bff" },
-  { code: "SDG 13", label: "Climate Action", color: "#2f6bea" },
-  { code: "SDG 17", label: "Partnerships for the Goals", color: "#19486A" },
+  { number: 4, label: "Quality Education", color: "#C5192D" },
+  { number: 8, label: "Decent Work & Economic Growth", color: "#A21942" },
+  { number: 9, label: "Industry, Innovation & Infrastructure", color: "#FD6925" },
+  { number: 13, label: "Climate Action", color: "#3F7E44" },
+  { number: 16, label: "Peace, Justice & Strong Institutions", color: "#00689D" },
+  { number: 17, label: "Partnerships for the Goals", color: "#19486A" },
 ] as const;
 
 const PILLARS = [
@@ -20,19 +26,19 @@ const PILLARS = [
     icon: "04",
     title: "Education as the foundation",
     body: "No sustainable progress is possible without access to quality knowledge. Richard's work in AI literacy, mentorship, and community teaching is rooted in the belief that learning changes trajectories.",
-    color: "#3a78e0",
+    color: "#C5192D",
   },
   {
     icon: "09",
     title: "Innovation in service of people",
     body: "Technology should solve real problems, not create new hierarchies. Every system Richard builds is designed to be understandable, accessible, and beneficial to the communities it serves.",
-    color: "#4f8bff",
+    color: "#FD6925",
   },
   {
     icon: "13",
     title: "Climate intelligence for resilience",
     body: "Communities in the Global South face disproportionate climate risk. Richard works to translate complex environmental data into locally actionable intelligence that communities can actually use.",
-    color: "#2f6bea",
+    color: "#3F7E44",
   },
   {
     icon: "17",
@@ -42,30 +48,22 @@ const PILLARS = [
   },
 ] as const;
 
+const PAGE = aboutPage("/about/vision");
+
 export default function VisionPage() {
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
 
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="bg-navy-950 px-5 py-16 md:px-8 md:py-24">
-        <div className="mx-auto max-w-7xl">
-          <Link
-            href="/about"
-            className="mb-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-accent-soft transition hover:text-white"
-          >
-            ← About Richard
-          </Link>
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-soft">Vision &amp; Mission</p>
-          <h1 className="font-display mt-4 max-w-3xl text-balance text-4xl font-black leading-[0.95] tracking-[-0.04em] text-white md:text-6xl">
-            Intelligence that serves the many, not the few.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-on-dark-muted">
-            A commitment to equitable development, aligned with the United Nations Sustainable
-            Development Goals and grounded in the lived realities of communities that are too
-            often left out of the conversations that shape their future.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={PAGE.eyebrow}
+        title={PAGE.title}
+        lede={PAGE.lede}
+        image={PAGE.image}
+        imageAlt={PAGE.imageAlt}
+        focus={PAGE.focus}
+        crumbs={[{ label: "About", href: "/about" }, { label: PAGE.nav }]}
+      />
+      <AboutNav />
 
       {/* ── Vision and Mission text ───────────────────────────────── */}
       <section className="bg-surface px-5 py-16 md:px-8 md:py-24">
@@ -124,18 +122,23 @@ export default function VisionPage() {
           <h2 className="font-display mt-4 text-balance text-3xl font-black tracking-[-0.04em] text-white md:text-4xl">
             The interlocking goals that guide the work.
           </h2>
-          <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-4">
+          <ul className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
             {SDG_CARDS.map((sdg) => (
-              <div
-                key={sdg.code}
-                className="flex h-48 flex-col justify-between rounded-2xl p-6 text-white shadow-lg"
-                style={{ backgroundColor: sdg.color }}
-              >
-                <p className="text-xs font-black uppercase tracking-[0.2em] opacity-75">{sdg.code}</p>
-                <p className="text-lg font-black leading-tight">{sdg.label}</p>
-              </div>
+              <li key={sdg.number}>
+                <Link
+                  href="/sdgs"
+                  className="group flex h-44 flex-col justify-between rounded-2xl p-5 text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                  style={{ backgroundColor: sdg.color }}
+                >
+                  <span className="font-display text-5xl font-black leading-none">{sdg.number}</span>
+                  <span className="text-sm font-black leading-snug">{sdg.label}</span>
+                  <span className="text-[10px] font-black uppercase tracking-[0.18em] text-white/75 transition group-hover:text-white">
+                    Goal {sdg.number} →
+                  </span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -183,7 +186,7 @@ export default function VisionPage() {
         </div>
       </section>
 
-      <SectionNav prev={{ label: "Biography", href: "/about/biography" }} next={{ label: "Leadership Journey", href: "/about/leadership-journey" }} />
+      <SectionNav {...aboutNeighbours(PAGE.href)} />
     </div>
   );
 }

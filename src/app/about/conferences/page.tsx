@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import SectionNav from "@/components/ui/SectionNav";
+import PageHero from "@/components/ui/page/PageHero";
+import AboutNav from "@/components/features/about/AboutNav";
+import { aboutNeighbours, aboutPage } from "@/data/aboutPages";
 
 export const metadata: Metadata = {
   title: "Conferences & Summits | Richard Mensah",
@@ -14,7 +17,7 @@ const CONFERENCE_IMAGES = [
   { src: "/leadership/conference-diplomatic.jpg", alt: "Diplomatic engagement, international programme" },
   { src: "/gallery/20240302_090453.jpg",          alt: "Richard Mensah at a leadership programme, 2024" },
   { src: "/gallery/20240229_120952.jpg",          alt: "Richard Mensah, international engagement 2024" },
-  { src: "/gallery/FB_IMG_1746893931548.jpg",     alt: "Richard Mensah at a programme event" },
+  { src: "/gallery/FB_IMG_1746893909499.jpg",     alt: "Richard Mensah with an international youth delegation" },
   { src: "/gallery/FB_IMG_1746893921870.jpg",     alt: "Richard Mensah at a community initiative" },
 ] as const;
 
@@ -27,36 +30,22 @@ const CONFERENCE_AREAS = [
   "Entrepreneurship Ecosystems",
 ] as const;
 
+const PAGE = aboutPage("/about/conferences");
+
 export default function ConferencesPage() {
   return (
     <div className="flex min-h-[calc(100vh-5rem)] flex-col">
 
-      {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="relative h-[480px] overflow-hidden">
-        <Image
-          src="/leadership/conference-sochi.jpg"
-          alt="Richard Mensah at an international conference"
-          fill
-          className="object-cover brightness-75"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/60 via-black/50 to-transparent" />
-        <div className="relative z-10 flex h-full items-end px-5 pb-14 md:px-8">
-          <div className="max-w-2xl">
-            <Link
-              href="/about"
-              className="mb-5 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-accent-soft transition hover:text-white"
-            >
-              ← About Richard
-            </Link>
-            <p className="text-xs font-black uppercase tracking-[0.3em] text-accent-soft">Conferences &amp; Summits</p>
-            <h1 className="font-display mt-3 text-balance text-4xl font-black leading-tight tracking-[-0.04em] text-white md:text-5xl">
-              Carrying the Global South&apos;s voice into global rooms.
-            </h1>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={PAGE.eyebrow}
+        title={PAGE.title}
+        lede={PAGE.lede}
+        image={PAGE.image}
+        imageAlt={PAGE.imageAlt}
+        focus={PAGE.focus}
+        crumbs={[{ label: "About", href: "/about" }, { label: PAGE.nav }]}
+      />
+      <AboutNav />
 
       {/* ── Body ──────────────────────────────────────────────────── */}
       <section className="bg-surface px-5 py-16 md:px-8 md:py-24">
@@ -164,7 +153,7 @@ export default function ConferencesPage() {
         </div>
       </section>
 
-      <SectionNav prev={{ label: "Leadership Journey", href: "/about/leadership-journey" }} next={{ label: "Media & Speaking", href: "/about/media" }} />
+      <SectionNav {...aboutNeighbours(PAGE.href)} />
     </div>
   );
 }
