@@ -59,7 +59,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div className="sdg-band fixed inset-x-0 top-0 z-[60] h-1" />
         <ScrollProgress />
         <SiteHeader />
-        <main className="overflow-hidden pt-24">{children}</main>
+        <main className="overflow-clip pt-[var(--header-h)]">{children}</main>
         <SiteFooter />
         <PageViewTracker />
       </body>

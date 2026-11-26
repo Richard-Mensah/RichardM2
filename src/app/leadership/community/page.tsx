@@ -110,7 +110,7 @@ export default function CommunityDevelopmentPage() {
   return (
     <div className="min-h-screen">
       {/* Back nav */}
-      <div className="sticky top-0 z-50 flex items-center justify-between border-b border-line bg-white/90 px-5 py-3 backdrop-blur md:px-8">
+      <div className="sticky top-[var(--header-h)] z-30 flex items-center justify-between border-b border-line bg-white/90 px-5 py-3 backdrop-blur md:px-8">
         <Link href="/leadership" className="text-sm font-bold text-accent-strong hover:underline">
           ← Back to Leadership
         </Link>

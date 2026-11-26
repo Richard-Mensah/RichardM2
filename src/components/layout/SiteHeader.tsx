@@ -64,6 +64,27 @@ export default function SiteHeader() {
     };
   }, [menuOpen]);
 
+  // Publish the header's real height as --header-h (it wraps to two rows on
+  // tablets) so page padding and sticky bars sit exactly below it. The open
+  // mobile menu is ignored: it extends the header temporarily.
+  const headerRef = useRef<HTMLElement | null>(null);
+  const menuOpenRef = useRef(menuOpen);
+  useEffect(() => {
+    menuOpenRef.current = menuOpen;
+  }, [menuOpen]);
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+    const publish = () => {
+      if (menuOpenRef.current) return;
+      document.documentElement.style.setProperty("--header-h", `${Math.round(el.getBoundingClientRect().height)}px`);
+    };
+    publish();
+    const observer = new ResizeObserver(publish);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   const handleMouseEnter = useCallback((label: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setOpenDropdown(label);
@@ -74,7 +95,7 @@ export default function SiteHeader() {
   }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header ref={headerRef} className="fixed inset-x-0 top-0 z-50">
       {/* Slim navy utility strip */}
       <div className="bg-navy-950 text-on-dark">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-1.5 text-[11px] font-semibold md:px-8">
