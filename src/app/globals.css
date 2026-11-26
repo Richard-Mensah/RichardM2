@@ -773,3 +773,26 @@ body {
   .pulse-photo img { transition: none !important; }
   .pulse-photo:hover img { transform: none; }
 }
+
+/* ── Homepage "Latest writing" shelf: warm bokeh light ─────────────── */
+.writing-shelf { background: #2a1a14; }
+.writing-shelf__bokeh {
+  inset: -60px;
+  background:
+    radial-gradient(circle at 7% 24%, rgba(255, 222, 166, 0.95) 0 3.4rem, transparent 3.6rem),
+    radial-gradient(circle at 19% 82%, rgba(255, 196, 120, 0.7) 0 4.8rem, transparent 5rem),
+    radial-gradient(circle at 33% 10%, rgba(255, 240, 210, 0.6) 0 2.4rem, transparent 2.6rem),
+    radial-gradient(circle at 47% 70%, rgba(255, 176, 96, 0.45) 0 6rem, transparent 6.3rem),
+    radial-gradient(circle at 63% 16%, rgba(255, 230, 186, 0.75) 0 3rem, transparent 3.2rem),
+    radial-gradient(circle at 78% 86%, rgba(255, 205, 140, 0.65) 0 4rem, transparent 4.2rem),
+    radial-gradient(circle at 93% 30%, rgba(255, 214, 150, 0.85) 0 5.2rem, transparent 5.5rem),
+    radial-gradient(circle at 86% 4%, rgba(255, 246, 225, 0.5) 0 1.8rem, transparent 2rem),
+    linear-gradient(115deg, #3b2418 0%, #7a4524 35%, #b8743a 62%, #5a3320 100%);
+  filter: blur(22px) saturate(1.15);
+}
+.writing-shelf__bokeh::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 12, 8, 0.45) 0%, rgba(20, 12, 8, 0.12) 45%, rgba(20, 12, 8, 0.35) 100%);
+}

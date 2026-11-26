@@ -3,9 +3,9 @@ import AudienceSwitcher from "@/components/features/home/AudienceSwitcher";
 import ProofBar from "@/components/features/home/ProofBar";
 import ClientWorkShowcase from "@/components/features/home/ClientWorkShowcase";
 import DomainPillars from "@/components/features/home/DomainPillars";
-import GitHubActivity from "@/components/features/home/GitHubActivity";
 import SdgExplorer from "@/components/features/home/SdgExplorer";
 import ResearchHighlight from "@/components/features/home/ResearchHighlight";
+import WritingShelf from "@/components/features/home/WritingShelf";
 import TestimonialsSection from "@/components/features/home/TestimonialsSection";
 import FinalCta from "@/components/features/home/FinalCta";
 import { getImpactStats } from "@/lib/impactStats";
@@ -14,6 +14,7 @@ import { getTestimonials } from "@/lib/testimonials";
 import { getClientWork } from "@/lib/clientWork";
 import { getGitHubActivity } from "@/lib/github";
 import { getHeroReel } from "@/lib/heroReel";
+import { getAllArticles } from "@/lib/articles";
 
 export const dynamic = "force-dynamic";
 
@@ -24,13 +25,14 @@ export const dynamic = "force-dynamic";
  * /about/leadership-journey, /impact and /projects/open-source.
  */
 export default async function HomePage() {
-  const [impactStats, homepage, testimonials, clientWork, github, reel] = await Promise.all([
+  const [impactStats, homepage, testimonials, clientWork, github, reel, articles] = await Promise.all([
     getImpactStats(),
     getHomepage(),
     getTestimonials(),
     getClientWork(),
     getGitHubActivity(),
     getHeroReel(),
+    getAllArticles(),
   ]);
 
   return (
@@ -55,8 +57,8 @@ export default async function HomePage() {
       <ClientWorkShowcase projects={clientWork} />
       <DomainPillars />
       <SdgExplorer clientCount={clientWork.length} />
-      {github ? <GitHubActivity data={github} variant="compact" /> : null}
       <ResearchHighlight />
+      <WritingShelf articles={articles} />
       <TestimonialsSection testimonials={testimonials} />
       <FinalCta />
     </>

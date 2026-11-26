@@ -1,17 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, FileText, GraduationCap } from "lucide-react";
-import { PUBLICATIONS } from "@/constants";
 
 /** A heartbeat trace across the photo: two beats on a flat baseline. */
 const PULSE_PATH = "M0 34 H62 L72 34 L80 14 L90 52 L98 24 L106 34 H170 L178 34 L186 6 L196 58 L204 30 L212 34 H300";
 
-/** Thesis + selected writing + research systems link, merged into one section. */
+/** The MSc thesis feature; articles and papers follow in the WritingShelf. */
 export default function ResearchHighlight() {
-  const papers = PUBLICATIONS.slice(0, 3);
-
   return (
-    <section className="px-5 py-16 md:px-8 md:py-20">
+    <section className="px-5 pb-10 pt-16 md:px-8 md:pb-12 md:pt-20">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
@@ -31,9 +28,9 @@ export default function ResearchHighlight() {
           </div>
         </div>
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-[1.2fr_1fr]">
-          {/* Thesis feature */}
-          <article className="relative grid overflow-hidden rounded-[2rem] bg-navy-950 text-white md:grid-cols-[0.85fr_1.15fr]">
+        <div className="mt-10">
+          {/* Thesis feature (selected writing sits in the shelf below) */}
+          <article className="relative grid overflow-hidden rounded-[2rem] bg-navy-950 text-white md:grid-cols-[0.85fr_1.15fr] lg:grid-cols-[0.7fr_1.3fr]">
             <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent/15 blur-3xl" aria-hidden="true" />
 
             {/* "Pulse of the Earth" photo with a live heartbeat line */}
@@ -117,28 +114,6 @@ export default function ResearchHighlight() {
               </div>
             </div>
           </article>
-
-          {/* Selected writing */}
-          <ul className="flex flex-col gap-3">
-            {papers.map((paper) => (
-              <li key={paper.title}>
-                <Link
-                  href="/research/publications"
-                  className="group flex h-full flex-col rounded-2xl border border-line bg-surface-card p-5 transition hover:-translate-y-0.5 hover:border-accent/50 hover:shadow-md"
-                >
-                  <span className="flex items-center justify-between text-[11px] font-bold uppercase tracking-[0.12em]">
-                    <span className="inline-flex items-center gap-1.5 text-accent-strong">
-                      <FileText size={13} aria-hidden="true" />
-                      {paper.type}
-                    </span>
-                    <span className="text-muted">{paper.year}</span>
-                  </span>
-                  <span className="mt-2 text-sm font-bold leading-snug text-ink group-hover:text-accent-strong">{paper.title}</span>
-                  <span className="mt-1.5 line-clamp-2 text-xs leading-5 text-body">{paper.abstract}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </section>
