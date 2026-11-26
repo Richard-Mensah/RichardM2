@@ -19,20 +19,9 @@ const OPEN_FOR = [
 
 export default function CollaborationsPageSection() {
   return (
-    <div className="research-ground relative px-5 py-20 md:px-8">
+    <div className="research-ground relative px-5 pb-20 pt-4 md:px-8">
       <div className="pointer-events-none absolute inset-0 data-grid-light opacity-30" />
       <div className="relative mx-auto max-w-5xl">
-
-        {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-accent-strong">Research Collaborations</p>
-        <h1 className="mt-4 text-balance text-4xl font-black font-display tracking-[-0.04em] text-ink md:text-5xl">
-          Building partnerships that multiply impact.
-        </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-body">
-          Open to research partnerships, institutional collaborations, and joint publications
-          across AI, climate, and development. The best work happens across disciplines,
-          borders, and sectors.
-        </p>
 
         {/* Collaboration types */}
         <div className="mt-12">
@@ -71,7 +60,7 @@ export default function CollaborationsPageSection() {
         </div>
 
         <div className="relative mt-10 h-56 overflow-hidden rounded-2xl">
-          <Image src="/research/collaborations-hero.jpg" alt="Cross-border research collaboration meeting" fill className="object-cover" />
+          <Image src="/gallery/FB_IMG_1746893921870.jpg" alt="International delegates gathered in a summit hall" fill className="object-cover" />
           <div className="absolute inset-0 flex items-end justify-center bg-black/30 pb-5">
             <p className="text-center text-sm font-black text-white">
               Active across Ghana &middot; United Kingdom &middot; India &middot; Global South
@@ -102,7 +91,7 @@ export default function CollaborationsPageSection() {
             <Link href="/contact" className="btn-accent rounded-full px-6 py-2.5 text-sm font-black">
               Get in touch
             </Link>
-            <Link href="/research" className="btn-ghost rounded-full px-6 py-2.5 text-sm font-black">
+            <Link href="/research" className="rounded-full border border-white/30 px-6 py-2.5 text-sm font-black text-white transition hover:bg-white/10">
               Back to Research Hub
             </Link>
           </div>

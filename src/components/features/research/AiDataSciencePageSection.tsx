@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { SYSTEMS } from "@/constants";
 import AiDataScienceCapabilities from "./AiDataScienceCapabilities";
@@ -7,19 +6,9 @@ export default function AiDataSciencePageSection() {
   const featuredSystems = [SYSTEMS[0], SYSTEMS[2]];
 
   return (
-    <div className="research-ground relative px-5 py-20 md:px-8">
+    <div className="research-ground relative px-5 pb-20 pt-4 md:px-8">
       <div className="pointer-events-none absolute inset-0 data-grid-light opacity-30" />
       <div className="relative mx-auto max-w-5xl">
-
-        {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-accent-strong">AI & Data Science</p>
-        <h1 className="mt-4 text-balance text-4xl font-black font-display tracking-[-0.04em] text-ink md:text-5xl">
-          Applied intelligence for real-world decisions.
-        </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-body">
-          Machine learning, predictive modeling, NLP, and decision intelligence, designed
-          to serve organisations and communities with genuinely useful, explainable outputs.
-        </p>
 
         {/* 2-col research narrative */}
         <div className="mt-12 grid gap-10 lg:grid-cols-2">
@@ -62,10 +51,6 @@ export default function AiDataSciencePageSection() {
               </p>
             </div>
           </div>
-        </div>
-
-        <div className="relative mt-12 h-64 overflow-hidden rounded-2xl">
-          <Image src="/gallery/FB_IMG_1744840775657.jpg" alt="Richard Mensah at the St. Petersburg International Economic Forum, 2024" fill className="object-cover object-top" />
         </div>
 
         {/* Capabilities */}

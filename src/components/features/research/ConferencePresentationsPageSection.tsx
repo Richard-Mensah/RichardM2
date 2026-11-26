@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import CountUp from "@/components/ui/CountUp";
 
@@ -47,20 +46,9 @@ const TOPICS = [
 
 export default function ConferencePresentationsPageSection() {
   return (
-    <div className="research-ground relative px-5 py-20 md:px-8">
+    <div className="research-ground relative px-5 pb-20 pt-4 md:px-8">
       <div className="pointer-events-none absolute inset-0 data-grid-light opacity-30" />
       <div className="relative mx-auto max-w-5xl">
-
-        {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-accent-strong">Conference Presentations</p>
-        <h1 className="mt-4 text-balance text-4xl font-black font-display tracking-[-0.04em] text-ink md:text-5xl">
-          Carrying the Global South&apos;s voice into global rooms.
-        </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-body">
-          Speaking at AI ethics forums, UN SDG convenings, youth leadership assemblies, and
-          climate intelligence summits, bringing practitioner insight from Ghana, the UK, and
-          the broader Global South.
-        </p>
 
         {/* Stats strip */}
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -70,10 +58,6 @@ export default function ConferencePresentationsPageSection() {
               <p className="mt-1 text-xs font-bold uppercase tracking-[0.18em] text-muted">{s.label}</p>
             </div>
           ))}
-        </div>
-
-        <div className="relative mt-10 h-64 overflow-hidden rounded-2xl">
-          <Image src="/research/conference-presentations-hero.jpg" alt="Richard Mensah presenting at a conference" fill className="object-cover" />
         </div>
 
         {/* Timeline */}
@@ -121,7 +105,7 @@ export default function ConferencePresentationsPageSection() {
             <Link href="/contact" className="btn-accent rounded-full px-6 py-2.5 text-sm font-black">
               Invite Richard to speak
             </Link>
-            <Link href="/research" className="btn-ghost rounded-full px-6 py-2.5 text-sm font-black">
+            <Link href="/research" className="rounded-full border border-white/30 px-6 py-2.5 text-sm font-black text-white transition hover:bg-white/10">
               Back to Research Hub
             </Link>
           </div>

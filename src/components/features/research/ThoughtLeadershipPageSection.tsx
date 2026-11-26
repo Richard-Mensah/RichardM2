@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { RESEARCH_PILLARS, WRITING_IDEAS } from "@/constants";
 
@@ -29,19 +28,9 @@ const PILLAR_ELABORATIONS: Record<string, string> = {
 
 export default function ThoughtLeadershipPageSection() {
   return (
-    <div className="research-ground relative px-5 py-20 md:px-8">
+    <div className="research-ground relative px-5 pb-20 pt-4 md:px-8">
       <div className="pointer-events-none absolute inset-0 data-grid-light opacity-30" />
       <div className="relative mx-auto max-w-5xl">
-
-        {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-accent-strong">Thought Leadership</p>
-        <h1 className="mt-4 text-balance text-4xl font-black font-display tracking-[-0.04em] text-ink md:text-5xl">
-          AI that works for people, not the other way around.
-        </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-body">
-          Frameworks, perspectives, and provocations on the role of artificial intelligence
-          in society, governance, and the Global South, based on practice, not just theory.
-        </p>
 
         {/* Thesis cards */}
         <div className="mt-12 space-y-5">
@@ -55,10 +44,6 @@ export default function ThoughtLeadershipPageSection() {
               <p className="mt-4 text-sm leading-7 text-on-dark-muted">{t.elaboration}</p>
             </div>
           ))}
-        </div>
-
-        <div className="relative mt-12 h-56 overflow-hidden rounded-2xl">
-          <Image src="/research/thought-leadership-speaking.jpg" alt="International roundtable discussion" fill className="object-cover" />
         </div>
 
         {/* Pillar elaborations */}
@@ -103,7 +88,7 @@ export default function ThoughtLeadershipPageSection() {
             <Link href="/blog" className="btn-accent rounded-full px-6 py-2.5 text-sm font-black">
               Read essays
             </Link>
-            <Link href="/contact" className="btn-ghost rounded-full px-6 py-2.5 text-sm font-black">
+            <Link href="/contact" className="rounded-full border border-white/30 px-6 py-2.5 text-sm font-black text-white transition hover:bg-white/10">
               Discuss ideas
             </Link>
           </div>

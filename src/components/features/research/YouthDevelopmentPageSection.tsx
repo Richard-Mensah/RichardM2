@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { LEADERSHIP_TRACKS, FOCUS_AREAS } from "@/constants";
 import CountUp from "@/components/ui/CountUp";
@@ -12,19 +11,9 @@ const STATS = [
 
 export default function YouthDevelopmentPageSection() {
   return (
-    <div className="research-ground relative px-5 py-20 md:px-8">
+    <div className="research-ground relative px-5 pb-20 pt-4 md:px-8">
       <div className="pointer-events-none absolute inset-0 data-grid-light opacity-30" />
       <div className="relative mx-auto max-w-5xl">
-
-        {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-accent-strong">Youth Development</p>
-        <h1 className="mt-4 text-balance text-4xl font-black font-display tracking-[-0.04em] text-ink md:text-5xl">
-          From potential to execution, at scale.
-        </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-body">
-          Mentorship, training, and knowledge systems that help young people across Ghana and
-          beyond move from aspiration to action, with measurable, lasting outcomes.
-        </p>
 
         {/* Impact stats strip */}
         <div className="mt-10 rounded-2xl bg-navy-900 p-8">
@@ -36,10 +25,6 @@ export default function YouthDevelopmentPageSection() {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="relative mt-10 h-64 overflow-hidden rounded-2xl">
-          <Image src="/research/youth-development-group.jpg" alt="Youth group at an international event" fill className="object-cover" />
         </div>
 
         {/* 2-col narrative */}
@@ -107,7 +92,7 @@ export default function YouthDevelopmentPageSection() {
             <Link href="/contact" className="btn-accent rounded-full px-6 py-2.5 text-sm font-black">
               Partner with us
             </Link>
-            <Link href="/leadership" className="btn-ghost rounded-full px-6 py-2.5 text-sm font-black">
+            <Link href="/leadership" className="rounded-full border border-white/30 px-6 py-2.5 text-sm font-black text-white transition hover:bg-white/10">
               EGA Mentorship
             </Link>
           </div>

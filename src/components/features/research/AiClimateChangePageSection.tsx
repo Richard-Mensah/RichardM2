@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { SYSTEMS } from "@/constants";
 
@@ -27,20 +26,9 @@ export default function AiClimateChangePageSection() {
   const climateSystem = SYSTEMS[1];
 
   return (
-    <div className="research-ground relative px-5 py-20 md:px-8">
+    <div className="research-ground relative px-5 pb-20 pt-4 md:px-8">
       <div className="pointer-events-none absolute inset-0 data-grid-light opacity-30" />
       <div className="relative mx-auto max-w-5xl">
-
-        {/* Hero */}
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-accent-strong">AI & Climate Change</p>
-        <h1 className="mt-4 text-balance text-4xl font-black font-display tracking-[-0.04em] text-ink md:text-5xl">
-          Climate intelligence for communities on the frontlines.
-        </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-body">
-          Translating complex environmental signals into practical, community-readable
-          adaptation intelligence, particularly for Sub-Saharan Africa, where climate risk
-          is acute and data science capacity is limited.
-        </p>
 
         {/* Research narrative */}
         <div className="mt-12 space-y-4 text-base leading-7 text-body">
@@ -79,10 +67,6 @@ export default function AiClimateChangePageSection() {
               planning in communities with the least resources and the highest exposure.
             </p>
           </div>
-        </div>
-
-        <div className="relative mt-12 h-64 overflow-hidden rounded-2xl">
-          <Image src="/research/ai-climate-change-satellite.jpg" alt="Satellite view of earth's climate systems" fill className="object-cover" />
         </div>
 
         {/* Approach strip */}
@@ -135,7 +119,7 @@ export default function AiClimateChangePageSection() {
             <Link href="/systems" className="btn-accent rounded-full px-6 py-2.5 text-sm font-black">
               Explore Climate System
             </Link>
-            <Link href="/contact" className="btn-ghost rounded-full px-6 py-2.5 text-sm font-black">
+            <Link href="/contact" className="rounded-full border border-white/30 px-6 py-2.5 text-sm font-black text-white transition hover:bg-white/10">
               Start a conversation
             </Link>
           </div>
