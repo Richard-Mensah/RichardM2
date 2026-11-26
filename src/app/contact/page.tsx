@@ -5,7 +5,7 @@ import SectionNav from "@/components/ui/SectionNav";
 export const metadata: Metadata = {
   title: "Contact | Richard Mensah",
   description:
-    "Get in touch with Richard Mensah for research partnerships, speaking engagements, AI systems collaboration, and SDG-aligned initiatives.",
+    "Contact Richard Mensah about research partnerships, AI systems and software builds, institutional training, youth programmes, speaking and SDG-aligned innovation.",
 };
 
 export default function ContactPage() {
@@ -14,7 +14,7 @@ export default function ContactPage() {
       <div className="flex-1">
         <CollaborationSection />
       </div>
-      <SectionNav prev={{ label: "Impact", href: "/impact" }} />
+      <SectionNav prev={{ label: "Leadership record", href: "/leadership/journey" }} />
     </div>
   );
 }

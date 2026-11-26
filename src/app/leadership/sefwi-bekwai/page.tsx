@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import LeadershipNav from "@/components/features/leadership/LeadershipNav";
+import SectionNav from "@/components/ui/SectionNav";
+import { leadershipNeighbours } from "@/data/leadershipPages";
 
 export const metadata: Metadata = {
   title: "Sefwi Bekwai Youth Movement | Richard Mensah",
@@ -56,16 +59,6 @@ const PEACE_PHOTOS = [
 export default function SefwiBekwaiPage() {
   return (
     <div className="min-h-screen">
-      {/* Back nav */}
-      <div className="sticky top-[var(--header-h)] z-30 flex items-center justify-between border-b border-line bg-white/90 px-5 py-3 backdrop-blur md:px-8">
-        <Link href="/leadership" className="text-sm font-bold text-accent-strong hover:underline">
-          ← Back to Leadership
-        </Link>
-        <Link href="/leadership/ega" className="text-sm font-bold text-muted hover:text-accent-strong">
-          Next: EGA Mentorship →
-        </Link>
-      </div>
-
       {/* Hero */}
       <div className="relative h-[60vh] min-h-[420px] overflow-hidden">
         <Image
@@ -91,6 +84,7 @@ export default function SefwiBekwaiPage() {
           </p>
         </div>
       </div>
+      <LeadershipNav />
 
       <div className="mx-auto max-w-6xl px-5 pb-24 pt-16 md:px-8">
 
@@ -367,6 +361,7 @@ export default function SefwiBekwaiPage() {
           </div>
         </div>
       </div>
+      <SectionNav {...leadershipNeighbours("/leadership/sefwi-bekwai")} />
     </div>
   );
 }

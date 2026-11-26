@@ -803,3 +803,10 @@ body {
 .page-hero__media { animation: page-hero-drift 18s ease-out both; }
 @keyframes page-hero-drift { from { transform: scale(1.08); } to { transform: scale(1); } }
 @media (prefers-reduced-motion: reduce) { .page-hero__media { animation: none; } }
+
+/* ── Print: documents such as the leadership record print cleanly ───── */
+@media print {
+  header, footer, .no-print, .sdg-band, nav[aria-label="Section"] { display: none !important; }
+  main { padding-top: 0 !important; overflow: visible !important; }
+  body { background: #fff !important; }
+}

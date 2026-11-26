@@ -15,9 +15,9 @@ export default function CollaborationSection() {
             <p className="text-[11px] font-extrabold uppercase tracking-[0.24em] text-accent-soft">
               Contact + collaboration
             </p>
-            <h2 className="font-display mt-4 text-balance text-3xl font-semibold tracking-[-0.02em] text-white md:text-4xl">
+            <h1 className="font-display mt-4 text-balance text-3xl font-semibold tracking-[-0.02em] text-white md:text-4xl">
               I work with institutions, startups, and governments building the future with AI.
-            </h2>
+            </h1>
             <p className="mt-5 text-base leading-8 text-on-dark-muted">
               Use the collaboration desk for research partnerships, AI systems, institutional
               training, youth programs, speaking, climate intelligence, and SDG-aligned innovation.

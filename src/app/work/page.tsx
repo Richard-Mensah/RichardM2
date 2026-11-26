@@ -59,7 +59,7 @@ export default async function WorkPage() {
                   Start the tour <ArrowRight size={16} aria-hidden="true" />
                 </a>
                 <Link
-                  href="/collaborate"
+                  href="/contact"
                   className="btn-white inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 text-xs font-black uppercase tracking-[0.14em]"
                 >
                   Commission a build
@@ -137,7 +137,7 @@ export default async function WorkPage() {
             <div className="relative mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <BookingLink className="min-h-12 w-full px-6 text-xs tracking-[0.14em] sm:w-auto">Book a call</BookingLink>
               <Link
-                href="/collaborate"
+                href="/contact"
                 className="btn-white inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full px-6 text-xs font-black uppercase tracking-[0.14em] sm:w-auto"
               >
                 Send a brief <ArrowRight size={16} aria-hidden="true" />

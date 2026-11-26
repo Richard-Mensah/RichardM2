@@ -71,7 +71,7 @@ export default function SystemProjectCard({ system }: Props) {
 
       {/* CTA */}
       <Link
-        href="/collaborate"
+        href="/contact"
         className="mt-auto inline-flex items-center gap-2 px-7 pb-7 pt-2 text-sm font-black text-accent-strong transition hover:gap-3"
       >
         Discuss the system <span aria-hidden="true">→</span>
